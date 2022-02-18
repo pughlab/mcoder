@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery Collapsible Fieldset Basic Demo</title>
+
+<link href="css/jquery-collapsible-fieldset.css" rel="stylesheet" type="text/css">
+<style>
+
+.container { margin:150px auto; max-width:960px;}
+
+</style>
+</head>
+
+<body>
+
+
+
+
+
+<h1>jQuery Collapsible Fieldset Basic Demo</h1>
+
+	<fieldset class="collapsible">
+		<legend>Fieldset Collapsible Legend</legend>
+		<div>
+        		Name: <input type="text"><br>
+    Email: <input type="text"><br>
+    Date of birth: <input type="text">
+		</div>
+	</fieldset>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="js/jquery-collapsible-fieldset.js"></script>
+<script>
+$("fieldset.collapsible").collapsible();
+</script>
+
+</body>
+</html>

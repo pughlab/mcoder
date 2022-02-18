@@ -1,0 +1,55 @@
+iframe#ifrmsummary { 
+display:none; 
+border:1px solid #ccc;
+margin: 2em 1em 2em 0;
+height:100%;
+width:100%;
+} 
+
+iframe#ifrmarches { 
+display:none; 
+border:1px solid #ccc;
+margin: 2em 1em 2em 0;
+height:100%;
+width:100%;
+} 
+
+iframe#ifrmsp { 
+display:none; 
+border:1px solid #ccc;
+margin: 2em 1em 2em 0;
+height:100%;
+width:100%;
+} 
+
+iframe#ifrmtm { 
+display:none; 
+border:1px solid #ccc;
+margin: 2em 1em 2em 0;
+height:100%;
+width:100%;
+} 
+
+iframe#ifrmuns { 
+display:none; 
+border:1px solid #ccc;
+margin: 2em 1em 2em 0;
+height:100%;
+width:100%;
+} 
+
+iframe#ifrmpfam { 
+display:none; 
+border:1px solid #ccc;
+margin: 2em 1em 2em 0;
+height:100%;
+width:100%;
+} 
+
+iframe#ifrmblast { 
+display:none; 
+border:1px solid #ccc;
+margin: 2em 1em 2em 0;
+height:100%;
+width:100%;
+} 

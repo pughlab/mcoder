@@ -1,0 +1,133 @@
+@import 'https://use.fontawesome.com/releases/v5.0.10/css/all.css';
+@import 'https://fonts.googleapis.com/css?family=Lato:300';
+
+
+
+.title { text-align: center; }
+
+.title a {
+	font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+	font-size: 24px;
+	color: #566b78;
+	text-decoration: none;
+}
+
+.title a:hover { text-decoration: underline; }
+
+.panel {
+	padding-top: 45px;
+  float:right;
+	max-width: 350px;
+}
+
+.logomcoder{
+	float:left;
+}
+
+.admin-panel {
+	padding: 12px 0;
+	background-color: #f8f8f8;
+	border-radius: 3px;
+	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.2 );
+}
+
+.admin-panel .text {
+	color: #888888;
+	font-size: 13px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-decoration: none;
+	margin-left: 10px;
+}
+
+.admin-panel .fa-cog {
+	float: right;
+	margin-right: 10px;
+	font-size: 20px;
+	color: #888888;
+}
+
+.admin-panel .fa-bug {
+	float: right;
+	margin-right: 10px;
+	font-size: 20px;
+	color: #888888;
+}
+
+.admin-panel :hover { cursor: pointer; color: #555555; }
+
+input#toggle { display: none; }
+input#toggle ~ .menu-panel { display: block; }
+input#toggle:checked ~ .menu-panel { display: none; }
+
+.menu-panel {
+	margin-top: 14px;
+	background-color: #f8f8f8;
+	border-radius: 3px;
+	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.2 );
+}
+
+.arrow {
+	position: absolute;
+	top: 111px;
+	margin-left: 15px;
+	width: 0;
+	height: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-bottom: 9px solid #f8f8f8;
+}
+
+.menu-panel .row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.menu-panel .column-left {
+	float: left;
+	width: 85%;
+	margin-left: 10px;
+}
+
+.menu-panel .column-right {
+	float: right;
+	width: 15%;
+	padding: 8px;
+	text-align: right;
+}
+
+/* Clear floats after the columns */
+.menu-panel .row:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+.menu-panel a {
+	color: #888888;
+	font-size: 13px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.menu-panel i {
+	font-size: 18px;
+	width: 25px;
+	text-align: center;
+}
+
+.menu-panel:hover .row:hover { background: #ebebeb; color: #555555; border-radius: 3px; }
+
+.menu-panel:hover a { color: #bebebe; }
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
