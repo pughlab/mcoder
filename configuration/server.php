@@ -11,4 +11,8 @@ $provider = new Stevenmaguire\OAuth2\Client\Provider\Keycloak([
   'encryptionKeyPath'         => null
 ]);
 
+$clientID = "";
+$KEYCLOAKDOMAIN = "";
+$MCODERDOMAIN = "";
+$REALM = "";
 ?>
