@@ -65,17 +65,17 @@
 
 
         // Retrieve the NF1 users
-        $hasRoleNF1 = $user->hasRoleForClient("mcoderapp", "NF1");
+        $hasRoleNF1 = $user->hasRoleForClient($clientID, "NF1");
 
         // Retrieve the new users with no roles
-        $hasRoleNew = $user->hasRoleForClient("mcoderapp", "New");
+        $hasRoleNew = $user->hasRoleForClient($clientID, "New");
 
         // Retrieve the Demo users
-        $hasRoleDemo = $user->hasRoleForClient("mcoderapp", "Demo");
+        $hasRoleDemo = $user->hasRoleForClient($clientID, "Demo");
 
         // Retrieve all user groups as s list
          $groups = "";
-         foreach($roles['mcoderapp'] as $group) {
+         foreach($roles[$clientID] as $group) {
            foreach($group as $role) {
              $groups .=  $role .",";
 

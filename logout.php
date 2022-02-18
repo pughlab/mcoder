@@ -11,5 +11,5 @@ $uri = parse_url($url);
 
 //$logout = assertEquals('/auth/realms/testRealm/protocol/openid-connect/logout', $uri['path']);
 
-header('Location: https://$YOURDOMAINFORKEYCLOAK/auth/realms/$YOURREALM/protocol/openid-connect/logout?redirect_uri=https://$YOURDOMAINFORMCODER/index.php');
+header('Location: https://'.$KEYCLOAKDOMAIN.'/auth/realms/'.$REALM.'/protocol/openid-connect/logout?redirect_uri=https://'.$MCODERDOMAIN.'/index.php');
 ?>
