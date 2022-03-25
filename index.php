@@ -2,6 +2,7 @@
  ob_start();
  require 'vendor/autoload.php';
  include('configuration/mcode.php');
+ include('configuration/map.php');
 
  function getIp(){
    if(!empty($_SERVER['HTTP_CLIENT_IP'])){
@@ -120,9 +121,9 @@
               <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
               <script src="js/prefixfree.min.js"></script>
               <script src="js/tabs.js"></script>
-              <link rel="stylesheet" href="css/usermenu.css" />
+              <link rel="stylesheet" href="css/usermenu.css" /> 
               <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-              <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOURKEYHERE"></script>
+              <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $api; ?>&libraries=places"></script>
               <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" rel="stylesheet" type="text/css">
               <link rel="stylesheet" href="date/css/datepicker.css">
               <script src="js/sweetalert-dev.js"></script>
@@ -657,7 +658,7 @@
                                             <option name="institution" value="Womenhosp" >Women's College Hospital</option>
                                             <option name="institution" value="BCCA" >British Columbia Cancer Agency</option>
                                             <option name="institution" value="JGH" >Jewish General Hospital</option>
-                                            <option name="institution" value="CCM" >CancerCare Manitoba</option>
+                                            <option name="institution" value="EH" >Eastern Health</option>
                                             <option name="institution" value="IHC" >IWK Health Centre</option>
                                          </select>
                                       </div>
@@ -1565,7 +1566,7 @@
                                                  <option name="termination" value="Completed" >Treatment completed</option>
                                                  <option name="termination" value="Reaction" >Adverse reaction</option>
                                                  <option name="termination" value="Unavailable" >Treatment not available</option>
-                                                 <option name="termination" value="Uneffective" >Medication not effective</option>
+                                                 <option name="termination" value="Uneffective" >Lack of drug action</option>
                                               </select>
                                             </div>
                                          </div>
