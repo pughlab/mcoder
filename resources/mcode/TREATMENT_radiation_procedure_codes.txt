@@ -1,0 +1,6 @@
+NA,NA
+10611004,Teleradiotherapy protons
+45643008,Teleradiotherapy using electrons
+80347004,Teleradiotherapy neutrons
+152198000,Brachytherapy
+448385000,Megavoltage radiation therapy using photons

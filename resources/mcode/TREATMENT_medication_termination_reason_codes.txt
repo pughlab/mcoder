@@ -1,0 +1,8 @@
+NA, NA
+105480006,Refusal of treatment by patient
+107724000,Patient transfer
+160932005,Financial problem
+182992009,Treatment completed
+281647001,Adverse reaction
+309846006,Treatment not available
+58848006,Lack of drug action

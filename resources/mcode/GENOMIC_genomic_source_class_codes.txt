@@ -1,0 +1,8 @@
+LA6683-2,Germline
+LA6684-0,Somatic
+LA18194-3,Likely germline
+LA18195-0,Likely somatic
+LA10429-1,Fetal
+LA18196-8,Likely fetal
+LA26807-0,De novo
+LA18197-6,Unknown origin

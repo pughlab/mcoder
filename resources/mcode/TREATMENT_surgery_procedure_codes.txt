@@ -1,0 +1,132 @@
+741007,Operation on prostate [NOS]
+3786007,Excision of lesion
+3980006,Partial esophagectomy
+4974007,Operation on liver [NOS]
+5415002,Destruction of lesion
+9524002,Total pancreatectomy
+11150009,Partial parotidectomy
+13358001,Total parotidectomy
+13619001,Thyroidectomy
+14072009,Total esophagectomy
+14861000,Operation on bladder [NOS]
+15257006,Lobectomy w/ partial excision of adjacent lobes
+15463004,Operation on thyroid gland [NOS]
+16453004,Operation on stomach [NOS]
+17537007,Resection of spinal cord
+23136006,Operation on pharynx [NOS]
+24265000,Operation on anus [NOS]
+24431004,Esophagoduodenostomy w/complete gastrectomy
+24443003,Total thyroidectomy
+26294005,Radical prostatectomy
+26390003,Total  colectomy
+26452005,Total gastrectomy
+27280000,Liver transplant w/recipient hepatectomy
+29630005,Operation on pancreas [NOS]
+29827000,Bilateral salpingectomy w/oophorectomy
+30426000,Subtotal prostatectomy
+30956003,Subtotal thyroidectomy
+33149006,Pancreatectomy
+35646002,Excision of lesion of skin
+43075005,Segmental colectomy
+45900003,Esophagectomy
+48114000,Operation on esophagus [NOS]
+49209004,Subtotal gastrectomy
+49795001,Total pneumonectomy
+51265002,Pharyngectomy
+52224004,Pelvic exenteration
+53442002,Gastrectomy
+55853002,Pelvic exenteration, female
+57168000,Operation on bone [NOS]
+58456002,Operation on parotid gland [NOS]
+59300005,Operation on spleen [NOS]
+60041003,Laryngopharyngectomy
+63016009,Total Cystectomy
+64063003,Radical Cystectomy
+64368001,Partial mastectomy
+64887002,Operation on ovary [NOS]
+66478002,Total laryngectomy
+67097003,Partial splenectomy
+67402009,Partial lobectomy
+69031006,Mastectomy
+69036001,Total pancreaticoduodenectomy
+70183006,Subcutaneous mastectomy
+70586009,Operation on brain [NOS]
+71657006,Operation on testis [NOS]
+72791001,Laryngectomy
+74971002,Operation on rectum [NOS]
+76443003,Total esophagectomy with gastropharyngostomy
+78698008,Unilateral salpingo-oophorectomy
+79876008,Operation on uterus  [NOS]
+80513001,Partial laryngectomy
+81516001,Partial nephrectomy
+81723002,Amputation
+81870009,Parotidectomy
+82035006,Resection of polyp
+82874003,Operation on colon [NOS]
+85946004,Lobectomy of liver
+86789002,Abdominoperineal pull through
+90199006,Transurethral prostatectomy
+90470006,Prostatectomy
+91596000,Complete excision of lung with mediastinal dissection
+107963000,Hepatectomy
+112705001,Amputation
+112902005,Partial cystectomy
+112916000,Operation on cervix [NOS]
+116028008,Salpingo-oophorectomy
+116033007,Radical nephrectomy
+116140006,Total hysterectomy
+116142003,Radical hysterectomy
+116237003,Excision of lesion of rectum
+118841000,Operation on rectosigmoid [NOS]
+119894003,Anus excision
+120001005,Testis excision
+149649000,Cystectomy dome of bladder
+171443003,Total lobectomy
+172043006,Total mastectomy
+173170008,Bilobectomy of lung
+173486005,Radical parotidectomy
+174059005,Proctocolectomy
+174431000,Wedge resection of liver
+174776001,Total splenectomy
+175898006,Kidney operation  [NOS]
+175905003,Total nephrectomy
+177302005,Wide excision of skin lesion
+232546000,Total pharyngolaryngectomy w/ laryngectomy
+234319005,Splenectomy
+235364003,Total Proctectomy
+236334001,Total Orchiectomy
+236886002,Hysterectomy
+265459006,Total pancreaticodudoenectomy with distal gastrectomy
+287716007,Urinary bladder reconstruction
+287816003,Radical gastrectomy
+287847009,Partial pancreatectomy
+303621003,Total pharyngectomy
+307009004,Wedge resection
+307656000,Subtotal colectomy with ileosigmoid anastomosis
+359623004,Total lobectomy of lung
+359740003,Extended radical mastectomy
+384723003,Radical mastectomy
+387636004,Operation on larynx [NOS]
+387643005,Partial hysterectomy
+392011001,Operation on skin [NOS]
+392090004,Operation on breast [NOS]
+396692006,Radical Orchiectomy
+406044008,Pelvic exentration
+406505007,Modified radical mastectomy
+438338008,Total gastrectomy w/extended lymphadencectomy
+446103006,Partial excision of lesion of brain
+446526009,Debulking of neoplasm of ovary
+447115003,Total excision of lesion of brain
+13580001000004101,Excision of tumor of liver
+119746007,Operation on lung [NOS]
+t_hys_bilat_salp_ooph,Total hysterectomy and bilateral salpingectomy with oophorectomy
+debulk_disease,Debulking of disease
+salping,Salpingectomy
+bilat_salping,Bilateral salpingectomy
+ureteric_stent,Ureteric stenting
+omentectomy,Omentectomy
+ileostomy,Ileostomy
+uterolysis,Uterolysis
+bilat_mastec,Bilateral mastectomy
+ablation_lesion,Ablation of lesion
+spinal_fusion,Spinal fusion

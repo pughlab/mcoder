@@ -1,0 +1,70 @@
+C00,Lip
+C01,Base of Tongue
+C02,Other and Unspecified Parts of Tongue
+C03,Gum
+C04,Floor of Mouth
+C05,Palate
+C06,Other and Unspecified Parts of Mouth
+C07,Parotid Gland
+C08,Other and Unspecified Major Salivary Glands
+C09,Tonsil
+C10,Oropharynx
+C11,Nasopharynx
+C12,Pyriform Sinus
+C13,Hypopharynx
+C14,Other and Ill-Defined Sites in Lip, Oral Cavity, and Pharynx
+C15,Esophagus
+C16,Stomach
+C17,Small Intestine
+C18,Colon
+C19,Rectosigmoid Junction
+C20,Rectum
+C21,Anus and Anal Canal
+C22,Liver and Intrahepatic Bile Ducts
+C23,Gallbladder
+C24,Other and Unspecified Parts of Biliary Tract
+C25,Pancreas
+C26,Other and Ill-Defined Digestive Organs
+C30,Nasal Cavity and Middle Ear
+C31,Accessory Sinuses
+C32,Larynx
+C33,Trachea
+C34,Bronchus and Lung
+C37,Thymus
+C38,Heart, Mediastinum, and Pleura
+C39,Other and Ill-Defined Sites Within Respiratory System and Intrathoracic Organs
+C40,Bones, Joints, and Articular Cartilage of Limbs
+C41,Bones, Joints, and Articular Cartilage of Other and Unspecified Sites
+C42,Hematopoietic and Reticuloendothelial Systems
+C44,Skin
+C48,Retroperitoneum and Peritoneum
+C49,Connective, Subcutaneous, and Other Soft Tissues
+C50,Breast
+C51,Vulva
+C52,Vagina
+C53,Cervix Uteri
+C54,Corpus Uteri
+C55,Uterus, NOS
+C56,Ovary
+C57,Other and Unspecified Female Genital Organs
+C58,Placenta
+C60,Penis
+C61,Prostate
+C62,Testis
+C63,Other and Unspecified Male Genital Organs
+C64,Kidney
+C65,Renal Pelvis
+C66,Ureter
+C67,Bladder
+C68,Other and Unspecified Urinary Organs
+C69,Eye and Adnexa
+C47,Peripheral Nerves and Autonomic Nervous System
+C70,Meninges
+C71,Brain
+C72,Spinal Cord, Cranial Nerves, and Other Parts of Central Nervous System
+C73,Thyroid Gland
+C74,Adrenal Gland
+C75,Other Endocrine Glands and Related Structures
+C76,Other and Ill-Defined Sites
+C77,Lymph Nodes
+C80,Unknown Primary Site

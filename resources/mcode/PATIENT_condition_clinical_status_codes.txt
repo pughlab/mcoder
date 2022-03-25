@@ -1,0 +1,6 @@
+active,Active
+recurrence,Recurrence
+relapse,Relapse
+inactive,Inactive
+remission,Remission
+resolved,Resolved
