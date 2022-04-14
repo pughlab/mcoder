@@ -13,7 +13,7 @@ $tracking=$_POST['tracking'];
 
 	$id=$_POST['id'];
 	$date=$_POST['date'];
-	$comment=$_POST['comment'];
+	$comment=str_replace("'","\'",$_POST['comment']);
 
 	//Encryption
 	$encryption_key = hex2bin($key);

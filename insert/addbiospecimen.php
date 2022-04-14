@@ -20,7 +20,7 @@ $tracking=$_POST['tracking'];
   $bankingid=$_POST['bankingid'];
   $paired=$_POST['paired'];
   $imaging=$_POST['imaging'];
-	$comment=$_POST['comment'];
+  $comment=str_replace("'","\'",$_POST['comment']);
 
 	//Encryption
 	$encryption_key = hex2bin($key);

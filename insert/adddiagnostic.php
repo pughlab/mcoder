@@ -20,7 +20,7 @@ $tracking=$_POST['tracking'];
   $visibility=$_POST['visibility'];
 	$age=$_POST['age'];
 	$head=$_POST['head'];
-	$comment=$_POST['comment'];
+	$comment=str_replace("'","\'",$_POST['comment']);
 
 	//Encryption
 	$encryption_key = hex2bin($key);

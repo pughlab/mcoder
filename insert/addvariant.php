@@ -21,7 +21,7 @@ $tracking=$_POST['tracking'];
 	$mutationhgvs=$_POST['mutationhgvs'];
 	$interpretation=$_POST['interpretation'];
 	$source=$_POST['source'];
-	$comment=$_POST['comment'];
+	$comment=str_replace("'","\'",$_POST['comment']);
 
 	//Encryption
 	$encryption_key = hex2bin($key);

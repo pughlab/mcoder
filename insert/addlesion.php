@@ -17,7 +17,7 @@ $tracking=$_POST['tracking'];
 	$evaluation=$_POST['evaluation'];
   $number=$_POST['number'];
   $location=$_POST['location'];
-	$comment=$_POST['comment'];
+  $comment=str_replace("'","\'",$_POST['comment']);
 
 	//Encryption
 	$encryption_key = hex2bin($key);

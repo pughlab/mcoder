@@ -23,7 +23,7 @@ $tracking=$_POST['tracking'];
   $clinicalss=$_POST['clinicalss'];
 	$pathologicsg=$_POST['pathologicsg'];
 	$pathologicss=$_POST['pathologicss'];
-	$comment=$_POST['comment'];
+	$comment=str_replace("'","\'",$_POST['comment']);
 
 	//Encryption
 	$encryption_key = hex2bin($key);

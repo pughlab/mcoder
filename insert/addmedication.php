@@ -17,7 +17,7 @@ $tracking=$_POST['tracking'];
 	$stop=$_POST['stop'];
   $reason=$_POST['reason'];
   $intent=$_POST['intent'];
-	$comment=$_POST['comment'];
+  $comment=str_replace("'","\'",$_POST['comment']);
 
 	//Encryption
 	$encryption_key = hex2bin($key);

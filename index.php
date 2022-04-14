@@ -711,7 +711,7 @@
                                                         <h4>Comorbid condition code</h4>
                                                         <div>
                                                            <div class="bootstrap-iso">
-                                                              <input class="autotypeaheadfirst" type="text" placeholder="Tuberculosis of spine" id="comorbid" name="comorbid" style="height: 43px;width:100%;">
+                                                              <input class="autotypeaheadfirst" type="text" placeholder="Chronic viral hepatitis C" id="comorbid" name="comorbid" style="height: 43px;width:100%;">
                                                            </div>
                                                         </div>
                                                      </div>
@@ -1271,7 +1271,7 @@
                                    <h4>Test name</h4>
                                    <div class="row">
                                       <div class="bootstrap-iso" >
-                                         <input autocomplete="off" class="autotypeahead" id="testvariants" name="testvariants" type="text" placeholder="22q11.2 deletion/duplication"/>
+                                         <input autocomplete="off" class="autotypeahead" id="testvariants" name="testvariants" type="text" placeholder="Acyclovir [Susceptibility]"/>
                                       </div>
                                    </div>
                                  </div>
@@ -1833,7 +1833,7 @@
                                       <div class="col-third">
                                          <h4>Tumor test code</h4>
                                          <div class="bootstrap-iso">
-                                            <input autocomplete="off" id="testcode" class="autotypeaheadfirst" type="text" id="testcode" name="testcode" placeholder="Cancer Ag 125 [Units/volume]"/>
+                                            <input autocomplete="off" id="testcode" class="autotypeaheadfirst" type="text" id="testcode" name="testcode" placeholder="Cancer Ag 125 [Units/volume] in Serum or Plasma"/>
                                          </div>
                                       </div>
                                       <div class="col-third">
@@ -2417,7 +2417,7 @@
                  e.preventDefault();
                  if(add_input_count < max_input_fields){
                    add_input_count++;
-                   var newElement='<div class="row"><div class="smallinput"><div class="bootstrap-iso"><input id="test_'+add_input_count+'" class="smallinputboostrap" type="text" name="testcode[]" placeholder="Cancer Ag 125 [Units/volume]" /></div></div><div class="smallinput"><div class="row"><input class="blueradio" type="radio" name="testresults_'+add_input_count+'" value="test_positive_'+add_input_count+'" id="test_positive_'+add_input_count+'" /><label for="test_positive_'+add_input_count+'">Positive</label><input class="blueradio" type="radio" name="testresults_'+add_input_count+'" value="test_negative_'+add_input_count+'" id="test_negative_'+add_input_count+'"/><label for="test_negative_'+add_input_count+'">Negative</label></div></div><div class="smallinput"><div class="bootstrap-iso"><input class="smallinputboostrap" type="date" name="labdatetest[]" value="2017-06-01" style="height:37px"></div></div><button class="testless">Remove</button><br><br></div>';
+                   var newElement='<div class="row"><div class="smallinput"><div class="bootstrap-iso"><input id="test_'+add_input_count+'" class="smallinputboostrap" type="text" name="testcode[]" placeholder="Cancer Ag 125 [Units/volume] in Serum or Plasma" /></div></div><div class="smallinput"><div class="row"><input class="blueradio" type="radio" name="testresults_'+add_input_count+'" value="test_positive_'+add_input_count+'" id="test_positive_'+add_input_count+'" /><label for="test_positive_'+add_input_count+'">Positive</label><input class="blueradio" type="radio" name="testresults_'+add_input_count+'" value="test_negative_'+add_input_count+'" id="test_negative_'+add_input_count+'"/><label for="test_negative_'+add_input_count+'">Negative</label></div></div><div class="smallinput"><div class="bootstrap-iso"><input class="smallinputboostrap" type="date" name="labdatetest[]" value="2017-06-01" style="height:37px"></div></div><button class="testless">Remove</button><br><br></div>';
                    $(wrapper).append(newElement);
 
                  }

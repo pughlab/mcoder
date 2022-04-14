@@ -18,7 +18,7 @@ $tracking=$_POST['tracking'];
   $weight=$_POST['weight'];
   $diastolic=$_POST['diastolic'];
   $systolic=$_POST['systolic'];
-	$comment=$_POST['comment'];
+  $comment=str_replace("'","\'",$_POST['comment']);
 
 	//Encryption
 	$encryption_key = hex2bin($key);

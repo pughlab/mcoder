@@ -15,7 +15,7 @@ $tracking=$_POST['tracking'];
 	$date=$_POST['date'];
 	$ecog=$_POST['ecog'];
 	$karnofsky=$_POST['karnofsky'];
-	$comment=$_POST['comment'];
+	$comment=str_replace("'","\'",$_POST['comment']);
 
 	//Encryption
 	$encryption_key = hex2bin($key);
