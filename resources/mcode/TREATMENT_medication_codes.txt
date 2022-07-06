@@ -1,1000 +1,1000 @@
-﻿10760,Triamcinolone Oral Paste
-25406,Nitrofurazone Topical Cream [Furacin]
-34246,Polymyxin B / Trimethoprim Ophthalmic Solution [Polytrim]
-89904,calcium chloride, dihydration 0.2 MG/ML / Potassium Chloride 0.3 MG/ML / Sodium Chloride 6 MG/ML / Sodium Lactate 3.1 MG/ML Irrigation Solution
-90127,compound benzoin tincture (USP) Topical Solution
-91318,Coal Tar Topical Solution
-91348,Hydrogen Peroxide 300 MG/ML Topical Solution
-91349,Hydrogen Peroxide 30 MG/ML Topical Solution
-91668,Tetracycline 0.01 MG/MG Ophthalmic Ointment [Achromycin]
-91669,Tetracycline 10 MG/ML Ophthalmic Suspension [Achromycin]
-91691,Nifedipine 10 MG Oral Capsule [Adalat]
-91692,Nifedipine 20 MG Oral Capsule [Adalat]
-91703,Ibuprofen Oral Tablet [Advil]
-91720,Pilocarpine Ophthalmic Solution [Akarpine]
-91729,Methyldopa Oral Suspension [Aldomet]
-91732,Alfentanil Injectable Solution [Alfenta]
-91792,Oxymetholone 50 MG Oral Tablet [Anadrol-50]
-91796,Naproxen Oral Tablet [Anaprox]
-91805,Methyltestosterone 10 MG Oral Tablet [Android-10]
-91809,Succinylcholine Injectable Solution [Anectine]
-91833,Vitamin K 1 Injectable Solution [Aquamephyton]
-91840,Chloroquine Injectable Solution [Aralen Hydrochloride]
-91843,Metaraminol Injectable Solution [Aramine]
-91878,Lorazepam Injectable Solution [Ativan]
-91879,Lorazepam Oral Tablet [Ativan]
-91889,Antipyrine / Benzocaine Otic Solution [Auralgan]
-91990,Betaxolol Ophthalmic Suspension [Betoptic S]
-91991,Betaxolol Ophthalmic Solution [Betoptic]
-92004,Sulfacetamide Ophthalmic Ointment [Bleph-10]
-92008,Timolol Oral Tablet [Blocadren]
-92015,bretylium Injectable Solution [Bretylol]
-92016,esmolol Injectable Solution [Brevibloc]
-92041,Bumetanide Injectable Solution [Bumex]
-92052,Verapamil Oral Tablet [Calan]
-92055,salmon calcitonin Injectable Solution [Calcimar]
-92084,Doxazosin Oral Tablet [Cardura]
-92089,Clonidine Oral Tablet [Catapres]
-92091,Ceftizoxime Injectable Solution [Cefizox]
-92113,Ceftazidime Injectable Solution [Ceptaz]
-92145,Benzocaine Oral Lozenge [Chloraseptic]
-92253,Amiodarone Oral Tablet [Cordarone]
-92254,Nadolol Oral Tablet [Corgard]
-92279,Warfarin Injectable Solution [Coumadin]
-92291,Medroxyprogesterone Oral Tablet [Cycrin]
-92292,Pemoline Chewable Tablet [Cylert]
-92301,desmopressin Injectable Solution [DDAVP]
-92316,dezocine Injectable Solution [Dalgan]
-92354,Prednisone Oral Tablet [Deltasone]
-92367,Coal Tar Medicated Shampoo [Denorex]
-92445,Hydromorphone Rectal Suppository [Dilaudid]
-92476,oxybutynin Oral Tablet [Ditropan]
-92479,Chlorothiazide Oral Suspension [Diuril]
-92567,Amitriptyline Injectable Solution [Elavil]
-92568,Amitriptyline Oral Tablet [Elavil]
-92579,Theophylline Extended Release Oral Capsule [Elixophyllin SR]
-92580,Guaifenesin / Theophylline Oral Solution [Elixophyllin-GG]
-92582,mometasone furoate 1 MG/ML Topical Cream [Elocon]
-92583,mometasone furoate 1 MG/ML Topical Lotion [Elocon]
-92584,mometasone furoate 0.001 MG/MG Topical Ointment [Elocon]
-92594,Amitriptyline Oral Tablet [Endep]
-92601,Edrophonium Injectable Solution [Enlon]
-92613,Epoetin Alfa Injectable Solution [Epogen]
-92623,Erythromycin Chewable Tablet [EryPed]
-92719,Metronidazole Oral Tablet [Flagyl]
-92730,cyclobenzaprine Oral Tablet [Flexeril]
-92743,Fluorometholone Ophthalmic Suspension [Fluor-Op]
-92751,Fluorouracil Topical Solution [Fluoroplex]
-92752,Fluorouracil 10 MG/ML Topical Cream [Fluoroplex]
-92758,Griseofulvin 165 MG Oral Tablet [Fulvicin P/G]
-92759,Griseofulvin 330 MG Oral Tablet [Fulvicin P/G]
-92772,Furazolidone Oral Suspension [Furoxone]
-92781,Sulfisoxazole Ophthalmic Solution [Gantrisin Ophthalmic]
-92784,Sulfisoxazole Oral Tablet [Gantrisin]
-92852,Ibuprofen Oral Tablet [Haltran]
-92892,prednisolone Injectable Solution [Hydeltrasol]
-92895,ergoloid mesylates, USP Oral Tablet [Hydergine]
-92929,Terazosin Oral Tablet [Hytrin]
-92950,Erythromycin Ophthalmic Ointment [Ilotycin]
-92960,Propranolol Oral Tablet [Inderal]
-92965,Indomethacin Oral Suspension [Indocin]
-92970,Droperidol / Fentanyl Injectable Solution [Innovar]
-92992,Verapamil Oral Tablet [Isoptin]
-93006,Isosorbide Dinitrate 2.5 MG Sublingual Tablet [Isordil]
-93007,Isosorbide Dinitrate 40 MG Extended Release Oral Capsule [Isordil Tembids]
-93029,Kanamycin Injectable Solution [Kantrex]
-93041,Triamcinolone Topical Cream [Kenalog]
-93042,Triamcinolone Topical Lotion [Kenalog]
-93043,Triamcinolone Topical Ointment [Kenalog]
-93044,Triamcinolone Topical Spray [Kenalog]
-93053,Betaxolol Oral Tablet [Kerlone]
-93055,Clonazepam Oral Tablet [Klonopin]
-93065,Vitamin K 1 Injectable Solution [Konakion]
-93073,Amylases / Endopeptidases / Lipase Oral Capsule [Kutrase]
-93101,Furosemide Oral Solution [Lasix]
-93130,Fluocinonide 0.0005 MG/MG Topical Gel [Lidex]
-93131,Fluocinonide 0.5 MG/ML Topical Solution [Lidex]
-93181,Dyphylline 400 MG Oral Tablet [Lufyllin]
-93183,Dyphylline Injectable Solution [Lufyllin]
-93188,Leuprolide Injectable Solution [Lupron]
-93193,Gonadorelin Injectable Solution [Lutrepulse]
-93199,Morphine Oral Solution [MSIR]
-93249,Dexamethasone / Neomycin / Polymyxin B Ophthalmic Ointment [Maxitrol]
-93250,Dexamethasone / Neomycin / Polymyxin B Ophthalmic Suspension [Maxitrol]
-93252,Hydrochlorothiazide 50 MG / Triamterene 75 MG Oral Tablet [Maxzide]
-93253,Hydrochlorothiazide 25 MG / Triamterene 37.5 MG Oral Tablet [Maxzide]
-93278,Mesna Injectable Solution [Mesnex]
-93312,Glyburide Oral Tablet [Micronase]
-93319,Meprobamate 600 MG Oral Tablet [Miltown]
-93325,Minocycline Oral Suspension [Minocin]
-93328,Thiabendazole Chewable Tablet [Mintezol]
-93354,Cefonicid Injectable Solution [Monocid]
-93358,Ibuprofen Oral Tablet [Motrin]
-93370,Clotrimazole 500 MG Vaginal Tablet [Mycelex-G]
-93377,Nystatin Oral Suspension [Mycostatin]
-93378,Nystatin Oral Tablet [Mycostatin]
-93382,Metolazone 0.5 MG Oral Tablet [Mykrox]
-93415,Naphazoline / Pheniramine Ophthalmic Solution [Naphcon A]
-93416,Naproxen Oral Suspension [Naprosyn]
-93417,Naproxen Oral Tablet [Naprosyn]
-93418,Naloxone Injectable Solution [Narcan]
-93459,chloroprocaine Injectable Solution [Nesacaine]
-93462,Netilmicin 100 MG/ML Injectable Solution [Netromycin]
-93469,Niacin Oral Tablet [Niacor]
-93470,Niclosamide Chewable Tablet [Niclocide]
-93471,Niacin Oral Tablet [Nicolar]
-93485,Nitroglycerin Topical Ointment [Nitro-Bid]
-93488,Nitroglycerin Topical Ointment [Nitrol]
-93514,Tamoxifen Oral Tablet [Nolvadex]
-93536,Labetalol Injectable Solution [Normodyne]
-93564,Nalbuphine Injectable Solution [Nubain]
-93574,Ibuprofen Oral Tablet [Nuprin]
-93576,doxacurium Injectable Solution [Nuromax]
-93593,estropipate Oral Tablet [Ogen]
-93594,estropipate Vaginal Cream [Ogen]
-93651,xylometazoline Nasal Spray [Otrivin]
-93652,xylometazoline Nasal Solution [Otrivin]
-93672,Oxytocin Injectable Solution
-93698,Carboplatin Injectable Solution [Paraplatin]
-93720,prednisolone Oral Solution [Pediapred]
-93731,Famotidine Oral Suspension [Pepcid]
-93732,Famotidine Oral Tablet [Pepcid]
-93752,Penicillin G Injectable Solution [Pfizerpen]
-93756,Simethicone 95 MG Oral Tablet [Phazyme]
-93782,Pilocarpine Ophthalmic Solution [Pilocar]
-93786,Oxytocin Injectable Solution [Pitocin]
-93787,Hydroxychloroquine Oral Tablet [Plaquenil]
-93789,Cisplatin Injectable Solution [Platinol]
-93811,Citric Acid / potassium citrate Oral Solution [Polycitra-K]
-93814,Bacitracin / Polymyxin B Topical Ointment [Polysporin]
-93855,Ampicillin Oral Suspension [Principen]
-93866,Nifedipine Oral Capsule [Procardia]
-93868,Epoetin Alfa Injectable Solution [Procrit]
-93877,Fluphenazine Injectable Solution [Prolixin]
-93885,Procainamide Injectable Solution [Pronestyl]
-93894,Metronidazole Oral Tablet [Protostat]
-93902,Medroxyprogesterone Oral Tablet [Provera]
-93904,Fluoxetine Oral Capsule [Prozac]
-93937,Metoclopramide Oral Tablet [Reglan]
-93946,Temazepam Oral Capsule [Restoril]
-93990,Interferon Alfa-2a Injectable Solution [Roferon-A]
-93991,Minoxidil Topical Solution [Rogaine]
-94001,mesalamine Rectal Suppository [Rowasa]
-94002,mesalamine Enema [Rowasa]
-94014,Ibuprofen Oral Tablet [Rufen]
-94031,Sodium Chloride Nasal Solution [Salinex]
-94035,Cyclosporine Oral Solution [Sandimmune]
-94048,Acetaminophen 650 MG / butalbital 50 MG Oral Tablet [Sedapap]
-94058,Bupivacaine Injectable Solution [Sensorcaine]
-94124,Aspirin / Carisoprodol Oral Tablet [Soma Compound]
-94125,Aspirin / Carisoprodol / Codeine Oral Tablet [Soma Compound with Codeine]
-94126,Carisoprodol Oral Tablet [Soma]
-94133,Isosorbide Dinitrate Chewable Tablet [Sorbitrate]
-94134,Isosorbide Dinitrate Oral Tablet [Sorbitrate]
-94135,Isosorbide Dinitrate Sublingual Tablet [Sorbitrate]
-94146,Trifluoperazine Injectable Solution [Stelazine]
-94183,sulfabenzamide / Sulfacetamide / sulfathiazole Vaginal Tablet [Sultrin Triple Sulfa]
-94185,Tetracycline 250 MG Oral Capsule [Sumycin]
-94186,Tetracycline 500 MG Oral Capsule [Sumycin]
-94187,Tetracycline 250 MG Oral Tablet [Sumycin]
-94188,Tetracycline 500 MG Oral Tablet [Sumycin]
-94230,methdilazine Chewable Tablet [Tacaryl]
-94233,Cimetidine Injectable Solution [Tagamet]
-94235,Cimetidine Oral Tablet [Tagamet]
-94241,Flecainide Oral Tablet [Tambocor]
-94251,Ceftazidime Injectable Solution [Tazicef]
-94261,Carbamazepine Chewable Tablet [Tegretol]
-94277,terconazole Vaginal Cream [Terazol 3]
-94278,terconazole Vaginal Suppository [Terazol 3]
-94279,terconazole Vaginal Cream [Terazol 7]
-94280,Hydrocortisone / Oxytetracycline Ophthalmic Suspension [Terra-Cortril]
-94283,Oxytetracycline / Polymyxin B Ophthalmic Ointment [Terramycin with Polymyxin B Sulfate]
-94292,Theophylline Extended Release Oral Tablet [Theochron]
-94293,Theophylline Oral Solution [Theolair]
-94294,Theophylline Oral Tablet [Theolair]
-94316,Ticarcillin Injectable Solution [Ticar]
-94319,trimethobenzamide Injectable Solution [Tigan]
-94321,Clavulanate / Ticarcillin Injectable Solution [Timentin]
-94334,Dexamethasone / Tobramycin Ophthalmic Suspension [Tobradex]
-94335,Dexamethasone / Tobramycin Ophthalmic Ointment [Tobradex]
-94336,Tobramycin Ophthalmic Ointment [Tobrex]
-94337,Tobramycin Ophthalmic Solution [Tobrex]
-94345,Desoximetasone 2.5 MG/ML Topical Cream [Topicort]
-94346,Desoximetasone 0.0005 MG/MG Topical Gel [Topicort]
-94348,Desoximetasone 0.0025 MG/MG Topical Ointment [Topicort]
-94351,Thiethylperazine Injectable Solution [Torecan]
-94356,Atracurium Injectable Solution [Tracrium]
-94359,Labetalol Injectable Solution [Trandate]
-94401,Perphenazine Injectable Solution [Trilafon]
-94405,Amoxicillin 250 MG Oral Capsule [Trimox]
-94406,Amoxicillin 500 MG Oral Capsule [Trimox]
-94407,Amoxicillin 25 MG/ML Oral Suspension [Trimox]
-94408,Amoxicillin 50 MG/ML Oral Suspension [Trimox]
-94462,Nafcillin Injectable Solution [Unipen]
-94470,Bethanechol Injectable Solution [Urecholine]
-94483,Diazepam Injectable Solution [Valium]
-94484,Diazepam Oral Tablet [Valium]
-94500,Methoxamine Injectable Solution [Vasoxyl]
-94516,Mebendazole Chewable Tablet [Vermox]
-94517,Midazolam Injectable Solution [Versed]
-94570,Vidarabine Ophthalmic Ointment [Vira-A]
-94573,Trifluridine Ophthalmic Solution [Viroptic]
-94581,Hydroxyzine Oral Suspension [Vistaril]
-94585,Acetic Acid / Hydrocortisone Otic Solution [Vosol HC]
-94586,Acetic Acid Otic Solution [VoSoL]
-94591,Bupropion Oral Tablet [Wellbutrin]
-94610,Alprazolam Oral Tablet [Xanax]
-94618,Lidocaine Injectable Solution [Xylocaine]
-94629,Ranitidine Injectable Solution [Zantac]
-94648,Ondansetron Injectable Solution [Zofran]
-94911,Amoxicillin Oral Suspension [Biomox]
-95104,Chloramphenicol Ophthalmic Ointment
-95267,Glucose 500 MG/ML Oral Solution
-95600,Furosemide Injectable Solution
-95721,ichthammol 0.2 MG/MG Topical Ointment
-96058,Nitrofurazone 2 MG/ML Topical Solution
-96304,Primidone 250 MG Oral Tablet
-96818,Triamcinolone Injectable Suspension
-96819,Triamcinolone Oral Tablet
-102102,Alexitol sodium 360 MG Oral Tablet
-102104,magaldrate 160 MG/ML Oral Suspension
-102111,hydrotalcite 100 MG/ML Oral Suspension [Altacite]
-102152,Atropine 6 MG/ML Oral Solution
-102155,belladonna extract, USP 0.01 MG/ML Oral Solution
-102166,Glycopyrrolate 2 MG Oral Tablet [Robinul]
-102182,alginic acid 50 MG/ML / Cimetidine 20 MG/ML Oral Suspension [Algitec]
-102184,Carbenoxolone 50 MG Oral Tablet
-102196,Bran 2000 MG Oral Tablet [Fybranta]
-102202,Methylcellulose 500 MG Oral Tablet [Cellucon]
-102203,Methylcellulose 90 MG/ML Oral Solution [Cologel]
-102206,Cascara sagrada 20 MG Oral Tablet
-102214,sennosides, USP 3 MG/ML Oral Solution
-102215,sennosides, USP 1 MG/ML Oral Solution
-102221,Magnesium Sulfate 400 MG/ML Oral Solution
-102232,Bisacodyl 2.74 MG/ML Enema [Dulcolax]
-102236,Phenolphthalein 125 MG Oral Tablet
-102242,Witch Hazel 200 MG Rectal Suppository
-102250,Hydrocortisone 1.67 MG/ML Enema [Cortenema]
-102260,Chenodeoxycholate 250 MG Oral Capsule [Chenocedon]
-102273,Dicobalt edetate 15 MG/ML Injectable Solution [Kelocyanor]
-102274,sodium thiosulfate 500 MG/ML Injectable Solution
-102276,Digitoxin 1 MG/ML Oral Solution [Digitaline Nativelle]
-102277,Ouabain 0.25 MG/ML Injectable Solution [Ouabaine Arnaud]
-102278,Bumetanide 1 MG Oral Tablet [Burinex]
-102292,bretylium 50 MG/ML Injectable Solution [Bretylate]
-102299,Practolol 2 MG/ML Injectable Solution
-102300,Quinidine 250 MG Extended Release Oral Capsule [Kiditard]
-102302,Quinidine 250 MG Extended Release Oral Capsule
-102303,Tocainide 600 MG Oral Tablet [Tonocard]
-102304,Tocainide 50 MG/ML Injectable Solution [Tonocard]
-102305,Tocainide 50 MG/ML Injectable Solution
-102306,Acebutolol 5 MG/ML Injectable Solution [Sectral]
-102309,Sotalol 2 MG/ML Injectable Solution
-102314,Metoprolol 190 MG Oral Tablet [Metoros]
-102315,Metoprolol 95 MG Oral Tablet [Metoros]
-102317,Reserpine 0.1 MG Oral Tablet [Serpasil]
-102318,Reserpine 0.25 MG Oral Tablet [Serpasil]
-102321,Rauwolfia Alkaloids 2 MG Oral Tablet [Rauwiloid]
-102325,Bethanidine 50 MG Oral Tablet
-102326,Debrisoquin 20 MG Oral Tablet [Declinax]
-102334,Isosorbide Dinitrate 5 MG Oral Tablet [Isoket]
-102335,Pentaerythritol Tetranitrate 30 MG Extended Release Oral Capsule [Cardiacap]
-102336,Lidoflazine 120 MG Oral Tablet
-102337,Nifedipine 5 MG Oral Capsule [Calcipine]
-102338,Nifedipine 10 MG Oral Capsule [Calcipine]
-102339,Prenylamine 60 MG Oral Tablet [Synadrin]
-102340,Prenylamine 60 MG Oral Tablet
-102341,Nitroglycerin 5 MG Oral Capsule
-102342,Nitroglycerin 10 MG Oral Capsule
-102346,bamethan 12.5 MG Oral Tablet
-102347,Inositol 750 MG Oral Tablet [Hexopal Forte]
-102349,Moxisylyte 5 MG/ML Injectable Solution [Opilon]
-102350,Moxisylyte 15 MG/ML Injectable Solution [Opilon]
-102351,Moxisylyte 5 MG/ML Injectable Solution
-102352,Moxisylyte 15 MG/ML Injectable Solution
-102353,Cyclandelate 400 MG Oral Tablet
-102354,Cyclandelate 80 MG/ML Oral Suspension
-102365,Synephrine 60 MG/ML Injectable Solution [Sympatol]
-102370,Ethamsylate 500 MG/ML Injectable Solution [Dicynone]
-102371,Ethamsylate 250 MG Oral Tablet
-102376,Dextrothyroxine 2 MG Oral Tablet
-102377,Albuterol 2 MG Oral Tablet [Ventolin]
-102378,Albuterol 4 MG Oral Tablet [Ventolin]
-102379,Albuterol 2 MG Oral Tablet [Salbulin]
-102380,Albuterol 4 MG Oral Tablet [Salbulin]
-102381,Albuterol 1 MG/ML Oral Solution [Salbulin]
-102385,Albuterol 1 MG/ML Inhalant Solution [Salbuvent]
-102388,reproterol 20 MG Oral Tablet [Bronchodil]
-102390,reproterol 10 MG/ML Inhalant Solution [Bronchodil]
-102391,reproterol 20 MG Oral Tablet
-102393,reproterol 10 MG/ML Inhalant Solution
-102394,rimiterol 0.2 MG/ACTUAT Inhalant Solution [Pulmadil]
-102398,Isoetharine 10 MG Extended Release Oral Tablet
-102401,metaproterenol 0.5 MG/ML Injectable Solution [Alupent]
-102402,Aminophylline 50 MG Rectal Suppository
-102403,Aminophylline 100 MG Rectal Suppository
-102404,Aminophylline 150 MG Rectal Suppository
-102405,Aminophylline 180 MG Rectal Suppository
-102406,Aminophylline 360 MG Rectal Suppository
-102409,oxtriphylline 424 MG Extended Release Oral Tablet
-102445,diphenylpyraline 5 MG Extended Release Oral Capsule [Histryl Spansule]
-102446,diphenylpyraline 2.5 MG Extended Release Oral Capsule [Histryl Pediatric Spansule]
-102447,diphenylpyraline 5 MG Extended Release Oral Tablet [Lergoban]
-102448,diphenylpyraline 2.5 MG Extended Release Oral Capsule
-102449,diphenylpyraline 5 MG Extended Release Oral Tablet
-102451,Trimeprazine 10 MG Oral Tablet [Vallergan]
-102452,Triprolidine Hydrochloride 2.5 MG Oral Tablet [Actidil]
-102486,Bromhexine 2 MG/ML Injectable Solution [Bisolvon]
-102487,Carbocysteine 375 MG Oral Tablet [Mucolex]
-102492,Heroin 0.6 MG/ML Oral Solution
-102493,isoaminile 8 MG/ML Oral Solution [Dimyril]
-102494,Noscapine 3 MG/ML Oral Solution
-102528,triazulenone 1 MG Oral Tablet [Dormonoct]
-102530,Diazepam 2 MG Oral Capsule [Valium]
-102531,Diazepam 5 MG Oral Capsule [Valium]
-102533,Diazepam 5 MG Rectal Suppository [Valium]
-102535,ketazolam 15 MG Oral Capsule
-102536,ketazolam 30 MG Oral Capsule
-102537,Medazepam 10 MG Oral Capsule
-102541,Amobarbital 60 MG Oral Tablet
-102542,Amobarbital 200 MG Oral Tablet
-102544,Chlorprothixene 15 MG Oral Tablet
-102545,Chlorprothixene 50 MG Oral Tablet
-102547,Lithium Carbonate 104 MG/ML Oral Solution
-102548,butriptyline 25 MG Oral Tablet [Evadyne]
-102549,butriptyline 50 MG Oral Tablet [Evadyne]
-102550,Imipramine Hydrochloride 10 MG Oral Tablet [Pramimil]
-102551,Imipramine Hydrochloride 25 MG Oral Tablet [Pramimil]
-102552,Iprindole 30 MG Oral Tablet [Prondol]
-102553,Iprindole 30 MG Oral Tablet
-102554,Lofepramine 70 MG Oral Tablet [Gamanil]
-102555,Iproniazid 25 MG Oral Tablet [Marsilid]
-102556,Iproniazid 50 MG Oral Tablet [Marsilid]
-102557,Iproniazid 25 MG Oral Tablet
-102558,Iproniazid 50 MG Oral Tablet
-102560,Tryptophan 500 MG Oral Tablet [Optimax]
-102566,Dextroamphetamine 7.5 MG Extended Release Oral Capsule [Durophet]
-102567,Dextroamphetamine 12.5 MG Extended Release Oral Capsule [Durophet]
-102568,Dextroamphetamine 20 MG Extended Release Oral Capsule [Durophet]
-102569,Dextroamphetamine 7.5 MG Extended Release Oral Capsule
-102570,Dextroamphetamine 12.5 MG Extended Release Oral Capsule
-102571,Dextroamphetamine 20 MG Extended Release Oral Capsule
-102573,Methylcellulose 400 MG Oral Tablet [Nilstim]
-102574,Methylcellulose 400 MG Oral Tablet
-102575,Karaya Gum 0.55 MG/MG Oral Granules
-102577,Mazindol 2 MG Oral Tablet [Teronac]
-102578,Domperidone 30 MG Rectal Suppository [Evoxin]
-102579,Scopolamine 0.6 MG Oral Tablet
-102581,Metoclopramide 10 MG Oral Tablet [Metox brand of Metoclopramide]
-102582,Metoclopramide 10 MG Oral Tablet [Metramid]
-102584,Metoclopramide 15 MG Extended Release Oral Tablet [Gastrobid Continus]
-102585,Metoclopramide 30 MG Extended Release Oral Capsule [Gastromax]
-102586,Metoclopramide 15 MG Extended Release Oral Capsule [Maxolon SR]
-102587,Metoclopramide 15 MG Extended Release Oral Tablet [Gastrese-LA]
-102588,Metoclopramide 10 MG Oral Tablet [Gastroflux]
-102590,Thiethylperazine 6.33 MG Oral Tablet [Torecan]
-102591,Thiethylperazine 6.5 MG/ML Injectable Solution [Torecan]
-102592,Thiethylperazine 6.5 MG Rectal Suppository [Torecan]
-102593,Thiethylperazine 6.33 MG Oral Tablet
-102594,Thiethylperazine 6.5 MG/ML Injectable Solution
-102595,Thiethylperazine 6.5 MG Rectal Suppository
-102597,Aspirin 300 MG Oral Tablet [Laboprin]
-102598,Aspirin 600 MG Oral Tablet [Paynocil]
-102599,Aspirin 324 MG Delayed Release Oral Tablet [Caprin]
-102600,Aspirin 500 MG Extended Release Oral Tablet [Levius]
-102601,Aspirin 600 MG Delayed Release Oral Tablet [Nu-Seals Aspirin]
-102602,Aspirin 600 MG Oral Tablet [Palaprin Forte]
-102603,Aspirin 600 MG Delayed Release Oral Tablet
-102604,Acetaminophen 24 MG/ML Oral Suspension [Calpol]
-102605,Acetaminophen 50 MG/ML Oral Suspension [Calpol Six Plus]
-102639,Morphine 64 MG/ML Injectable Solution [Duromorph]
-102651,Dextromoramide 5 MG/ML Injectable Solution
-102652,Dextromoramide 10 MG/ML Injectable Solution
-102656,Levorphanol 1.5 MG Oral Tablet [Dromoran]
-102657,Levorphanol 1.5 MG Oral Tablet
-102658,Meperidine 25 MG Oral Tablet
-102659,Meperidine Hydrochloride 50 MG/ML Injectable Solution [pethilorfan]
-102662,Pizotyline 1.5 MG Oral Tablet [Sanomigran]
-102663,Beclamide 500 MG Oral Tablet
-102666,Phenobarbital 15 MG Oral Tablet [Luminal]
-102667,Phenobarbital 30 MG Oral Tablet [Luminal]
-102668,Phenobarbital 60 MG Oral Tablet [Luminal]
-102679,Methionine 250 MG Oral Tablet
-102690,Penicillin G 229 MG/ML Injectable Suspension [Penidural-LA]
-102692,penicillin G benzathine 115 MG/ML Oral Solution
-102693,phenethicillin 250 MG Oral Capsule [Broxil]
-102695,phenethicillin 250 MG Oral Capsule
-102697,Penicillin V 125 MG Oral Capsule
-102699,Penicillin V 125 MG Oral Granules
-102700,Penicillin V Potassium 125 MG Oral Tablet [V-Cil-K]
-102709,Amoxicillin 250 MG Oral Capsule [Rimoxallin]
-102710,Amoxicillin 500 MG Oral Capsule [Rimoxallin]
-102712,Amoxicillin 25 MG/ML / Clavulanate 12.5 MG/ML Oral Suspension [Augmentin]
-102714,Ampicillin 250 MG Oral Capsule [Vidopen]
-102717,Ampicillin 125 MG Oral Tablet [Penbritin]
-102731,Pivampicillin 35 MG/ML Oral Suspension [Pondocillin]
-102734,Pivampicillin 32.4 MG/ML Oral Suspension
-102736,Talampicillin 250 MG Oral Tablet [Talpen]
-102738,Talampicillin 250 MG Oral Tablet
-102740,Ticarcillin 385 MG/ML Injectable Solution [Ticar]
-102748,Cephalexin 125 MG Chewable Tablet [Keflex-C]
-102749,Cephalexin 250 MG Chewable Tablet [Keflex-C]
-102750,Cephalothin 1 MG/ML Injectable Solution [Keflin]
-102751,Cefamandole 250 MG/ML Injectable Solution [Kefadol]
-102752,Cefamandole 285 MG/ML Injectable Solution [Kefadol]
-102759,clomocycline 170 MG Oral Capsule
-102761,Lymecycline 204 MG Oral Capsule
-102763,Oxytetracycline 250 MG Oral Tablet [Chemocycline]
-102764,Oxytetracycline 250 MG Oral Tablet [Galenomycin]
-102770,Gentamicin 5 MG/ML Injectable Solution
-102776,Framycetin 250 MG Oral Tablet
-102777,Kanamycin 250 MG/ML Injectable Solution [Kannasyn]
-102778,Erythromycin 25 MG/ML Oral Suspension [Erythroped PI SF]
-102779,erythromycin stearate 50 MG/ML Oral Suspension [Erythroped SF]
-102780,Erythromycin Estolate 250 MG Oral Tablet [Erythrolar]
-102781,Erythromycin 500 MG Oral Tablet [Erythrolar]
-102782,erythromycin stearate 50 MG/ML Oral Suspension [Erythrolar]
-102783,Erythromycin 125 MG Delayed Release Oral Capsule [Erymax Sprinkle]
-102785,Lincomycin 500 MG Oral Capsule [Lincocin]
-102787,Lincomycin 300 MG/ML Injectable Solution [Lincocin]
-102789,Sulfamethoxazole 800 MG / Trimethoprim 160 MG Oral Tablet [Fectrim]
-102790,Sulfamethoxazole 267 MG/ML / Trimethoprim 53.3 MG/ML Injectable Solution [Septrin]
-102791,Sulfamethoxazole 100 MG / Trimethoprim 20 MG Oral Tablet [Septrin]
-102793,Calcium sulfaloxate 500 MG Oral Tablet
-102794,phthalylsulfathiazole 500 MG Oral Tablet
-102797,Sulfadimethoxine 500 MG Oral Tablet
-102798,Sulfamethazine 333 MG/ML Injectable Solution
-102799,Sulfamethazine 100 MG/ML Oral Suspension
-102800,Sulfaguanidine 500 MG Oral Tablet
-102801,sulfanilylurea 500 MG Oral Tablet
-102803,Cycloserine 125 MG Oral Capsule
-102804,Ethambutol 200 MG / isoniazid 100 MG Oral Tablet [Mynah brand of ethambutol hydrochloride-isoniazid]
-102805,Ethambutol 365 MG / isoniazid 100 MG Oral Tablet [Mynah brand of ethambutol hydrochloride-isoniazid]
-102809,Tinidazole 2 MG/ML Injectable Solution
-102810,Noxythiolin 125 MG/ML Irrigation Solution [Noxyflex-S]
-102811,Noxythiolin 25 MG/ML Irrigation Solution [Noxyflex-S]
-102817,Ribavirin 20 MG/ML Inhalant Solution [Virazid]
-102819,Amodiaquine 200 MG Oral Tablet [Camoquine]
-102820,Amodiaquine 200 MG Oral Tablet
-102822,Pyrimethamine 12.5 MG Oral Tablet
-102824,piperazine 500 MG Oral Tablet [antepar]
-102828,piperazine 500 MG Oral Tablet
-102834,Diethylcarbamazine Citrate 50 MG Oral Tablet [Banocide]
-102845,Glyburide 5 MG Oral Tablet [Daonil]
-102847,glibornuride 25 MG Oral Tablet
-102849,glymidine 500 MG Oral Tablet [Gondafon]
-102850,glymidine 500 MG Oral Tablet
-102851,guar gum 25 MG/ML Oral Suspension
-102853,Diazoxide 50 MG Oral Tablet
-102857,prednisolone 16 MG/ML Injectable Solution [Codelsol]
-102858,prednisolone 5 MG Oral Tablet [Stintisone]
-102859,prednisolone 16 MG/ML Injectable Solution
-102862,Estriol 0.25 MG Oral Tablet
-102863,quinestradol 0.25 MG Oral Tablet
-102864,Quinestrol 4 MG Oral Tablet
-102865,tibolone 2.5 MG Oral Tablet [Livial]
-102868,Progesterone 10 MG/ML Injectable Solution
-102879,Methyltestosterone 5 MG Oral Tablet
-102880,Methyltestosterone 50 MG Oral Tablet
-102882,Methyltestosterone 5 MG Oral Tablet [Virormone]
-102883,Methyltestosterone 10 MG Oral Tablet [Virormone]
-102884,Methyltestosterone 25 MG Oral Tablet [Virormone]
-102892,Nandrolone 25 MG/ML Injectable Solution [Durabolin]
-102894,Stanozolol 50 MG/ML Injectable Solution
-102895,Corticotropin 20 UNT/ML Injectable Solution
-102896,Corticotropin 60 UNT/ML Injectable Solution
-102897,Cosyntropin 1 MG/ML Injectable Solution [Synacthen Depot]
-102908,Dinoprost 5 MG/ML Injectable Solution [Minprostin F2 Alpha]
-102913,Dienestrol 0.25 MG/ML Topical Cream [Hormofemin]
-102916,Clotrimazole 100 MG/ML Vaginal Cream [Canesten VC]
-102917,isoconazole 300 MG Vaginal Tablet [Travogyn]
-102919,Natamycin 20 MG/ML Topical Cream [Pimafucin]
-102920,Natamycin 25 MG Vaginal Tablet
-102929,Nonoxynol-9 0.05 MG/MG Vaginal Suppository [Genexol]
-102930,Nonoxynol-9 0.05 MG/MG Vaginal Suppository [Rendells]
-102931,Nonoxynol-9 50 MG/ML Vaginal Cream
-102933,Emepronium 100 MG Oral Tablet
-102934,diphenylpyraline 5 MG / Phenylpropanolamine 50 MG Extended Release Oral Capsule [Eskornade]
-102937,terodiline 12.5 MG Oral Tablet [Micturin]
-102938,terodiline 25 MG Oral Tablet [Micturin]
-102939,terodiline 12.5 MG Oral Tablet
-102948,Cyclophosphamide 10 MG Oral Tablet [Endoxana]
-102949,Ethoglucid 1130 MG/ML Injectable Solution [Epodyl]
-102950,Ethoglucid 1130 MG/ML Injectable Solution
-102953,Methotrexate 10 MG Oral Tablet [Emtexate]
-102954,Methotrexate 2.5 MG/ML Injectable Solution [Emtexate]
-102956,Methotrexate 100 MG/ML Injectable Solution [Emtexate]
-102958,Methotrexate 2.5 MG/ML Injectable Solution [Maxtrex]
-102974,Medroxyprogesterone 80 MG/ML Oral Suspension [Provera]
-102978,dromostanolone 100 MG/ML Injectable Solution
-102979,Cyproterone 50 MG Oral Tablet [Cyprostat]
-102980,Tamoxifen 10 MG Oral Tablet [Noltam]
-102981,Tamoxifen 20 MG Oral Tablet [Noltam]
-102983,Ferrous glycine sulfate 225 MG Oral Tablet [Kelferon]
-102984,Ferrous glycine sulfate 565 MG Oral Tablet
-102986,Ferrous glycine sulfate 225 MG Oral Tablet
-102988,ferrous sulfate 116 MG/ML Oral Solution
-102991,Polysaccharide iron complex 50 MG Oral Tablet [Niferex]
-103010,Hydroxocobalamin 0.25 MG/ML Injectable Solution
-103011,Vitamin B 12 1 MG/ML Injectable Solution [Hepacon B12]
-103014,Vitamin B 12 0.5 MG/ML Injectable Solution [Hepacon]
-103016,Vitamin B 12 0.5 MG/ML Injectable Solution
-103021,Potassium Chloride 8 MEQ Extended Release Oral Tablet [Leo-K]
-103022,Potassium Chloride 8 MEQ Extended Release Oral Tablet [Nu-K]
-103035,Dextran 110 60 MG/ML Injectable Solution [Dextraven-110]
-103069,calcium lactate 600 MG Oral Tablet
-103070,Calcium Gluconate 9.3 MG/ML Injectable Solution [Calcium-Sandoz]
-103073,Aluminum Hydroxide 475 MG Oral Capsule [Alu-Cap]
-103074,Calcium Carbonate 420 MG Oral Tablet [Titralac]
-103079,Sodium Fluoride 1 MG Oral Tablet [FluoriGard RMT]
-103080,Sodium Fluoride 0.25 MG Oral Tablet [En-De-Kay Fluo]
-103081,Sodium Fluoride 1 MG Oral Tablet [Zymafluor]
-103086,Thiamine 3 MG Oral Tablet [Benerva]
-103087,Thiamine 10 MG Oral Tablet [Benerva]
-103100,Alfacalcidol 0.005 MG/ML Oral Solution [One-Alpha]
-103102,Alfacalcidol 0.0002 MG/ML Oral Solution [One-Alpha]
-103106,Ergocalciferol 0.015 MG Oral Tablet [Chocovite]
-103107,Ergocalciferol 10 MG/ML Oral Solution [Sterogyl]
-103108,Dihydrotachysterol 0.2 MG Oral Tablet [Tachyrol]
-103109,Vitamin E 3 MG Oral Tablet [Ephynal]
-103110,Vitamin E 10 MG Oral Tablet [Ephynal]
-103111,Vitamin E 50 MG Oral Tablet [Ephynal]
-103112,Vitamin E 200 MG Oral Tablet [Ephynal]
-103113,Vitamin E 100 MG/ML Oral Suspension [Ephynal]
-103114,menadiol 10 MG/ML Injectable Solution [Synkavite]
-103148,Etodolac 200 MG Oral Tablet [Ramodar]
-103150,Indomethacin 25 MG Oral Capsule [Indoflex]
-103151,Indomethacin 25 MG Oral Capsule [Indolar]
-103152,Indomethacin 50 MG Oral Capsule [Indolar]
-103153,Indomethacin 100 MG Rectal Suppository [Indolar]
-103154,Indomethacin 25 MG Oral Capsule [Mobilan]
-103155,Indomethacin 50 MG Oral Capsule [Mobilan]
-103156,Indomethacin 75 MG Extended Release Oral Capsule [Slo-Indo]
-103157,Phenylbutazone 200 MG Oral Tablet [Butacote]
-103158,Phenylbutazone 100 MG Oral Tablet [Butazolidin]
-103159,Phenylbutazone 200 MG Oral Tablet [Butazolidin]
-103161,Tolmetin 400 MG Oral Capsule [Tolectin DS]
-103166,prednisolone 16 MG/ML Injectable Solution [Codelson]
-103167,Gold Sodium Thiomalate 2 MG/ML Injectable Solution
-103168,Colchicine 0.25 MG Oral Tablet
-103169,Pyridostigmine 1 MG/ML Injectable Solution [Mestinon]
-103170,Pyridostigmine 1 MG/ML Injectable Solution
-103172,Deoxyribonucleases 10 MG Delayed Release Oral Tablet [Deanase]
-103174,CHYMOTRYPSIN 50000 UNT Oral Tablet
-103175,CHYMOTRYPSIN 100000 UNT Oral Tablet
-103176,CHYMOTRYPSIN 10 MG Delayed Release Oral Tablet
-103191,Framycetin 5 MG/ML Ophthalmic Solution [Soframycin]
-103192,Framycetin 0.005 MG/MG Ophthalmic Ointment [Soframycin]
-103201,propamidine isethionate 1 MG/ML Ophthalmic Solution [Brolene]
-103202,Sulfacetamide Sodium 200 MG/ML Ophthalmic Solution [Albucid]
-103203,Sulfacetamide Sodium 0.025 MG/MG Ophthalmic Ointment [Albucid]
-103204,Sulfacetamide Sodium 0.06 MG/MG Ophthalmic Ointment [Albucid]
-103212,Betamethasone 1 MG/ML Ophthalmic Solution [Betnesol]
-103213,Betamethasone 1 MG/ML Ophthalmic Solution [Vista-methasone]
-103214,Clobetasone 1 MG/ML Ophthalmic Solution [Eumovate]
-103217,Dexamethasone Ophthalmic Ointment
-103221,Oxyphenbutazone 0.1 MG/MG Ophthalmic Ointment [Tanderil]
-103223,prednisolone 5 MG/ML Ophthalmic Solution [Predsol]
-103226,Cromolyn 0.04 MG/MG Ophthalmic Ointment [Opticrom]
-103227,Cromolyn Sodium 20 MG/ML Ophthalmic Solution [Opticrom Aqueous]
-103232,lachesine 10 MG/ML Ophthalmic Solution
-103236,Epinephrine 5 MG/ML / Guanethidine 50 MG/ML Ophthalmic Solution [Ganda]
-103237,Epinephrine 10 MG/ML / Guanethidine 50 MG/ML Ophthalmic Solution [Ganda]
-103238,Epinephrine 5 MG/ML / Guanethidine 50 MG/ML Ophthalmic Solution
-103239,Epinephrine 10 MG/ML / Guanethidine 50 MG/ML Ophthalmic Solution
-103240,Metipranolol 6 MG/ML Ophthalmic Solution [Minims Metipranolol]
-103241,Metipranolol 6 MG/ML Ophthalmic Solution [Glauline]
-103249,Polyvinyl Alcohol 0.014 ML/ML Ophthalmic Solution [Sno-Tears]
-103253,Sodium Chloride 0.154 MEQ/ML Ophthalmic Irrigation Solution
-103258,Rose Bengal 10 MG/ML Ophthalmic Solution [Minims Rose Bengal]
-103260,Betamethasone 1 MG/ML Otic Solution [Betnesol]
-103261,Betamethasone 1 MG/ML Otic Solution [Vista-methasone]
-103263,prednisolone 5 MG/ML Otic Solution [Predsol]
-103264,prednisolone 5 MG/ML Otic Solution
-103265,Clioquinol 10 MG/ML Otic Solution
-103273,Neomycin 5 MG/ML Otic Solution
-103274,Tetracycline 0.01 MG/MG Otic Ointment
-103289,Cromolyn Sodium 5.2 MG/ACTUAT Nasal Spray [Rynacrom]
-103308,Carbenoxolone 0.02 MG/MG Oral Gel [Bioral]
-103309,Carbenoxolone 10 MG/ML Mouthwash [Bioplex brand of carbenoxolone sodium]
-103318,polynoxylin 30 MG Oral Lozenge
-103323,chlorhexidine gluconate 0.01 MG/MG Oral Gel [Corsodyl]
-103328,Chlorhexidine Mouthwash
-103331,Hydrogen Peroxide Mouthwash
-103358,dimethicone 100 MG/ML Topical Cream
-103388,Tetracaine 10 MG/ML Topical Cream [Anethaine]
-103394,Dibucaine 0.011 MG/MG Topical Ointment [Nupercainal]
-103396,Hydrocortisone 1 MG/ML Topical Cream [Dioderm]
-103397,Hydrocortisone 1.25 MG/ML Topical Cream
-103399,Hydrocortisone 10 MG/ML Topical Cream [Hydrocortistab]
-103401,Hydrocortisone 0.025 MG/MG Topical Ointment
-103403,Hydrocortisone 10 MG/ML Topical Lotion
-103413,Beclomethasone Dipropionate 0.00025 MG/MG Topical Ointment [Beconase]
-103414,Beclomethasone Dipropionate 0.00025 MG/MG Topical Ointment [Propaderm A]
-103415,Beclomethasone Dipropionate 0.25 MG/ML Topical Cream [Propaderm C]
-103416,Beclomethasone Dipropionate 0.00025 MG/MG Topical Ointment [Propaderm C]
-103419,Betamethasone 1 MG/ML Topical Lotion [Betnovate]
-103422,Betamethasone 0.25 MG/ML Topical Cream [Betnovate RD]
-103423,Betamethasone 0.00025 MG/MG Topical Ointment [Betnovate RD]
-103426,Betamethasone 1 MG/ML Topical Cream [Betnovate]
-103427,Betamethasone 0.001 MG/MG Topical Ointment [Betnovate]
-103430,Clobetasol Propionate 0.5 MG/ML Topical Cream [Dermovate]
-103431,Clobetasol Propionate 0.0005 MG/MG Topical Ointment [Dermovate]
-103437,clobetasone butyrate 0.5 MG/ML Topical Cream [Eumovate]
-103438,clobetasone butyrate 0.0005 MG/MG Topical Ointment [Eumovate]
-103439,Desonide 0.5 MG/ML Topical Cream [Tridesilon]
-103443,Desoximetasone 0.0005 MG/MG Topical Ointment [Stiedex LP]
-103444,Diflucortolone 1 MG/ML Topical Cream [Nerisone]
-103445,Diflucortolone 0.001 MG/MG Topical Ointment [Nerisone]
-103446,Diflucortolone 0.003 MG/MG Topical Ointment [Nerisone]
-103448,Fluclorolone 0.25 MG/ML Topical Cream [Topilar]
-103449,Fluclorolone 0.00025 MG/MG Topical Ointment [Topilar]
-103456,Fluocinonide 0.5 MG/ML Topical Cream
-103457,Fluocinonide 0.0005 MG/MG Topical Ointment
-103458,Fluocinonide 0.5 MG/ML Topical Lotion [Metosyn]
-103459,Fluocortolone 2 MG/ML Topical Cream
-103460,Fluocortolone 0.002 MG/MG Topical Ointment
-103461,Fluocortolone Caproate 2.5 MG/ML / Fluocortolone Pivalate 2.5 MG/ML Topical Cream
-103462,Fluocortolone Caproate 0.0025 MG/MG / Fluocortolone Pivalate 0.0025 MG/MG Topical Ointment
-103463,Flurandrenolide 0.125 MG/ML Topical Cream [Haelan]
-103464,Flurandrenolide 0.000125 MG/MG Topical Ointment [Haelan]
-103465,Flurandrenolide 0.5 MG/ML Topical Cream [Haelan-X]
-103466,Flurandrenolide 0.0005 MG/MG Topical Ointment [Haelan-X]
-103467,Halcinonide 1 MG/ML Topical Cream
-103472,Budesonide 0.25 MG/ML Topical Cream [Preferid]
-103473,Budesonide 0.00025 MG/MG Topical Ointment [Preferid]
-103474,Coal Tar 100 MG/ML Topical Solution
-103475,Coal Tar 20 MG/ML Topical Cream [Carbo-Dome]
-103476,Coal Tar 10 MG/ML Topical Cream [Clinitar]
-103480,Coal Tar 0.05 MG/MG Topical Gel [Gelcosal]
-103485,Bufexamac 50 MG/ML Topical Cream [Jomax]
-103490,Anthralin 1 MG/ML Topical Cream [Dithrocream]
-103491,Anthralin 2.5 MG/ML Topical Cream [Dithrocream]
-103492,Anthralin 5 MG/ML Topical Cream [Dithrocream Forte]
-103493,Anthralin 10 MG/ML Topical Cream [Dithrocream HP]
-103495,Anthralin 20 MG/ML Topical Cream [Dithrocream]
-103496,Anthralin 10 MG/ML Topical Cream [Exolan]
-103500,Benzoyl Peroxide 0.025 MG/MG Topical Gel [Acetoxyl]
-103501,Benzoyl Peroxide 0.05 MG/MG Topical Gel [Acetoxyl]
-103502,Benzoyl Peroxide 0.05 MG/MG Topical Gel [Acnegel]
-103503,Benzoyl Peroxide 0.1 MG/MG Topical Gel [Acnegel Forte]
-103511,Benzoyl Peroxide 0.05 MG/MG Topical Gel [Theraderm]
-103512,Benzoyl Peroxide 0.1 MG/MG Topical Gel [Theraderm]
-103518,Erythromycin 20 MG/ML Topical Lotion
-103519,Erythromycin 20 MG/ML Topical Lotion [Stiemycin]
-103524,Salicylic Acid 0.5 MG/MG Topical Ointment [Verrugon]
-103526,Glutaral 100 MG/ML Topical Solution [Glutarol]
-103527,Glutaral 0.1 MG/MG Topical Gel [Verucasep]
-103528,podofilox 5 MG/ML Topical Solution [Wartec]
-103529,podofilox 5 MG/ML Topical Solution [Condyline]
-103568,Salicylic Acid 20 MG/ML Topical Lotion
-103569,lithium succinate 0.08 MG/MG Topical Ointment [Efalith]
-103570,Mupirocin 0.02 MG/MG Topical Ointment [Bactroban]
-103572,Nitrofurazone 0.002 MG/MG Topical Ointment
-103574,Fusidate 20 MG/ML Topical Cream [Fucidin]
-103575,Fusidate 0.02 MG/MG Topical Gel [Fucidin]
-103577,Fusidate 0.02 MG/MG Topical Ointment [Fucidin]
-103584,Clotrimazole 0.01 MG/MG Topical Powder [Canesten]
-103585,Econazole Nitrate 10 MG/ML Topical Lotion [Pevaryl]
-103586,Econazole 0.01 MG/MG Powder Spray [Pevaryl]
-103598,Amorolfine 2.5 MG/ML Topical Cream [Loceryl]
-103603,Carbaryl 5 MG/ML Topical Lotion [Carylderm]
-103605,Carbaryl 5 MG/ML Topical Lotion [Clinicide]
-103606,Carbaryl 5 MG/ML Topical Lotion [Suleo-C]
-103611,Lindane 10 MG/ML Topical Cream [lorexane]
-103617,Malathion 5 MG/ML Topical Lotion [Prioderm]
-103620,monosulfiram 250 MG/ML Topical Solution [Tetmosol]
-103625,phenothrin 2 MG/ML Topical Lotion [Full Marks]
-103626,Permethrin 10 MG/ML Medicated Shampoo [Lyclear]
-103629,polynoxylin 100 MG/ML Topical Cream [Anaflex]
-103630,dibrompropamidine 1.5 MG/ML Topical Cream [Brulidine]
-103631,Cetrimide 5 MG/ML Topical Cream [Cetavlex]
-103633,polynoxylin 0.1 MG/MG Topical Gel [Ponoxylan]
-103638,Chlorhexidine 0.005 MG/MG Topical Powder
-103640,chlorhexidine gluconate 40 MG/ML Topical Solution [Hibiscrub]
-103641,chlorhexidine gluconate 5 MG/ML Topical Solution [Hibisol]
-103644,chlorhexidine gluconate 10 MG/ML Topical Cream [Hibitane Obstetric]
-103646,chlorhexidine gluconate 40 MG/ML Topical Solution [pHiso-Med]
-103664,chloroxylenol 13 MG/ML Topical Lotion [Dettol]
-103665,Hydrogen Peroxide 270 MG/ML Topical Solution
-103667,Povidone-Iodine 0.025 MG/MG Powder Spray [Betadine]
-103668,Povidone-Iodine 40 MG/ML Medicated Liquid Soap [Betadine]
-103670,Povidone-Iodine 100 MG/ML Topical Solution [Videne]
-103671,Sodium Chloride 0.154 MEQ/ML Topical Solution [Normasol]
-103672,Sodium Chloride 0.154 MEQ/ML Topical Solution [Steripod Blue]
-103676,aluminum chloride 200 MG/ML Topical Solution [Anhydrol Forte]
-103678,aluminum chloride 190 MG/ML Topical Cream [Hyperdrol]
-103681,Benzoyl Peroxide 200 MG/ML Topical Lotion [Benoxyl]
-103682,Hydrogen Peroxide 15 MG/ML Topical Cream [Hioxyl]
-103739,Thiopental 250 MG/ML Injectable Solution
-103746,Alfentanil 0.1 MG/ML Injectable Solution
-103747,Levorphanol 2 MG/ML Injectable Solution [Dromoran]
-103749,Papaveretum 10 MG Oral Tablet [Omnopon]
-103750,Papaveretum 20 MG/ML Injectable Solution [Omnopon]
-103751,Papaveretum 10 MG/ML Injectable Solution [Omnopon]
-103753,Papaveretum 10 MG Oral Tablet
-103754,Papaveretum Injectable Solution
-103773,Ibuprofen 50 MG/ML Topical Cream [Proflex]
-103781,Carteolol 10 MG Oral Tablet
-103782,Carteolol 10 MG Oral Tablet [Cartrol]
-103786,Isotretinoin 0.0005 MG/MG Topical Gel [Isotrex]
-103795,Chlorhexidine Acetate 0.5 MG/ML Topical Solution [Steripod Pink]
-103798,Benzoyl Peroxide 0.05 MG/MG Topical Gel [Acnecide]
-103799,Benzoyl Peroxide 0.1 MG/MG Topical Gel [Acnecide]
-103806,Rauwolfia Alkaloids 2 MG Oral Tablet
-103812,Dibromopropamidine isethionate 1 MG/ML Ophthalmic Solution [Golden Eye]
-103813,Dibromopropamidine isethionate 0.0015 MG/MG Ophthalmic Ointment [Golden Eye]
-103816,Cetrimide 1.5 MG/ML / chlorhexidine gluconate 0.15 MG/ML Topical Solution [Tisept]
-103817,Cetrimide 5 MG/ML / chlorhexidine gluconate 0.5 MG/ML Topical Solution [Tisept]
-103823,Minocycline 0.02 MG/MG Oral Gel
-103831,chlorhexidine gluconate 200 MG/ML Topical Solution [Hibitane]
-103835,Levamisole 50 MG Oral Tablet
-103840,Econazole Nitrate 0.01 MG/MG Topical Powder [Pevaryl]
-103841,Nonoxynol-9 0.06 MG/MG Vaginal Suppository
-103842,Naproxen 500 MG Oral Tablet [Timpron]
-103844,Povidone-Iodine 0.0114 MG/MG Powder Spray [Savlon Dry]
-103859,Acyclovir 80 MG/ML Oral Suspension
-103860,Apomorphine 10 MG/ML Injectable Solution [Britaject]
-103862,oxitropium 0.1 MG/ACTUAT Inhalant Solution [Oxivent]
-103863,Aspirin 150 MG Rectal Suppository
-103864,Timolol 2.5 MG/ML Ophthalmic Solution [Glaucol]
-103865,Timolol 5 MG/ML Ophthalmic Solution [Glaucol]
-103867,Metronidazole 0.25 MG/MG Oral Gel
-103868,Amoxicillin 250 MG Oral Capsule [Galenamox TP]
-103869,Amoxicillin 500 MG Oral Capsule [Galenamox TP]
-103870,Clarithromycin 50 MG/ML Injectable Suspension [Klaricid IV]
-103872,Minocycline 50 MG Oral Capsule [Aknemin]
-103873,Minocycline 100 MG Oral Capsule [Aknemin]
-103877,Celiprolol 400 MG Oral Tablet [Celectol]
-103894,tenoxicam 10 MG/ML Injectable Solution
-103895,tenoxicam 10 MG/ML Injectable Solution [Mobiflex]
-103897,Papaveretum 15.4 MG/ML Injectable Solution
-103898,Papaveretum 15.4 MG/ML Injectable Solution [Omnopon]
-103899,Rifabutin 150 MG Oral Capsule [Mycobutin]
-103903,Ketoprofen 150 MG Extended Release Oral Capsule
-103907,Naproxen 250 MG Oral Tablet [Timpron]
-103909,Granisetron 1 MG Oral Tablet [Kytril]
-103910,Carbamazepine 100 MG Oral Tablet [Epimaz]
-103911,Carbamazepine 200 MG Oral Tablet [Epimaz]
-103912,Carbamazepine 400 MG Oral Tablet [Epimaz]
-103916,Fosfomycin 2000 MG Oral Suspension [Monuril Paediatric]
-103918,fluvastatin 20 MG Oral Capsule [Lescol]
-103919,fluvastatin 40 MG Oral Capsule [Lescol]
-103920,Fenofibrate 200 MG Oral Capsule [Lipantil Micro]
-103927,Morphine Sulfate 6.67 MG/ML Oral Suspension [MST Continus]
-103932,Amiloride Hydrochloride 2.5 MG / Furosemide 20 MG Oral Tablet [Aridil]
-103933,Amiloride Hydrochloride 5 MG / Furosemide 40 MG Oral Tablet [Aridil]
-103934,Amiloride Hydrochloride 10 MG / Furosemide 80 MG Oral Tablet [Aridil]
-103941,Carbamazepine 125 MG Rectal Suppository
-103942,Carbamazepine 250 MG Rectal Suppository
-103943,Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan]
-103944,12 HR Nifedipine 20 MG Extended Release Oral Tablet [Cardilate MR]
-103945,quinapril 40 MG Oral Tablet [Accupro]
-103951,Tolnaftate 10 MG/ML Topical Cream
-103954,Aspirin 75 MG Delayed Release Oral Tablet
-103955,Terfenadine 60 MG Oral Tablet [Terfinax]
-103956,Alprostadil 0.02 MG Injection [Caverject]
-103959,Loperamide Hydrochloride 2 MG Oral Capsule [LoperaGen]
-103966,Hydrochlorothiazide 12.5 MG / Lisinopril 10 MG Oral Tablet [Carace Plus]
-103967,Aspirin 300 MG Delayed Release Oral Tablet [postMI]
-103968,lamotrigine 100 MG Disintegrating Oral Tablet
-103970,tramadol hydrochloride 50 MG/ML Injectable Solution [Zydol]
-103971,tramadol hydrochloride 50 MG Oral Capsule [Zydol]
-103972,Ibuprofen 50 MG/ML Topical Cream [Proflex Pain Relief]
-103976,Zolpidem tartrate 5 MG Oral Tablet [Stilnoct]
-103977,Urofollitropin 150 UNT/ML Injectable Solution [Orgafol]
-103983,Isosorbide Mononitrate 50 MG Extended Release Oral Tablet [MCR (Mono-Cedocard Retard)]
-104015,Magnesium Hydroxide 83 MG/ML Oral Suspension
-104019,Sodium Bicarbonate 300 MG Oral Tablet
-104020,Sodium Bicarbonate 600 MG Oral Tablet
-104021,Sodium Bicarbonate 500 MG Oral Capsule
-104022,hydrotalcite 500 MG Chewable Tablet
-104023,hydrotalcite 100 MG/ML Oral Suspension
-104024,Aluminum Hydroxide 600 MG / Magnesium Hydroxide 300 MG Oral Tablet
-104038,Dicyclomine Hydrochloride 10 MG Oral Tablet [Merbentyl]
-104040,Dicyclomine Hydrochloride 20 MG Oral Tablet [Merbentyl]
-104044,Mepenzolate 25 MG Oral Tablet [Cantil]
-104045,pipenzolate 5 MG Oral Tablet [Piptal]
-104047,dimethicone 8 MG/ML / pipenzolate 0.8 MG/ML Oral Suspension
-104048,pipenzolate 5 MG Oral Tablet
-104049,poldine 2 MG Oral Tablet [Nacton]
-104050,poldine 4 MG Oral Tablet [Nacton Forte]
-104051,poldine 4 MG Oral Tablet
-104052,Propantheline 15 MG Oral Tablet [Probanthine]
-104054,alverine 60 MG Oral Capsule [Spasmonal]
-104055,alverine 60 MG Oral Capsule
-104057,mebeverine 135 MG Oral Tablet [Fomac]
-104062,Cimetidine 200 MG Oral Tablet [Tagamet]
-104063,Cimetidine 400 MG Oral Tablet [Tagamet]
-104064,Cimetidine 800 MG Oral Tablet [Tagamet]
-104066,Cimetidine 200 MG Chewable Tablet [Dyspamet]
-104067,Cimetidine 40 MG/ML Oral Suspension [Dyspamet]
-104068,Cimetidine 200 MG Oral Tablet [Galenamet]
-104070,Cimetidine 400 MG Oral Tablet [Galenamet]
-104071,Cimetidine 800 MG Oral Tablet [Galenamet]
-104074,Cimetidine 200 MG Oral Tablet [Peptimax 200]
-104075,Cimetidine 200 MG Oral Tablet [Phimetin]
-104076,Cimetidine 400 MG Oral Tablet [Peptimax 400]
-104077,Cimetidine 400 MG Oral Tablet [Phimetin]
-104078,Cimetidine 800 MG Oral Tablet [Peptimax 800]
-104079,Cimetidine 800 MG Oral Tablet [Phimetin]
-104080,Cimetidine 200 MG Oral Tablet [Zita]
-104081,Cimetidine 400 MG Oral Tablet [Zita]
-104082,Cimetidine 800 MG Oral Tablet [Zita]
-104083,Cimetidine 200 MG Oral Tablet [Ultec]
-104084,Ranitidine 25 MG/ML Injectable Solution [Zantac]
-104086,Ranitidine 1.68 MG/ML Oral Solution [Zantac]
-104088,bismuth subcitrate 120 MG Oral Tablet [De-Nol]
-104089,Sucralfate 1000 MG Oral Tablet [Antepsin]
-104090,Sucralfate 200 MG/ML Oral Suspension [Antepsin]
-104094,Famotidine 20 MG Oral Tablet [Pepcid]
-104095,Famotidine 40 MG Oral Tablet [Pepcid]
-104096,Nizatidine 150 MG Oral Capsule [Axid]
-104097,Nizatidine 300 MG Oral Capsule [Axid]
-104098,Misoprostol 0.2 MG Oral Tablet [Cytotec]
-104099,Omeprazole 20 MG Delayed Release Oral Capsule [Losec]
-104108,Atropine / Diphenoxylate Oral Solution [Lomotil]
-104112,mesalamine 400 MG Delayed Release Oral Tablet [Asacol]
-104113,mesalamine 10 MG/ML Enema
-104114,mesalamine 250 MG Extended Release Oral Tablet [Pentasa]
-104115,mesalamine 250 MG Delayed Release Oral Tablet [Canasa]
-104118,Sulfasalazine 500 MG Rectal Suppository [Azulfidine]
-104119,Sulfasalazine 30 MG/ML Enema [Azulfidine]
-104120,Sulfasalazine 50 MG/ML Oral Suspension [Azulfidine]
-104121,Sulfasalazine 50 MG/ML Oral Suspension
-104122,Sulfasalazine 30 MG/ML Enema
-104134,Methylcellulose 500 MG Oral Tablet [Celevac]
-104135,Karaya Gum 620 MG/ML Oral Solution
-104141,picosulfate sodium 0.0667 MG/ML Oral Solution [Picolax]
-104143,picosulfate sodium 0.0667 MG/ML Oral Solution
-104148,Lactulose 670 MG/ML Oral Solution
-104155,Glycerin 2000 MG Rectal Suppository
-104156,Glycerin 4000 MG Rectal Suppository
-104157,Bisacodyl 5 MG Rectal Suppository [Dulcolax]
-104158,Oxyphenisatin 50 MG Enema [Veripaque]
-104159,Sodium Phosphate, Monobasic 1720 MG Rectal Suppository [Carbalax]
-104160,Oxyphenisatin 50 MG Enema
-104161,Sodium Phosphate, Monobasic 1720 MG Rectal Suppository
-104163,Magnesium Sulfate 500 MG/ML Enema
-104171,prednisolone 0.2 MG/ML Enema [Predenema]
-104172,prednisolone 0.2 MG/ML Enema [Predsol]
-104173,prednisolone 5 MG Rectal Suppository [Predsol]
-104174,prednisolone 20 MG Enema [Predfoam]
-104184,Chenodeoxycholate 250 MG Oral Tablet [Chendol]
-104185,Chenodeoxycholate 250 MG Oral Tablet [Chenofalk]
-104186,Ursodiol 150 MG Oral Tablet [Destolit]
-104187,Ursodiol 250 MG Oral Capsule [Ursofalk]
-104196,Glutamate 500 MG Oral Tablet [Muripsin]
-104206,Digoxin 0.0625 MG Oral Tablet [Lanoxin]
-104208,2 ML Digoxin 0.25 MG/ML Injection
-104210,lanatoside C 0.25 MG Oral Tablet
-104211,Bendroflumethiazide 2.5 MG Oral Tablet [Neo-Bendromax]
-104212,Bendroflumethiazide 5 MG Oral Tablet [Neo-Bendromax]
-104213,Mefruside 25 MG Oral Tablet
-104214,Xipamide 20 MG Oral Tablet
-104216,Furosemide 20 MG Oral Tablet [Rusyde]
-104217,Furosemide 40 MG Oral Tablet [Rusyde]
-104218,Furosemide 500 MG Oral Tablet [Lasix]
-104220,Furosemide 4 MG/ML Oral Solution
-104221,Furosemide 1 MG/ML Oral Solution [Lasix]
-104222,Bumetanide 5 MG Oral Tablet
-104223,Bumetanide 0.5 MG/ML Injectable Solution
-104224,piretanide 6 MG Oral Capsule [Arelix]
-104225,piretanide 6 MG Extended Release Oral Capsule
-104226,Canrenone 20 MG/ML Injectable Solution
-104227,Spironolactone 25 MG Oral Tablet [Spirolone]
-104228,Spironolactone 50 MG Oral Tablet [Spirolone]
-104229,Spironolactone 100 MG Oral Tablet [Spirospare]
-104230,Spironolactone 1 MG/ML Oral Suspension
-104231,Spironolactone 2 MG/ML Oral Suspension
-104232,Spironolactone 5 MG/ML Oral Suspension
-104233,Spironolactone 10 MG/ML Oral Suspension
-104234,Spironolactone 100 MG Oral Capsule
-104243,Amiloride Hydrochloride 2.5 MG / Hydrochlorothiazide 25 MG Oral Tablet [Moduret]
-104245,benzthiazide 25 MG / Triamterene 50 MG Oral Capsule
-104246,Chlorthalidone 25 MG / Triamterene 50 MG Oral Tablet
-104248,Chlorthalidone 50 MG / Triamterene 50 MG Oral Tablet
-104263,Bumetanide 0.5 MG / Potassium 7.7 MMOL Extended Release Oral Tablet
-104264,Bendroflumethiazide 2.5 MG / Potassium 7.7 MMOL Extended Release Oral Tablet
-104265,Furosemide 40 MG / Potassium 8 MMOL Extended Release Oral Tablet
-104266,Furosemide 20 MG / Potassium 10 MMOL Extended Release Oral Tablet
-104267,Bendroflumethiazide 2.5 MG / Potassium 8.4 MMOL Extended Release Oral Tablet
-104270,Verapamil hydrochloride 40 MG Oral Tablet [Geangin]
-104271,Verapamil hydrochloride 80 MG Oral Tablet [Geangin]
-104272,Verapamil hydrochloride 120 MG Oral Tablet [Geangin]
-104273,Verapamil hydrochloride 240 MG Extended Release Oral Tablet [Securon SR]
-104276,24 HR Verapamil hydrochloride 120 MG Extended Release Oral Capsule [Univer]
-104277,24 HR Verapamil hydrochloride 240 MG Extended Release Oral Capsule [Univer]
-104278,24 HR Verapamil hydrochloride 180 MG Extended Release Oral Capsule [Univer]
-104284,Disopyramide 250 MG Extended Release Oral Capsule [Isomide CR]
-104285,Disopyramide 250 MG Extended Release Oral Capsule
-104293,Propranolol Hydrochloride 10 MG Oral Tablet [Cardinol]
-104294,Propranolol Hydrochloride 40 MG Oral Tablet [Cardinol]
-104295,Propranolol Hydrochloride 80 MG Oral Tablet [Cardinol]
-104296,Propranolol Hydrochloride 160 MG Oral Tablet [Cardinol]
-104300,Propranolol Hydrochloride 80 MG Extended Release Oral Capsule [Sloprolol]
-104301,Acebutolol Hydrochloride 100 MG Oral Capsule [Sectral]
-104303,Acebutolol Hydrochloride 400 MG Oral Tablet [Sectral]
-104304,Atenolol 50 MG Oral Tablet [Totamol]
-104305,Atenolol 100 MG Oral Tablet [Totamol]
-104306,Atenolol 25 MG Oral Tablet [Totamol]
-104308,Atenolol 0.5 MG/ML Injectable Solution
-104311,Labetalol hydrochloride 400 MG Oral Tablet [Trandate]
-104314,Oxprenolol 20 MG Oral Tablet [Trasicor]
-104315,Oxprenolol 40 MG Oral Tablet [Trasicor]
-104316,Oxprenolol 80 MG Oral Tablet [Trasicor]
-104317,Oxprenolol 160 MG Oral Tablet [Trasicor]
-104318,Oxprenolol 160 MG Extended Release Oral Tablet [Trasicor Retard]
-104324,Bendroflumethiazide 5 MG / Nadolol 80 MG Oral Tablet [Corgaretic]
-104332,Chlorthalidone 12.5 MG / Metoprolol 100 MG Oral Tablet
-104337,Atenolol 50 MG / Chlorthalidone 12.5 MG Oral Tablet [Tenoret]
-104338,Hydrochlorothiazide 25 MG / Sotalol 160 MG Oral Tablet
-104340,Hydrochlorothiazide 12.5 MG / Sotalol 80 MG Oral Tablet
-104343,Atenolol 50 MG / Chlorthalidone 12.5 MG Oral Tablet [Tenchlor]
-104344,Atenolol 100 MG / Chlorthalidone 25 MG Oral Tablet [Tenchlor]
-104348,Bisoprolol Fumarate 5 MG Oral Tablet [Emcor LS]
-104349,Bisoprolol Fumarate 10 MG Oral Tablet [Emcor]
-104350,Celiprolol 200 MG Oral Tablet [Celectol]
-104357,Methyldopa 250 MG Oral Capsule
-104358,Debrisoquin 10 MG Oral Tablet [Declinax]
-104359,Indoramin 25 MG Oral Tablet [Baratol]
-104360,Indoramin 50 MG Oral Tablet [Baratol]
-104361,Indoramin 20 MG Oral Tablet [Doralese]
-104363,Terazosin 5 MG Oral Tablet [Hytrin]
-104364,Terazosin 10 MG Oral Tablet [Hytrin]
-104366,Terazosin 2 MG Oral Tablet [Hytrin]
-104367,Doxazosin 1 MG Oral Tablet [Cardura]
-104368,Doxazosin 2 MG Oral Tablet [Cardura]
-104369,Doxazosin 4 MG Oral Tablet [Cardura]
-104370,Captopril 25 MG / Hydrochlorothiazide 12.5 MG Oral Tablet
-104375,Lisinopril 2.5 MG Oral Tablet [Zestril]
-104376,Lisinopril 5 MG Oral Tablet [Zestril]
-104377,Lisinopril 10 MG Oral Tablet [Zestril]
-104378,Lisinopril 20 MG Oral Tablet [Zestril]
-104382,Perindopril Erbumine 4 MG Oral Tablet [Coversyl]
-104384,Ramipril 2.5 MG Oral Capsule [Altace]
-104385,Ramipril 5 MG Oral Capsule [Altace]
-104388,Cilazapril 0.25 MG Oral Tablet [Vascace]
-104389,Cilazapril 0.5 MG Oral Tablet [Vascace]
-104398,Isosorbide Mononitrate 50 MG Extended Release Oral Capsule [MCR (Mono-Cedocard Retard)]
-104399,Isosorbide Mononitrate 20 MG Oral Tablet [Isotrate]
-104400,Isosorbide Mononitrate 40 MG Extended Release Oral Tablet [Monit SR]
-104402,Isosorbide Mononitrate 25 MG Extended Release Oral Capsule
-104403,pentaerythritol 30 MG Oral Tablet
-104406,24 HR Diltiazem Hydrochloride 300 MG Extended Release Oral Capsule [Adizem-XL]
-104407,12 HR Diltiazem Hydrochloride 90 MG Extended Release Oral Capsule [Dilzem SR]
-104408,12 HR Diltiazem Hydrochloride 120 MG Extended Release Oral Capsule [Dilzem SR]
-104409,12 HR Diltiazem Hydrochloride 60 MG Extended Release Oral Capsule [Dilzem SR]
-104411,Nifedipine 5 MG Oral Capsule [Angiopine]
-104412,Nifedipine 10 MG Oral Capsule [Adalate]
-104414,12 HR Nifedipine 20 MG Extended Release Oral Tablet [Angiopine MR]
-104419,24 HR Felodipine 5 MG Extended Release Oral Tablet [Plendil]
-104420,24 HR Felodipine 10 MG Extended Release Oral Tablet [Plendil]
-104421,flosequinan 100 MG Oral Tablet
-104422,flosequinan 50 MG Oral Tablet
-104425,Isosorbide Dinitrate 20 MG Oral Tablet [Jeridin]
-104426,Isosorbide Dinitrate 20 MG Extended Release Oral Capsule
-104427,Isosorbide Dinitrate 0.5 MG/ML Injectable Solution
-104428,Isosorbide Dinitrate 1.25 MG/ACTUAT Oral Spray
-104429,Isosorbide Dinitrate 1 MG/ML Injectable Solution
-104430,Nitroglycerin 0.3 MG Sublingual Tablet [GTN]
-104433,Cinnarizine 75 MG Oral Capsule
-104435,nicofuranose 250 MG Delayed Release Oral Tablet
-104436,Inositol 500 MG Oral Capsule
-104437,Moxisylyte 40 MG Oral Tablet [Opilon]
-104438,Moxisylyte 40 MG Oral Tablet
-104440,Oxerutins 250 MG Oral Capsule [Paroven]
-104441,Oxerutins 250 MG Oral Capsule
-104443,Nafronyl 20 MG/ML Injectable Solution
-104451,Xamoterol 200 MG Oral Tablet [Corwin]
-104468,Phenindione 25 MG Oral Tablet
-104469,Phenindione 50 MG Oral Tablet
-104470,Dipyridamole 25 MG Oral Tablet [Modaplate]
-104471,Dipyridamole 100 MG Oral Tablet [Modaplate]
-104474,Aspirin 75 MG Oral Tablet
-104475,Aspirin 75 MG Disintegrating Oral Tablet
-104478,Anistreplase 6 UNT/ML Injectable Solution [Eminase]
-104480,Ethamsylate 500 MG Oral Tablet
-104481,Tranexamic Acid 500 MG Oral Tablet
-104489,Fenofibrate 100 MG Oral Capsule [Lipanthyl]
-104490,Simvastatin 10 MG Oral Tablet [Zocor]
+﻿10760$Triamcinolone Oral Paste
+25406$Nitrofurazone Topical Cream [Furacin]
+34246$Polymyxin B / Trimethoprim Ophthalmic Solution [Polytrim]
+89904$calcium chloride, dihydration 0.2 MG/ML / Potassium Chloride 0.3 MG/ML / Sodium Chloride 6 MG/ML / Sodium Lactate 3.1 MG/ML Irrigation Solution
+90127$compound benzoin tincture (USP) Topical Solution
+91318$Coal Tar Topical Solution
+91348$Hydrogen Peroxide 300 MG/ML Topical Solution
+91349$Hydrogen Peroxide 30 MG/ML Topical Solution
+91668$Tetracycline 0.01 MG/MG Ophthalmic Ointment [Achromycin]
+91669$Tetracycline 10 MG/ML Ophthalmic Suspension [Achromycin]
+91691$Nifedipine 10 MG Oral Capsule [Adalat]
+91692$Nifedipine 20 MG Oral Capsule [Adalat]
+91703$Ibuprofen Oral Tablet [Advil]
+91720$Pilocarpine Ophthalmic Solution [Akarpine]
+91729$Methyldopa Oral Suspension [Aldomet]
+91732$Alfentanil Injectable Solution [Alfenta]
+91792$Oxymetholone 50 MG Oral Tablet [Anadrol-50]
+91796$Naproxen Oral Tablet [Anaprox]
+91805$Methyltestosterone 10 MG Oral Tablet [Android-10]
+91809$Succinylcholine Injectable Solution [Anectine]
+91833$Vitamin K 1 Injectable Solution [Aquamephyton]
+91840$Chloroquine Injectable Solution [Aralen Hydrochloride]
+91843$Metaraminol Injectable Solution [Aramine]
+91878$Lorazepam Injectable Solution [Ativan]
+91879$Lorazepam Oral Tablet [Ativan]
+91889$Antipyrine / Benzocaine Otic Solution [Auralgan]
+91990$Betaxolol Ophthalmic Suspension [Betoptic S]
+91991$Betaxolol Ophthalmic Solution [Betoptic]
+92004$Sulfacetamide Ophthalmic Ointment [Bleph-10]
+92008$Timolol Oral Tablet [Blocadren]
+92015$bretylium Injectable Solution [Bretylol]
+92016$esmolol Injectable Solution [Brevibloc]
+92041$Bumetanide Injectable Solution [Bumex]
+92052$Verapamil Oral Tablet [Calan]
+92055$salmon calcitonin Injectable Solution [Calcimar]
+92084$Doxazosin Oral Tablet [Cardura]
+92089$Clonidine Oral Tablet [Catapres]
+92091$Ceftizoxime Injectable Solution [Cefizox]
+92113$Ceftazidime Injectable Solution [Ceptaz]
+92145$Benzocaine Oral Lozenge [Chloraseptic]
+92253$Amiodarone Oral Tablet [Cordarone]
+92254$Nadolol Oral Tablet [Corgard]
+92279$Warfarin Injectable Solution [Coumadin]
+92291$Medroxyprogesterone Oral Tablet [Cycrin]
+92292$Pemoline Chewable Tablet [Cylert]
+92301$desmopressin Injectable Solution [DDAVP]
+92316$dezocine Injectable Solution [Dalgan]
+92354$Prednisone Oral Tablet [Deltasone]
+92367$Coal Tar Medicated Shampoo [Denorex]
+92445$Hydromorphone Rectal Suppository [Dilaudid]
+92476$oxybutynin Oral Tablet [Ditropan]
+92479$Chlorothiazide Oral Suspension [Diuril]
+92567$Amitriptyline Injectable Solution [Elavil]
+92568$Amitriptyline Oral Tablet [Elavil]
+92579$Theophylline Extended Release Oral Capsule [Elixophyllin SR]
+92580$Guaifenesin / Theophylline Oral Solution [Elixophyllin-GG]
+92582$mometasone furoate 1 MG/ML Topical Cream [Elocon]
+92583$mometasone furoate 1 MG/ML Topical Lotion [Elocon]
+92584$mometasone furoate 0.001 MG/MG Topical Ointment [Elocon]
+92594$Amitriptyline Oral Tablet [Endep]
+92601$Edrophonium Injectable Solution [Enlon]
+92613$Epoetin Alfa Injectable Solution [Epogen]
+92623$Erythromycin Chewable Tablet [EryPed]
+92719$Metronidazole Oral Tablet [Flagyl]
+92730$cyclobenzaprine Oral Tablet [Flexeril]
+92743$Fluorometholone Ophthalmic Suspension [Fluor-Op]
+92751$Fluorouracil Topical Solution [Fluoroplex]
+92752$Fluorouracil 10 MG/ML Topical Cream [Fluoroplex]
+92758$Griseofulvin 165 MG Oral Tablet [Fulvicin P/G]
+92759$Griseofulvin 330 MG Oral Tablet [Fulvicin P/G]
+92772$Furazolidone Oral Suspension [Furoxone]
+92781$Sulfisoxazole Ophthalmic Solution [Gantrisin Ophthalmic]
+92784$Sulfisoxazole Oral Tablet [Gantrisin]
+92852$Ibuprofen Oral Tablet [Haltran]
+92892$prednisolone Injectable Solution [Hydeltrasol]
+92895$ergoloid mesylates, USP Oral Tablet [Hydergine]
+92929$Terazosin Oral Tablet [Hytrin]
+92950$Erythromycin Ophthalmic Ointment [Ilotycin]
+92960$Propranolol Oral Tablet [Inderal]
+92965$Indomethacin Oral Suspension [Indocin]
+92970$Droperidol / Fentanyl Injectable Solution [Innovar]
+92992$Verapamil Oral Tablet [Isoptin]
+93006$Isosorbide Dinitrate 2.5 MG Sublingual Tablet [Isordil]
+93007$Isosorbide Dinitrate 40 MG Extended Release Oral Capsule [Isordil Tembids]
+93029$Kanamycin Injectable Solution [Kantrex]
+93041$Triamcinolone Topical Cream [Kenalog]
+93042$Triamcinolone Topical Lotion [Kenalog]
+93043$Triamcinolone Topical Ointment [Kenalog]
+93044$Triamcinolone Topical Spray [Kenalog]
+93053$Betaxolol Oral Tablet [Kerlone]
+93055$Clonazepam Oral Tablet [Klonopin]
+93065$Vitamin K 1 Injectable Solution [Konakion]
+93073$Amylases / Endopeptidases / Lipase Oral Capsule [Kutrase]
+93101$Furosemide Oral Solution [Lasix]
+93130$Fluocinonide 0.0005 MG/MG Topical Gel [Lidex]
+93131$Fluocinonide 0.5 MG/ML Topical Solution [Lidex]
+93181$Dyphylline 400 MG Oral Tablet [Lufyllin]
+93183$Dyphylline Injectable Solution [Lufyllin]
+93188$Leuprolide Injectable Solution [Lupron]
+93193$Gonadorelin Injectable Solution [Lutrepulse]
+93199$Morphine Oral Solution [MSIR]
+93249$Dexamethasone / Neomycin / Polymyxin B Ophthalmic Ointment [Maxitrol]
+93250$Dexamethasone / Neomycin / Polymyxin B Ophthalmic Suspension [Maxitrol]
+93252$Hydrochlorothiazide 50 MG / Triamterene 75 MG Oral Tablet [Maxzide]
+93253$Hydrochlorothiazide 25 MG / Triamterene 37.5 MG Oral Tablet [Maxzide]
+93278$Mesna Injectable Solution [Mesnex]
+93312$Glyburide Oral Tablet [Micronase]
+93319$Meprobamate 600 MG Oral Tablet [Miltown]
+93325$Minocycline Oral Suspension [Minocin]
+93328$Thiabendazole Chewable Tablet [Mintezol]
+93354$Cefonicid Injectable Solution [Monocid]
+93358$Ibuprofen Oral Tablet [Motrin]
+93370$Clotrimazole 500 MG Vaginal Tablet [Mycelex-G]
+93377$Nystatin Oral Suspension [Mycostatin]
+93378$Nystatin Oral Tablet [Mycostatin]
+93382$Metolazone 0.5 MG Oral Tablet [Mykrox]
+93415$Naphazoline / Pheniramine Ophthalmic Solution [Naphcon A]
+93416$Naproxen Oral Suspension [Naprosyn]
+93417$Naproxen Oral Tablet [Naprosyn]
+93418$Naloxone Injectable Solution [Narcan]
+93459$chloroprocaine Injectable Solution [Nesacaine]
+93462$Netilmicin 100 MG/ML Injectable Solution [Netromycin]
+93469$Niacin Oral Tablet [Niacor]
+93470$Niclosamide Chewable Tablet [Niclocide]
+93471$Niacin Oral Tablet [Nicolar]
+93485$Nitroglycerin Topical Ointment [Nitro-Bid]
+93488$Nitroglycerin Topical Ointment [Nitrol]
+93514$Tamoxifen Oral Tablet [Nolvadex]
+93536$Labetalol Injectable Solution [Normodyne]
+93564$Nalbuphine Injectable Solution [Nubain]
+93574$Ibuprofen Oral Tablet [Nuprin]
+93576$doxacurium Injectable Solution [Nuromax]
+93593$estropipate Oral Tablet [Ogen]
+93594$estropipate Vaginal Cream [Ogen]
+93651$xylometazoline Nasal Spray [Otrivin]
+93652$xylometazoline Nasal Solution [Otrivin]
+93672$Oxytocin Injectable Solution
+93698$Carboplatin Injectable Solution [Paraplatin]
+93720$prednisolone Oral Solution [Pediapred]
+93731$Famotidine Oral Suspension [Pepcid]
+93732$Famotidine Oral Tablet [Pepcid]
+93752$Penicillin G Injectable Solution [Pfizerpen]
+93756$Simethicone 95 MG Oral Tablet [Phazyme]
+93782$Pilocarpine Ophthalmic Solution [Pilocar]
+93786$Oxytocin Injectable Solution [Pitocin]
+93787$Hydroxychloroquine Oral Tablet [Plaquenil]
+93789$Cisplatin Injectable Solution [Platinol]
+93811$Citric Acid / potassium citrate Oral Solution [Polycitra-K]
+93814$Bacitracin / Polymyxin B Topical Ointment [Polysporin]
+93855$Ampicillin Oral Suspension [Principen]
+93866$Nifedipine Oral Capsule [Procardia]
+93868$Epoetin Alfa Injectable Solution [Procrit]
+93877$Fluphenazine Injectable Solution [Prolixin]
+93885$Procainamide Injectable Solution [Pronestyl]
+93894$Metronidazole Oral Tablet [Protostat]
+93902$Medroxyprogesterone Oral Tablet [Provera]
+93904$Fluoxetine Oral Capsule [Prozac]
+93937$Metoclopramide Oral Tablet [Reglan]
+93946$Temazepam Oral Capsule [Restoril]
+93990$Interferon Alfa-2a Injectable Solution [Roferon-A]
+93991$Minoxidil Topical Solution [Rogaine]
+94001$mesalamine Rectal Suppository [Rowasa]
+94002$mesalamine Enema [Rowasa]
+94014$Ibuprofen Oral Tablet [Rufen]
+94031$Sodium Chloride Nasal Solution [Salinex]
+94035$Cyclosporine Oral Solution [Sandimmune]
+94048$Acetaminophen 650 MG / butalbital 50 MG Oral Tablet [Sedapap]
+94058$Bupivacaine Injectable Solution [Sensorcaine]
+94124$Aspirin / Carisoprodol Oral Tablet [Soma Compound]
+94125$Aspirin / Carisoprodol / Codeine Oral Tablet [Soma Compound with Codeine]
+94126$Carisoprodol Oral Tablet [Soma]
+94133$Isosorbide Dinitrate Chewable Tablet [Sorbitrate]
+94134$Isosorbide Dinitrate Oral Tablet [Sorbitrate]
+94135$Isosorbide Dinitrate Sublingual Tablet [Sorbitrate]
+94146$Trifluoperazine Injectable Solution [Stelazine]
+94183$sulfabenzamide / Sulfacetamide / sulfathiazole Vaginal Tablet [Sultrin Triple Sulfa]
+94185$Tetracycline 250 MG Oral Capsule [Sumycin]
+94186$Tetracycline 500 MG Oral Capsule [Sumycin]
+94187$Tetracycline 250 MG Oral Tablet [Sumycin]
+94188$Tetracycline 500 MG Oral Tablet [Sumycin]
+94230$methdilazine Chewable Tablet [Tacaryl]
+94233$Cimetidine Injectable Solution [Tagamet]
+94235$Cimetidine Oral Tablet [Tagamet]
+94241$Flecainide Oral Tablet [Tambocor]
+94251$Ceftazidime Injectable Solution [Tazicef]
+94261$Carbamazepine Chewable Tablet [Tegretol]
+94277$terconazole Vaginal Cream [Terazol 3]
+94278$terconazole Vaginal Suppository [Terazol 3]
+94279$terconazole Vaginal Cream [Terazol 7]
+94280$Hydrocortisone / Oxytetracycline Ophthalmic Suspension [Terra-Cortril]
+94283$Oxytetracycline / Polymyxin B Ophthalmic Ointment [Terramycin with Polymyxin B Sulfate]
+94292$Theophylline Extended Release Oral Tablet [Theochron]
+94293$Theophylline Oral Solution [Theolair]
+94294$Theophylline Oral Tablet [Theolair]
+94316$Ticarcillin Injectable Solution [Ticar]
+94319$trimethobenzamide Injectable Solution [Tigan]
+94321$Clavulanate / Ticarcillin Injectable Solution [Timentin]
+94334$Dexamethasone / Tobramycin Ophthalmic Suspension [Tobradex]
+94335$Dexamethasone / Tobramycin Ophthalmic Ointment [Tobradex]
+94336$Tobramycin Ophthalmic Ointment [Tobrex]
+94337$Tobramycin Ophthalmic Solution [Tobrex]
+94345$Desoximetasone 2.5 MG/ML Topical Cream [Topicort]
+94346$Desoximetasone 0.0005 MG/MG Topical Gel [Topicort]
+94348$Desoximetasone 0.0025 MG/MG Topical Ointment [Topicort]
+94351$Thiethylperazine Injectable Solution [Torecan]
+94356$Atracurium Injectable Solution [Tracrium]
+94359$Labetalol Injectable Solution [Trandate]
+94401$Perphenazine Injectable Solution [Trilafon]
+94405$Amoxicillin 250 MG Oral Capsule [Trimox]
+94406$Amoxicillin 500 MG Oral Capsule [Trimox]
+94407$Amoxicillin 25 MG/ML Oral Suspension [Trimox]
+94408$Amoxicillin 50 MG/ML Oral Suspension [Trimox]
+94462$Nafcillin Injectable Solution [Unipen]
+94470$Bethanechol Injectable Solution [Urecholine]
+94483$Diazepam Injectable Solution [Valium]
+94484$Diazepam Oral Tablet [Valium]
+94500$Methoxamine Injectable Solution [Vasoxyl]
+94516$Mebendazole Chewable Tablet [Vermox]
+94517$Midazolam Injectable Solution [Versed]
+94570$Vidarabine Ophthalmic Ointment [Vira-A]
+94573$Trifluridine Ophthalmic Solution [Viroptic]
+94581$Hydroxyzine Oral Suspension [Vistaril]
+94585$Acetic Acid / Hydrocortisone Otic Solution [Vosol HC]
+94586$Acetic Acid Otic Solution [VoSoL]
+94591$Bupropion Oral Tablet [Wellbutrin]
+94610$Alprazolam Oral Tablet [Xanax]
+94618$Lidocaine Injectable Solution [Xylocaine]
+94629$Ranitidine Injectable Solution [Zantac]
+94648$Ondansetron Injectable Solution [Zofran]
+94911$Amoxicillin Oral Suspension [Biomox]
+95104$Chloramphenicol Ophthalmic Ointment
+95267$Glucose 500 MG/ML Oral Solution
+95600$Furosemide Injectable Solution
+95721$ichthammol 0.2 MG/MG Topical Ointment
+96058$Nitrofurazone 2 MG/ML Topical Solution
+96304$Primidone 250 MG Oral Tablet
+96818$Triamcinolone Injectable Suspension
+96819$Triamcinolone Oral Tablet
+102102$Alexitol sodium 360 MG Oral Tablet
+102104$magaldrate 160 MG/ML Oral Suspension
+102111$hydrotalcite 100 MG/ML Oral Suspension [Altacite]
+102152$Atropine 6 MG/ML Oral Solution
+102155$belladonna extract, USP 0.01 MG/ML Oral Solution
+102166$Glycopyrrolate 2 MG Oral Tablet [Robinul]
+102182$alginic acid 50 MG/ML / Cimetidine 20 MG/ML Oral Suspension [Algitec]
+102184$Carbenoxolone 50 MG Oral Tablet
+102196$Bran 2000 MG Oral Tablet [Fybranta]
+102202$Methylcellulose 500 MG Oral Tablet [Cellucon]
+102203$Methylcellulose 90 MG/ML Oral Solution [Cologel]
+102206$Cascara sagrada 20 MG Oral Tablet
+102214$sennosides, USP 3 MG/ML Oral Solution
+102215$sennosides, USP 1 MG/ML Oral Solution
+102221$Magnesium Sulfate 400 MG/ML Oral Solution
+102232$Bisacodyl 2.74 MG/ML Enema [Dulcolax]
+102236$Phenolphthalein 125 MG Oral Tablet
+102242$Witch Hazel 200 MG Rectal Suppository
+102250$Hydrocortisone 1.67 MG/ML Enema [Cortenema]
+102260$Chenodeoxycholate 250 MG Oral Capsule [Chenocedon]
+102273$Dicobalt edetate 15 MG/ML Injectable Solution [Kelocyanor]
+102274$sodium thiosulfate 500 MG/ML Injectable Solution
+102276$Digitoxin 1 MG/ML Oral Solution [Digitaline Nativelle]
+102277$Ouabain 0.25 MG/ML Injectable Solution [Ouabaine Arnaud]
+102278$Bumetanide 1 MG Oral Tablet [Burinex]
+102292$bretylium 50 MG/ML Injectable Solution [Bretylate]
+102299$Practolol 2 MG/ML Injectable Solution
+102300$Quinidine 250 MG Extended Release Oral Capsule [Kiditard]
+102302$Quinidine 250 MG Extended Release Oral Capsule
+102303$Tocainide 600 MG Oral Tablet [Tonocard]
+102304$Tocainide 50 MG/ML Injectable Solution [Tonocard]
+102305$Tocainide 50 MG/ML Injectable Solution
+102306$Acebutolol 5 MG/ML Injectable Solution [Sectral]
+102309$Sotalol 2 MG/ML Injectable Solution
+102314$Metoprolol 190 MG Oral Tablet [Metoros]
+102315$Metoprolol 95 MG Oral Tablet [Metoros]
+102317$Reserpine 0.1 MG Oral Tablet [Serpasil]
+102318$Reserpine 0.25 MG Oral Tablet [Serpasil]
+102321$Rauwolfia Alkaloids 2 MG Oral Tablet [Rauwiloid]
+102325$Bethanidine 50 MG Oral Tablet
+102326$Debrisoquin 20 MG Oral Tablet [Declinax]
+102334$Isosorbide Dinitrate 5 MG Oral Tablet [Isoket]
+102335$Pentaerythritol Tetranitrate 30 MG Extended Release Oral Capsule [Cardiacap]
+102336$Lidoflazine 120 MG Oral Tablet
+102337$Nifedipine 5 MG Oral Capsule [Calcipine]
+102338$Nifedipine 10 MG Oral Capsule [Calcipine]
+102339$Prenylamine 60 MG Oral Tablet [Synadrin]
+102340$Prenylamine 60 MG Oral Tablet
+102341$Nitroglycerin 5 MG Oral Capsule
+102342$Nitroglycerin 10 MG Oral Capsule
+102346$bamethan 12.5 MG Oral Tablet
+102347$Inositol 750 MG Oral Tablet [Hexopal Forte]
+102349$Moxisylyte 5 MG/ML Injectable Solution [Opilon]
+102350$Moxisylyte 15 MG/ML Injectable Solution [Opilon]
+102351$Moxisylyte 5 MG/ML Injectable Solution
+102352$Moxisylyte 15 MG/ML Injectable Solution
+102353$Cyclandelate 400 MG Oral Tablet
+102354$Cyclandelate 80 MG/ML Oral Suspension
+102365$Synephrine 60 MG/ML Injectable Solution [Sympatol]
+102370$Ethamsylate 500 MG/ML Injectable Solution [Dicynone]
+102371$Ethamsylate 250 MG Oral Tablet
+102376$Dextrothyroxine 2 MG Oral Tablet
+102377$Albuterol 2 MG Oral Tablet [Ventolin]
+102378$Albuterol 4 MG Oral Tablet [Ventolin]
+102379$Albuterol 2 MG Oral Tablet [Salbulin]
+102380$Albuterol 4 MG Oral Tablet [Salbulin]
+102381$Albuterol 1 MG/ML Oral Solution [Salbulin]
+102385$Albuterol 1 MG/ML Inhalant Solution [Salbuvent]
+102388$reproterol 20 MG Oral Tablet [Bronchodil]
+102390$reproterol 10 MG/ML Inhalant Solution [Bronchodil]
+102391$reproterol 20 MG Oral Tablet
+102393$reproterol 10 MG/ML Inhalant Solution
+102394$rimiterol 0.2 MG/ACTUAT Inhalant Solution [Pulmadil]
+102398$Isoetharine 10 MG Extended Release Oral Tablet
+102401$metaproterenol 0.5 MG/ML Injectable Solution [Alupent]
+102402$Aminophylline 50 MG Rectal Suppository
+102403$Aminophylline 100 MG Rectal Suppository
+102404$Aminophylline 150 MG Rectal Suppository
+102405$Aminophylline 180 MG Rectal Suppository
+102406$Aminophylline 360 MG Rectal Suppository
+102409$oxtriphylline 424 MG Extended Release Oral Tablet
+102445$diphenylpyraline 5 MG Extended Release Oral Capsule [Histryl Spansule]
+102446$diphenylpyraline 2.5 MG Extended Release Oral Capsule [Histryl Pediatric Spansule]
+102447$diphenylpyraline 5 MG Extended Release Oral Tablet [Lergoban]
+102448$diphenylpyraline 2.5 MG Extended Release Oral Capsule
+102449$diphenylpyraline 5 MG Extended Release Oral Tablet
+102451$Trimeprazine 10 MG Oral Tablet [Vallergan]
+102452$Triprolidine Hydrochloride 2.5 MG Oral Tablet [Actidil]
+102486$Bromhexine 2 MG/ML Injectable Solution [Bisolvon]
+102487$Carbocysteine 375 MG Oral Tablet [Mucolex]
+102492$Heroin 0.6 MG/ML Oral Solution
+102493$isoaminile 8 MG/ML Oral Solution [Dimyril]
+102494$Noscapine 3 MG/ML Oral Solution
+102528$triazulenone 1 MG Oral Tablet [Dormonoct]
+102530$Diazepam 2 MG Oral Capsule [Valium]
+102531$Diazepam 5 MG Oral Capsule [Valium]
+102533$Diazepam 5 MG Rectal Suppository [Valium]
+102535$ketazolam 15 MG Oral Capsule
+102536$ketazolam 30 MG Oral Capsule
+102537$Medazepam 10 MG Oral Capsule
+102541$Amobarbital 60 MG Oral Tablet
+102542$Amobarbital 200 MG Oral Tablet
+102544$Chlorprothixene 15 MG Oral Tablet
+102545$Chlorprothixene 50 MG Oral Tablet
+102547$Lithium Carbonate 104 MG/ML Oral Solution
+102548$butriptyline 25 MG Oral Tablet [Evadyne]
+102549$butriptyline 50 MG Oral Tablet [Evadyne]
+102550$Imipramine Hydrochloride 10 MG Oral Tablet [Pramimil]
+102551$Imipramine Hydrochloride 25 MG Oral Tablet [Pramimil]
+102552$Iprindole 30 MG Oral Tablet [Prondol]
+102553$Iprindole 30 MG Oral Tablet
+102554$Lofepramine 70 MG Oral Tablet [Gamanil]
+102555$Iproniazid 25 MG Oral Tablet [Marsilid]
+102556$Iproniazid 50 MG Oral Tablet [Marsilid]
+102557$Iproniazid 25 MG Oral Tablet
+102558$Iproniazid 50 MG Oral Tablet
+102560$Tryptophan 500 MG Oral Tablet [Optimax]
+102566$Dextroamphetamine 7.5 MG Extended Release Oral Capsule [Durophet]
+102567$Dextroamphetamine 12.5 MG Extended Release Oral Capsule [Durophet]
+102568$Dextroamphetamine 20 MG Extended Release Oral Capsule [Durophet]
+102569$Dextroamphetamine 7.5 MG Extended Release Oral Capsule
+102570$Dextroamphetamine 12.5 MG Extended Release Oral Capsule
+102571$Dextroamphetamine 20 MG Extended Release Oral Capsule
+102573$Methylcellulose 400 MG Oral Tablet [Nilstim]
+102574$Methylcellulose 400 MG Oral Tablet
+102575$Karaya Gum 0.55 MG/MG Oral Granules
+102577$Mazindol 2 MG Oral Tablet [Teronac]
+102578$Domperidone 30 MG Rectal Suppository [Evoxin]
+102579$Scopolamine 0.6 MG Oral Tablet
+102581$Metoclopramide 10 MG Oral Tablet [Metox brand of Metoclopramide]
+102582$Metoclopramide 10 MG Oral Tablet [Metramid]
+102584$Metoclopramide 15 MG Extended Release Oral Tablet [Gastrobid Continus]
+102585$Metoclopramide 30 MG Extended Release Oral Capsule [Gastromax]
+102586$Metoclopramide 15 MG Extended Release Oral Capsule [Maxolon SR]
+102587$Metoclopramide 15 MG Extended Release Oral Tablet [Gastrese-LA]
+102588$Metoclopramide 10 MG Oral Tablet [Gastroflux]
+102590$Thiethylperazine 6.33 MG Oral Tablet [Torecan]
+102591$Thiethylperazine 6.5 MG/ML Injectable Solution [Torecan]
+102592$Thiethylperazine 6.5 MG Rectal Suppository [Torecan]
+102593$Thiethylperazine 6.33 MG Oral Tablet
+102594$Thiethylperazine 6.5 MG/ML Injectable Solution
+102595$Thiethylperazine 6.5 MG Rectal Suppository
+102597$Aspirin 300 MG Oral Tablet [Laboprin]
+102598$Aspirin 600 MG Oral Tablet [Paynocil]
+102599$Aspirin 324 MG Delayed Release Oral Tablet [Caprin]
+102600$Aspirin 500 MG Extended Release Oral Tablet [Levius]
+102601$Aspirin 600 MG Delayed Release Oral Tablet [Nu-Seals Aspirin]
+102602$Aspirin 600 MG Oral Tablet [Palaprin Forte]
+102603$Aspirin 600 MG Delayed Release Oral Tablet
+102604$Acetaminophen 24 MG/ML Oral Suspension [Calpol]
+102605$Acetaminophen 50 MG/ML Oral Suspension [Calpol Six Plus]
+102639$Morphine 64 MG/ML Injectable Solution [Duromorph]
+102651$Dextromoramide 5 MG/ML Injectable Solution
+102652$Dextromoramide 10 MG/ML Injectable Solution
+102656$Levorphanol 1.5 MG Oral Tablet [Dromoran]
+102657$Levorphanol 1.5 MG Oral Tablet
+102658$Meperidine 25 MG Oral Tablet
+102659$Meperidine Hydrochloride 50 MG/ML Injectable Solution [pethilorfan]
+102662$Pizotyline 1.5 MG Oral Tablet [Sanomigran]
+102663$Beclamide 500 MG Oral Tablet
+102666$Phenobarbital 15 MG Oral Tablet [Luminal]
+102667$Phenobarbital 30 MG Oral Tablet [Luminal]
+102668$Phenobarbital 60 MG Oral Tablet [Luminal]
+102679$Methionine 250 MG Oral Tablet
+102690$Penicillin G 229 MG/ML Injectable Suspension [Penidural-LA]
+102692$penicillin G benzathine 115 MG/ML Oral Solution
+102693$phenethicillin 250 MG Oral Capsule [Broxil]
+102695$phenethicillin 250 MG Oral Capsule
+102697$Penicillin V 125 MG Oral Capsule
+102699$Penicillin V 125 MG Oral Granules
+102700$Penicillin V Potassium 125 MG Oral Tablet [V-Cil-K]
+102709$Amoxicillin 250 MG Oral Capsule [Rimoxallin]
+102710$Amoxicillin 500 MG Oral Capsule [Rimoxallin]
+102712$Amoxicillin 25 MG/ML / Clavulanate 12.5 MG/ML Oral Suspension [Augmentin]
+102714$Ampicillin 250 MG Oral Capsule [Vidopen]
+102717$Ampicillin 125 MG Oral Tablet [Penbritin]
+102731$Pivampicillin 35 MG/ML Oral Suspension [Pondocillin]
+102734$Pivampicillin 32.4 MG/ML Oral Suspension
+102736$Talampicillin 250 MG Oral Tablet [Talpen]
+102738$Talampicillin 250 MG Oral Tablet
+102740$Ticarcillin 385 MG/ML Injectable Solution [Ticar]
+102748$Cephalexin 125 MG Chewable Tablet [Keflex-C]
+102749$Cephalexin 250 MG Chewable Tablet [Keflex-C]
+102750$Cephalothin 1 MG/ML Injectable Solution [Keflin]
+102751$Cefamandole 250 MG/ML Injectable Solution [Kefadol]
+102752$Cefamandole 285 MG/ML Injectable Solution [Kefadol]
+102759$clomocycline 170 MG Oral Capsule
+102761$Lymecycline 204 MG Oral Capsule
+102763$Oxytetracycline 250 MG Oral Tablet [Chemocycline]
+102764$Oxytetracycline 250 MG Oral Tablet [Galenomycin]
+102770$Gentamicin 5 MG/ML Injectable Solution
+102776$Framycetin 250 MG Oral Tablet
+102777$Kanamycin 250 MG/ML Injectable Solution [Kannasyn]
+102778$Erythromycin 25 MG/ML Oral Suspension [Erythroped PI SF]
+102779$erythromycin stearate 50 MG/ML Oral Suspension [Erythroped SF]
+102780$Erythromycin Estolate 250 MG Oral Tablet [Erythrolar]
+102781$Erythromycin 500 MG Oral Tablet [Erythrolar]
+102782$erythromycin stearate 50 MG/ML Oral Suspension [Erythrolar]
+102783$Erythromycin 125 MG Delayed Release Oral Capsule [Erymax Sprinkle]
+102785$Lincomycin 500 MG Oral Capsule [Lincocin]
+102787$Lincomycin 300 MG/ML Injectable Solution [Lincocin]
+102789$Sulfamethoxazole 800 MG / Trimethoprim 160 MG Oral Tablet [Fectrim]
+102790$Sulfamethoxazole 267 MG/ML / Trimethoprim 53.3 MG/ML Injectable Solution [Septrin]
+102791$Sulfamethoxazole 100 MG / Trimethoprim 20 MG Oral Tablet [Septrin]
+102793$Calcium sulfaloxate 500 MG Oral Tablet
+102794$phthalylsulfathiazole 500 MG Oral Tablet
+102797$Sulfadimethoxine 500 MG Oral Tablet
+102798$Sulfamethazine 333 MG/ML Injectable Solution
+102799$Sulfamethazine 100 MG/ML Oral Suspension
+102800$Sulfaguanidine 500 MG Oral Tablet
+102801$sulfanilylurea 500 MG Oral Tablet
+102803$Cycloserine 125 MG Oral Capsule
+102804$Ethambutol 200 MG / isoniazid 100 MG Oral Tablet [Mynah brand of ethambutol hydrochloride-isoniazid]
+102805$Ethambutol 365 MG / isoniazid 100 MG Oral Tablet [Mynah brand of ethambutol hydrochloride-isoniazid]
+102809$Tinidazole 2 MG/ML Injectable Solution
+102810$Noxythiolin 125 MG/ML Irrigation Solution [Noxyflex-S]
+102811$Noxythiolin 25 MG/ML Irrigation Solution [Noxyflex-S]
+102817$Ribavirin 20 MG/ML Inhalant Solution [Virazid]
+102819$Amodiaquine 200 MG Oral Tablet [Camoquine]
+102820$Amodiaquine 200 MG Oral Tablet
+102822$Pyrimethamine 12.5 MG Oral Tablet
+102824$piperazine 500 MG Oral Tablet [antepar]
+102828$piperazine 500 MG Oral Tablet
+102834$Diethylcarbamazine Citrate 50 MG Oral Tablet [Banocide]
+102845$Glyburide 5 MG Oral Tablet [Daonil]
+102847$glibornuride 25 MG Oral Tablet
+102849$glymidine 500 MG Oral Tablet [Gondafon]
+102850$glymidine 500 MG Oral Tablet
+102851$guar gum 25 MG/ML Oral Suspension
+102853$Diazoxide 50 MG Oral Tablet
+102857$prednisolone 16 MG/ML Injectable Solution [Codelsol]
+102858$prednisolone 5 MG Oral Tablet [Stintisone]
+102859$prednisolone 16 MG/ML Injectable Solution
+102862$Estriol 0.25 MG Oral Tablet
+102863$quinestradol 0.25 MG Oral Tablet
+102864$Quinestrol 4 MG Oral Tablet
+102865$tibolone 2.5 MG Oral Tablet [Livial]
+102868$Progesterone 10 MG/ML Injectable Solution
+102879$Methyltestosterone 5 MG Oral Tablet
+102880$Methyltestosterone 50 MG Oral Tablet
+102882$Methyltestosterone 5 MG Oral Tablet [Virormone]
+102883$Methyltestosterone 10 MG Oral Tablet [Virormone]
+102884$Methyltestosterone 25 MG Oral Tablet [Virormone]
+102892$Nandrolone 25 MG/ML Injectable Solution [Durabolin]
+102894$Stanozolol 50 MG/ML Injectable Solution
+102895$Corticotropin 20 UNT/ML Injectable Solution
+102896$Corticotropin 60 UNT/ML Injectable Solution
+102897$Cosyntropin 1 MG/ML Injectable Solution [Synacthen Depot]
+102908$Dinoprost 5 MG/ML Injectable Solution [Minprostin F2 Alpha]
+102913$Dienestrol 0.25 MG/ML Topical Cream [Hormofemin]
+102916$Clotrimazole 100 MG/ML Vaginal Cream [Canesten VC]
+102917$isoconazole 300 MG Vaginal Tablet [Travogyn]
+102919$Natamycin 20 MG/ML Topical Cream [Pimafucin]
+102920$Natamycin 25 MG Vaginal Tablet
+102929$Nonoxynol-9 0.05 MG/MG Vaginal Suppository [Genexol]
+102930$Nonoxynol-9 0.05 MG/MG Vaginal Suppository [Rendells]
+102931$Nonoxynol-9 50 MG/ML Vaginal Cream
+102933$Emepronium 100 MG Oral Tablet
+102934$diphenylpyraline 5 MG / Phenylpropanolamine 50 MG Extended Release Oral Capsule [Eskornade]
+102937$terodiline 12.5 MG Oral Tablet [Micturin]
+102938$terodiline 25 MG Oral Tablet [Micturin]
+102939$terodiline 12.5 MG Oral Tablet
+102948$Cyclophosphamide 10 MG Oral Tablet [Endoxana]
+102949$Ethoglucid 1130 MG/ML Injectable Solution [Epodyl]
+102950$Ethoglucid 1130 MG/ML Injectable Solution
+102953$Methotrexate 10 MG Oral Tablet [Emtexate]
+102954$Methotrexate 2.5 MG/ML Injectable Solution [Emtexate]
+102956$Methotrexate 100 MG/ML Injectable Solution [Emtexate]
+102958$Methotrexate 2.5 MG/ML Injectable Solution [Maxtrex]
+102974$Medroxyprogesterone 80 MG/ML Oral Suspension [Provera]
+102978$dromostanolone 100 MG/ML Injectable Solution
+102979$Cyproterone 50 MG Oral Tablet [Cyprostat]
+102980$Tamoxifen 10 MG Oral Tablet [Noltam]
+102981$Tamoxifen 20 MG Oral Tablet [Noltam]
+102983$Ferrous glycine sulfate 225 MG Oral Tablet [Kelferon]
+102984$Ferrous glycine sulfate 565 MG Oral Tablet
+102986$Ferrous glycine sulfate 225 MG Oral Tablet
+102988$ferrous sulfate 116 MG/ML Oral Solution
+102991$Polysaccharide iron complex 50 MG Oral Tablet [Niferex]
+103010$Hydroxocobalamin 0.25 MG/ML Injectable Solution
+103011$Vitamin B 12 1 MG/ML Injectable Solution [Hepacon B12]
+103014$Vitamin B 12 0.5 MG/ML Injectable Solution [Hepacon]
+103016$Vitamin B 12 0.5 MG/ML Injectable Solution
+103021$Potassium Chloride 8 MEQ Extended Release Oral Tablet [Leo-K]
+103022$Potassium Chloride 8 MEQ Extended Release Oral Tablet [Nu-K]
+103035$Dextran 110 60 MG/ML Injectable Solution [Dextraven-110]
+103069$calcium lactate 600 MG Oral Tablet
+103070$Calcium Gluconate 9.3 MG/ML Injectable Solution [Calcium-Sandoz]
+103073$Aluminum Hydroxide 475 MG Oral Capsule [Alu-Cap]
+103074$Calcium Carbonate 420 MG Oral Tablet [Titralac]
+103079$Sodium Fluoride 1 MG Oral Tablet [FluoriGard RMT]
+103080$Sodium Fluoride 0.25 MG Oral Tablet [En-De-Kay Fluo]
+103081$Sodium Fluoride 1 MG Oral Tablet [Zymafluor]
+103086$Thiamine 3 MG Oral Tablet [Benerva]
+103087$Thiamine 10 MG Oral Tablet [Benerva]
+103100$Alfacalcidol 0.005 MG/ML Oral Solution [One-Alpha]
+103102$Alfacalcidol 0.0002 MG/ML Oral Solution [One-Alpha]
+103106$Ergocalciferol 0.015 MG Oral Tablet [Chocovite]
+103107$Ergocalciferol 10 MG/ML Oral Solution [Sterogyl]
+103108$Dihydrotachysterol 0.2 MG Oral Tablet [Tachyrol]
+103109$Vitamin E 3 MG Oral Tablet [Ephynal]
+103110$Vitamin E 10 MG Oral Tablet [Ephynal]
+103111$Vitamin E 50 MG Oral Tablet [Ephynal]
+103112$Vitamin E 200 MG Oral Tablet [Ephynal]
+103113$Vitamin E 100 MG/ML Oral Suspension [Ephynal]
+103114$menadiol 10 MG/ML Injectable Solution [Synkavite]
+103148$Etodolac 200 MG Oral Tablet [Ramodar]
+103150$Indomethacin 25 MG Oral Capsule [Indoflex]
+103151$Indomethacin 25 MG Oral Capsule [Indolar]
+103152$Indomethacin 50 MG Oral Capsule [Indolar]
+103153$Indomethacin 100 MG Rectal Suppository [Indolar]
+103154$Indomethacin 25 MG Oral Capsule [Mobilan]
+103155$Indomethacin 50 MG Oral Capsule [Mobilan]
+103156$Indomethacin 75 MG Extended Release Oral Capsule [Slo-Indo]
+103157$Phenylbutazone 200 MG Oral Tablet [Butacote]
+103158$Phenylbutazone 100 MG Oral Tablet [Butazolidin]
+103159$Phenylbutazone 200 MG Oral Tablet [Butazolidin]
+103161$Tolmetin 400 MG Oral Capsule [Tolectin DS]
+103166$prednisolone 16 MG/ML Injectable Solution [Codelson]
+103167$Gold Sodium Thiomalate 2 MG/ML Injectable Solution
+103168$Colchicine 0.25 MG Oral Tablet
+103169$Pyridostigmine 1 MG/ML Injectable Solution [Mestinon]
+103170$Pyridostigmine 1 MG/ML Injectable Solution
+103172$Deoxyribonucleases 10 MG Delayed Release Oral Tablet [Deanase]
+103174$CHYMOTRYPSIN 50000 UNT Oral Tablet
+103175$CHYMOTRYPSIN 100000 UNT Oral Tablet
+103176$CHYMOTRYPSIN 10 MG Delayed Release Oral Tablet
+103191$Framycetin 5 MG/ML Ophthalmic Solution [Soframycin]
+103192$Framycetin 0.005 MG/MG Ophthalmic Ointment [Soframycin]
+103201$propamidine isethionate 1 MG/ML Ophthalmic Solution [Brolene]
+103202$Sulfacetamide Sodium 200 MG/ML Ophthalmic Solution [Albucid]
+103203$Sulfacetamide Sodium 0.025 MG/MG Ophthalmic Ointment [Albucid]
+103204$Sulfacetamide Sodium 0.06 MG/MG Ophthalmic Ointment [Albucid]
+103212$Betamethasone 1 MG/ML Ophthalmic Solution [Betnesol]
+103213$Betamethasone 1 MG/ML Ophthalmic Solution [Vista-methasone]
+103214$Clobetasone 1 MG/ML Ophthalmic Solution [Eumovate]
+103217$Dexamethasone Ophthalmic Ointment
+103221$Oxyphenbutazone 0.1 MG/MG Ophthalmic Ointment [Tanderil]
+103223$prednisolone 5 MG/ML Ophthalmic Solution [Predsol]
+103226$Cromolyn 0.04 MG/MG Ophthalmic Ointment [Opticrom]
+103227$Cromolyn Sodium 20 MG/ML Ophthalmic Solution [Opticrom Aqueous]
+103232$lachesine 10 MG/ML Ophthalmic Solution
+103236$Epinephrine 5 MG/ML / Guanethidine 50 MG/ML Ophthalmic Solution [Ganda]
+103237$Epinephrine 10 MG/ML / Guanethidine 50 MG/ML Ophthalmic Solution [Ganda]
+103238$Epinephrine 5 MG/ML / Guanethidine 50 MG/ML Ophthalmic Solution
+103239$Epinephrine 10 MG/ML / Guanethidine 50 MG/ML Ophthalmic Solution
+103240$Metipranolol 6 MG/ML Ophthalmic Solution [Minims Metipranolol]
+103241$Metipranolol 6 MG/ML Ophthalmic Solution [Glauline]
+103249$Polyvinyl Alcohol 0.014 ML/ML Ophthalmic Solution [Sno-Tears]
+103253$Sodium Chloride 0.154 MEQ/ML Ophthalmic Irrigation Solution
+103258$Rose Bengal 10 MG/ML Ophthalmic Solution [Minims Rose Bengal]
+103260$Betamethasone 1 MG/ML Otic Solution [Betnesol]
+103261$Betamethasone 1 MG/ML Otic Solution [Vista-methasone]
+103263$prednisolone 5 MG/ML Otic Solution [Predsol]
+103264$prednisolone 5 MG/ML Otic Solution
+103265$Clioquinol 10 MG/ML Otic Solution
+103273$Neomycin 5 MG/ML Otic Solution
+103274$Tetracycline 0.01 MG/MG Otic Ointment
+103289$Cromolyn Sodium 5.2 MG/ACTUAT Nasal Spray [Rynacrom]
+103308$Carbenoxolone 0.02 MG/MG Oral Gel [Bioral]
+103309$Carbenoxolone 10 MG/ML Mouthwash [Bioplex brand of carbenoxolone sodium]
+103318$polynoxylin 30 MG Oral Lozenge
+103323$chlorhexidine gluconate 0.01 MG/MG Oral Gel [Corsodyl]
+103328$Chlorhexidine Mouthwash
+103331$Hydrogen Peroxide Mouthwash
+103358$dimethicone 100 MG/ML Topical Cream
+103388$Tetracaine 10 MG/ML Topical Cream [Anethaine]
+103394$Dibucaine 0.011 MG/MG Topical Ointment [Nupercainal]
+103396$Hydrocortisone 1 MG/ML Topical Cream [Dioderm]
+103397$Hydrocortisone 1.25 MG/ML Topical Cream
+103399$Hydrocortisone 10 MG/ML Topical Cream [Hydrocortistab]
+103401$Hydrocortisone 0.025 MG/MG Topical Ointment
+103403$Hydrocortisone 10 MG/ML Topical Lotion
+103413$Beclomethasone Dipropionate 0.00025 MG/MG Topical Ointment [Beconase]
+103414$Beclomethasone Dipropionate 0.00025 MG/MG Topical Ointment [Propaderm A]
+103415$Beclomethasone Dipropionate 0.25 MG/ML Topical Cream [Propaderm C]
+103416$Beclomethasone Dipropionate 0.00025 MG/MG Topical Ointment [Propaderm C]
+103419$Betamethasone 1 MG/ML Topical Lotion [Betnovate]
+103422$Betamethasone 0.25 MG/ML Topical Cream [Betnovate RD]
+103423$Betamethasone 0.00025 MG/MG Topical Ointment [Betnovate RD]
+103426$Betamethasone 1 MG/ML Topical Cream [Betnovate]
+103427$Betamethasone 0.001 MG/MG Topical Ointment [Betnovate]
+103430$Clobetasol Propionate 0.5 MG/ML Topical Cream [Dermovate]
+103431$Clobetasol Propionate 0.0005 MG/MG Topical Ointment [Dermovate]
+103437$clobetasone butyrate 0.5 MG/ML Topical Cream [Eumovate]
+103438$clobetasone butyrate 0.0005 MG/MG Topical Ointment [Eumovate]
+103439$Desonide 0.5 MG/ML Topical Cream [Tridesilon]
+103443$Desoximetasone 0.0005 MG/MG Topical Ointment [Stiedex LP]
+103444$Diflucortolone 1 MG/ML Topical Cream [Nerisone]
+103445$Diflucortolone 0.001 MG/MG Topical Ointment [Nerisone]
+103446$Diflucortolone 0.003 MG/MG Topical Ointment [Nerisone]
+103448$Fluclorolone 0.25 MG/ML Topical Cream [Topilar]
+103449$Fluclorolone 0.00025 MG/MG Topical Ointment [Topilar]
+103456$Fluocinonide 0.5 MG/ML Topical Cream
+103457$Fluocinonide 0.0005 MG/MG Topical Ointment
+103458$Fluocinonide 0.5 MG/ML Topical Lotion [Metosyn]
+103459$Fluocortolone 2 MG/ML Topical Cream
+103460$Fluocortolone 0.002 MG/MG Topical Ointment
+103461$Fluocortolone Caproate 2.5 MG/ML / Fluocortolone Pivalate 2.5 MG/ML Topical Cream
+103462$Fluocortolone Caproate 0.0025 MG/MG / Fluocortolone Pivalate 0.0025 MG/MG Topical Ointment
+103463$Flurandrenolide 0.125 MG/ML Topical Cream [Haelan]
+103464$Flurandrenolide 0.000125 MG/MG Topical Ointment [Haelan]
+103465$Flurandrenolide 0.5 MG/ML Topical Cream [Haelan-X]
+103466$Flurandrenolide 0.0005 MG/MG Topical Ointment [Haelan-X]
+103467$Halcinonide 1 MG/ML Topical Cream
+103472$Budesonide 0.25 MG/ML Topical Cream [Preferid]
+103473$Budesonide 0.00025 MG/MG Topical Ointment [Preferid]
+103474$Coal Tar 100 MG/ML Topical Solution
+103475$Coal Tar 20 MG/ML Topical Cream [Carbo-Dome]
+103476$Coal Tar 10 MG/ML Topical Cream [Clinitar]
+103480$Coal Tar 0.05 MG/MG Topical Gel [Gelcosal]
+103485$Bufexamac 50 MG/ML Topical Cream [Jomax]
+103490$Anthralin 1 MG/ML Topical Cream [Dithrocream]
+103491$Anthralin 2.5 MG/ML Topical Cream [Dithrocream]
+103492$Anthralin 5 MG/ML Topical Cream [Dithrocream Forte]
+103493$Anthralin 10 MG/ML Topical Cream [Dithrocream HP]
+103495$Anthralin 20 MG/ML Topical Cream [Dithrocream]
+103496$Anthralin 10 MG/ML Topical Cream [Exolan]
+103500$Benzoyl Peroxide 0.025 MG/MG Topical Gel [Acetoxyl]
+103501$Benzoyl Peroxide 0.05 MG/MG Topical Gel [Acetoxyl]
+103502$Benzoyl Peroxide 0.05 MG/MG Topical Gel [Acnegel]
+103503$Benzoyl Peroxide 0.1 MG/MG Topical Gel [Acnegel Forte]
+103511$Benzoyl Peroxide 0.05 MG/MG Topical Gel [Theraderm]
+103512$Benzoyl Peroxide 0.1 MG/MG Topical Gel [Theraderm]
+103518$Erythromycin 20 MG/ML Topical Lotion
+103519$Erythromycin 20 MG/ML Topical Lotion [Stiemycin]
+103524$Salicylic Acid 0.5 MG/MG Topical Ointment [Verrugon]
+103526$Glutaral 100 MG/ML Topical Solution [Glutarol]
+103527$Glutaral 0.1 MG/MG Topical Gel [Verucasep]
+103528$podofilox 5 MG/ML Topical Solution [Wartec]
+103529$podofilox 5 MG/ML Topical Solution [Condyline]
+103568$Salicylic Acid 20 MG/ML Topical Lotion
+103569$lithium succinate 0.08 MG/MG Topical Ointment [Efalith]
+103570$Mupirocin 0.02 MG/MG Topical Ointment [Bactroban]
+103572$Nitrofurazone 0.002 MG/MG Topical Ointment
+103574$Fusidate 20 MG/ML Topical Cream [Fucidin]
+103575$Fusidate 0.02 MG/MG Topical Gel [Fucidin]
+103577$Fusidate 0.02 MG/MG Topical Ointment [Fucidin]
+103584$Clotrimazole 0.01 MG/MG Topical Powder [Canesten]
+103585$Econazole Nitrate 10 MG/ML Topical Lotion [Pevaryl]
+103586$Econazole 0.01 MG/MG Powder Spray [Pevaryl]
+103598$Amorolfine 2.5 MG/ML Topical Cream [Loceryl]
+103603$Carbaryl 5 MG/ML Topical Lotion [Carylderm]
+103605$Carbaryl 5 MG/ML Topical Lotion [Clinicide]
+103606$Carbaryl 5 MG/ML Topical Lotion [Suleo-C]
+103611$Lindane 10 MG/ML Topical Cream [lorexane]
+103617$Malathion 5 MG/ML Topical Lotion [Prioderm]
+103620$monosulfiram 250 MG/ML Topical Solution [Tetmosol]
+103625$phenothrin 2 MG/ML Topical Lotion [Full Marks]
+103626$Permethrin 10 MG/ML Medicated Shampoo [Lyclear]
+103629$polynoxylin 100 MG/ML Topical Cream [Anaflex]
+103630$dibrompropamidine 1.5 MG/ML Topical Cream [Brulidine]
+103631$Cetrimide 5 MG/ML Topical Cream [Cetavlex]
+103633$polynoxylin 0.1 MG/MG Topical Gel [Ponoxylan]
+103638$Chlorhexidine 0.005 MG/MG Topical Powder
+103640$chlorhexidine gluconate 40 MG/ML Topical Solution [Hibiscrub]
+103641$chlorhexidine gluconate 5 MG/ML Topical Solution [Hibisol]
+103644$chlorhexidine gluconate 10 MG/ML Topical Cream [Hibitane Obstetric]
+103646$chlorhexidine gluconate 40 MG/ML Topical Solution [pHiso-Med]
+103664$chloroxylenol 13 MG/ML Topical Lotion [Dettol]
+103665$Hydrogen Peroxide 270 MG/ML Topical Solution
+103667$Povidone-Iodine 0.025 MG/MG Powder Spray [Betadine]
+103668$Povidone-Iodine 40 MG/ML Medicated Liquid Soap [Betadine]
+103670$Povidone-Iodine 100 MG/ML Topical Solution [Videne]
+103671$Sodium Chloride 0.154 MEQ/ML Topical Solution [Normasol]
+103672$Sodium Chloride 0.154 MEQ/ML Topical Solution [Steripod Blue]
+103676$aluminum chloride 200 MG/ML Topical Solution [Anhydrol Forte]
+103678$aluminum chloride 190 MG/ML Topical Cream [Hyperdrol]
+103681$Benzoyl Peroxide 200 MG/ML Topical Lotion [Benoxyl]
+103682$Hydrogen Peroxide 15 MG/ML Topical Cream [Hioxyl]
+103739$Thiopental 250 MG/ML Injectable Solution
+103746$Alfentanil 0.1 MG/ML Injectable Solution
+103747$Levorphanol 2 MG/ML Injectable Solution [Dromoran]
+103749$Papaveretum 10 MG Oral Tablet [Omnopon]
+103750$Papaveretum 20 MG/ML Injectable Solution [Omnopon]
+103751$Papaveretum 10 MG/ML Injectable Solution [Omnopon]
+103753$Papaveretum 10 MG Oral Tablet
+103754$Papaveretum Injectable Solution
+103773$Ibuprofen 50 MG/ML Topical Cream [Proflex]
+103781$Carteolol 10 MG Oral Tablet
+103782$Carteolol 10 MG Oral Tablet [Cartrol]
+103786$Isotretinoin 0.0005 MG/MG Topical Gel [Isotrex]
+103795$Chlorhexidine Acetate 0.5 MG/ML Topical Solution [Steripod Pink]
+103798$Benzoyl Peroxide 0.05 MG/MG Topical Gel [Acnecide]
+103799$Benzoyl Peroxide 0.1 MG/MG Topical Gel [Acnecide]
+103806$Rauwolfia Alkaloids 2 MG Oral Tablet
+103812$Dibromopropamidine isethionate 1 MG/ML Ophthalmic Solution [Golden Eye]
+103813$Dibromopropamidine isethionate 0.0015 MG/MG Ophthalmic Ointment [Golden Eye]
+103816$Cetrimide 1.5 MG/ML / chlorhexidine gluconate 0.15 MG/ML Topical Solution [Tisept]
+103817$Cetrimide 5 MG/ML / chlorhexidine gluconate 0.5 MG/ML Topical Solution [Tisept]
+103823$Minocycline 0.02 MG/MG Oral Gel
+103831$chlorhexidine gluconate 200 MG/ML Topical Solution [Hibitane]
+103835$Levamisole 50 MG Oral Tablet
+103840$Econazole Nitrate 0.01 MG/MG Topical Powder [Pevaryl]
+103841$Nonoxynol-9 0.06 MG/MG Vaginal Suppository
+103842$Naproxen 500 MG Oral Tablet [Timpron]
+103844$Povidone-Iodine 0.0114 MG/MG Powder Spray [Savlon Dry]
+103859$Acyclovir 80 MG/ML Oral Suspension
+103860$Apomorphine 10 MG/ML Injectable Solution [Britaject]
+103862$oxitropium 0.1 MG/ACTUAT Inhalant Solution [Oxivent]
+103863$Aspirin 150 MG Rectal Suppository
+103864$Timolol 2.5 MG/ML Ophthalmic Solution [Glaucol]
+103865$Timolol 5 MG/ML Ophthalmic Solution [Glaucol]
+103867$Metronidazole 0.25 MG/MG Oral Gel
+103868$Amoxicillin 250 MG Oral Capsule [Galenamox TP]
+103869$Amoxicillin 500 MG Oral Capsule [Galenamox TP]
+103870$Clarithromycin 50 MG/ML Injectable Suspension [Klaricid IV]
+103872$Minocycline 50 MG Oral Capsule [Aknemin]
+103873$Minocycline 100 MG Oral Capsule [Aknemin]
+103877$Celiprolol 400 MG Oral Tablet [Celectol]
+103894$tenoxicam 10 MG/ML Injectable Solution
+103895$tenoxicam 10 MG/ML Injectable Solution [Mobiflex]
+103897$Papaveretum 15.4 MG/ML Injectable Solution
+103898$Papaveretum 15.4 MG/ML Injectable Solution [Omnopon]
+103899$Rifabutin 150 MG Oral Capsule [Mycobutin]
+103903$Ketoprofen 150 MG Extended Release Oral Capsule
+103907$Naproxen 250 MG Oral Tablet [Timpron]
+103909$Granisetron 1 MG Oral Tablet [Kytril]
+103910$Carbamazepine 100 MG Oral Tablet [Epimaz]
+103911$Carbamazepine 200 MG Oral Tablet [Epimaz]
+103912$Carbamazepine 400 MG Oral Tablet [Epimaz]
+103916$Fosfomycin 2000 MG Oral Suspension [Monuril Paediatric]
+103918$fluvastatin 20 MG Oral Capsule [Lescol]
+103919$fluvastatin 40 MG Oral Capsule [Lescol]
+103920$Fenofibrate 200 MG Oral Capsule [Lipantil Micro]
+103927$Morphine Sulfate 6.67 MG/ML Oral Suspension [MST Continus]
+103932$Amiloride Hydrochloride 2.5 MG / Furosemide 20 MG Oral Tablet [Aridil]
+103933$Amiloride Hydrochloride 5 MG / Furosemide 40 MG Oral Tablet [Aridil]
+103934$Amiloride Hydrochloride 10 MG / Furosemide 80 MG Oral Tablet [Aridil]
+103941$Carbamazepine 125 MG Rectal Suppository
+103942$Carbamazepine 250 MG Rectal Suppository
+103943$Ciprofloxacin 3 MG/ML Ophthalmic Solution [Ciloxan]
+103944$12 HR Nifedipine 20 MG Extended Release Oral Tablet [Cardilate MR]
+103945$quinapril 40 MG Oral Tablet [Accupro]
+103951$Tolnaftate 10 MG/ML Topical Cream
+103954$Aspirin 75 MG Delayed Release Oral Tablet
+103955$Terfenadine 60 MG Oral Tablet [Terfinax]
+103956$Alprostadil 0.02 MG Injection [Caverject]
+103959$Loperamide Hydrochloride 2 MG Oral Capsule [LoperaGen]
+103966$Hydrochlorothiazide 12.5 MG / Lisinopril 10 MG Oral Tablet [Carace Plus]
+103967$Aspirin 300 MG Delayed Release Oral Tablet [postMI]
+103968$lamotrigine 100 MG Disintegrating Oral Tablet
+103970$tramadol hydrochloride 50 MG/ML Injectable Solution [Zydol]
+103971$tramadol hydrochloride 50 MG Oral Capsule [Zydol]
+103972$Ibuprofen 50 MG/ML Topical Cream [Proflex Pain Relief]
+103976$Zolpidem tartrate 5 MG Oral Tablet [Stilnoct]
+103977$Urofollitropin 150 UNT/ML Injectable Solution [Orgafol]
+103983$Isosorbide Mononitrate 50 MG Extended Release Oral Tablet [MCR (Mono-Cedocard Retard)]
+104015$Magnesium Hydroxide 83 MG/ML Oral Suspension
+104019$Sodium Bicarbonate 300 MG Oral Tablet
+104020$Sodium Bicarbonate 600 MG Oral Tablet
+104021$Sodium Bicarbonate 500 MG Oral Capsule
+104022$hydrotalcite 500 MG Chewable Tablet
+104023$hydrotalcite 100 MG/ML Oral Suspension
+104024$Aluminum Hydroxide 600 MG / Magnesium Hydroxide 300 MG Oral Tablet
+104038$Dicyclomine Hydrochloride 10 MG Oral Tablet [Merbentyl]
+104040$Dicyclomine Hydrochloride 20 MG Oral Tablet [Merbentyl]
+104044$Mepenzolate 25 MG Oral Tablet [Cantil]
+104045$pipenzolate 5 MG Oral Tablet [Piptal]
+104047$dimethicone 8 MG/ML / pipenzolate 0.8 MG/ML Oral Suspension
+104048$pipenzolate 5 MG Oral Tablet
+104049$poldine 2 MG Oral Tablet [Nacton]
+104050$poldine 4 MG Oral Tablet [Nacton Forte]
+104051$poldine 4 MG Oral Tablet
+104052$Propantheline 15 MG Oral Tablet [Probanthine]
+104054$alverine 60 MG Oral Capsule [Spasmonal]
+104055$alverine 60 MG Oral Capsule
+104057$mebeverine 135 MG Oral Tablet [Fomac]
+104062$Cimetidine 200 MG Oral Tablet [Tagamet]
+104063$Cimetidine 400 MG Oral Tablet [Tagamet]
+104064$Cimetidine 800 MG Oral Tablet [Tagamet]
+104066$Cimetidine 200 MG Chewable Tablet [Dyspamet]
+104067$Cimetidine 40 MG/ML Oral Suspension [Dyspamet]
+104068$Cimetidine 200 MG Oral Tablet [Galenamet]
+104070$Cimetidine 400 MG Oral Tablet [Galenamet]
+104071$Cimetidine 800 MG Oral Tablet [Galenamet]
+104074$Cimetidine 200 MG Oral Tablet [Peptimax 200]
+104075$Cimetidine 200 MG Oral Tablet [Phimetin]
+104076$Cimetidine 400 MG Oral Tablet [Peptimax 400]
+104077$Cimetidine 400 MG Oral Tablet [Phimetin]
+104078$Cimetidine 800 MG Oral Tablet [Peptimax 800]
+104079$Cimetidine 800 MG Oral Tablet [Phimetin]
+104080$Cimetidine 200 MG Oral Tablet [Zita]
+104081$Cimetidine 400 MG Oral Tablet [Zita]
+104082$Cimetidine 800 MG Oral Tablet [Zita]
+104083$Cimetidine 200 MG Oral Tablet [Ultec]
+104084$Ranitidine 25 MG/ML Injectable Solution [Zantac]
+104086$Ranitidine 1.68 MG/ML Oral Solution [Zantac]
+104088$bismuth subcitrate 120 MG Oral Tablet [De-Nol]
+104089$Sucralfate 1000 MG Oral Tablet [Antepsin]
+104090$Sucralfate 200 MG/ML Oral Suspension [Antepsin]
+104094$Famotidine 20 MG Oral Tablet [Pepcid]
+104095$Famotidine 40 MG Oral Tablet [Pepcid]
+104096$Nizatidine 150 MG Oral Capsule [Axid]
+104097$Nizatidine 300 MG Oral Capsule [Axid]
+104098$Misoprostol 0.2 MG Oral Tablet [Cytotec]
+104099$Omeprazole 20 MG Delayed Release Oral Capsule [Losec]
+104108$Atropine / Diphenoxylate Oral Solution [Lomotil]
+104112$mesalamine 400 MG Delayed Release Oral Tablet [Asacol]
+104113$mesalamine 10 MG/ML Enema
+104114$mesalamine 250 MG Extended Release Oral Tablet [Pentasa]
+104115$mesalamine 250 MG Delayed Release Oral Tablet [Canasa]
+104118$Sulfasalazine 500 MG Rectal Suppository [Azulfidine]
+104119$Sulfasalazine 30 MG/ML Enema [Azulfidine]
+104120$Sulfasalazine 50 MG/ML Oral Suspension [Azulfidine]
+104121$Sulfasalazine 50 MG/ML Oral Suspension
+104122$Sulfasalazine 30 MG/ML Enema
+104134$Methylcellulose 500 MG Oral Tablet [Celevac]
+104135$Karaya Gum 620 MG/ML Oral Solution
+104141$picosulfate sodium 0.0667 MG/ML Oral Solution [Picolax]
+104143$picosulfate sodium 0.0667 MG/ML Oral Solution
+104148$Lactulose 670 MG/ML Oral Solution
+104155$Glycerin 2000 MG Rectal Suppository
+104156$Glycerin 4000 MG Rectal Suppository
+104157$Bisacodyl 5 MG Rectal Suppository [Dulcolax]
+104158$Oxyphenisatin 50 MG Enema [Veripaque]
+104159$Sodium Phosphate, Monobasic 1720 MG Rectal Suppository [Carbalax]
+104160$Oxyphenisatin 50 MG Enema
+104161$Sodium Phosphate, Monobasic 1720 MG Rectal Suppository
+104163$Magnesium Sulfate 500 MG/ML Enema
+104171$prednisolone 0.2 MG/ML Enema [Predenema]
+104172$prednisolone 0.2 MG/ML Enema [Predsol]
+104173$prednisolone 5 MG Rectal Suppository [Predsol]
+104174$prednisolone 20 MG Enema [Predfoam]
+104184$Chenodeoxycholate 250 MG Oral Tablet [Chendol]
+104185$Chenodeoxycholate 250 MG Oral Tablet [Chenofalk]
+104186$Ursodiol 150 MG Oral Tablet [Destolit]
+104187$Ursodiol 250 MG Oral Capsule [Ursofalk]
+104196$Glutamate 500 MG Oral Tablet [Muripsin]
+104206$Digoxin 0.0625 MG Oral Tablet [Lanoxin]
+104208$2 ML Digoxin 0.25 MG/ML Injection
+104210$lanatoside C 0.25 MG Oral Tablet
+104211$Bendroflumethiazide 2.5 MG Oral Tablet [Neo-Bendromax]
+104212$Bendroflumethiazide 5 MG Oral Tablet [Neo-Bendromax]
+104213$Mefruside 25 MG Oral Tablet
+104214$Xipamide 20 MG Oral Tablet
+104216$Furosemide 20 MG Oral Tablet [Rusyde]
+104217$Furosemide 40 MG Oral Tablet [Rusyde]
+104218$Furosemide 500 MG Oral Tablet [Lasix]
+104220$Furosemide 4 MG/ML Oral Solution
+104221$Furosemide 1 MG/ML Oral Solution [Lasix]
+104222$Bumetanide 5 MG Oral Tablet
+104223$Bumetanide 0.5 MG/ML Injectable Solution
+104224$piretanide 6 MG Oral Capsule [Arelix]
+104225$piretanide 6 MG Extended Release Oral Capsule
+104226$Canrenone 20 MG/ML Injectable Solution
+104227$Spironolactone 25 MG Oral Tablet [Spirolone]
+104228$Spironolactone 50 MG Oral Tablet [Spirolone]
+104229$Spironolactone 100 MG Oral Tablet [Spirospare]
+104230$Spironolactone 1 MG/ML Oral Suspension
+104231$Spironolactone 2 MG/ML Oral Suspension
+104232$Spironolactone 5 MG/ML Oral Suspension
+104233$Spironolactone 10 MG/ML Oral Suspension
+104234$Spironolactone 100 MG Oral Capsule
+104243$Amiloride Hydrochloride 2.5 MG / Hydrochlorothiazide 25 MG Oral Tablet [Moduret]
+104245$benzthiazide 25 MG / Triamterene 50 MG Oral Capsule
+104246$Chlorthalidone 25 MG / Triamterene 50 MG Oral Tablet
+104248$Chlorthalidone 50 MG / Triamterene 50 MG Oral Tablet
+104263$Bumetanide 0.5 MG / Potassium 7.7 MMOL Extended Release Oral Tablet
+104264$Bendroflumethiazide 2.5 MG / Potassium 7.7 MMOL Extended Release Oral Tablet
+104265$Furosemide 40 MG / Potassium 8 MMOL Extended Release Oral Tablet
+104266$Furosemide 20 MG / Potassium 10 MMOL Extended Release Oral Tablet
+104267$Bendroflumethiazide 2.5 MG / Potassium 8.4 MMOL Extended Release Oral Tablet
+104270$Verapamil hydrochloride 40 MG Oral Tablet [Geangin]
+104271$Verapamil hydrochloride 80 MG Oral Tablet [Geangin]
+104272$Verapamil hydrochloride 120 MG Oral Tablet [Geangin]
+104273$Verapamil hydrochloride 240 MG Extended Release Oral Tablet [Securon SR]
+104276$24 HR Verapamil hydrochloride 120 MG Extended Release Oral Capsule [Univer]
+104277$24 HR Verapamil hydrochloride 240 MG Extended Release Oral Capsule [Univer]
+104278$24 HR Verapamil hydrochloride 180 MG Extended Release Oral Capsule [Univer]
+104284$Disopyramide 250 MG Extended Release Oral Capsule [Isomide CR]
+104285$Disopyramide 250 MG Extended Release Oral Capsule
+104293$Propranolol Hydrochloride 10 MG Oral Tablet [Cardinol]
+104294$Propranolol Hydrochloride 40 MG Oral Tablet [Cardinol]
+104295$Propranolol Hydrochloride 80 MG Oral Tablet [Cardinol]
+104296$Propranolol Hydrochloride 160 MG Oral Tablet [Cardinol]
+104300$Propranolol Hydrochloride 80 MG Extended Release Oral Capsule [Sloprolol]
+104301$Acebutolol Hydrochloride 100 MG Oral Capsule [Sectral]
+104303$Acebutolol Hydrochloride 400 MG Oral Tablet [Sectral]
+104304$Atenolol 50 MG Oral Tablet [Totamol]
+104305$Atenolol 100 MG Oral Tablet [Totamol]
+104306$Atenolol 25 MG Oral Tablet [Totamol]
+104308$Atenolol 0.5 MG/ML Injectable Solution
+104311$Labetalol hydrochloride 400 MG Oral Tablet [Trandate]
+104314$Oxprenolol 20 MG Oral Tablet [Trasicor]
+104315$Oxprenolol 40 MG Oral Tablet [Trasicor]
+104316$Oxprenolol 80 MG Oral Tablet [Trasicor]
+104317$Oxprenolol 160 MG Oral Tablet [Trasicor]
+104318$Oxprenolol 160 MG Extended Release Oral Tablet [Trasicor Retard]
+104324$Bendroflumethiazide 5 MG / Nadolol 80 MG Oral Tablet [Corgaretic]
+104332$Chlorthalidone 12.5 MG / Metoprolol 100 MG Oral Tablet
+104337$Atenolol 50 MG / Chlorthalidone 12.5 MG Oral Tablet [Tenoret]
+104338$Hydrochlorothiazide 25 MG / Sotalol 160 MG Oral Tablet
+104340$Hydrochlorothiazide 12.5 MG / Sotalol 80 MG Oral Tablet
+104343$Atenolol 50 MG / Chlorthalidone 12.5 MG Oral Tablet [Tenchlor]
+104344$Atenolol 100 MG / Chlorthalidone 25 MG Oral Tablet [Tenchlor]
+104348$Bisoprolol Fumarate 5 MG Oral Tablet [Emcor LS]
+104349$Bisoprolol Fumarate 10 MG Oral Tablet [Emcor]
+104350$Celiprolol 200 MG Oral Tablet [Celectol]
+104357$Methyldopa 250 MG Oral Capsule
+104358$Debrisoquin 10 MG Oral Tablet [Declinax]
+104359$Indoramin 25 MG Oral Tablet [Baratol]
+104360$Indoramin 50 MG Oral Tablet [Baratol]
+104361$Indoramin 20 MG Oral Tablet [Doralese]
+104363$Terazosin 5 MG Oral Tablet [Hytrin]
+104364$Terazosin 10 MG Oral Tablet [Hytrin]
+104366$Terazosin 2 MG Oral Tablet [Hytrin]
+104367$Doxazosin 1 MG Oral Tablet [Cardura]
+104368$Doxazosin 2 MG Oral Tablet [Cardura]
+104369$Doxazosin 4 MG Oral Tablet [Cardura]
+104370$Captopril 25 MG / Hydrochlorothiazide 12.5 MG Oral Tablet
+104375$Lisinopril 2.5 MG Oral Tablet [Zestril]
+104376$Lisinopril 5 MG Oral Tablet [Zestril]
+104377$Lisinopril 10 MG Oral Tablet [Zestril]
+104378$Lisinopril 20 MG Oral Tablet [Zestril]
+104382$Perindopril Erbumine 4 MG Oral Tablet [Coversyl]
+104384$Ramipril 2.5 MG Oral Capsule [Altace]
+104385$Ramipril 5 MG Oral Capsule [Altace]
+104388$Cilazapril 0.25 MG Oral Tablet [Vascace]
+104389$Cilazapril 0.5 MG Oral Tablet [Vascace]
+104398$Isosorbide Mononitrate 50 MG Extended Release Oral Capsule [MCR (Mono-Cedocard Retard)]
+104399$Isosorbide Mononitrate 20 MG Oral Tablet [Isotrate]
+104400$Isosorbide Mononitrate 40 MG Extended Release Oral Tablet [Monit SR]
+104402$Isosorbide Mononitrate 25 MG Extended Release Oral Capsule
+104403$pentaerythritol 30 MG Oral Tablet
+104406$24 HR Diltiazem Hydrochloride 300 MG Extended Release Oral Capsule [Adizem-XL]
+104407$12 HR Diltiazem Hydrochloride 90 MG Extended Release Oral Capsule [Dilzem SR]
+104408$12 HR Diltiazem Hydrochloride 120 MG Extended Release Oral Capsule [Dilzem SR]
+104409$12 HR Diltiazem Hydrochloride 60 MG Extended Release Oral Capsule [Dilzem SR]
+104411$Nifedipine 5 MG Oral Capsule [Angiopine]
+104412$Nifedipine 10 MG Oral Capsule [Adalate]
+104414$12 HR Nifedipine 20 MG Extended Release Oral Tablet [Angiopine MR]
+104419$24 HR Felodipine 5 MG Extended Release Oral Tablet [Plendil]
+104420$24 HR Felodipine 10 MG Extended Release Oral Tablet [Plendil]
+104421$flosequinan 100 MG Oral Tablet
+104422$flosequinan 50 MG Oral Tablet
+104425$Isosorbide Dinitrate 20 MG Oral Tablet [Jeridin]
+104426$Isosorbide Dinitrate 20 MG Extended Release Oral Capsule
+104427$Isosorbide Dinitrate 0.5 MG/ML Injectable Solution
+104428$Isosorbide Dinitrate 1.25 MG/ACTUAT Oral Spray
+104429$Isosorbide Dinitrate 1 MG/ML Injectable Solution
+104430$Nitroglycerin 0.3 MG Sublingual Tablet [GTN]
+104433$Cinnarizine 75 MG Oral Capsule
+104435$nicofuranose 250 MG Delayed Release Oral Tablet
+104436$Inositol 500 MG Oral Capsule
+104437$Moxisylyte 40 MG Oral Tablet [Opilon]
+104438$Moxisylyte 40 MG Oral Tablet
+104440$Oxerutins 250 MG Oral Capsule [Paroven]
+104441$Oxerutins 250 MG Oral Capsule
+104443$Nafronyl 20 MG/ML Injectable Solution
+104451$Xamoterol 200 MG Oral Tablet [Corwin]
+104468$Phenindione 25 MG Oral Tablet
+104469$Phenindione 50 MG Oral Tablet
+104470$Dipyridamole 25 MG Oral Tablet [Modaplate]
+104471$Dipyridamole 100 MG Oral Tablet [Modaplate]
+104474$Aspirin 75 MG Oral Tablet
+104475$Aspirin 75 MG Disintegrating Oral Tablet
+104478$Anistreplase 6 UNT/ML Injectable Solution [Eminase]
+104480$Ethamsylate 500 MG Oral Tablet
+104481$Tranexamic Acid 500 MG Oral Tablet
+104489$Fenofibrate 100 MG Oral Capsule [Lipanthyl]
+104490$Simvastatin 10 MG Oral Tablet [Zocor]

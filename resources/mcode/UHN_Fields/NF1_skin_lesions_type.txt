@@ -1,0 +1,9 @@
+cafe_au_lait$Café-au-lait macules
+axillary_frec$Axillary freckling
+inguinal_frec$Inguinal freckling
+submam_frec$Submammary freckling
+cut_neuro$Cutaneous neurofibromas
+hist_conf$Histopathologically confirmed
+intrad_neur$Intradermal neurofibromas
+subd_neur$Subdermal neurofibromas
+plex_neur$Plexiform neurofibromas

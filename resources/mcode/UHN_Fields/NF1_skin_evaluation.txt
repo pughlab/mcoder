@@ -1,0 +1,3 @@
+absent$Absent
+present$Present
+unknown$Unknown

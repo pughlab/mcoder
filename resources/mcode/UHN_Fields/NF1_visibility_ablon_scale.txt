@@ -1,0 +1,4 @@
+vis_grade1$Grade 1 (mild)
+vis_grade2$Grade 2 (moderate)
+vis_grade3$Grade 3 (severe)
+vis_unknown$Unknown

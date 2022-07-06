@@ -2877,7 +2877,7 @@
           // 没有十分秒
           // 年月格式
           if (_this.pickerObject.params.isMonth) {
-            var _moment = moment(API.newDateFixed(_this.pickerObject, day + _this.pickerObject.splitStr + '01'));
+            var _moment = moment(API.newDateFixed(_this.pickerObject, day + _this.pickerObject.splitStr + '02'));
             var result = API.getTimeFormat(_moment);
             var resultJson = API.minMaxFill(_this.pickerObject, result, 0, 'month');
             val = resultJson.val;

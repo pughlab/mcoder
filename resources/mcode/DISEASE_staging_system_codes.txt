@@ -1,5 +1,5 @@
-NA,NA
-258235000,International Union Against Cancer
-444256004,American Joint Commission on Cancer, 6th edition
-443830009,American Joint Commission on Cancer, 7th edition
-897275008,American Joint Commission on Cancer, 8th edition
+NA$NA
+258235000$International Union Against Cancer
+444256004$American Joint Commission on Cancer, 6th edition
+443830009$American Joint Commission on Cancer, 7th edition
+897275008$American Joint Commission on Cancer, 8th edition

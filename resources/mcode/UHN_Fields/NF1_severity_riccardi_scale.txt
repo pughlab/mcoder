@@ -1,0 +1,5 @@
+sev_grade1$Grade 1 (minimal)
+sev_grade2$Grade 2 (mild)
+sev_grade3$Grade 3 (moderate)
+sev_grade4$Grade 4 (severe)
+sev_unknown$Unknown

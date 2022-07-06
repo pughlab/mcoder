@@ -1,7 +1,7 @@
-NA,NA
-425389002,ECOG Grade 0: Asymptomatic
-422512005,ECOG Grade 1: Symptomatic but completely ambulatory
-422894000,ECOG Grade 2: Symptomatic, less than 50% in bed during the day
-423053003,ECOG Grade 3: Symptomatic, more than 50% in bed, but not bedbound
-423237006,ECOG Grade 4: Bedbound
-423409001,ECOG Grade 5: Death
+NA$NA
+425389002$ECOG Grade 0: Asymptomatic
+422512005$ECOG Grade 1: Symptomatic but completely ambulatory
+422894000$ECOG Grade 2: Symptomatic, less than 50% in bed during the day
+423053003$ECOG Grade 3: Symptomatic, more than 50% in bed, but not bedbound
+423237006$ECOG Grade 4: Bedbound
+423409001$ECOG Grade 5: Death

@@ -19,7 +19,7 @@ $roles=$_POST["roles"];
 $output = '';
 if(isset($_POST["query"]))
 {
- $search = mysqli_real_escape_string($conn, $_POST["query"]);
+ $search = mysqli_real_escape_string($conn, $_POST["query"]); // mysqli_real_escape_string is not 100% safe against SQL injections. This applies to all .php files in the fetch folder
 
  // ID encrypted
  $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
@@ -136,7 +136,7 @@ $('#biospecimendata tfoot th').each( function () {
   <tbody>
 
  ';
- $nb = 1;
+ $nb = 1; // this variable's name must be changed to something more descriptive
  while($row = mysqli_fetch_array($result))
  {
    $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);

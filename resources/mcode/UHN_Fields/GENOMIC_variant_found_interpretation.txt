@@ -1,0 +1,6 @@
+no_interpretation_provided$No interpretation provided
+pathogenic$Pathogenic
+likely_pathogenic$Likely Pathogenic
+unknown_significance$Unknown Significance
+benign$Benign
+likely_benign$Likely Benign
