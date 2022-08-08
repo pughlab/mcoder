@@ -13,7 +13,7 @@ $iv=$iv_query['riv'];
 mysqli_close($connect);
 
 // User roles
-$roles=$_POST["roles"];
+$roles=rtrim(trim($_POST["roles"]), ",");
 
 $output = '';
 if(isset($_POST["query"]))
@@ -24,8 +24,21 @@ if(isset($_POST["query"]))
  $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
  $query = "
-  SELECT HEX(DiagnosisNF1.id), DiagnosisNF1.date, DiagnosisNF1.diagnosis, DiagnosisNF1.mode, DiagnosisNF1.criteria, DiagnosisNF1.severity, DiagnosisNF1.visibility, DiagnosisNF1.age, DiagnosisNF1.circumference, DiagnosisNF1.comment FROM DiagnosisNF1, Patient
-  WHERE DiagnosisNF1.id = {$enc_search} AND DiagnosisNF1.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0
+  SELECT 
+    DISTINCT HEX(DiagnosisNF1.id),
+    DiagnosisNF1.date,
+    DiagnosisNF1.diagnosis,
+    DiagnosisNF1.mode,
+    DiagnosisNF1.criteria,
+    DiagnosisNF1.severity,
+    DiagnosisNF1.visibility,
+    DiagnosisNF1.age,
+    DiagnosisNF1.circumference,
+    DiagnosisNF1.comment 
+  FROM DiagnosisNF1
+  JOIN Patient ON DiagnosisNF1.id = Patient.id
+  WHERE DiagnosisNF1.id = {$enc_search}
+  AND FIND_IN_SET(Patient.study, '".$roles."') > 0
  ";
 }
 else

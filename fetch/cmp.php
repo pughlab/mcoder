@@ -14,7 +14,7 @@ $iv=$iv_query['riv'];
 mysqli_close($connect);
 
 // User roles
-$roles=$_POST["roles"];
+$roles=rtrim(trim($_POST["roles"]), ",");
 
 $output = '';
 if(isset($_POST["query"]))
@@ -25,8 +25,16 @@ if(isset($_POST["query"]))
  $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
  $query = "
-  SELECT HEX(CMP.id), CMP.date, CMP.type, CMP.count, CMP.comment FROM CMP, Patient
-  WHERE CMP.id = {$enc_search} AND CMP.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0
+  SELECT 
+    DISTINCT HEX(CMP.id),
+    CMP.date,
+    CMP.type,
+    CMP.count,
+    CMP.comment
+  FROM CMP
+  JOIN Patient on CMP.id = Patient.id
+  WHERE CMP.id = {$enc_search}
+  AND FIND_IN_SET(Patient.study, '".$roles."') > 0
  ";
 }
 else

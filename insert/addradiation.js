@@ -1,10 +1,10 @@
 // Save a patient
 $('#saveradiation').click(function(e) {
-  var ipdiv = document.getElementById("ipaddress");
-  var ip = ipdiv.textContent.replace( /\s+/g, '');
+  let ipdiv = document.getElementById("ipaddress");
+  let ip = ipdiv.textContent.replace( /\s+/g, '');
 
-  var m = new Date();
-  var datesystem =
+  let m = new Date();
+  let datesystem =
   m.getUTCFullYear() + "-" +
   ("0" + (m.getUTCMonth()+1)).slice(-2) + "-" +
   ("0" + m.getUTCDate()).slice(-2) + "-" +
@@ -12,21 +12,21 @@ $('#saveradiation').click(function(e) {
   ("0" + m.getUTCMinutes()).slice(-2) + ":" +
   ("0" + m.getUTCSeconds()).slice(-2);
 
-  var emaildiv = document.getElementById("email");
-  var email = emaildiv.textContent.replace( /\s+/g, '');
-  var userdiv = document.getElementById("username");
-  var username = userdiv.textContent.replace( /\s+/g, '');
-  var rolesdiv = document.getElementById("roles");
-  var roles = rolesdiv.textContent;
-  var patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
-  var date = document.getElementById("radiationdate").value;
-  var location = document.getElementById("radiationlocation").value;
-  var type = $("#radiationpro :selected").text();
-  var site = document.getElementById("radiobodysite").value;
-  var intent = $("input[name='treatment_intent_radio']:checked").val();
-  var comment = document.getElementById("radiationcom").value;
-  var trackspace = datesystem+"_"+ip+"_"+email;
-  var tracking = trackspace.replace( /\s+/g, '');
+  let emaildiv = document.getElementById("email");
+  let email = emaildiv.textContent.replace( /\s+/g, '');
+  let userdiv = document.getElementById("username");
+  let username = userdiv.textContent.replace( /\s+/g, '');
+  let rolesdiv = document.getElementById("roles");
+  let roles = rolesdiv.textContent;
+  let patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
+  let date = document.getElementById("radiationdate").value;
+  let location = document.getElementById("radiationlocation").value;
+  let type = $("#radiationpro :selected").text();
+  let site = document.getElementById("radiobodysite").value;
+  let intent = $("input[name='treatment_intent_radio']:checked").val();
+  let comment = document.getElementById("radiationcom").value;
+  let trackspace = datesystem+"_"+ip+"_"+email;
+  let tracking = trackspace.replace( /\s+/g, '');
 
   if(patientid !="" && date !="" && location !="" && type !="" && site !="" && intent != null){
     $.ajax({
@@ -57,7 +57,7 @@ $('#saveradiation').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  window.open("index.php","_self");
+                  // window.open("index.php","_self");
               }, 1000);
           });
         } else {

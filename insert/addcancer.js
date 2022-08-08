@@ -1,10 +1,10 @@
 // Save a patient
 $('#savecancer').click(function(e) {
-  var ipdiv = document.getElementById("ipaddress");
-  var ip = ipdiv.textContent.replace( /\s+/g, '');
+  let ipdiv = document.getElementById("ipaddress");
+  let ip = ipdiv.textContent.replace( /\s+/g, '');
 
-  var m = new Date();
-  var datesystem =
+  let m = new Date();
+  let datesystem =
   m.getUTCFullYear() + "-" +
   ("0" + (m.getUTCMonth()+1)).slice(-2) + "-" +
   ("0" + m.getUTCDate()).slice(-2) + "-" +
@@ -12,27 +12,27 @@ $('#savecancer').click(function(e) {
   ("0" + m.getUTCMinutes()).slice(-2) + ":" +
   ("0" + m.getUTCSeconds()).slice(-2);
 
-  var emaildiv = document.getElementById("email");
-  var email = emaildiv.textContent.replace( /\s+/g, '');
-  var userdiv = document.getElementById("username");
-  var username = userdiv.textContent.replace( /\s+/g, '');
-  var rolesdiv = document.getElementById("roles");
-  var roles = rolesdiv.textContent;
-  var patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
-  var date = document.getElementById("cancerdate").value;
-  var type = $("input[name='cancer_type']:checked").val();
-  var histology = $("input[name='cancer_histology']:checked").val();
-  var status = $("input[name='cl_disease']:checked").val();
-  var location = document.getElementById("location").value;
-  var side = $("input[name='location_side']:checked").val();
-  var oncotree = document.getElementById("info").value;
-  var clinicalsg = $("#stagegp :selected").text();
-  var clinicalss = $("#stages :selected").text();
-  var pathologicsg = $("#pstagegp :selected").text();
-  var pathologicss = $("#pstages :selected").text();
-  var comment = document.getElementById("cancercom").value;
-  var trackspace = datesystem+"_"+ip+"_"+email;
-  var tracking = trackspace.replace( /\s+/g, '');
+  let emaildiv = document.getElementById("email");
+  let email = emaildiv.textContent.replace( /\s+/g, '');
+  let userdiv = document.getElementById("username");
+  let username = userdiv.textContent.replace( /\s+/g, '');
+  let rolesdiv = document.getElementById("roles");
+  let roles = rolesdiv.textContent;
+  let patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
+  let date = document.getElementById("cancerdate").value;
+  let type = $("input[name='cancer_type']:checked").val();
+  let histology = $("input[name='cancer_histology']:checked").val();
+  let status = $("input[name='cl_disease']:checked").val();
+  let location = document.getElementById("location").value;
+  let side = $("input[name='location_side']:checked").val();
+  let oncotree = document.getElementById("info").value;
+  let clinicalsg = $("#stagegp :selected").text();
+  let clinicalss = $("#stages :selected").text();
+  let pathologicsg = $("#pstagegp :selected").text();
+  let pathologicss = $("#pstages :selected").text();
+  let comment = document.getElementById("cancercom").value;
+  let trackspace = datesystem+"_"+ip+"_"+email;
+  let tracking = trackspace.replace( /\s+/g, '');
 
   if(patientid !="" && date !="" && type != null && histology != null && status != null && location !="" && side != null && oncotree !=""){
     $.ajax({
@@ -69,7 +69,7 @@ $('#savecancer').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  window.open("index.php","_self");
+                  // window.open("index.php","_self");
               }, 1000);
           });
         } else {

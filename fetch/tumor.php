@@ -12,7 +12,7 @@ $iv_query= mysqli_fetch_assoc(mysqli_query($connect, "select riv from norm"));
 $iv=$iv_query['riv'];
 mysqli_close($connect);
 // User roles
-$roles=$_POST["roles"];
+$roles=rtrim(trim($_POST["roles"], ","));
 
 $output = '';
 if(isset($_POST["query"]))
@@ -23,8 +23,16 @@ if(isset($_POST["query"]))
  $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
  $query = "
-  SELECT HEX(Tumor.id), Tumor.date, Tumor.test, Tumor.result, Tumor.comment FROM Tumor, Patient
-  WHERE Tumor.id = {$enc_search} AND Tumor.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0
+  SELECT
+    DISTINCT HEX(Tumor.id),
+    Tumor.date,
+    Tumor.test,
+    Tumor.result,
+    Tumor.comment
+  FROM Tumor
+  JOIN Patient ON Tumor.id = Patient.id
+  WHERE Tumor.id = {$enc_search}
+  AND FIND_IN_SET(Patient.study, '".$roles."') > 0
  ";
 }
 else

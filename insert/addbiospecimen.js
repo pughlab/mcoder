@@ -1,10 +1,10 @@
 // Save a patient
 $('#savebiospecimens').click(function(e) {
-  var ipdiv = document.getElementById("ipaddress");
-  var ip = ipdiv.textContent.replace( /\s+/g, '');
+  let ipdiv = document.getElementById("ipaddress");
+  let ip = ipdiv.textContent.replace( /\s+/g, '');
 
-  var m = new Date();
-  var datesystem =
+  let m = new Date();
+  let datesystem =
   m.getUTCFullYear() + "-" +
   ("0" + (m.getUTCMonth()+1)).slice(-2) + "-" +
   ("0" + m.getUTCDate()).slice(-2) + "-" +
@@ -12,24 +12,24 @@ $('#savebiospecimens').click(function(e) {
   ("0" + m.getUTCMinutes()).slice(-2) + ":" +
   ("0" + m.getUTCSeconds()).slice(-2);
 
-  var emaildiv = document.getElementById("email");
-  var email = emaildiv.textContent.replace( /\s+/g, '');
-  var userdiv = document.getElementById("username");
-  var username = userdiv.textContent.replace( /\s+/g, '');
-  var rolesdiv = document.getElementById("roles");
-  var roles = rolesdiv.textContent;
-  var patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
-  var date = document.getElementById("biodate").value;
-  var type = $("#specimentype :selected").text();
-  var cellularity = document.getElementById("cellularity").value;
-  var collection = document.getElementById("collection").value;
-  var storage = document.getElementById("storage").value;
-  var bankingid = document.getElementById("bankingid").value;
-  var paired = $("input[name='pairedopts']:checked").val();
-  var imaging = $("input[name='imagingopts']:checked").val();
-  var comment = document.getElementById("biospecimencom").value;
-  var trackspace = datesystem+"_"+ip+"_"+email;
-  var tracking = trackspace.replace( /\s+/g, '');
+  let emaildiv = document.getElementById("email");
+  let email = emaildiv.textContent.replace( /\s+/g, '');
+  let userdiv = document.getElementById("username");
+  let username = userdiv.textContent.replace( /\s+/g, '');
+  let rolesdiv = document.getElementById("roles");
+  let roles = rolesdiv.textContent;
+  let patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
+  let date = document.getElementById("biodate").value;
+  let type = $("#specimentype :selected").text();
+  let cellularity = document.getElementById("cellularity").value;
+  let collection = document.getElementById("collection").value;
+  let storage = document.getElementById("storage").value;
+  let bankingid = document.getElementById("bankingid").value;
+  let paired = $("input[name='pairedopts']:checked").val();
+  let imaging = $("input[name='imagingopts']:checked").val();
+  let comment = document.getElementById("biospecimencom").value;
+  let trackspace = datesystem+"_"+ip+"_"+email;
+  let tracking = trackspace.replace( /\s+/g, '');
 
   if ( (cellularity !="") &&  (isNaN(cellularity) || cellularity < 0 || cellularity > 100) )
     {
@@ -70,7 +70,7 @@ $('#savebiospecimens').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  window.open("index.php","_self");
+                  // window.open("index.php","_self");
               }, 1000);
           });
         } else {

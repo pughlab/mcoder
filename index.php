@@ -141,7 +141,7 @@
               <div id="ipaddress" style="display: none;"> <?php echo $ip; ?> </div>
               <div id="datesystem" style="display: none;"> <?php date_default_timezone_set('America/Toronto'); echo date("Y-m-d-H:i:s"); ?> </div>
               <div id="email" style="display: none;"> <?php echo $userMail; ?> </div>
-              <div id="username" style="display: none;"> <?php echo $username; ?> </div>
+              <div id="username" style="display: none;"> <?php echo $userName; ?> </div>
               <div id="roles" style="display: none;"> <?php echo $groups; ?> </div>
 
               <script>
@@ -1083,6 +1083,7 @@
                              <div class="repeater-heading" align="center">
                                 <div class="bootstrap-iso">
                                   <button type="button" class="btn btn-primary btn-lg" id="savecancer"><i class="fas fa-ribbon"></i> Add cancer</button>
+                                  <button type="button" class="btn btn-primary btn-lg" id="updatecancer"><i class="fas fa-ribbon"></i> Update cancer</button>
                                 </div>
                              </div>
                            </fieldset>
@@ -2035,6 +2036,7 @@
                                    <div class="repeater-heading" align="center">
                                       <div class="bootstrap-iso">
                                         <button type="button" class="btn btn-primary btn-lg" id="savebiospecimens"><i class="fas fa-flask"></i> Add a biospecimen</button>
+                                        <button type="button" class="btn btn-primary btn-lg" id="updatebiospecimens"><i class="fas fa-flask"></i>Update biospecimen</button>
                                       </div>
                                    </div>
 
@@ -3005,6 +3007,23 @@
               <script src="fetch/nf1skin.js"></script>
               <script src="fetch/nf1manif.js"></script>
               <script src="fetch/nf1procedure.js"></script>
+
+              <script src="update/patient.js"></script>
+              <script src="update/comorbid.js"></script>
+              <script src="update/status.js"></script>
+              <script src="update/cancer.js"></script>
+              <script src="update/mutation.js"></script>
+              <script src="update/variant.js"></script>
+              <script src="update/radiation.js"></script>
+              <script src="update/surgery.js"></script>
+              <script src="update/medication.js"></script>
+              <script src="update/labs.js"></script>
+              <script src="update/cbc.js"></script>
+              <script src="update/cmp.js"></script>
+              <script src="update/tumor.js"></script>
+              <script src="update/biospecimen.js"></script>
+              <script src="update/outcome.js"></script>
+              <script src="update/death.js"></script>
               <?php } ?>
 
               <script>
@@ -3032,6 +3051,7 @@
            </body>
         </html>
         <script>
+            let cellData = null; // stores an object with the values coming from an AJAX request.
            $(document).ready(function(){
 
                  $('#testcode').typeahead({

@@ -12,7 +12,7 @@ $iv_query= mysqli_fetch_assoc(mysqli_query($connect, "select riv from norm"));
 $iv=$iv_query['riv'];
 mysqli_close($connect);
 // User roles
-$roles=$_POST["roles"];
+$roles=rtrim(trim($_POST["roles"]), ",");
 
 $output = '';
 if(isset($_POST["query"]))
@@ -23,8 +23,22 @@ if(isset($_POST["query"]))
  $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
  $query = "
-  SELECT HEX(Variant.id), Variant.date, Variant.test, Variant.gene, Variant.cdna, Variant.protein, Variant.variantid, Variant.varianthgvs, Variant.interpretation, Variant.source, Variant.comment FROM Variant, Patient
-  WHERE Variant.id = {$enc_search} AND Variant.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0
+  SELECT
+    DISTINCT HEX(Variant.id),
+    Variant.date,
+    Variant.test,
+    Variant.gene,
+    Variant.cdna,
+    Variant.protein,
+    Variant.variantid,
+    Variant.varianthgvs,
+    Variant.interpretation,
+    Variant.source,
+    Variant.comment
+  FROM Variant
+  JOIN Patient ON Variant.id = Patient.id
+  WHERE Variant.id = {$enc_search}
+  AND FIND_IN_SET(Patient.study, '".$roles."') > 0
  ";
 }
 else

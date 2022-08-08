@@ -21,7 +21,7 @@ $iv=$iv_query['riv'];
 mysqli_close($connect);
 
 // User roles
-$roles=$_POST["roles"];
+$roles=rtrim(trim($_POST["roles"]), ",");
 
 $output = '';
 if(isset($_POST["query"]))
@@ -34,7 +34,7 @@ if(isset($_POST["query"]))
 
  $query = "
   SELECT HEX(id),HEX(birth), HEX(gender), HEX(race), HEX(zip), HEX(institution), study, HEX(family) FROM Patient
-  WHERE id LIKE {$enc_search} AND INSTR('".$roles."', study) > 0
+  WHERE id LIKE {$enc_search} AND FIND_IN_SET(study, '".$roles."') > 0
  ";
 }
 else
@@ -43,7 +43,6 @@ else
   SELECT * FROM Patient WHERE id LIKE '%ZZZZZZZZZZZZZZZ%' AND INSTR('".$roles."', study) > 0 ORDER BY id
  ";
 }
-//echo $query;
 $result = mysqli_query($conn, $query);
 if(mysqli_num_rows($result) > 0)
 {

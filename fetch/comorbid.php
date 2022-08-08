@@ -14,7 +14,7 @@ $iv=$iv_query['riv'];
 mysqli_close($connect);
 
 // User roles
-$roles=$_POST["roles"];
+$roles=rtrim(trim($_POST["roles"]), ",");
 
 $output = '';
 if(isset($_POST["query"]))
@@ -25,8 +25,16 @@ if(isset($_POST["query"]))
  $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
  $query = "
-  SELECT HEX(Comorbid.id), Comorbid.date, Comorbid.code, Comorbid.status, Comorbid.comment FROM Comorbid, Patient
-  WHERE Comorbid.id LIKE {$enc_search} AND Comorbid.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0
+  SELECT 
+    HEX(Comorbid.id),
+    Comorbid.date,
+    Comorbid.code,
+    Comorbid.status,
+    Comorbid.comment
+  FROM Comorbid
+  JOIN Patient on Comorbid.id = Patient.id
+  WHERE Comorbid.id LIKE {$enc_search}
+  AND FIND_IN_SET(Patient.study, '".$roles."') > 0
  ";
 }
 else

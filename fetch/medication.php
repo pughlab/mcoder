@@ -13,7 +13,7 @@ $iv=$iv_query['riv'];
 mysqli_close($connect);
 
 // User roles
-$roles=$_POST["roles"];
+$roles=rtrim(trim($_POST["roles"]), ",");
 
 $output = '';
 if(isset($_POST["query"]))
@@ -24,8 +24,18 @@ if(isset($_POST["query"]))
  $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
  $query = "
-  SELECT HEX(Medication.id), Medication.medication, Medication.start, Medication.stop, Medication.reason, Medication.intent, Medication.comment FROM Medication, Patient
-  WHERE Medication.id = {$enc_search} AND Medication.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0
+  SELECT 
+    DISTINCT HEX(Medication.id), 
+    Medication.medication, 
+    Medication.start, 
+    Medication.stop, 
+    Medication.reason, 
+    Medication.intent, 
+    Medication.comment 
+  FROM Medication
+  JOIN Patient ON Medication.id = Patient.id
+  WHERE Medication.id = {$enc_search}
+  AND FIND_IN_SET(Patient.study, '".$roles."') > 0
  ";
 }
 else
