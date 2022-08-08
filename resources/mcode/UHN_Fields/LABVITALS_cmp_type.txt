@@ -1,0 +1,17 @@
+glucose$Glucose
+calcium$Calcium
+albumin$Albumin
+total_protein$Total protein
+sodium$Sodium
+potassium$Potassium
+bicarbonate$Bicarbonate (Total CO2)
+chloride$Chloride
+blood_urea$Blood urea nitrogen (BUN)
+creatinine$Creatinine
+alkaline_phosphatase$Alkaline phosphatase (ALP)
+alanine_amino$Alanine amino transferase (ALT, SGPT)
+aspartate_amino$Aspartate amino transferase (AST, SGOT)
+bilirubin$Bilirubin
+esr$Erythrocyte Sedimentation Rate (ESR)
+ldh$Lactic Acid Dehydrogenase (LDH)
+magnesium$Magnesium

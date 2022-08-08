@@ -1,0 +1,42 @@
+lisch_nod$Lisch nodules
+headache$Headache/Migraine
+epilepsy$Epilepsy
+hydrocephalus$Hydrocephalus
+medu_comp_neur$Medullary compression by neurofibroma
+cereb_vascu$Cerebral vascular complication
+neuro_pain$Neuropathic pain
+neuro_pain_med$Neuropathic pain medications
+learn_diff$Learning difficulties
+adhd$Attention deficit hyperactivity disorder (ADHD)
+asd$Autism spectrum disorder (ASD)
+mood_dis$Mood disorders
+pseudar$Pseudarthrosis
+cong_pseudar$Congenital pseudarthrosis of the tibia
+scolio$Scoliosis and/or kyphosis
+sphen_wing$Sphenoid wing dysplasia
+long_bone$Long bone dysplasia
+macroc$Macrocephaly
+short_sta$Short stature
+osteop$Osteoporosis
+fractures$Fractures
+hyperten$Hypertension
+renal_art$Renal artery stenosis
+aortic_stenosis$Aortic stenosis
+pulmonic_ste$Pulmonic stenosis
+aneurysm$Aneurysm
+moyamoya$Moyamoya disease
+optic_nerve$Optic nerve glioma
+brainstem_glio$Brainstem glioma
+astrocy$Astrocytoma
+breast_can$Breast cancer
+pheochro$Pheochromocytoma
+paragang$Paraganglioma
+gastro_stro$Gastrointestinal stromal tumour (GIST)
+neuroendo$Neuroendocrine tumour
+glomus$Glomus tumour
+rhabdom$Rhabdomyosarcoma
+leukem$Leukemia
+myelodys$Myelodysplastic syndrome
+malig_periph$Malignant peripheral nerve sheath tumour (MPNST)
+growth_delay$Growth delay
+vit_d_def$Vitamin D deficiency

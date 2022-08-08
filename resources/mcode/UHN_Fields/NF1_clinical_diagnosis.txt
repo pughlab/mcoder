@@ -1,0 +1,14 @@
+nf1$NF1
+spinal_nf$Spinal NF
+nf_noonan$NF Noonan
+segmental$Segmental/mosaic NF1
+noonan_syn$Noonan syndrome
+noonan_syn_multi$Noonan syndrome with multiple lentigines (LEOPARD) syndrome
+cardio_facio$Cardio-facio-cutaneous syndrome (CFC)
+costello_syn$Costello syndrome
+multi_cal$Multiple CAL spots-only
+fam_multi_cal$Familial multiple CAL spots-only
+legius_syn$Legius syndrome
+iso_neurof$Isolated neurofibromas
+single_nf1$Single NF1 feature
+unknown$Unknown

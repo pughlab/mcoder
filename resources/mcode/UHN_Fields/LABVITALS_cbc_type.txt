@@ -1,0 +1,5 @@
+red_blood$Red blood cell count (cells/mcL)
+white_blood$White blood cell count (cells/mcL)
+hematocrit$Hematocrit (%)
+hemoglobin$Hemoglobin (grams/L)
+platelet$Platelet count (/mcL)

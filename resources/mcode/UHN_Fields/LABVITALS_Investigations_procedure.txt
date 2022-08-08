@@ -1,0 +1,25 @@
+cereb_angio$Cerebral angiogram
+colonoscopy$Colonoscopy
+ct_chest$CT chest
+ct_abdo_pelvis$CT abdomen and pelvis
+ct_brain$CT brain
+ct_head_neck$CT head and neck
+ct_colon$CT colonography
+cystoscopy$Cystoscopy
+emg$EMG
+mammog$Mammography
+mri_brain$MRI brain
+mri_head_neck$MRI head and neck
+mri_spine$MRI spine
+mri_breast$MRI breast
+mri_full_body$MRI full body
+mri_extrem$MRI extremity
+pet_scan$PET scan
+retro_pye$Retrograde pyelogram
+upper_endo$Upper endoscopy
+us_pelvis$US pelvis
+us_transvag$US transvaginal
+us_abdo$US abdomen
+us_thyroid$US thyroid
+us_breast$US breast
+xray_chest$X-ray chest

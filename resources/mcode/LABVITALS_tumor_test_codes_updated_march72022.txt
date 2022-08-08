@@ -1,214 +1,214 @@
-﻿1695-6,5-Hydroxyindoleacetate [Mass/time] in 24 hour Urine
-31203-3,5-Hydroxyindoleacetate [Mass/volume] in 24 hour Urine
-1692-3,5-Hydroxyindoleacetate [Mass/volume] in Cerebral spinal fluid
-1693-1,5-Hydroxyindoleacetate [Mass/volume] in Serum or Plasma
-1694-9,5-Hydroxyindoleacetate [Mass/volume] in Urine
-72820-4,5-Hydroxyindoleacetate [Mass/volume] in Urine by Confirmatory method
-14573-0,5-Hydroxyindoleacetate [Moles/time] in 24 hour Urine
-25971-3,5-Hydroxyindoleacetate [Moles/volume] in 24 hour Urine
-47544-2,5-Hydroxyindoleacetate [Moles/volume] in Cerebral spinal fluid
-74769-1,5-Hydroxyindoleacetate [Moles/volume] in Platelet rich plasma
-50149-4,5-Hydroxyindoleacetate [Moles/volume] in Serum or Plasma
-15009-4,5-Hydroxyindoleacetate [Moles/volume] in Urine
-12172-3,5-Hydroxyindoleacetate [Presence] in 24 hour Urine
-48168-9,5-Hydroxyindoleacetate [Presence] in Urine
-11145-0,5-Hydroxyindoleacetate/​Creatinine [Mass Ratio] in Urine
-44909-0,5-Hydroxyindoleacetate and Creatinine [Interpretation] in Urine
-10459-6,Alpha-1-Fetoprotein Ag [Presence] in Tissue by Immune stain
-11207-8,Alpha-1-Fetoprotein [Mass/volume] in Body fluid
-1833-3,Alpha-1-Fetoprotein [Mass/volume] in Cerebral spinal fluid
-54348-8,Alpha-1-Fetoprotein [Mass/volume] in Cord blood
-49761-0,Alpha-1-Fetoprotein [Mass/volume] in Peritoneal fluid
-49762-8,Alpha-1-Fetoprotein [Mass/volume] in Pleural fluid
-1834-1,Alpha-1-Fetoprotein [Mass/volume] in Serum or Plasma
-83073-7,Alpha-1-Fetoprotein [Mass/volume] in Serum or Plasma by Immunoassay
-19173-4,Alpha-1-Fetoprotein [Moles/volume] in Pleural fluid
-19177-5,Alpha-1-Fetoprotein [Moles/volume] in Serum or Plasma
-31993-9,Alpha-1-Fetoprotein [Presence] in Serum or Plasma
-44910-8,Alpha-1-Fetoprotein [Units/volume] in Body fluid
-59564-5,Alpha-1-Fetoprotein [Units/volume] in Cerebral spinal fluid
-19172-6,Alpha-1-Fetoprotein [Units/volume] in Pleural fluid
-19176-7,Alpha-1-Fetoprotein [Units/volume] in Serum or Plasma
-83072-9,Alpha-1-Fetoprotein [Units/volume] in Serum or Plasma by Immunoassay
-41274-2,Alpha-1-Fetoprotein interpretation in Serum or Plasma
-49246-2,Alpha-1-Fetoprotein interpretation in Serum or Plasma Narrative
-49585-3,Alpha-1-Fetoprotein multiple of the median cutoff [Multiple of the median] in Serum or Plasma
-53962-7,Alpha-1-fetoprotein.tumor marker [Mass/volume] in Serum or Plasma
-53960-1,Alpha-1-fetoprotein.tumor marker [Moles/volume] in Serum or Plasma
-53961-9,Alpha-1-fetoprotein.tumor marker [Units/volume] in Serum or Plasma
-10873-8,Beta-2-Microglobulin [Mass/time] in 24 hour Urine
-54356-1,Beta-2-Microglobulin [Mass/volume] in 24 hour Urine
-48166-3,Beta-2-Microglobulin [Mass/volume] in Body fluid
-1951-3,Beta-2-Microglobulin [Mass/volume] in Cerebral spinal fluid
-49081-3,Beta-2-Microglobulin [Mass/volume] in Dialysis fluid
-88711-7,Beta-2-Microglobulin [Mass/volume] in Peritoneal dialysis fluid
-59217-0,Beta-2-Microglobulin [Mass/volume] in Peritoneal fluid
-59218-8,Beta-2-Microglobulin [Mass/volume] in Pleural fluid
-1952-1,Beta-2-Microglobulin [Mass/volume] in Serum or Plasma
-87708-4,Beta-2-Microglobulin [Mass/volume] in Serum or Plasma --post dialysis
-83078-6,Beta-2-Microglobulin [Mass/volume] in Serum or Plasma by Immunoassay
-1953-9,Beta-2-Microglobulin [Mass/volume] in Urine
-83077-8,Beta-2-Microglobulin [Mass/volume] in Urine by Immunoassay
-56662-0,Beta-2-Microglobulin [Moles/time] in 24 hour Urine
-50824-2,Beta-2-Microglobulin [Moles/volume] in 24 hour Urine
-39458-5,Beta-2-Microglobulin [Moles/volume] in Body fluid
-32301-4,Beta-2-Microglobulin [Moles/volume] in Cerebral spinal fluid
-14626-6,Beta-2-Microglobulin [Moles/volume] in Serum
-76484-5,Beta-2-Microglobulin [Moles/volume] in Serum or Plasma
-32302-2,Beta-2-Microglobulin [Moles/volume] in Urine
-43919-0,Beta-2-Microglobulin [Presence] in Cerebral spinal fluid
-43818-4,Beta-2-Microglobulin [Presence] in Serum
-43819-2,Beta-2-Microglobulin [Presence] in Urine
-83076-0,Beta-2-Microglobulin [Units/volume] in Serum or Plasma by Immunoassay
-83079-4,Beta-2-Microglobulin [Units/volume] in Urine by Immunoassay
-10467-9,Beta-2-Microglobulin amyloid Ag [Presence] in Tissue by Immune stain
-54355-3,Beta-2-Microglobulin in CSF/Beta-2-Microglobulin in serum
-56786-7,Beta-2-Microglobulin.tumor marker [Mass/volume] in Serum
-2006-5,Cancer Ag 125 [Presence] in Serum or Plasma
-48677-9,Cancer Ag 125 [Presence] in Tissue by Immune stain
-11210-2,Cancer Ag 125 [Units/volume] in Body fluid
-15156-3,Cancer Ag 125 [Units/volume] in Body fluid by Dilution
-50775-6,Cancer Ag 125 [Units/volume] in Cerebral spinal fluid
-68923-2,Cancer Ag 125 [Units/volume] in Pericardial fluid
-59040-6,Cancer Ag 125 [Units/volume] in Peritoneal dialysis fluid
-40618-1,Cancer Ag 125 [Units/volume] in Peritoneal fluid
-19165-0,Cancer Ag 125 [Units/volume] in Pleural fluid
-10334-1,Cancer Ag 125 [Units/volume] in Serum or Plasma
-15157-1,Cancer Ag 125 [Units/volume] in Serum or Plasma by Dilution
-83082-8,Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay
-2007-3,Cancer Ag 15-3 [Presence] in Serum or Plasma
-29153-4,Cancer Ag 15-3 [Units/volume] in Body fluid
-50776-4,Cancer Ag 15-3 [Units/volume] in Cerebral spinal fluid
-50777-2,Cancer Ag 15-3 [Units/volume] in Pericardial fluid
-50778-0,Cancer Ag 15-3 [Units/volume] in Peritoneal fluid
-19186-6,Cancer Ag 15-3 [Units/volume] in Pleural fluid
-6875-9,Cancer Ag 15-3 [Units/volume] in Serum or Plasma
-83083-6,Cancer Ag 15-3 [Units/volume] in Serum or Plasma by Immunoassay
-2009-9,Cancer Ag 19-9 [Presence] in Serum or Plasma
-26924-1,Cancer Ag 19-9 [Units/volume] in Body fluid
-50779-8,Cancer Ag 19-9 [Units/volume] in Cerebral spinal fluid
-50780-6,Cancer Ag 19-9 [Units/volume] in Pericardial fluid
-50781-4,Cancer Ag 19-9 [Units/volume] in Peritoneal fluid
-19163-5,Cancer Ag 19-9 [Units/volume] in Pleural fluid
-24108-3,Cancer Ag 19-9 [Units/volume] in Serum or Plasma
-83084-4,Cancer Ag 19-9 [Units/volume] in Serum or Plasma by Immunoassay
-2012-3,Cancer Ag 27-29 [Presence] in Serum or Plasma
-50782-2,Cancer Ag 27-29 [Units/volume] in Cerebral spinal fluid
-19187-4,Cancer Ag 27-29 [Units/volume] in Pleural fluid
-17842-6,Cancer Ag 27-29 [Units/volume] in Serum or Plasma
-12515-3,Carcinoembryonic Ag [Mass/volume] in Body fluid
-2037-0,Carcinoembryonic Ag [Mass/volume] in Cerebral spinal fluid
-40621-5,Carcinoembryonic Ag [Mass/volume] in Pericardial fluid
-40622-3,Carcinoembryonic Ag [Mass/volume] in Peritoneal fluid
-19169-2,Carcinoembryonic Ag [Mass/volume] in Pleural fluid
-2038-8,Carcinoembryonic Ag [Mass/volume] in Semen
-2039-6,Carcinoembryonic Ag [Mass/volume] in Serum or Plasma
-83085-1,Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay
-19170-0,Carcinoembryonic Ag [Moles/volume] in Pleural fluid
-19167-6,Carcinoembryonic Ag [Moles/volume] in Serum or Plasma
-10469-5,Carcinoembryonic Ag [Presence] in Tissue by Immune stain
-19168-4,Carcinoembryonic Ag [Units/volume] in Pleural fluid
-10560-1,Carcinoembryonic Ag [Units/volume] in Semen
-19166-8,Carcinoembryonic Ag [Units/volume] in Serum or Plasma
-85337-4,Estrogen receptor Ag [Presence] in Breast cancer specimen by Immune stain
-40556-3,Estrogen receptor Ag [Presence] in Tissue by Immune stain
-16112-5,Estrogen receptor [Interpretation] in Tissue
-14130-9,Estrogen receptor [Moles/mass] in Tissue
-85310-1,Estrogen receptor fluorescence intensity [Type] in Breast cancer specimen by Immune stain
-10480-2,Estrogen+Progesterone receptor Ag [Presence] in Tissue by Immune stain
-48676-1,HER2 [Interpretation] in Tissue
-32996-1,HER2 [Mass/volume] in Serum
-42914-2,HER2 [Mass/volume] in Serum by Immunoassay
-85318-4,HER2 [Presence] in Breast cancer specimen by FISH
-85319-2,HER2 [Presence] in Breast cancer specimen by Immune stain
-51981-9,HER2 [Presence] in Serum by Immunoassay
-31150-6,HER2 [Presence] in Tissue by FISH
-72383-3,HER2 [Presence] in Tissue by Immunoassay
-72382-5,HER2 [Units/volume] in Tissue by Immunoassay
-18474-7,HER2 Ag [Presence] in Tissue by Immune stain
-49683-6,HER2 gene copy number/Chromosome 17 copy number in Tissue by FISH
-74860-8,HER2 gene copy number/nucleus in Tissue by FISH
-74885-5,HER2 panel - Tissue by FISH
-83054-7,PD-L1 by clone 22C3 [Interpretation] in Tissue by Immune stain Narrative
-83052-1,PD-L1 by clone 22C3 [Presence] in Tissue by Immune stain
-83056-2,PD-L1 by clone 28-8 [Interpretation] in Tissue by Immune stain Narrative
-83055-4,PD-L1 by clone 28-8 [Presence] in Tissue by Immune stain
-83057-0,PD-L1 by clone SP142 [Presence] in Tissue by Immune stain
-83053-9,Cells.programmed cell death ligand 1/100 viable tumor cells in Tissue by Immune stain. (source: LOINC)
-85339-0,Progesterone receptor Ag [Presence] in Breast cancer specimen by Immune stain
-40557-1,Progesterone receptor Ag [Presence] in Tissue by Immune stain
-16113-3,Progesterone receptor [Interpretation] in Tissue
-10861-3,Progesterone receptor [Mass/mass] in Tissue
-31207-4,Progesterone receptor [Moles/mass] in Tissue
-85331-7,Progesterone receptor fluorescence intensity [Type] in Breast cancer specimen by Immune stain
-47738-0,Prostate specific Ag [Mass/volume] in Body fluid
-59230-3,Prostate specific Ag [Mass/volume] in Cerebral spinal fluid
-59223-8,Prostate specific Ag [Mass/volume] in Peritoneal fluid
-59221-2,Prostate specific Ag [Mass/volume] in Pleural fluid
-19199-9,Prostate specific Ag [Mass/volume] in Semen
-2857-1,Prostate specific Ag [Mass/volume] in Serum or Plasma
-35741-8,Prostate specific Ag [Mass/volume] in Serum or Plasma by Detection limit <= 0.01 ng/mL
-83112-3,Prostate specific Ag [Mass/volume] in Serum or Plasma by Immunoassay
-34611-4,Prostate specific Ag [Mass/volume] in Urine
-19200-5,Prostate specific Ag [Moles/volume] in Semen
-19197-3,Prostate specific Ag [Moles/volume] in Serum or Plasma
-10508-0,Prostate specific Ag [Presence] in Tissue by Immune stain
-19198-1,Prostate specific Ag [Units/volume] in Semen
-19195-7,Prostate specific Ag [Units/volume] in Serum or Plasma
-15325-4,Prostate specific Ag/Prostate volume calculated
-15323-9,Prostate specific Ag/Prostate volume calculated from height, width and length
-15324-7,Prostate specific Ag/Prostate volume calculated from planimetry
-14228-1,Cells.estrogen receptor/100 cells in Tissue by Immune stain
-85329-1,Cells.estrogen receptor/100 cells in Breast cancer specimen by Immune stain
-14230-7,Cells.progesterone receptor/100 cells in Tissue by Immune stain
-85325-9,Cells.progesterone receptor/100 cells in Breast cancer specimen by Immune stain
-79417-2,PMS2 gene deletion and duplication mutation analysis in Blood or Tissue by MLPA
-79419-8,PMS2 gene deletion+duplication and full mutation analysis in Blood or Tissue by Molecular genetics method
-79570-8,MLH1+MSH2+MSH6+PMS2 gene deletion+duplication and full mutation analysis in Blood or Tissue by Molecular genetics method
-81694-2,Mismatch repair endonuclease PMS2 [Presence] in Cancer specimen by Immune stain
-32630-6,MSH2 gene+MLH1 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal
-38536-9,MLH1 gene targeted mutation analysis in Blood or Tissue by Molecular genetics method
-41086-0,MLH1 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal
-58010-0,MSH2 gene+MLH1 gene+MSH6 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal
-58416-9,MLH1 gene methylation [Presence] in Blood or Tissue by Molecular genetics method
-76063-7,MSH2 gene+MLH1 gene+MSH6 gene mutation analysis limited to known familial mutations in Blood or Tissue by Molecular genetics method
-79416-4,MLH1 gene deletion and duplication mutation analysis in Blood or Tissue by MLPA
-81691-8,DNA mismatch repair protein Mlh1 [Presence] in Cancer specimen by Immune stain
-92676-6,MLH1 gene deletion+duplication and full mutation analysis in Blood or Tissue by Molecular genetics method
-97760-3,MLH1 gene methylation analysis in Blood by Molecular genetics method
-97761-1,MLH1 gene methylation analysis in Tumor by Molecular genetics method
-38550-0,MSH2 gene targeted mutation analysis in Blood or Tissue by Molecular genetics method
-41084-5,MSH2 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal
-79415-6,MSH2 gene deletion and duplication mutation analysis in Blood or Tissue by MLPA
-81692-6,DNA mismatch repair protein Msh2 [Presence] in Cancer specimen by Immune stain
-89039-2,MSH2 gene deletion+duplication and full mutation analysis and EPCAM gene exons 8 and 9 deletion and duplication mutation analysis in Blood or Tissue by Molecular genetics method
-92675-8,MSH2 gene deletion+duplication and full mutation analysis in Blood or Tissue by Molecular genetics method
-38906-4,MSH6 gene targeted mutation analysis in Blood or Tissue by Molecular genetics method
-38921-3,MSH6 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal
-79414-9,MSH6 gene deletion and duplication mutation analysis in Blood or Tissue by MLPA
-81693-4,DNA mismatch repair protein Msh6 [Presence] in Cancer specimen by Immune stain
-95774-6,MSH6 gene deletion+duplication and full mutation analysis in Blood or Tissue by Molecular genetics method
-81708-0,Microsatellite markers exhibiting instability/Microsatellite instability markers assessed in Cancer specimen
-43368-0,Microsatellite instability [Identifier] in Tissue by Molecular genetics method Nominal
-62862-8,Microsatellite instability [Presence] in Tissue by Immune stain
-81695-9,Microsatellite instability [Interpretation] in Cancer specimen Qualitative
-81696-7,Microsatellite instability markers assessed [#] in Cancer specimen
-81697-5,Microsatellite instability marker BAT25 in Cancer specimen Qualitative
-81698-3,Microsatellite instability marker BAT26 in Cancer specimen Qualitative
-81699-1,Microsatellite instability marker NR21 in Cancer specimen Qualitative
-81700-7,Microsatellite instability marker NR24 in Cancer specimen Qualitative
-81701-5,Microsatellite instability marker MONO27 in Cancer specimen Qualitative
-81702-3,Microsatellite instability marker D2S123 in Cancer specimen Qualitative
-81703-1,Microsatellite instability marker D5S346 in Cancer specimen Qualitative
-81704-9,Microsatellite instability marker D17S250 in Cancer specimen Qualitative
-81709-8,Microsatellite markers exhibiting instability [#] in Cancer specimen
-81711-4,Microsatellite instability marker panel - Cancer specimen
-11080-9,HIV 2 p53 Ab [Presence] in Serum by Immunoblot
-12876-9,HIV 1 p53 Ab [Presence] in Serum by Immunoblot
-14026-9,HTLV I+II p53 Ab [Presence] in Serum by Immunoblot
-14223-2,HTLV I p53 Ab [Presence] in Serum
-14229-9,P53 protein Ag [Presence] in Tissue by Immune stain
-31149-8,P53 protein Ag/100 cells in Tissue by Immune stain
-43295-5,HTLV I+II p53 Ab [Presence] in Serum
-89006-1,p53 Ab [Units/volume] in Serum or Plasma by Immunoassay
-97049-1,p53 Ab [Mass/volume] in Serum or Plasma by Immunoassay
+﻿1695-6$5-Hydroxyindoleacetate [Mass/time] in 24 hour Urine
+31203-3$5-Hydroxyindoleacetate [Mass/volume] in 24 hour Urine
+1692-3$5-Hydroxyindoleacetate [Mass/volume] in Cerebral spinal fluid
+1693-1$5-Hydroxyindoleacetate [Mass/volume] in Serum or Plasma
+1694-9$5-Hydroxyindoleacetate [Mass/volume] in Urine
+72820-4$5-Hydroxyindoleacetate [Mass/volume] in Urine by Confirmatory method
+14573-0$5-Hydroxyindoleacetate [Moles/time] in 24 hour Urine
+25971-3$5-Hydroxyindoleacetate [Moles/volume] in 24 hour Urine
+47544-2$5-Hydroxyindoleacetate [Moles/volume] in Cerebral spinal fluid
+74769-1$5-Hydroxyindoleacetate [Moles/volume] in Platelet rich plasma
+50149-4$5-Hydroxyindoleacetate [Moles/volume] in Serum or Plasma
+15009-4$5-Hydroxyindoleacetate [Moles/volume] in Urine
+12172-3$5-Hydroxyindoleacetate [Presence] in 24 hour Urine
+48168-9$5-Hydroxyindoleacetate [Presence] in Urine
+11145-0$5-Hydroxyindoleacetate/​Creatinine [Mass Ratio] in Urine
+44909-0$5-Hydroxyindoleacetate and Creatinine [Interpretation] in Urine
+10459-6$Alpha-1-Fetoprotein Ag [Presence] in Tissue by Immune stain
+11207-8$Alpha-1-Fetoprotein [Mass/volume] in Body fluid
+1833-3$Alpha-1-Fetoprotein [Mass/volume] in Cerebral spinal fluid
+54348-8$Alpha-1-Fetoprotein [Mass/volume] in Cord blood
+49761-0$Alpha-1-Fetoprotein [Mass/volume] in Peritoneal fluid
+49762-8$Alpha-1-Fetoprotein [Mass/volume] in Pleural fluid
+1834-1$Alpha-1-Fetoprotein [Mass/volume] in Serum or Plasma
+83073-7$Alpha-1-Fetoprotein [Mass/volume] in Serum or Plasma by Immunoassay
+19173-4$Alpha-1-Fetoprotein [Moles/volume] in Pleural fluid
+19177-5$Alpha-1-Fetoprotein [Moles/volume] in Serum or Plasma
+31993-9$Alpha-1-Fetoprotein [Presence] in Serum or Plasma
+44910-8$Alpha-1-Fetoprotein [Units/volume] in Body fluid
+59564-5$Alpha-1-Fetoprotein [Units/volume] in Cerebral spinal fluid
+19172-6$Alpha-1-Fetoprotein [Units/volume] in Pleural fluid
+19176-7$Alpha-1-Fetoprotein [Units/volume] in Serum or Plasma
+83072-9$Alpha-1-Fetoprotein [Units/volume] in Serum or Plasma by Immunoassay
+41274-2$Alpha-1-Fetoprotein interpretation in Serum or Plasma
+49246-2$Alpha-1-Fetoprotein interpretation in Serum or Plasma Narrative
+49585-3$Alpha-1-Fetoprotein multiple of the median cutoff [Multiple of the median] in Serum or Plasma
+53962-7$Alpha-1-fetoprotein.tumor marker [Mass/volume] in Serum or Plasma
+53960-1$Alpha-1-fetoprotein.tumor marker [Moles/volume] in Serum or Plasma
+53961-9$Alpha-1-fetoprotein.tumor marker [Units/volume] in Serum or Plasma
+10873-8$Beta-2-Microglobulin [Mass/time] in 24 hour Urine
+54356-1$Beta-2-Microglobulin [Mass/volume] in 24 hour Urine
+48166-3$Beta-2-Microglobulin [Mass/volume] in Body fluid
+1951-3$Beta-2-Microglobulin [Mass/volume] in Cerebral spinal fluid
+49081-3$Beta-2-Microglobulin [Mass/volume] in Dialysis fluid
+88711-7$Beta-2-Microglobulin [Mass/volume] in Peritoneal dialysis fluid
+59217-0$Beta-2-Microglobulin [Mass/volume] in Peritoneal fluid
+59218-8$Beta-2-Microglobulin [Mass/volume] in Pleural fluid
+1952-1$Beta-2-Microglobulin [Mass/volume] in Serum or Plasma
+87708-4$Beta-2-Microglobulin [Mass/volume] in Serum or Plasma --post dialysis
+83078-6$Beta-2-Microglobulin [Mass/volume] in Serum or Plasma by Immunoassay
+1953-9$Beta-2-Microglobulin [Mass/volume] in Urine
+83077-8$Beta-2-Microglobulin [Mass/volume] in Urine by Immunoassay
+56662-0$Beta-2-Microglobulin [Moles/time] in 24 hour Urine
+50824-2$Beta-2-Microglobulin [Moles/volume] in 24 hour Urine
+39458-5$Beta-2-Microglobulin [Moles/volume] in Body fluid
+32301-4$Beta-2-Microglobulin [Moles/volume] in Cerebral spinal fluid
+14626-6$Beta-2-Microglobulin [Moles/volume] in Serum
+76484-5$Beta-2-Microglobulin [Moles/volume] in Serum or Plasma
+32302-2$Beta-2-Microglobulin [Moles/volume] in Urine
+43919-0$Beta-2-Microglobulin [Presence] in Cerebral spinal fluid
+43818-4$Beta-2-Microglobulin [Presence] in Serum
+43819-2$Beta-2-Microglobulin [Presence] in Urine
+83076-0$Beta-2-Microglobulin [Units/volume] in Serum or Plasma by Immunoassay
+83079-4$Beta-2-Microglobulin [Units/volume] in Urine by Immunoassay
+10467-9$Beta-2-Microglobulin amyloid Ag [Presence] in Tissue by Immune stain
+54355-3$Beta-2-Microglobulin in CSF/Beta-2-Microglobulin in serum
+56786-7$Beta-2-Microglobulin.tumor marker [Mass/volume] in Serum
+2006-5$Cancer Ag 125 [Presence] in Serum or Plasma
+48677-9$Cancer Ag 125 [Presence] in Tissue by Immune stain
+11210-2$Cancer Ag 125 [Units/volume] in Body fluid
+15156-3$Cancer Ag 125 [Units/volume] in Body fluid by Dilution
+50775-6$Cancer Ag 125 [Units/volume] in Cerebral spinal fluid
+68923-2$Cancer Ag 125 [Units/volume] in Pericardial fluid
+59040-6$Cancer Ag 125 [Units/volume] in Peritoneal dialysis fluid
+40618-1$Cancer Ag 125 [Units/volume] in Peritoneal fluid
+19165-0$Cancer Ag 125 [Units/volume] in Pleural fluid
+10334-1$Cancer Ag 125 [Units/volume] in Serum or Plasma
+15157-1$Cancer Ag 125 [Units/volume] in Serum or Plasma by Dilution
+83082-8$Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay
+2007-3$Cancer Ag 15-3 [Presence] in Serum or Plasma
+29153-4$Cancer Ag 15-3 [Units/volume] in Body fluid
+50776-4$Cancer Ag 15-3 [Units/volume] in Cerebral spinal fluid
+50777-2$Cancer Ag 15-3 [Units/volume] in Pericardial fluid
+50778-0$Cancer Ag 15-3 [Units/volume] in Peritoneal fluid
+19186-6$Cancer Ag 15-3 [Units/volume] in Pleural fluid
+6875-9$Cancer Ag 15-3 [Units/volume] in Serum or Plasma
+83083-6$Cancer Ag 15-3 [Units/volume] in Serum or Plasma by Immunoassay
+2009-9$Cancer Ag 19-9 [Presence] in Serum or Plasma
+26924-1$Cancer Ag 19-9 [Units/volume] in Body fluid
+50779-8$Cancer Ag 19-9 [Units/volume] in Cerebral spinal fluid
+50780-6$Cancer Ag 19-9 [Units/volume] in Pericardial fluid
+50781-4$Cancer Ag 19-9 [Units/volume] in Peritoneal fluid
+19163-5$Cancer Ag 19-9 [Units/volume] in Pleural fluid
+24108-3$Cancer Ag 19-9 [Units/volume] in Serum or Plasma
+83084-4$Cancer Ag 19-9 [Units/volume] in Serum or Plasma by Immunoassay
+2012-3$Cancer Ag 27-29 [Presence] in Serum or Plasma
+50782-2$Cancer Ag 27-29 [Units/volume] in Cerebral spinal fluid
+19187-4$Cancer Ag 27-29 [Units/volume] in Pleural fluid
+17842-6$Cancer Ag 27-29 [Units/volume] in Serum or Plasma
+12515-3$Carcinoembryonic Ag [Mass/volume] in Body fluid
+2037-0$Carcinoembryonic Ag [Mass/volume] in Cerebral spinal fluid
+40621-5$Carcinoembryonic Ag [Mass/volume] in Pericardial fluid
+40622-3$Carcinoembryonic Ag [Mass/volume] in Peritoneal fluid
+19169-2$Carcinoembryonic Ag [Mass/volume] in Pleural fluid
+2038-8$Carcinoembryonic Ag [Mass/volume] in Semen
+2039-6$Carcinoembryonic Ag [Mass/volume] in Serum or Plasma
+83085-1$Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay
+19170-0$Carcinoembryonic Ag [Moles/volume] in Pleural fluid
+19167-6$Carcinoembryonic Ag [Moles/volume] in Serum or Plasma
+10469-5$Carcinoembryonic Ag [Presence] in Tissue by Immune stain
+19168-4$Carcinoembryonic Ag [Units/volume] in Pleural fluid
+10560-1$Carcinoembryonic Ag [Units/volume] in Semen
+19166-8$Carcinoembryonic Ag [Units/volume] in Serum or Plasma
+85337-4$Estrogen receptor Ag [Presence] in Breast cancer specimen by Immune stain
+40556-3$Estrogen receptor Ag [Presence] in Tissue by Immune stain
+16112-5$Estrogen receptor [Interpretation] in Tissue
+14130-9$Estrogen receptor [Moles/mass] in Tissue
+85310-1$Estrogen receptor fluorescence intensity [Type] in Breast cancer specimen by Immune stain
+10480-2$Estrogen+Progesterone receptor Ag [Presence] in Tissue by Immune stain
+48676-1$HER2 [Interpretation] in Tissue
+32996-1$HER2 [Mass/volume] in Serum
+42914-2$HER2 [Mass/volume] in Serum by Immunoassay
+85318-4$HER2 [Presence] in Breast cancer specimen by FISH
+85319-2$HER2 [Presence] in Breast cancer specimen by Immune stain
+51981-9$HER2 [Presence] in Serum by Immunoassay
+31150-6$HER2 [Presence] in Tissue by FISH
+72383-3$HER2 [Presence] in Tissue by Immunoassay
+72382-5$HER2 [Units/volume] in Tissue by Immunoassay
+18474-7$HER2 Ag [Presence] in Tissue by Immune stain
+49683-6$HER2 gene copy number/Chromosome 17 copy number in Tissue by FISH
+74860-8$HER2 gene copy number/nucleus in Tissue by FISH
+74885-5$HER2 panel - Tissue by FISH
+83054-7$PD-L1 by clone 22C3 [Interpretation] in Tissue by Immune stain Narrative
+83052-1$PD-L1 by clone 22C3 [Presence] in Tissue by Immune stain
+83056-2$PD-L1 by clone 28-8 [Interpretation] in Tissue by Immune stain Narrative
+83055-4$PD-L1 by clone 28-8 [Presence] in Tissue by Immune stain
+83057-0$PD-L1 by clone SP142 [Presence] in Tissue by Immune stain
+83053-9$Cells.programmed cell death ligand 1/100 viable tumor cells in Tissue by Immune stain. (source: LOINC)
+85339-0$Progesterone receptor Ag [Presence] in Breast cancer specimen by Immune stain
+40557-1$Progesterone receptor Ag [Presence] in Tissue by Immune stain
+16113-3$Progesterone receptor [Interpretation] in Tissue
+10861-3$Progesterone receptor [Mass/mass] in Tissue
+31207-4$Progesterone receptor [Moles/mass] in Tissue
+85331-7$Progesterone receptor fluorescence intensity [Type] in Breast cancer specimen by Immune stain
+47738-0$Prostate specific Ag [Mass/volume] in Body fluid
+59230-3$Prostate specific Ag [Mass/volume] in Cerebral spinal fluid
+59223-8$Prostate specific Ag [Mass/volume] in Peritoneal fluid
+59221-2$Prostate specific Ag [Mass/volume] in Pleural fluid
+19199-9$Prostate specific Ag [Mass/volume] in Semen
+2857-1$Prostate specific Ag [Mass/volume] in Serum or Plasma
+35741-8$Prostate specific Ag [Mass/volume] in Serum or Plasma by Detection limit <= 0.01 ng/mL
+83112-3$Prostate specific Ag [Mass/volume] in Serum or Plasma by Immunoassay
+34611-4$Prostate specific Ag [Mass/volume] in Urine
+19200-5$Prostate specific Ag [Moles/volume] in Semen
+19197-3$Prostate specific Ag [Moles/volume] in Serum or Plasma
+10508-0$Prostate specific Ag [Presence] in Tissue by Immune stain
+19198-1$Prostate specific Ag [Units/volume] in Semen
+19195-7$Prostate specific Ag [Units/volume] in Serum or Plasma
+15325-4$Prostate specific Ag/Prostate volume calculated
+15323-9$Prostate specific Ag/Prostate volume calculated from height, width and length
+15324-7$Prostate specific Ag/Prostate volume calculated from planimetry
+14228-1$Cells.estrogen receptor/100 cells in Tissue by Immune stain
+85329-1$Cells.estrogen receptor/100 cells in Breast cancer specimen by Immune stain
+14230-7$Cells.progesterone receptor/100 cells in Tissue by Immune stain
+85325-9$Cells.progesterone receptor/100 cells in Breast cancer specimen by Immune stain
+79417-2$PMS2 gene deletion and duplication mutation analysis in Blood or Tissue by MLPA
+79419-8$PMS2 gene deletion+duplication and full mutation analysis in Blood or Tissue by Molecular genetics method
+79570-8$MLH1+MSH2+MSH6+PMS2 gene deletion+duplication and full mutation analysis in Blood or Tissue by Molecular genetics method
+81694-2$Mismatch repair endonuclease PMS2 [Presence] in Cancer specimen by Immune stain
+32630-6$MSH2 gene+MLH1 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal
+38536-9$MLH1 gene targeted mutation analysis in Blood or Tissue by Molecular genetics method
+41086-0$MLH1 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal
+58010-0$MSH2 gene+MLH1 gene+MSH6 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal
+58416-9$MLH1 gene methylation [Presence] in Blood or Tissue by Molecular genetics method
+76063-7$MSH2 gene+MLH1 gene+MSH6 gene mutation analysis limited to known familial mutations in Blood or Tissue by Molecular genetics method
+79416-4$MLH1 gene deletion and duplication mutation analysis in Blood or Tissue by MLPA
+81691-8$DNA mismatch repair protein Mlh1 [Presence] in Cancer specimen by Immune stain
+92676-6$MLH1 gene deletion+duplication and full mutation analysis in Blood or Tissue by Molecular genetics method
+97760-3$MLH1 gene methylation analysis in Blood by Molecular genetics method
+97761-1$MLH1 gene methylation analysis in Tumor by Molecular genetics method
+38550-0$MSH2 gene targeted mutation analysis in Blood or Tissue by Molecular genetics method
+41084-5$MSH2 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal
+79415-6$MSH2 gene deletion and duplication mutation analysis in Blood or Tissue by MLPA
+81692-6$DNA mismatch repair protein Msh2 [Presence] in Cancer specimen by Immune stain
+89039-2$MSH2 gene deletion+duplication and full mutation analysis and EPCAM gene exons 8 and 9 deletion and duplication mutation analysis in Blood or Tissue by Molecular genetics method
+92675-8$MSH2 gene deletion+duplication and full mutation analysis in Blood or Tissue by Molecular genetics method
+38906-4$MSH6 gene targeted mutation analysis in Blood or Tissue by Molecular genetics method
+38921-3$MSH6 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal
+79414-9$MSH6 gene deletion and duplication mutation analysis in Blood or Tissue by MLPA
+81693-4$DNA mismatch repair protein Msh6 [Presence] in Cancer specimen by Immune stain
+95774-6$MSH6 gene deletion+duplication and full mutation analysis in Blood or Tissue by Molecular genetics method
+81708-0$Microsatellite markers exhibiting instability/Microsatellite instability markers assessed in Cancer specimen
+43368-0$Microsatellite instability [Identifier] in Tissue by Molecular genetics method Nominal
+62862-8$Microsatellite instability [Presence] in Tissue by Immune stain
+81695-9$Microsatellite instability [Interpretation] in Cancer specimen Qualitative
+81696-7$Microsatellite instability markers assessed [#] in Cancer specimen
+81697-5$Microsatellite instability marker BAT25 in Cancer specimen Qualitative
+81698-3$Microsatellite instability marker BAT26 in Cancer specimen Qualitative
+81699-1$Microsatellite instability marker NR21 in Cancer specimen Qualitative
+81700-7$Microsatellite instability marker NR24 in Cancer specimen Qualitative
+81701-5$Microsatellite instability marker MONO27 in Cancer specimen Qualitative
+81702-3$Microsatellite instability marker D2S123 in Cancer specimen Qualitative
+81703-1$Microsatellite instability marker D5S346 in Cancer specimen Qualitative
+81704-9$Microsatellite instability marker D17S250 in Cancer specimen Qualitative
+81709-8$Microsatellite markers exhibiting instability [#] in Cancer specimen
+81711-4$Microsatellite instability marker panel - Cancer specimen
+11080-9$HIV 2 p53 Ab [Presence] in Serum by Immunoblot
+12876-9$HIV 1 p53 Ab [Presence] in Serum by Immunoblot
+14026-9$HTLV I+II p53 Ab [Presence] in Serum by Immunoblot
+14223-2$HTLV I p53 Ab [Presence] in Serum
+14229-9$P53 protein Ag [Presence] in Tissue by Immune stain
+31149-8$P53 protein Ag/100 cells in Tissue by Immune stain
+43295-5$HTLV I+II p53 Ab [Presence] in Serum
+89006-1$p53 Ab [Units/volume] in Serum or Plasma by Immunoassay
+97049-1$p53 Ab [Mass/volume] in Serum or Plasma by Immunoassay

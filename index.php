@@ -3,18 +3,14 @@
  require 'vendor/autoload.php';
  include('configuration/mcode.php');
  include('configuration/map.php');
+ 
+ $ip = $_SERVER['REMOTE_ADDR'];
 
- function getIp(){
-   if(!empty($_SERVER['HTTP_CLIENT_IP'])){
-     $ip = $_SERVER['HTTP_CLIENT_IP'];
-   }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
-     $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-   }else{
-     $ip = $_SERVER['REMOTE_ADDR'];
-   }
-   return $ip;
+ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+   $ip = $_SERVER['HTTP_CLIENT_IP'];
+ } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+   $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
  }
- $ip = getIp();
 
  ini_set('session.cookie_httponly', 1);
  ini_set('session.use_only_cookies', 1);
@@ -52,7 +48,7 @@
      }
 
      // Use a token to look up a users profile data
-     try {
+     try { // ends at line 3360. We need to make this block smaller.
 
          // We got an access token, let's now get the user's details
          $user                 = $provider->getResourceOwner($token);
@@ -378,7 +374,7 @@
       </div>
 
 <div style="float: right;margin-left:1px">
-<a href='https://app.asana.com/0/1187650412767761/1187650412767761https://app.asana.com/0/1187650412767761/1187650412767761' target="_blank">
+<a href='https://app.asana.com/0/1187650412767761/1187650412767761https://app.asana.com/0/1187650412767761/1187650412767761' target="_blank"> <!-- duplicated Asana URL -->
       <div class='panel noselect' style="float:right;margin-right:10px">
        <div class='admin-panel'>
          <label class='text' for='bugs'><?php echo "Report a bug"; ?></label>
@@ -651,15 +647,15 @@
                                       <h4>Institution</h4>
                                       <div class="bootstrap-iso">
                                          <select class="selectpicker show-tick" name="institution" id="institution" data-width="100%">
-                                            <option name="institution" value="NA" >NA</option>
-                                            <option name="institution" value="UHN" >University Health Network</option>
-                                            <option name="institution" value="Sickkids" >The Hospital for Sick Children</option>
-                                            <option name="institution" value="Sinai" >Sinai Health (or Mount Sinai Hospital)</option>
-                                            <option name="institution" value="Womenhosp" >Women's College Hospital</option>
-                                            <option name="institution" value="BCCA" >British Columbia Cancer Agency</option>
-                                            <option name="institution" value="JGH" >Jewish General Hospital</option>
-                                            <option name="institution" value="EH" >Eastern Health</option>
-                                            <option name="institution" value="IHC" >IWK Health Centre</option>
+                                            <option value="NA">NA</option>
+                                            <option value="UHN">University Health Network</option>
+                                            <option value="Sickkids">The Hospital for Sick Children</option>
+                                            <option value="Sinai">Sinai Health (or Mount Sinai Hospital)</option>
+                                            <option value="Womenhosp">Women's College Hospital</option>
+                                            <option value="BCCA">British Columbia Cancer Agency</option>
+                                            <option value="JGH">Jewish General Hospital</option>
+                                            <option value="EH">Eastern Health</option>
+                                            <option value="IHC">IWK Health Centre</option>
                                          </select>
                                       </div>
                                    </div>
@@ -779,13 +775,13 @@
                                                     <h4>ECOG performance status</h4>
                                                     <div class="bootstrap-iso">
                                                        <select class="selectpicker show-tick" name="ecog" id="ecog" data-width="99%">
-                                                          <option name="ecog" value="ecogNA">NA</option>
-                                                          <option name="ecog" value="ecog0">ECOG Grade 0: Asymptomatic</option>
-                                                          <option name="ecog" value="ecog1">ECOG Grade 1: Symptomatic but completely ambulatory</option>
-                                                          <option name="ecog" value="ecog2">ECOG Grade 2: Symptomatic, less than 50% in bed during the day</option>
-                                                          <option name="ecog" value="ecog3">ECOG Grade 3: Symptomatic, more than 50% in bed, but not bedbound</option>
-                                                          <option name="ecog" value="ecog4">ECOG Grade 4: Bedbound</option>
-                                                          <option name="ecog" value="ecog5">ECOG Grade 5: Death</option>
+                                                          <option value="ecogNA">NA</option>
+                                                          <option value="ecog0">ECOG Grade 0: Asymptomatic</option>
+                                                          <option value="ecog1">ECOG Grade 1: Symptomatic but completely ambulatory</option>
+                                                          <option value="ecog2">ECOG Grade 2: Symptomatic, less than 50% in bed during the day</option>
+                                                          <option value="ecog3">ECOG Grade 3: Symptomatic, more than 50% in bed, but not bedbound</option>
+                                                          <option value="ecog4">ECOG Grade 4: Bedbound</option>
+                                                          <option value="ecog5">ECOG Grade 5: Death</option>
                                                        </select>
                                                     </div>
                                                  </div>
@@ -793,18 +789,18 @@
                                                     <h4>Karnofsky performance status</h4>
                                                     <div class="bootstrap-iso">
                                                        <select class="selectpicker show-tick" name ="karnofsky" id="karnofsky" data-width="100%">
-                                                          <option name ="karnofsky" value="kNA">NA</option>
-                                                          <option name ="karnofsky" value="k100">KPS 100: Normal; no complaints; no evidence of disease</option>
-                                                          <option name ="karnofsky" value="k90">KPS 90: Able to carry on normal activity; minor signs or symptoms of disease</option>
-                                                          <option name ="karnofsky" value="k80">KPS 80: Normal activity with effort; some signs or symptoms of disease</option>
-                                                          <option name ="karnofsky" value="k70">KPS 70: Cares for self; unable to carry on normal activity or do active work</option>
-                                                          <option name ="karnofsky" value="k60">KPS 60: Requires occasional assistance but is able to care for most needs</option>
-                                                          <option name ="karnofsky" value="k50">KPS 50: Requires considerable assistance and frequent medical care</option>
-                                                          <option name ="karnofsky" value="k40">KPS 40: Disabled; requires special care and assistance</option>
-                                                          <option name ="karnofsky" value="k30">KPS 30: Severely disabled; hospitalization is indicated,  although death not imminent</option>
-                                                          <option name ="karnofsky" value="k20">KPS 20: Very sick; hospitalization necessary; active supportive treatment necessary</option>
-                                                          <option name ="karnofsky" value="k10">KPS 10: Moribund; fatal processes progressing rapidly</option>
-                                                          <option name ="karnofsky" value="k0">KPS 0: Dead</option>
+                                                          <option value="kNA">NA</option>
+                                                          <option value="k100">KPS 100: Normal; no complaints; no evidence of disease</option>
+                                                          <option value="k90">KPS 90: Able to carry on normal activity; minor signs or symptoms of disease</option>
+                                                          <option value="k80">KPS 80: Normal activity with effort; some signs or symptoms of disease</option>
+                                                          <option value="k70">KPS 70: Cares for self; unable to carry on normal activity or do active work</option>
+                                                          <option value="k60">KPS 60: Requires occasional assistance but is able to care for most needs</option>
+                                                          <option value="k50">KPS 50: Requires considerable assistance and frequent medical care</option>
+                                                          <option value="k40">KPS 40: Disabled; requires special care and assistance</option>
+                                                          <option value="k30">KPS 30: Severely disabled; hospitalization is indicated,  although death not imminent</option>
+                                                          <option value="k20">KPS 20: Very sick; hospitalization necessary; active supportive treatment necessary</option>
+                                                          <option value="k10">KPS 10: Moribund; fatal processes progressing rapidly</option>
+                                                          <option value="k0">KPS 0: Dead</option>
                                                        </select>
                                                     </div>
                                                  </div>
@@ -813,7 +809,7 @@
                                               <div class="row">
                                                 <div class="bootstrap-iso">
                                                   <div class="md-form">
-                                                    <i class="fas fa-pencil-alt prefix"> Comments</i>
+                                                    <em class="fas fa-pencil-alt prefix">Comments</em>
                                                     <textarea id="statuscom" class="md-textarea form-control" rows="3" style="resize: none;"></textarea>
                                                   </div>
                                                 </div>
@@ -1006,21 +1002,21 @@
                                    <h4>Clinical stage group</h4>
                                    <div class="bootstrap-iso">
                                       <select class="selectpicker show-tick" name="stagegp" id="stagegp" data-width="99%">
-                                         <option name="stagegp" value="NA">NA</option>
-                                         <option name="stagegp" value="0">0</option>
-                                         <option name="stagegp" value="I">I</option>
-                                         <option name="stagegp" value="II">II</option>
-                                         <option name="stagegp" value="IIA">IIA</option>
-                                         <option name="stagegp" value="IIB">IIB</option>
-                                         <option name="stagegp" value="IIC">IIC</option>
-                                         <option name="stagegp" value="III">III</option>
-                                         <option name="stagegp" value="IIIA">IIIA</option>
-                                         <option name="stagegp" value="IIIB">IIIB</option>
-                                         <option name="stagegp" value="IIIC">IIIC</option>
-                                         <option name="stagegp" value="IV">IV</option>
-                                         <option name="stagegp" value="IVA">IVA</option>
-                                         <option name="stagegp" value="IVB">IVB</option>
-                                         <option name="stagegp" value="IVC">IVC</option>
+                                         <option value="NA">NA</option>
+                                         <option value="0">0</option>
+                                         <option value="I">I</option>
+                                         <option value="II">II</option>
+                                         <option value="IIA">IIA</option>
+                                         <option value="IIB">IIB</option>
+                                         <option value="IIC">IIC</option>
+                                         <option value="III">III</option>
+                                         <option value="IIIA">IIIA</option>
+                                         <option value="IIIB">IIIB</option>
+                                         <option value="IIIC">IIIC</option>
+                                         <option value="IV">IV</option>
+                                         <option value="IVA">IVA</option>
+                                         <option value="IVB">IVB</option>
+                                         <option value="IVC">IVC</option>
                                       </select>
                                    </div>
                                 </div>
@@ -1028,11 +1024,11 @@
                                    <h4>Clinical stage system</h4>
                                    <div class="bootstrap-iso">
                                       <select class="selectpicker show-tick" name="stages" id="stages" data-width="100%">
-                                         <option name="stages" value="NA">NA</option>
-                                         <option name="stages" value="stages0">International Union Against Cancer</option>
-                                         <option name="stages" value="stagesI">American Joint Commission on Cancer,6th edition</option>
-                                         <option name="stages" value="stagesII">American Joint Commission on Cancer,7th edition</option>
-                                         <option name="stages" value="stagesII">American Joint Commission on Cancer,8th edition</option>
+                                         <option value="NA">NA</option>
+                                         <option value="stages0">International Union Against Cancer</option>
+                                         <option value="stagesI">American Joint Commission on Cancer,6th edition</option>
+                                         <option value="stagesII">American Joint Commission on Cancer,7th edition</option>
+                                         <option value="stagesII">American Joint Commission on Cancer,8th edition</option>
                                       </select>
                                    </div>
                                 </div>
@@ -1043,21 +1039,21 @@
                                    <h4>Pathologic stage group</h4>
                                    <div class="bootstrap-iso">
                                       <select class="selectpicker show-tick" name="pstagegp" id="pstagegp" data-width="99%">
-                                        <option name="pstagegp" value="NA">NA</option>
-                                        <option name="pstagegp" value="0">0</option>
-                                        <option name="pstagegp" value="I">I</option>
-                                        <option name="pstagegp" value="II">II</option>
-                                        <option name="pstagegp" value="IIA">IIA</option>
-                                        <option name="pstagegp" value="IIB">IIB</option>
-                                        <option name="pstagegp" value="IIC">IIC</option>
-                                        <option name="pstagegp" value="III">III</option>
-                                        <option name="pstagegp" value="IIIA">IIIA</option>
-                                        <option name="pstagegp" value="IIIB">IIIB</option>
-                                        <option name="pstagegp" value="IIIC">IIIC</option>
-                                        <option name="pstagegp" value="IV">IV</option>
-                                        <option name="pstagegp" value="IVA">IVA</option>
-                                        <option name="pstagegp" value="IVB">IVB</option>
-                                        <option name="pstagegp" value="IVC">IVC</option>
+                                        <option value="NA">NA</option>
+                                        <option value="0">0</option>
+                                        <option value="I">I</option>
+                                        <option value="II">II</option>
+                                        <option value="IIA">IIA</option>
+                                        <option value="IIB">IIB</option>
+                                        <option value="IIC">IIC</option>
+                                        <option value="III">III</option>
+                                        <option value="IIIA">IIIA</option>
+                                        <option value="IIIB">IIIB</option>
+                                        <option value="IIIC">IIIC</option>
+                                        <option value="IV">IV</option>
+                                        <option value="IVA">IVA</option>
+                                        <option value="IVB">IVB</option>
+                                        <option value="IVC">IVC</option>
                                       </select>
                                    </div>
                                 </div>
@@ -1065,11 +1061,11 @@
                                    <h4>Pathologic stage system</h4>
                                    <div class="bootstrap-iso">
                                       <select class="selectpicker show-tick" name="pstages" id="pstages" data-width="100%">
-                                         <option name="pstages" value="stagesNA">NA</option>
-                                         <option name="pstages" value="stages0">International Union Against Cancer</option>
-                                         <option name="pstages" value="stagesI">American Joint Commission on Cancer,6th edition</option>
-                                         <option name="pstages" value="stagesII">American Joint Commission on Cancer,7th edition</option>
-                                         <option name="pstages" value="stagesII">American Joint Commission on Cancer,8th edition</option>
+                                         <option value="stagesNA">NA</option>
+                                         <option value="stages0">International Union Against Cancer</option>
+                                         <option value="stagesI">American Joint Commission on Cancer,6th edition</option>
+                                         <option value="stagesII">American Joint Commission on Cancer,7th edition</option>
+                                         <option value="stagesII">American Joint Commission on Cancer,8th edition</option>
                                       </select>
                                    </div>
                                 </div>
@@ -1419,12 +1415,12 @@
                                            <h4>Procedure</h4>
                                            <div class="bootstrap-iso">
                                              <select class="selectpicker show-tick" name="radiationpro" id="radiationpro" data-width="99%">
-                                                <option name="radiationpro" value="NA" >NA</option>
-                                                <option name="radiationpro" value="Protons" >Teleradiotherapy protons</option>
-                                                <option name="radiationpro" value="Electrons" >Teleradiotherapy using electrons</option>
-                                                <option name="radiationpro" value="Neutrons" >Teleradiotherapy neutrons</option>
-                                                <option name="radiationpro" value="Brachytherapy" >Brachytherapy</option>
-                                                <option name="radiationpro" value="Photons" >Megavoltage radiation therapy using photons</option>
+                                                <option value="NA">NA</option>
+                                                <option value="Protons">Teleradiotherapy protons</option>
+                                                <option value="Electrons">Teleradiotherapy using electrons</option>
+                                                <option value="Neutrons">Teleradiotherapy neutrons</option>
+                                                <option value="Brachytherapy">Brachytherapy</option>
+                                                <option value="Photons">Megavoltage radiation therapy using photons</option>
                                              </select>
                                            </div>
                                         </div>
@@ -1559,14 +1555,14 @@
                                             <h4>Termination reason</h4>
                                             <div class="bootstrap-iso">
                                               <select class="selectpicker show-tick" name="termination" id="termination" data-width="100%">
-                                                 <option name="termination" value="NA" >NA</option>
-                                                 <option name="termination" value="Refusal" >Refusal of treatment by patient</option>
-                                                 <option name="termination" value="Transfer" >Patient transfer</option>
-                                                 <option name="termination" value="Financial" >Financial problem</option>
-                                                 <option name="termination" value="Completed" >Treatment completed</option>
-                                                 <option name="termination" value="Reaction" >Adverse reaction</option>
-                                                 <option name="termination" value="Unavailable" >Treatment not available</option>
-                                                 <option name="termination" value="Uneffective" >Lack of drug action</option>
+                                                 <option value="NA">NA</option>
+                                                 <option value="Refusal">Refusal of treatment by patient</option>
+                                                 <option value="Transfer">Patient transfer</option>
+                                                 <option value="Financial">Financial problem</option>
+                                                 <option value="Completed">Treatment completed</option>
+                                                 <option value="Reaction">Adverse reaction</option>
+                                                 <option value="Unavailable">Treatment not available</option>
+                                                 <option value="Uneffective">Lack of drug action</option>
                                               </select>
                                             </div>
                                          </div>
@@ -1708,11 +1704,11 @@
                                          <h4>CBC type</h4>
                                          <div class="bootstrap-iso">
                                             <select class="selectpicker show-tick" name="cbctype" id="cbctype" data-width="100%">
-                                               <option name="cbctype" value="Redblood" >Red blood cell count (cells/mcL)</option>
-                                               <option name="cbctype" value="Whiteblood" >White blood cell count (cells/mcL)</option>
-                                               <option name="cbctype" value="Hematocrit" >Hematocrit (%)</option>
-                                               <option name="cbctype" value="Hemoglobin" >Hemoglobin (grams/L)</option>
-                                               <option name="cbctype" value="Platelet" >Platelet count (/mcL)</option>
+                                               <option value="Redblood">Red blood cell count (cells/mcL)</option>
+                                               <option value="Whiteblood">White blood cell count (cells/mcL)</option>
+                                               <option value="Hematocrit">Hematocrit (%)</option>
+                                               <option value="Hemoglobin">Hemoglobin (grams/L)</option>
+                                               <option value="Platelet">Platelet count (/mcL)</option>
                                             </select>
                                          </div>
                                       </div>
@@ -1762,28 +1758,31 @@
                                          <div class="bootstrap-iso">
                                             <select class="selectpicker show-tick" name="cmptype" id="cmptype" data-width="100%">
                                               <optgroup label="General">
-                                                <option name="cmptype" value="Glucose" >Glucose</option>
-                                                <option name="cmptype" value="Calcium" >Calcium</option>
+                                                <option value="Glucose">Glucose</option>
+                                                <option value="Calcium">Calcium</option>
+                                                <option value="ESR">Erythrocyte Sedimentation Rate (ESR)</option>
+                                                <option value="LDH>">Lactic Acid Dehydrogenase (LDH)</option>
                                               </optgroup>
                                               <optgroup label="Proteins">
-                                                <option name="cmptype" value="Albumin" >Albumin</option>
-                                                <option name="cmptype" value="Total" >Total protein</option>
+                                                <option value="Albumin">Albumin</option>
+                                                <option value="Total">Total protein</option>
                                               </optgroup>
                                               <optgroup label="Electrolytes">
-                                                <option name="cmptype" value="Sodium" >Sodium</option>
-                                                <option name="cmptype" value="Potassium" >Potassium</option>
-                                                <option name="cmptype" value="Bicarbonate" >Bicarbonate (Total CO2)</option>
-                                                <option name="cmptype" value="Chloride" >Chloride</option>
+                                                <option value="Sodium">Sodium</option>
+                                                <option value="Potassium">Potassium</option>
+                                                <option value="Bicarbonate">Bicarbonate (Total CO2)</option>
+                                                <option value="Chloride">Chloride</option>
+                                                <option value="Magnesium">Magnesium</option>
                                               </optgroup>
                                               <optgroup label="Kidney Tests">
-                                                <option name="cmptype" value="BUN" >Blood urea nitrogen (BUN)</option>
-                                                <option name="cmptype" value="Creatinine" >Creatinine</option>
+                                                <option value="BUN">Blood urea nitrogen (BUN)</option>
+                                                <option value="Creatinine">Creatinine</option>
                                               </optgroup>
                                               <optgroup label="Liver Tests">
-                                                <option name="cmptype" value="ALP" >Alkaline phosphatase (ALP)</option>
-                                                <option name="cmptype" value="ALT" >Alanine amino transferase (ALT, SGPT)</option>
-                                                <option name="cmptype" value="AST" >Aspartate amino transferase (AST, SGOT)</option>
-                                                <option name="cmptype" value="Bilirubin" >Bilirubin</option>
+                                                <option value="ALP">Alkaline phosphatase (ALP)</option>
+                                                <option value="ALT">Alanine amino transferase (ALT, SGPT)</option>
+                                                <option value="AST">Aspartate amino transferase (AST, SGOT)</option>
+                                                <option value="Bilirubin">Bilirubin</option>
                                               </optgroup>
 
                                             </select>
@@ -1883,31 +1882,32 @@
                                         <h4>Procedure</h4>
                                         <div class="bootstrap-iso">
                                            <select class="selectpicker show-tick" name="nf1procedure" id="nf1procedure" data-width="100%">
-                                             <option name="nf1procedure" value="7" >Cerebral angiogram</option>
-                                             <option name="nf1procedure" value="22" >Colonoscopy</option>
-                                             <option name="nf1procedure" value="9" >CT chest</option>
-                                             <option name="nf1procedure" value="10" >CT abdomen and pelvis</option>
-                                             <option name="nf1procedure" value="11" >CT brain</option>
-                                             <option name="nf1procedure" value="12" >CT head and neck</option>
-                                             <option name="nf1procedure" value="13" >CT colonography</option>
-                                             <option name="nf1procedure" value="21" >Cystoscopy</option>
-                                             <option name="nf1procedure" value="8" >EMG</option>
-                                              <option name="nf1procedure" value="5" >Mammography</option>
-                                              <option name="nf1procedure" value="1" >MRI brain</option>
-                                              <option name="nf1procedure" value="20" >MRI head and neck</option>
-                                              <option name="nf1procedure" value="2" >MRI spine</option>
-                                              <option name="nf1procedure" value="3" >MRI breast</option>
-                                              <option name="nf1procedure" value="4" >MRI full body</option>
-                                              <option name="nf1procedure" value="19" >MRI extremity</option>
-                                              <option name="nf1procedure" value="6" >PET scan</option>
-                                              <option name="nf1procedure" value="25" >Retrograde pyelogram</option>
-                                              <option name="nf1procedure" value="23" >Upper endoscopy</option>
-                                              <option name="nf1procedure" value="14" >US pelvis</option>
-                                              <option name="nf1procedure" value="15" >US transvaginal</option>
-                                              <option name="nf1procedure" value="16" >US abdomen</option>
-                                              <option name="nf1procedure" value="17" >US thyroid</option>
-                                              <option name="nf1procedure" value="18" >US breast</option>
-                                              <option name="nf1procedure" value="24" >X-ray chest</option>
+                                             <option value="7">Cerebral angiogram</option>
+                                             <option value="22">Colonoscopy</option>
+                                             <option value="9">CT chest</option>
+                                             <option value="10">CT abdomen and pelvis</option>
+                                             <option value="11">CT brain</option>
+                                             <option value="12">CT head and neck</option>
+                                             <option value="13">CT colonography</option>
+                                             <option value="21">Cystoscopy</option>
+                                             <option value="8">EMG</option>
+                                             <option value="5">Mammography</option>
+                                             <option value="26">MRI abdomen and pelvis</option>
+                                             <option value="1">MRI brain</option>
+                                             <option value="20">MRI head and neck</option>
+                                             <option value="2">MRI spine</option>
+                                             <option value="3">MRI breast</option>
+                                             <option value="4">MRI full body</option>
+                                             <option value="19">MRI extremity</option>
+                                             <option value="6">PET scan</option>
+                                             <option value="25">Retrograde pyelogram</option>
+                                             <option value="23">Upper endoscopy</option>
+                                             <option value="14">US pelvis</option>
+                                             <option value="15">US transvaginal</option>
+                                             <option value="16">US abdomen</option>
+                                             <option value="17">US thyroid</option>
+                                             <option value="18">US breast</option>
+                                             <option value="24">X-ray chest</option>
 
                                            </select>
                                         </div>
@@ -1968,9 +1968,9 @@
                                          <h4>Specimen type</h4>
                                          <div class="bootstrap-iso">
                                             <select class="selectpicker show-tick" name="specimentype" id="specimentype" data-width="100%">
-                                               <option name="specimentype" value="specimentype1">Fresh</option>
-                                               <option name="specimentype" value="specimentype2">Frozen</option>
-                                               <option name="specimentype" value="specimentype3">Formalin-Fixed Paraffin-Embedded (FFPE)</option>
+                                               <option value="specimentype1">Fresh</option>
+                                               <option value="specimentype2">Frozen</option>
+                                               <option value="specimentype3">Formalin-Fixed Paraffin-Embedded (FFPE)</option>
                                             </select>
                                          </div>
                                       </div>
@@ -2232,60 +2232,60 @@
                                   <div class="bootstrap-iso">
                                      <select class="selectpicker show-tick" name="manifestations" id="manifestations" data-width="100%">
                                        <optgroup label="Ocular Manifestations">
-                                         <option name="manifestations" value="1" >Lisch nodules</option>
+                                         <option value="1">Lisch nodules</option>
                                        </optgroup>
                                        <optgroup label="Neurologic Manifestations">
-                                          <option name="manifestations" value="2" >Headache/Migraine</option>
-                                          <option name="manifestations" value="3" >Epilepsy</option>
-                                          <option name="manifestations" value="4" >Hydrocephalus</option>
-                                          <option name="manifestations" value="5" >Medullary compression by neurofibroma</option>
-                                          <option name="manifestations" value="6" >Cerebral vascular complication</option>
-                                          <option name="manifestations" value="7" >Neuropathic pain</option>
-                                          <option name="manifestations" value="8" >Neuropathic pain medications</option>
+                                          <option value="2">Headache/Migraine</option>
+                                          <option value="3">Epilepsy</option>
+                                          <option value="4">Hydrocephalus</option>
+                                          <option value="5">Medullary compression by neurofibroma</option>
+                                          <option value="6">Cerebral vascular complication</option>
+                                          <option value="7">Neuropathic pain</option>
+                                          <option value="8">Neuropathic pain medications</option>
                                        </optgroup>
                                        <optgroup label="Psychiatric Manifestations">
-                                          <option name="manifestations" value="9" >Learning difficulties</option>
-                                          <option name="manifestations" value="10" >Attention deficit hyperactivity disorder (ADHD)</option>
-                                          <option name="manifestations" value="11" >Autism spectrum disorder (ASD)</option>
-                                          <option name="manifestations" value="12" >Mood disorders</option>
+                                          <option value="9">Learning difficulties</option>
+                                          <option value="10">Attention deficit hyperactivity disorder (ADHD)</option>
+                                          <option value="11">Autism spectrum disorder (ASD)</option>
+                                          <option value="12">Mood disorders</option>
                                        </optgroup>
                                        <optgroup label="Orthopedic Manifestations">
-                                          <option name="manifestations" value="13" >Pseudarthrosis</option>
-                                          <option name="manifestations" value="14" >Congenital pseudarthrosis of the tibia</option>
-                                          <option name="manifestations" value="15" >Scoliosis and/or kyphosis</option>
-                                          <option name="manifestations" value="16" >Sphenoid wing dysplasia</option>
-                                          <option name="manifestations" value="17" >Long bone dysplasia</option>
-                                          <option name="manifestations" value="18" >Macrocephaly</option>
-                                          <option name="manifestations" value="19" >Short stature</option>
-                                          <option name="manifestations" value="20" >Osteoporosis</option>
-                                          <option name="manifestations" value="21" >Fractures</option>
+                                          <option value="13">Pseudarthrosis</option>
+                                          <option value="14">Congenital pseudarthrosis of the tibia</option>
+                                          <option value="15">Scoliosis and/or kyphosis</option>
+                                          <option value="16">Sphenoid wing dysplasia</option>
+                                          <option value="17">Long bone dysplasia</option>
+                                          <option value="18">Macrocephaly</option>
+                                          <option value="19">Short stature</option>
+                                          <option value="20">Osteoporosis</option>
+                                          <option value="21">Fractures</option>
                                        </optgroup>
                                        <optgroup label="Vascular Manifestations">
-                                          <option name="manifestations" value="22" >Hypertension</option>
-                                          <option name="manifestations" value="23" >Renal artery stenosis</option>
-                                          <option name="manifestations" value="24" >Aortic stenosis</option>
-                                          <option name="manifestations" value="25" >Pulmonic stenosis</option>
-                                          <option name="manifestations" value="26" >Aneurysm</option>
-                                          <option name="manifestations" value="27" >Moyamoya disease</option>
+                                          <option value="22">Hypertension</option>
+                                          <option value="23">Renal artery stenosis</option>
+                                          <option value="24">Aortic stenosis</option>
+                                          <option value="25">Pulmonic stenosis</option>
+                                          <option value="26">Aneurysm</option>
+                                          <option value="27">Moyamoya disease</option>
                                        </optgroup>
                                        <optgroup label="Neoplastic Manifestations">
-                                          <option name="manifestations" value="28" >Optic nerve glioma</option>
-                                          <option name="manifestations" value="29" >Brainstem glioma</option>
-                                          <option name="manifestations" value="30" >Astrocytoma</option>
-                                          <option name="manifestations" value="31" >Breast cancer</option>
-                                          <option name="manifestations" value="32" >Pheochromocytoma</option>
-                                          <option name="manifestations" value="33" >Paraganglioma</option>
-                                          <option name="manifestations" value="34" >Gastrointestinal stromal tumour (GIST)</option>
-                                          <option name="manifestations" value="35" >Neuroendocrine tumour</option>
-                                          <option name="manifestations" value="36" >Glomus tumour</option>
-                                          <option name="manifestations" value="37" >Rhabdomyosarcoma</option>
-                                          <option name="manifestations" value="38" >Leukemia</option>
-                                          <option name="manifestations" value="39" >Myelodysplastic syndrome</option>
-                                          <option name="manifestations" value="40" >Malignant peripheral nerve sheath tumour (MPNST)</option>
+                                          <option value="28">Optic nerve glioma</option>
+                                          <option value="29">Brainstem glioma</option>
+                                          <option value="30">Astrocytoma</option>
+                                          <option value="31">Breast cancer</option>
+                                          <option value="32">Pheochromocytoma</option>
+                                          <option value="33">Paraganglioma</option>
+                                          <option value="34">Gastrointestinal stromal tumour (GIST)</option>
+                                          <option value="35">Neuroendocrine tumour</option>
+                                          <option value="36">Glomus tumour</option>
+                                          <option value="37">Rhabdomyosarcoma</option>
+                                          <option value="38">Leukemia</option>
+                                          <option value="39">Myelodysplastic syndrome</option>
+                                          <option value="40">Malignant peripheral nerve sheath tumour (MPNST)</option>
                                        </optgroup>
                                        <optgroup label="Endocrinologic Manifestations">
-                                          <option name="manifestations" value="41" >Growth delay</option>
-                                          <option name="manifestations" value="42" >Vitamin D deficiency</option>
+                                          <option value="41">Growth delay</option>
+                                          <option value="42">Vitamin D deficiency</option>
                                        </optgroup>
                                      </select>
                                   </div>
@@ -2337,15 +2337,15 @@
                                   <h4>Type</h4>
                                   <div class="bootstrap-iso">
                                      <select class="selectpicker show-tick" name="skin" id="skin" data-width="100%">
-                                         <option name="skin" value="1" >Café-au-lait macules</option>
-                                         <option name="skin" value="2" >Axillary freckling</option>
-                                         <option name="skin" value="3" >Inguinal freckling</option>
-                                         <option name="skin" value="4" >Submammary freckling</option>
-                                         <option name="skin" value="5" >Cutaneous neurofibromas</option>
-                                         <option name="skin" value="6" >Histopathologically confirmed</option>
-                                         <option name="skin" value="7" >Intradermal neurofibromas</option>
-                                         <option name="skin" value="8" >Subdermal neurofibromas</option>
-                                         <option name="skin" value="9" >Plexiform neurofibromas</option>
+                                         <option value="1">Café-au-lait macules</option>
+                                         <option value="2">Axillary freckling</option>
+                                         <option value="3">Inguinal freckling</option>
+                                         <option value="4">Submammary freckling</option>
+                                         <option value="5">Cutaneous neurofibromas</option>
+                                         <option value="6">Histopathologically confirmed</option>
+                                         <option value="7">Intradermal neurofibromas</option>
+                                         <option value="8">Subdermal neurofibromas</option>
+                                         <option value="9">Plexiform neurofibromas</option>
                                      </select>
                                   </div>
                                </div>
@@ -2725,7 +2725,7 @@
                  }
 
                  function logout() {
-                 location.assign('http://localhost:8080/auth/realms/testRealm/protocol/openid-connect/logout?redirect_uri=http://localhost/test.php');
+                 location.assign('http://localhost:8080/auth/realms/testRealm/protocol/openid-connect/logout?redirect_uri=http://localhost/test.php'); // hardcoded URL
                  //  childWindow = open('http://www.mcoder.ca/tree.html', 'NA', "height=1000,width=1000");
                  }
 
@@ -2801,7 +2801,7 @@
                          day: result.now,
                          time: '00:00:00,'
                        }, {
-                         name: 'Lasy Month',
+                         name: 'Last Month',
                          day: result.prev,
                          time: '00:00:00,23:59:59'
                        }, {
@@ -2963,7 +2963,7 @@
               </script>
 
 
-              <?php if($hasRoleDemo == 0) { ?>
+              <?php if($hasRoleDemo == 0) { // TODO: Change the $hasRoleDemo to a boolean ?>
               <script src="insert/addpatient.js"></script>
               <script src="insert/addcomorbid.js"></script>
               <script src="insert/addstatus.js"></script>
@@ -3008,7 +3008,7 @@
               <?php } ?>
 
               <script>
-              $(document).ready(function(){
+              $(document).ready(function(){ // TODO: Remove this empty function
 
                //load_patient();
 

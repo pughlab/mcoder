@@ -1,6 +1,6 @@
-2106-3,White
-2028-9,Asian
-2054-5,Black or African
-2036-2,Filipino
-1068-6,Latin American
-2131-1,Other
+2106-3$White
+2028-9$Asian
+2054-5$Black or African
+2036-2$Filipino
+1068-6$Latin American
+2131-1$Other

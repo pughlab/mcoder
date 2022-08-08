@@ -1,5 +1,5 @@
-51440002,Right and left
-399488007,Midline
-24028007,Right
-7771000,Left
-66459002,Unilateral
+51440002$Right and left
+399488007$Midline
+24028007$Right
+7771000$Left
+66459002$Unilateral

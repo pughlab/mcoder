@@ -1,5 +1,5 @@
-260415000,Not detected
-268910001,Patient condition improved
-359746009,Patient's condition stable
-271299001,Patient's condition worsened
-709137006,Patient condition undetermined
+260415000$Not detected
+268910001$Patient condition improved
+359746009$Patient's condition stable
+271299001$Patient's condition worsened
+709137006$Patient condition undetermined
