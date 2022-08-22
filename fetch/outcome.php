@@ -103,8 +103,24 @@ $('#outcomedata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
-
+          $('#outcomedata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'status': cells[2].innerText,
+              'comment': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'outcome'
+            };
+            $('#outcomedate').val(cellData['date']);
+            for (let status of $('input[name="cancerstatus"]')) {
+              if ($(status).val() === cellData['status']) {
+                $(status).prop('checked', true);
+              } else {
+                $(status).prop('checked', false);
+              }
+            }
+            $('#cancerstatuscom').val(cellData['comment']);
+          });
       } );
 
     	</script>
@@ -147,6 +163,7 @@ $('#outcomedata tfoot th').each( function () {
     <td>'.$row[1].'</td>
     <td>'.$row[2].'</td>
     <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_outcome_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+    <input type="hidden" name="rowComments' . $nb . '" value="' . $row[3] . '"/>
    </tr>
   ';
   ?>

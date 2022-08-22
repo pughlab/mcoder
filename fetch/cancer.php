@@ -131,20 +131,58 @@ if (mysqli_num_rows($result) > 0) {
             'clinicalss': cells[9].innerText,
             'pathologicsg': cells[10].innerText,
             'pathologicss': cells[11].innerText,
-            'comment': $(this).children('input').first().val(),
+            'comment': $(this).children('input[name^="rowComments"]').first().val(),
             'recordtype': 'cancer'
           };
           $('#cancerdate').val(cellData['date']);
-          $('input[name="cancer_type"]').val(cellData['type']);
-          $('input[name="cancer_histology"]').val(cellData['histology']);
-          $('input[name="cl_disease"]').val(cellData['status']);
+          for (let type of $('input[name="cancer_type"]')) {
+            if ($(type).val() === cellData['type']) {
+              $(type).prop('checked', true);
+            } else {
+              $(type).prop('checked', false);
+            }
+          }
+          for (let hist of $('input[name="cancer_histology"]')) {
+            if ($(hist).val() === cellData['histology']) {
+              $(hist).prop('checked', true);
+            } else {
+              $(hist).prop('checked', false);
+            }
+          }
+          for (let status of $('input[name="cl_disease"]')) {
+            if ($(status).val() === cellData['status']) {
+              $(status).prop('checked', true);
+            } else {
+              $(status).prop('checked', false);
+            }
+          }
           $('#location').val(cellData['location']);
-          $('input[name=location_side]').val(cellData['side']);
+          for (let side of $('input[name="location_side"]')) {
+            if ($(side).val() === cellData['side']) {
+              $(side).prop('checked', true);
+            } else {
+              $(side).prop('checked', false);
+            }
+          }
           $('#info').val(cellData['oncotree']);
           $('#stagegp').val(cellData['clinicalsg']);
-          $('#stages').val(cellData['clinicalss']);
+          $('button[data-id="stagegp"]').children().first().children().first().children().first().html(cellData['clinicalsg']);
+          for(let stage of $('#stages option')) {
+            if($(stage).text() === cellData['clinicalss']) {
+              $(stage).attr('selected', 'selected');
+              break;
+            }
+          }
+          $('button[data-id="stages"]').children().first().children().first().children().first().html(cellData['clinicalss']);
           $('#pstagegp').val(cellData['pathologicsg']);
-          $('#pstages').val(cellData['pathologicss']);
+          $('button[data-id="pstagegp"]').children().first().children().first().children().first().html(cellData['pathologicsg']);
+          for(let stage of $('#pstages option')) {
+            if($(stage).text() === cellData['pathologicss']) {
+              $(stage).attr('selected', 'selected');
+              break;
+            }
+          }
+          $('button[data-id="pstages"]').children().first().children().first().children().first().html(cellData['pathologicss']);
           $('#cancercom').val(cellData['comment']);
         });
 

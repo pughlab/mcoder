@@ -39,43 +39,43 @@
 
 	$checkID=mysqli_query($conn, "select * from Patient where id = $enc_id");
 
-	if(mysqli_fetch_row($checkID) > 1) {
+	/*if(mysqli_fetch_row($checkID) > 1) {
 		echo "This patient identifier already exists in the database! Please use another one!";
 	}
 
-	else {
+	else {*/
 
-		$enc_birth="0x".bin2hex(openssl_encrypt($birth, $cipher, $encryption_key, 0, $iv));
-		$enc_gender="0x".bin2hex(openssl_encrypt($gender, $cipher, $encryption_key, 0, $iv));
-		$enc_race="0x".bin2hex(openssl_encrypt($race, $cipher, $encryption_key, 0, $iv));
-		$enc_zip="0x".bin2hex(openssl_encrypt($zip, $cipher, $encryption_key, 0, $iv));
-		$enc_institution="0x".bin2hex(openssl_encrypt($institution, $cipher, $encryption_key, 0, $iv));
-		$enc_family="0x".bin2hex(openssl_encrypt($family, $cipher, $encryption_key, 0, $iv));
+	$enc_birth="0x".bin2hex(openssl_encrypt($birth, $cipher, $encryption_key, 0, $iv));
+	$enc_gender="0x".bin2hex(openssl_encrypt($gender, $cipher, $encryption_key, 0, $iv));
+	$enc_race="0x".bin2hex(openssl_encrypt($race, $cipher, $encryption_key, 0, $iv));
+	$enc_zip="0x".bin2hex(openssl_encrypt($zip, $cipher, $encryption_key, 0, $iv));
+	$enc_institution="0x".bin2hex(openssl_encrypt($institution, $cipher, $encryption_key, 0, $iv));
+	$enc_family="0x".bin2hex(openssl_encrypt($family, $cipher, $encryption_key, 0, $iv));
 
-		$sql = "UPDATE `Patient`
-			SET
-				`birth` = $enc_birth, 
-				`gender` = $enc_gender, 
-				`race` = $enc_race, 
-				`zip` = $enc_zip, 
-				`institution` = $enc_institution, 
-				`study` = '$study', 
-				`family` = $enc_family, 
-				`tracking` = '$tracking'
-			WHERE `id` = $enc_id";
+	$sql = "UPDATE `Patient`
+		SET
+			`birth` = $enc_birth, 
+			`gender` = $enc_gender, 
+			`race` = $enc_race, 
+			`zip` = $enc_zip, 
+			`institution` = $enc_institution, 
+			`study` = '$study', 
+			`family` = $enc_family, 
+			`tracking` = '$tracking'
+		WHERE `id` = $enc_id";
 
-		$sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
-		VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";
+	$sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
+	VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";
 
-		if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
-			echo "Success";
-		}
-		else {
-			$error = mysqli_error($conn);
-			echo "There was a problem while saving the data. Please contact the admin of the site - Nadia Znassi. Your reference: ". $tracking .":". $error;
-		}
-
+	if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
+		echo "Success";
 	}
+	else {
+		$error = mysqli_error($conn);
+		echo "There was a problem while saving the data. Please contact the admin of the site - Nadia Znassi. Your reference: ". $tracking .":". $error;
+	}
+
+	// }
 
 	mysqli_close($conn);
 

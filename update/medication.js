@@ -28,6 +28,12 @@ $('#updatemedication').click(function(_e) {
   let trackspace = datesystem+"_"+ip+"_"+email;
   let tracking = trackspace.replace( /\s+/g, '');
 
+  if (cellData === null || cellData['recordtype'].toLowerCase() !== 'medication')
+  {
+    swal("Error!", "You must select a medication to update!", "error");
+    return false;
+  }
+
   if(patientid !="" && medication !="" && start !="" && stop !="" && reason !="" && intent != null){
     $.ajax({
       url: "update/medication.php",
@@ -50,7 +56,6 @@ $('#updatemedication').click(function(_e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Medication saved!",
@@ -58,7 +63,7 @@ $('#updatemedication').click(function(_e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_medication($('#treatmentidsource').val());
               }, 1000);
           });
         } else {

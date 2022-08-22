@@ -25,6 +25,12 @@ $('#updatemutation').click(function(_e) {
   let trackspace = datesystem+"_"+ip+"_"+email;
   let tracking = trackspace.replace( /\s+/g, '');
 
+  if (cellData === null || cellData['recordtype'].toLowerCase() !== 'mutation')
+  {
+    swal("Error!", "You must select a mutation to update!", "error");
+    return false;
+  }
+
   if(patientid !="" && date !="" && test !=""){
     $.ajax({
       url: "update/mutation.php",
@@ -44,7 +50,6 @@ $('#updatemutation').click(function(_e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Genetic mutation test saved!",
@@ -52,7 +57,7 @@ $('#updatemutation').click(function(_e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_mutations($('#genomicidsource').val());
               }, 1000);
           });
         } else {

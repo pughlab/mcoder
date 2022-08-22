@@ -109,8 +109,61 @@ $('#nf1diagdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
-
+          $('#nf1diagdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'diagnosis': cells[2].innerText,
+              'mode': cells[3].innerText,
+              'criteria': cells[4].innerText,
+              'severity': cells[5].innerText,
+              'visibility': cells[6].innerText,
+              'age': cells[7].innerText,
+              'head': cells[8].innerText,
+              'comment': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'diagnostic'
+            };
+            $('#nf1date').val(cellData['date']);
+            $('button[data-id="nf1diag"]').children().first().children().first().children().first().html(cellData['diagnosis']);
+            for(let option of $('#nf1diag option')) {
+              if($(option).text() === cellData['diagnosis']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            for (let mode of $('input[name="mode"]')) {
+              if ($(mode).val() === cellData['mode']) {
+                $(mode).prop('checked', true);
+              } else {
+                $(mode).prop('checked', false);
+              }
+            }
+            $('button[data-id="nf1diagcri"]').children().first().children().first().children().first().html(cellData['criteria']);
+            for(let option of $('#nf1diagcri option')) {
+              if($(option).text() === cellData['criteria']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            for (let severity of $('input[name="severity"]')) {
+              if ($(severity).val() === cellData['severity']) {
+                $(severity).prop('checked', true);
+              } else {
+                $(severity).prop('checked', false);
+              }
+            }
+            for (let visibility of $('input[name="visibility"]')) {
+              if ($(visibility).val() === cellData['visibility']) {
+                $(visibility).prop('checked', true);
+              } else {
+                $(visibility).prop('checked', false);
+              }
+            }
+            $('#puberty').val(cellData['age']);
+            $('#circumference').val(cellData['head']);
+            $('#nf1com').val(cellData['comment']);
+          });
+          
       } );
 
     	</script>
@@ -165,6 +218,7 @@ $('#nf1diagdata tfoot th').each( function () {
    <td>'.$row[7].'</td>
    <td>'.$row[8].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_nf1diag_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments' . $nb . '" value="' . $row[9] . '"/>
   </tr>
   ';
   ?>

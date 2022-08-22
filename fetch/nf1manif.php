@@ -104,7 +104,32 @@ $('#nf1manifdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#nf1manifdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'type': cells[2].innerText,
+              'evaluation': cells[3].innerText,
+              'comment': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'manifestation'
+            };
+            $('#nf1manifdate').val(cellData['date']);
+            $('button[data-id="manifestations"]').children().first().children().first().children().first().html(cellData['type']);
+            for(let option of $('#manifestations option')) {
+              if($(option).text() === cellData['type']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            for (let evaluation of $('input[name="evaluation"]')) {
+              if ($(evaluation).val() === cellData['evaluation']) {
+                $(evaluation).prop('checked', true);
+              } else {
+                $(evaluation).prop('checked', false);
+              }
+            }
+            $('#nf1manifcom').val(cellData['comment']);
+          });
 
       } );
 
@@ -150,6 +175,7 @@ $('#nf1manifdata tfoot th').each( function () {
    <td>'.$row[2].'</td>
    <td>'.$row[3].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_nf1manif_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments' . $nb . '" value="' . $row[4] . '"/>
   </tr>
   ';
   ?>

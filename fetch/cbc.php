@@ -105,7 +105,26 @@ $('#cbcdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#cbcdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'type': cells[2].innerText,
+              'count': cells[3].innerText,
+              'comment': $(this).children('input').first().val(),
+              'recordtype': 'cbc'
+            }
+            $('#cbcdate').val(cellData['date']);
+            $('button[data-id="cbctype"]').children().first().children().first().children().first().html(cellData['type']);
+            for(let option of $('#cbctype option')) {
+              if($(option).text() === cellData['type']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            $('#cbccount').val(cellData['count']);
+            $('#cbccom').val(cellData['comment']);
+          });
 
       } );
 
@@ -151,6 +170,7 @@ $('#cbcdata tfoot th').each( function () {
    <td>'.$row[2].'</td>
    <td>'.$row[3].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_cbc_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments' . $nb . '" value=' . $row[4] . ' />
   </tr>
   ';
   ?>
@@ -164,7 +184,7 @@ $('#cbcdata tfoot th').each( function () {
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Comment</h4>
       </div>
-      <div class="modal-body">
+      <div id="cbccomments<?php echo $nb; ?>"class="modal-body">
         <?php echo $row[4];?>
       </div>
       <div class="modal-footer">

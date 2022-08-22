@@ -25,7 +25,6 @@
 	$oldNumber=$oldData['number'];
 	$oldLocation=$oldData['location'];
 	$oldComment=$oldData['comment'];
-	$oldTracking=$oldData['tracking'];
 
 	//Encryption
 	$encryption_key = hex2bin($key);
@@ -55,8 +54,7 @@
 		AND `evaluation` = '$oldEvaluation'
 		AND `number` = '$oldNumber'
 		AND `location` = '$oldLocation'
-		AND `comment` = '$oldComment'
-		AND `tracking` = '$oldTracking'";
+		AND `comment` = '$oldComment'";
 
 	$sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
 	VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";

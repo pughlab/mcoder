@@ -8,7 +8,7 @@
 	$datesystem=$_POST['datesystem'];
 	$email=$_POST['email'];
 	$username=$_POST['username'];
-	$roles=$_POST['roles'];
+	$roles = rtrim(trim($_POST["roles"]), ",");
 	$tracking=$_POST['tracking'];
 	$oldData=$_POST['olddata'];
 
@@ -32,30 +32,30 @@
 
 	$checkID=mysqli_query($conn, "select * from Death where id = $enc_id");
 
-	if(mysqli_fetch_row($checkID) > 1) {
+	/*if(mysqli_fetch_row($checkID) > 1) {
 		echo "The date of death has already been registered for this patient!";
-	} else {
+	} else {*/
 
-		$sql = "UPDATE `Death`
-			SET
-				`date` = '$date',
-				`comment` = '$comment',
-				`tracking` = '$tracking'
-			WHERE `id` = $enc_id
-			AND `date` = '$oldDate'";
+	$sql = "UPDATE `Death`
+		SET
+			`date` = '$date',
+			`comment` = '$comment',
+			`tracking` = '$tracking'
+		WHERE `id` = $enc_id
+		AND `date` = '$oldDate'";
 
-		$sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
-		VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";
+	$sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
+	VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";
 
-		if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
-			echo "Success";
-		}
-		else {
-			$error = mysqli_error($conn);
-			echo "There was a problem while saving the data. Please contact the admin of the site - Nadia Znassi. Your reference: ". $tracking .":". $error;
-		}
-
+	if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
+		echo "Success";
 	}
+	else {
+		$error = mysqli_error($conn);
+		echo "There was a problem while saving the data. Please contact the admin of the site - Nadia Znassi. Your reference: ". $tracking .":". $error;
+	}
+
+	//}
 	mysqli_close($conn);
 
 ?>

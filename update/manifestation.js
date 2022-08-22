@@ -26,6 +26,12 @@ $('#updatemanifestation').click(function(_e) {
   let trackspace = datesystem+"_"+ip+"_"+email;
   let tracking = trackspace.replace( /\s+/g, '');
 
+  if (cellData === null || cellData['recordtype'].toLowerCase() !== 'manifestation')
+  {
+    swal("Error!", "You must select a manifestation to update!", "error");
+    return false;
+  }
+
   if(patientid !="" && date !="" && type !="" && evaluation != null){
     $.ajax({
       url: "update/manifestation.php",
@@ -46,7 +52,6 @@ $('#updatemanifestation').click(function(_e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Manifestation saved!",
@@ -54,7 +59,7 @@ $('#updatemanifestation').click(function(_e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_nf1manif($('#nf1idsource').val());
               }, 1000);
           });
         } else {

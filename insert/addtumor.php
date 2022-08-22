@@ -13,8 +13,8 @@
 
 	$id=$_POST['id'];
 	$date=$_POST['date'];
-	$type=$_POST['type'];
-	$count=$_POST['count'];
+	$test=$_POST['test'];
+	$result=$_POST['result'];
 	$comment=str_replace("'","\'",$_POST['comment']);
 
 	//Encryption
@@ -30,7 +30,7 @@
 	mysqli_close($connect);
 
 	$sql = "INSERT INTO `Tumor`(`id`, `date`, `test`, `result`, `comment`, `tracking`)
-	VALUES ($enc_id,'$date','$type','$count','$comment', '$tracking')";
+	VALUES ($enc_id,'$date','$test','$result','$comment', '$tracking')";
 
 	$sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
 	VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";

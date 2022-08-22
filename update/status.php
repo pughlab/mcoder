@@ -17,9 +17,9 @@
 	$ecog=$_POST['ecog'];
 	$karnofsky=$_POST['karnofsky'];
 	$comment=str_replace("'","\'",$_POST['comment']);
-	$oldDate=$oldData['$date'];
-	$oldEcog=$oldData['$ecog'];
-	$oldKarnofsky=$oldData['$karnofsky'];
+	$oldDate=$oldData['date'];
+	$oldEcog=$oldData['ecog'];
+	$oldKarnofsky=$oldData['karnofsky'];
 
 	//Encryption
 	$encryption_key = hex2bin($key);

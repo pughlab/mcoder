@@ -1,5 +1,5 @@
 // Save a patient
-$('#updatediag').click(function(e) {
+$('#updatediag').click(function(_e) {
   let ipdiv = document.getElementById("ipaddress");
   let ip = ipdiv.textContent.replace( /\s+/g, '');
 
@@ -43,6 +43,12 @@ $('#updatediag').click(function(e) {
         return false;
       }
 
+  if (cellData === null || cellData['recordtype'].toLowerCase() !== 'diagnostic')
+  {
+    swal("Error!", "You must select a diagnostic to update!", "error");
+    return false;
+  }
+
 
   if(patientid !="" && date !="" && mode != null && criteria !="" && severity != null && visibility != null){
     $.ajax({
@@ -69,7 +75,6 @@ $('#updatediag').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Diagnostic saved!",
@@ -77,7 +82,7 @@ $('#updatediag').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_nf1diag($('#nf1idsource').val());
               }, 1000);
           });
         } else {

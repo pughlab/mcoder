@@ -107,7 +107,26 @@ $('#comorbiddata tfoot th').each( function () {
 
               } );
 
-
+          $('#comorbiddata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'code': cells[2].innerText,
+              'status': cells[3].innerText,
+              'comments': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'comorbid'
+            };
+            $('#comdate').val(cellData['date']);
+            $('#comorbid').val(cellData['code']);
+            for (let status of $('input[name="cl"]')) {
+              if ($(status).val() === cellData['status']) {
+                $(status).prop('checked', true);
+              } else {
+                $(status).prop('checked', false);
+              }
+            }
+            $('#comorbidcom').val(cellData['comments']);
+          });
 
       } );
 
@@ -147,13 +166,14 @@ $('#comorbiddata tfoot th').each( function () {
    $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
 
   $output .= '
-   <tr>
+  <tr>
     <td>'.$decrypted_id.'</td>
     <td>'.$row[1].'</td>
     <td>'.$row[2].'</td>
     <td>'.$row[3].'</td>
     <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-   </tr>
+    <input type="hidden" name="rowComments' . $nb . '" value="' . $row[4] . '"/>
+  </tr>
   ';
   ?>
 

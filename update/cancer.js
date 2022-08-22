@@ -1,4 +1,4 @@
-// Save a patient
+// Update a patient
 $('#updatecancer').click(function(_e) {
   let ipdiv = document.getElementById("ipaddress");
   let ip = ipdiv.textContent.replace( /\s+/g, '');
@@ -77,7 +77,6 @@ $('#updatecancer').click(function(_e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Cancer saved!",
@@ -85,13 +84,12 @@ $('#updatecancer').click(function(_e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_cancer($('#diseaseidsource').val());
               }, 1000);
           });
         } else {
           swal("Error!", data, "error");
         }
-        cellData = null;
       },
       cache: false
     });

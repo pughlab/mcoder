@@ -32,9 +32,15 @@ $('#updatevariant').click(function(_e) {
   let trackspace = datesystem+"_"+ip+"_"+email;
   let tracking = trackspace.replace( /\s+/g, '');
 
+  if (cellData === null || cellData['recordtype'].toLowerCase() !== 'variant')
+  {
+    swal("Error!", "You must select a genetic variant to update!", "error");
+    return false;
+  }
+
   if(patientid !="" && date !="" && test !="" && gene !="" && interpretation != null && source != null){
     $.ajax({
-      url: "insert/addvariant.php",
+      url: "update/variant.php",
       type: "POST",
       data: {
         id: patientid,
@@ -58,15 +64,14 @@ $('#updatevariant').click(function(_e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Genetic variant saved!",
-                  text: "You can browse the database records to visualise the newly added data! Your tracking ID is: " + tracking,
+                  text: "You can browse the database records to visualise the updated data! Your tracking ID is: " + tracking,
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_variants($('#genomicidsource').val());
               }, 1000);
           });
         } else {

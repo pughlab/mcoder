@@ -12,7 +12,7 @@ $iv_query= mysqli_fetch_assoc(mysqli_query($connect, "select riv from norm"));
 $iv=$iv_query['riv'];
 mysqli_close($connect);
 // User roles
-$roles=rtrim(trim($_POST["roles"], ","));
+$roles=rtrim(trim($_POST["roles"]), ",");
 
 $output = '';
 if(isset($_POST["query"]))
@@ -103,8 +103,26 @@ $('#tumordata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
-
+          $('#tumordata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'test': cells[2].innerText,
+              'result': cells[3].innerText,
+              'comment': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'tumor'
+            };
+            $('#tumordate').val(cellData['date']);
+            $('#testcode').val(cellData['test']);
+            for (let result of $('input[name="testresults"]')) {
+              if ($(result).val() === cellData['result']) {
+                $(result).prop('checked', true);
+              } else {
+                $(result).prop('checked', false);
+              }
+            }
+            $('#tumorcom').val(cellData['comment']);
+          });
       } );
 
     	</script>
@@ -149,6 +167,7 @@ $('#tumordata tfoot th').each( function () {
    <td>'.$row[2].'</td>
    <td>'.$row[3].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_tumour_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments' . $nb . '" value="' . $row[4]. '" />
   </tr>
   ';
   ?>

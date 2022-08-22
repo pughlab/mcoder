@@ -22,16 +22,16 @@
 	$age=$_POST['age'];
 	$head=$_POST['head'];
 	$comment=str_replace("'","\'",$_POST['comment']);
-	$oldDate=$oldData['$date'];
-	$oldDiagnosis=$oldData['$diagnosis'];
-	$oldMode=$oldData['$mode'];
-	$oldCriteria=$oldData['$criteria'];
-	$oldSeverity=$oldData['$severity'];
-	$oldVisibility=$oldData['$visibility'];
-	$oldAge=$oldData['$age'];
-	$oldHead=$oldData['$head'];
-	$oldComment=$oldData['$comment'];
-	$oldTracking=$oldData['$tracking'];
+	$oldDate=$oldData['date'];
+	$oldDiagnosis=$oldData['diagnosis'];
+	$oldMode=$oldData['mode'];
+	$oldCriteria=$oldData['criteria'];
+	$oldSeverity=$oldData['severity'];
+	$oldVisibility=$oldData['visibility'];
+	$oldAge=$oldData['age'];
+	$oldHead=$oldData['head'];
+	$oldComment=$oldData['comment'];
+	$oldTracking=$oldData['tracking'];
 
 	//Encryption
 	$encryption_key = hex2bin($key);

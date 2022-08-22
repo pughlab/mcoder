@@ -103,7 +103,24 @@ $('#nf1proceduredata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#nf1proceduredata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'type': cells[2].innerText,
+              'comment': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'procedure'
+            };
+            $('#nf1proceduredate').val(cellData['date']);
+            $('button[data-id="nf1procedure"]').children().first().children().first().children().first().html(cellData['type']);
+            for(let option of $('#nf1procedure option')) {
+              if($(option).text() === cellData['type']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            $('#nf1procedurecom').val(cellData['comment']);
+          });
 
       } );
 
@@ -147,6 +164,7 @@ $('#nf1proceduredata tfoot th').each( function () {
    <td>'.$row[1].'</td>
    <td>'.$row[2].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_nf1pro_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments' . $nb . '" value="' . $row[3] . '"/>
   </tr>
   ';
   ?>

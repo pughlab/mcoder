@@ -20,21 +20,27 @@ $('#updatetumors').click(function(_e) {
   let roles = rolesdiv.textContent;
   let patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
   let date = document.getElementById("tumordate").value;
-  let type = document.getElementById("testcode").value;
-  let count = $("input[name='testresults']:checked").val();
+  let test = document.getElementById("testcode").value;
+  let result = $("input[name='testresults']:checked").val();
   let comment = document.getElementById("tumorcom").value;
   let trackspace = datesystem+"_"+ip+"_"+email;
   let tracking = trackspace.replace( /\s+/g, '');
 
-  if(patientid !="" && date !="" && type !="" && count != null){
+  if (cellData === null || cellData['recordtype'].toLowerCase() !== 'tumor')
+  {
+    swal("Error!", "You must select a tumor test to update!", "error");
+    return false;
+  }
+
+  if(patientid !="" && date !="" && test !="" && result != null){
     $.ajax({
-      url: "insert/addtumor.php",
+      url: "update/tumor.php",
       type: "POST",
       data: {
         id: patientid,
         date: date,
-        type: type,
-        count: count,
+        test: test,
+        result: result,
         ip : ip,
         datesystem : datesystem,
         email: email,
@@ -46,15 +52,14 @@ $('#updatetumors').click(function(_e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Tumor test saved!",
-                  text: "You can browse the database records to visualise the newly added data! Your tracking ID is: " + tracking,
+                  text: "You can browse the database records to visualise the updated data! Your tracking ID is: " + tracking,
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_tumor($('#labidsource').val());
               }, 1000);
           });
         } else {

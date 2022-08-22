@@ -103,7 +103,32 @@ $('#statusdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#statusdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'ecog': cells[2].innerText,
+              'karnofsky': cells[3].innerText,
+              'comment': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'status'
+            }
+            $('#statusdate').val(cellData['date']);
+            $('button[data-id="ecog"]').children().first().children().first().children().first().html(cellData['ecog']);
+            for(let option of $('#ecog option')) {
+              if($(option).text() === cellData['ecog']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            $('button[data-id="karnofsky"]').children().first().children().first().children().first().html(cellData['karnofsky']);
+            for(let option of $('#karnofsky option')) {
+              if($(option).text() === cellData['ecog']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            $('#statuscom').val(cellData['comment']);
+          });
 
       } );
 
@@ -148,6 +173,7 @@ $('#statusdata tfoot th').each( function () {
     <td>'.$row[2].'</td>
     <td>'.$row[3].'</td>
     <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_status_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+    <input type="hidden" name="rowComments' . $nb . '" value="' . $row[4]. '" />
    </tr>
   ';
   ?>

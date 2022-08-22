@@ -106,7 +106,42 @@ $('#nf1skindata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#nf1skindata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'type': cells[2].innerText,
+              'evaluation': cells[3].innerText,
+              'number': cells[4].innerText,
+              'location': cells[5].innerText,
+              'comment': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'skin'
+            };
+            $('#nf1skindate').val(cellData['date']);
+            $('button[data-id="skin"]').children().first().children().first().children().first().html(cellData['type']);
+            for(let option of $('#skin option')) {
+              if($(option).text() === cellData['type']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            for (let evaluation of $('input[name="skinevaluation"]')) {
+              if ($(evaluation).val() === cellData['evaluation']) {
+                $(evaluation).prop('checked', true);
+              } else {
+                $(evaluation).prop('checked', false);
+              }
+            }
+            $('#skinnb').val(cellData['number']);
+            for (let location of $('input[name="skinlocation"]')) {
+              if ($(location).val() === cellData['location']) {
+                $(location).prop('checked', true);
+              } else {
+                $(location).prop('checked', false);
+              }
+            }
+            $('#nf1skincom').val(cellData['comment']);
+          });
 
       } );
 
@@ -156,6 +191,7 @@ $('#nf1skindata tfoot th').each( function () {
    <td>'.$row[4].'</td>
    <td>'.$row[5].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_nf1skin_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments' . $nb . '" value="' . $row[6] . '"/>
   </tr>
   ';
   ?>

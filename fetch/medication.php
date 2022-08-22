@@ -106,7 +106,38 @@ $('#medicationdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#medicationdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            let periodStart = cells[2].innerText.split(' - ')[0].trim();
+            let periodEnd = cells[2].innerText.split(' - ')[1].trim();
+            cellData = {
+              'medication': cells[1].innerText,
+              'start': periodStart,
+              'end': periodEnd,
+              'termination': cells[3].innerText,
+              'intent': cells[4].innerText,
+              'comment': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'medication'
+            };
+            $('#medication').val(cellData['medication']);
+            $('#medicationstart').val(periodStart);
+            $('#medicationstop').val(periodEnd);
+            $('button[data-id="termination"]').children().first().children().first().children().first().html(cellData['termination']);
+            for(let option of $('#termination option')) {
+              if($(option).text() === cellData['termination']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            for (let intent of $('input[name="treatment_intent_medication"]')) {
+              if ($(intent).val() === cellData['intent']) {
+                $(intent).prop('checked', true);
+              } else {
+                $(intent).prop('checked', false);
+              }
+            }
+            $('#medicationcom').val(cellData['comment']);
+          });
 
       } );
 
@@ -155,6 +186,7 @@ $('#medicationdata tfoot th').each( function () {
    <td>'.$row[4].'</td>
    <td>'.$row[5].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_med_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments'. $nb .'" value="' . $row[6]. '"/>
   </tr>
   ';
   ?>

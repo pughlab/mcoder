@@ -102,7 +102,18 @@ $('#mutationdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('mutationdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'test': cells[2].innerText,
+              'comment': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'mutation'
+            };
+            $('#mutationdate').val(cellData['date']);
+            $('#testmutations').val(cellData('test'));
+            $('#mutationcom').val(cellData['comment']);
+          });
 
       } );
 
@@ -146,6 +157,7 @@ $('#mutationdata tfoot th').each( function () {
    <td>'.$row[1].'</td>
    <td>'.$row[2].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_mutation_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments' . $nb . '" value="' . $row[3] . '"/>
   </tr>
   ';
   ?>

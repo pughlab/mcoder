@@ -115,7 +115,8 @@ if (mysqli_num_rows($result) > 0) {
             'bankingID': cells[6].innerText,
             'withPairing': cells[7].innerText.toLowerCase() == 'yes',
             'withImaging': cells[8].innerText.toLowerCase() == 'yes',
-            'comments': $(this).children('input').first().val(),
+            'comments': $(this).children('input[name^=rowComments]').first().val(),
+            'row': $(this).children('input[name^=rowNumber]').first().val(),
             'recordtype': 'biospecimen'
           };
           $('#biodate').val(cellData['collectionDate']);
@@ -188,7 +189,7 @@ if (mysqli_num_rows($result) > 0) {
   <tbody>
 
  ';
-    $nb = 1; // this variable's name must be changed to something more descriptive
+    $rowNumber = 1;
     while ($row = mysqli_fetch_array($result)) {
       $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
 
@@ -203,13 +204,13 @@ if (mysqli_num_rows($result) > 0) {
    <td>' . $row[6] . '</td>
    <td>' . $row[7] . '</td>
    <td>' . $row[8] . '</td>
-   <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_biosp_' . $nb . '" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-   <input type="hidden" name="rowComments' . $nb . '" value="' . $row[9]. '" />
+   <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_biosp_' . $rowNumber . '" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments' . $rowNumber . '" value=' . $row[9] . ' />
   </tr>
   ';
     ?>
 
-      <div id="comment_biosp_<?php echo $nb; ?>" class="modal fade" role="dialog">
+      <div id="comment_biosp_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
           <!-- Modal content-->
@@ -230,7 +231,7 @@ if (mysqli_num_rows($result) > 0) {
       </div>
 
     <?php
-      $nb++;
+      $rowNumber++;
     }
     $output .= '
  </tbody>

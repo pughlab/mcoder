@@ -54,6 +54,12 @@ $('#updatelab').click(function(_e) {
       return false;
     }
 
+    if (cellData === null || cellData['recordtype'].toLowerCase() !== 'lab')
+    {
+      swal("Error!", "You must select a lab metric to update!", "error");
+      return false;
+    }
+
 
   if(patientid !="" && date !="" && location !=""){
     $.ajax({
@@ -78,7 +84,6 @@ $('#updatelab').click(function(_e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "General lab metrics saved!",
@@ -86,7 +91,7 @@ $('#updatelab').click(function(_e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_labs($('#labidsource').val());
               }, 1000);
           });
         } else {

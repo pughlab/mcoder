@@ -105,7 +105,26 @@ $('#cmpdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#cmpdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'type': cells[2].innerText,
+              'count': cells[3].innerText,
+              'comment': $(this).children('input[name^=rowComments]').val(),
+              'recordtype': 'cmp'
+            }
+            $('#cmpdate').val(cellData['date']);
+            $('button[data-id="cmptype"]').children().first().children().first().children().first().html(cellData['type']);
+            for(let option of $('#cmptype option')) {
+              if($(option).text() === cellData['type']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            $('#cmpcount').val(cellData['count']);
+            $('#cmpcom').val(cellData['comment']);
+          });
 
       } );
 
@@ -151,6 +170,7 @@ $('#cmpdata tfoot th').each( function () {
    <td>'.$row[2].'</td>
    <td>'.$row[3].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_cmp_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments' . $nb . '" value="' . $row[4] . '"/>
   </tr>
   ';
   ?>

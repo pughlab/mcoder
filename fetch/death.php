@@ -102,7 +102,16 @@ $('#deathdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#deathdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'comments': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'death'
+            }
+            $('#death').val(cellData['date']);
+            $('#deathcom').val(cellData['comments']);
+          });
 
       } );
 
@@ -140,11 +149,12 @@ $('#deathdata tfoot th').each( function () {
    $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
 
   $output .= '
-   <tr>
+  <tr>
     <td>'.$decrypted_id.'</td>
     <td>'.$row[1].'</td>
     <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_death_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-   </tr>
+    <input type="hidden" name="rowComments' . $nb . '" value="' . $row[2] . '"/>
+    </tr>
   ';
   ?>
 

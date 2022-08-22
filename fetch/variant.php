@@ -118,7 +118,45 @@ $('#variantdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#variantdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'test': cells[2].innerText,
+              'gene': cells[3].innerText,
+              'cdna': cells[4].innerText,
+              'protein': cells[5].innerText,
+              'mutationid': cells[6].innerText,
+              'mutationhgvs': cells[7].innerText,
+              'interpretation': cells[8].innerText,
+              'source': cells[9].innerText,
+              'comment': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'variant'
+            };
+            $('#variantdate').val(cellData['date']);
+            $('#testvariants').val(cellData['test']);
+            $('#idgenevariant').val(cellData['gene']);
+            $('#cdnavariant').val(cellData['cdna']);
+            $('#proteinvariant').val(cellData['protein']);
+            $('#idhgvsvariant').val(cellData['mutationid']);
+            $('#hgvsvariant').val(cellData['mutationhgvs']);
+            for (let interpretation of $('input[name="mutinterpvar"]')) {
+              if ($(interpretation).val() === cellData['interpretation']) {
+                $(interpretation).prop('checked', true);
+              } else {
+                $(interpretation).prop('checked', false);
+              }
+            }
+            for (let source of $('input[name="gen_ori"]')) {
+              let label = $(`label[for="${$(source).attr('id')}"]`);
+              if ($(label).text() === cellData['source']) {
+                $(source).prop('checked', true);
+              } else {
+                $(source).prop('checked', false);
+              }
+            }
+            $('#variantcom').val(cellData['comment']);
+          });
 
       } );
 
@@ -176,6 +214,7 @@ $('#variantdata tfoot th').each( function () {
    <td>'.$row[8].'</td>
    <td>'.$row[9].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_variant_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments' . $nb . '" value="' . $row[10]. '" />
   </tr>
   ';
   ?>

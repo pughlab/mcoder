@@ -107,7 +107,26 @@ $('#labsdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#labsdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'location': cells[2].innerText,
+              'height': cells[3].innerText,
+              'weight': cells[4].innerText,
+              'diastolic': cells[5].innerText,
+              'systolic': cells[6].innerText,
+              'comment': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'lab'
+            };
+            $('#blooddate').val(cellData['date']);
+            $('#bloodlocation').val(cellData['location']);
+            $('#height').val(cellData['height']);
+            $('#weight').val(cellData['weight']);
+            $('#diastolic').val(cellData['diastolic']);
+            $('#systolic').val(cellData['systolic']);
+            $('#labcom').val(cellData['comment']);
+          });
 
       } );
 
@@ -159,6 +178,7 @@ $('#labsdata tfoot th').each( function () {
    <td>'.$row[5].'</td>
    <td>'.$row[6].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_labs_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments' . $nb . '" value="' . $row[7] . '"/>
   </tr>
   ';
   ?>

@@ -1,5 +1,5 @@
 // Save a patient
-$('#updatedeath').click(function(e) {
+$('#updatedeath').click(function(_e) {
   let ipdiv = document.getElementById("ipaddress");
   let ip = ipdiv.textContent.replace( /\s+/g, '');
 
@@ -24,6 +24,12 @@ $('#updatedeath').click(function(e) {
   let trackspace = datesystem+"_"+ip+"_"+email;
   let tracking = trackspace.replace( /\s+/g, '');
 
+  if (cellData === null || cellData['recordtype'].toLowerCase() !== 'death')
+  {
+    swal("Error!", "You must select the death date!", "error");
+    return false;
+  }
+
 
   if(patientid !="" && date !=""){
     $.ajax({
@@ -43,7 +49,6 @@ $('#updatedeath').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "The death date has been saved!",
@@ -51,7 +56,7 @@ $('#updatedeath').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_death($('#outcomeidsource').val());
               }, 1000);
           });
         } else {

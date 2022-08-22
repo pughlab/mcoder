@@ -25,6 +25,12 @@ $('#updateoutcome').click(function(_e) {
   let trackspace = datesystem+"_"+ip+"_"+email;
   let tracking = trackspace.replace( /\s+/g, '');
 
+  if (cellData === null || cellData['recordtype'].toLowerCase() !== 'outcome')
+  {
+    swal("Error!", "You must select a cancer disease status to update!", "error");
+    return false;
+  }
+
 
   if(patientid !="" && date !="" && status != null){
     $.ajax({
@@ -45,7 +51,6 @@ $('#updateoutcome').click(function(_e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Cancer disease status saved!",
@@ -53,7 +58,7 @@ $('#updateoutcome').click(function(_e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_outcome($('#outcomeidsource').val());
               }, 1000);
           });
         } else {

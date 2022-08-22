@@ -1,5 +1,5 @@
 // Save a patient
-$('#updatecbc').click(function(e) {
+$('#updatecbc').click(function(_e) {
   let ipdiv = document.getElementById("ipaddress");
   let ip = ipdiv.textContent.replace( /\s+/g, '');
 
@@ -32,6 +32,12 @@ $('#updatecbc').click(function(e) {
       return false;
     }
 
+    if (cellData === null || cellData['recordtype'].toLowerCase() !== 'cbc')
+    {
+      swal("Error!", "You must select a CBC test to update!", "error");
+      return false;
+    }
+
   if(patientid !="" && date !="" && type !="" && count !=""){
     $.ajax({
       url: "update/cbc.php",
@@ -52,7 +58,6 @@ $('#updatecbc').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "CBC test saved!",
@@ -60,7 +65,7 @@ $('#updatecbc').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_cbc($('#labidsource').val());
               }, 1000);
           });
         } else {

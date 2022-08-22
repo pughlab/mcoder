@@ -34,6 +34,12 @@ $('#updateskin').click(function(_e) {
       return false;
     }
 
+  if (cellData === null || cellData['recordtype'].toLowerCase() !== 'skin')
+  {
+    swal("Error!", "You must select a skin lesion to update!", "error");
+    return false;
+  }
+
   if(patientid !="" && date !="" && type !="" && evaluation != null && number !="" && location != null){
     $.ajax({
       url: "update/lesion.php",
@@ -56,7 +62,6 @@ $('#updateskin').click(function(_e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Skin Lesion saved!",
@@ -64,7 +69,7 @@ $('#updateskin').click(function(_e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_nf1skin($('#nf1idsource').val());
               }, 1000);
           });
         } else {

@@ -106,7 +106,30 @@ $('#surgerydata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#surgerydata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'location': cells[2].innerText,
+              'type': cells[3].innerText,
+              'site': cells[4].innerText,
+              'intent': cells[5].innerText,
+              'comment': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'surgery'
+            };
+            $('#surgerydate').val(cellData['date']);
+            $('#surgerylocation').val(cellData['location']);
+            $('#surgery').val(cellData['type']);
+            $('#surgerybodysite').val(cellData['site']);
+            for (let intent of $('input[name="treatment_intent_surgery"]')) {
+              if ($(intent).val() === cellData['intent']) {
+                $(intent).prop('checked', true);
+              } else {
+                $(intent).prop('checked', false);
+              }
+            }
+            $('#surgerycom').val(cellData['comment']);
+          });
 
       } );
 
@@ -156,6 +179,7 @@ $('#surgerydata tfoot th').each( function () {
    <td>'.$row[4].'</td>
    <td>'.$row[5].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_surgery_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments' . $nb . '" value="' . $row[6]. '" />
   </tr>
   ';
   ?>

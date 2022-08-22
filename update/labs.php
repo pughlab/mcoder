@@ -27,7 +27,6 @@
 	$oldDiastolic=$oldData['diastolic'];
 	$oldSystolic=$oldData['systolic'];
 	$oldComment=$oldData['comment'];
-	$oldTracking=$oldData['tracking'];
 
 	//Encryption
 	$encryption_key = hex2bin($key);
@@ -59,8 +58,7 @@
 		AND `weight` = '$oldWeight'
 		AND `diastolic` = '$oldDiastolic'
 		AND `systolic` = '$oldSystolic'
-		AND `comment` = '$oldComment'
-		AND `tracking` = '$oldTracking'";
+		AND `comment` = '$oldComment'";
 
 	$sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
 	VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";

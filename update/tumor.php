@@ -14,14 +14,13 @@
 
 	$id=$_POST['id'];
 	$date=$_POST['date'];
-	$type=$_POST['type'];
-	$count=$_POST['count'];
+	$test=$_POST['test'];
+	$result=$_POST['result'];
 	$comment=str_replace("'","\'",$_POST['comment']);
 	$oldDate=$oldData['date'];
-	$oldType=$oldData['type'];
-	$oldCount=$oldData['count'];
+	$oldTest=$oldData['test'];
+	$oldResult=$oldData['result'];
 	$oldComment=$oldData['comment'];
-	$oldTracking=$oldData['tracking'];
 
 	//Encryption
 	$encryption_key = hex2bin($key);
@@ -39,16 +38,15 @@
 	$sql = "UPDATE `Tumor`
 		SET
 			`date` = '$date',
-			`test` = '$type',
-			`result` = '$count',
+			`test` = '$test',
+			`result` = '$result',
 			`comment` = '$comment',
 			`tracking` ='$tracking'
 		WHERE `id` = $enc_id
 		AND `date` = '$oldDate'
-		AND `test` = '$oldType'
-		AND `result` = '$oldCount'
-		AND `comment` = '$oldComment'
-		AND `tracking` = '$oldTracking'";
+		AND `test` = '$oldTest'
+		AND `result` = '$oldResult'
+		AND `comment` = '$oldComment'";
 
 	$sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
 	VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";

@@ -117,7 +117,99 @@ $('#patientdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#patientdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'birth': cells[1].innerText,
+              'gender': cells[2].innerText,
+              'race': cells[3].innerText,
+              'zip': cells[4].innerText,
+              'institution': cells[5].innerText,
+              'study': cells[6].innerText,
+              'family': cells[7].innerText,
+              'recordtype': 'patient'
+            }
+            $('#birthday').val(cellData['birth']);
+            for (let gender of $('input[name="gender"]')) {
+              if ($(gender).val() === cellData['gender']) {
+                $(gender).prop('checked', true);
+              } else {
+                $(gender).prop('checked', false);
+              }
+            }
+            switch (cellData['race']) {
+              case 'White':
+                $('#white').prop('checked', true);
+                $('#asian').prop('checked', false);
+                $('#black').prop('checked', false);
+                $('#filipino').prop('checked', false);
+                $('#latin').prop('checked', false);
+                $('#other').prop('checked', false);
+                otherRaceHide();
+                break;
+              case 'Asian':
+                $('#white').prop('checked', false);
+                $('#asian').prop('checked', true);
+                $('#black').prop('checked', false);
+                $('#filipino').prop('checked', false);
+                $('#latin').prop('checked', false);
+                $('#other').prop('checked', false);
+                otherRaceHide();
+                break;
+              case 'Black-African':
+                $('#white').prop('checked', false);
+                $('#asian').prop('checked', false);
+                $('#black').prop('checked', true);
+                $('#filipino').prop('checked', false);
+                $('#latin').prop('checked', false);
+                $('#other').prop('checked', false);
+                otherRaceHide();
+                break;
+              case 'Filipino':
+                $('#white').prop('checked', false);
+                $('#asian').prop('checked', false);
+                $('#black').prop('checked', false);
+                $('#filipino').prop('checked', true);
+                $('#latin').prop('checked', false);
+                $('#other').prop('checked', false);
+                otherRaceHide();
+                break;
+              case 'Latin-American':
+                $('#white').prop('checked', false);
+                $('#asian').prop('checked', false);
+                $('#black').prop('checked', false);
+                $('#filipino').prop('checked', false);
+                $('#latin').prop('checked', true);
+                $('#other').prop('checked', false);
+                otherRaceHide();
+                break;
+              default:
+                $('#white').prop('checked', false);
+                $('#asian').prop('checked', false);
+                $('#black').prop('checked', false);
+                $('#filipino').prop('checked', false);
+                $('#latin').prop('checked', false);
+                $('#other').prop('checked', true);
+                $('#otherRace').val(cellData['race']);
+                otherRaceShow();
+            }
+            $('#zip').val(cellData['zip']);
+            $('button[data-id="institution"]').children().first().children().first().children().first().html(cellData['institution']);
+            for(let option of $('#institution option')) {
+              if($(option).text() === cellData['institution']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            for (let study of $('input[name="study"]')) {
+              if ($(study).val() === cellData['study']) {
+                $(study).prop('checked', true);
+              } else {
+                $(study).prop('checked', false);
+              }
+            }
+            $('#family').val(cellData['family']);
+          });
 
       } );
 

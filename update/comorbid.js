@@ -26,6 +26,12 @@ $('#updatecomorbid').click(function(e) {
   let trackspace = datesystem+"_"+ip+"_"+email;
   let tracking = trackspace.replace( /\s+/g, '');
 
+  if (cellData === null || cellData['recordtype'].toLowerCase() !== 'comorbid')
+  {
+    swal("Error!", "You must select a comorbid condition to update!", "error");
+    return false;
+  }
+
 
   if(patientid !="" && date !="" && code !="" && status != null){
     $.ajax({
@@ -47,7 +53,6 @@ $('#updatecomorbid').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Comorbid condition saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Comorbid condition saved!",
@@ -55,7 +60,7 @@ $('#updatecomorbid').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_comorbid($('#patientidsource').val());
               }, 1000);
           });
         } else {

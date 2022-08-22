@@ -28,9 +28,15 @@ $('#updatesurgery').click(function(_e) {
   let trackspace = datesystem+"_"+ip+"_"+email;
   let tracking = trackspace.replace( /\s+/g, '');
 
+  if (cellData === null || cellData['recordtype'].toLowerCase() !== 'surgery')
+  {
+    swal("Error!", "You must select a surgery to update!", "error");
+    return false;
+  }
+
   if(patientid !="" && date !="" && location !="" && type !="" && site !="" && intent != null){
     $.ajax({
-      url: "insert/addsurgery.php",
+      url: "update/surgery.php",
       type: "POST",
       data: {
         id: patientid,
@@ -50,15 +56,14 @@ $('#updatesurgery').click(function(_e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Surgery saved!",
-                  text: "You can browse the database records to visualise the newly added data! Your tracking ID is: " + tracking,
+                  text: "You can browse the database records to visualise the updated data! Your tracking ID is: " + tracking,
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_surgery($('#treatmentidsource').val());
               }, 1000);
           });
         } else {

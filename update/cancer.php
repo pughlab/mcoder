@@ -50,7 +50,7 @@
 	$oldclinicalss = $oldData['clinicalss'];
 	$oldpathologicsg = $oldData['pathologicsg'];
 	$oldpathologicss = $oldData['pathologicss'];
-	$oldcomments = $oldData['comment'];
+	$oldcomment = $oldData['comment'];
 
 	$sql = "UPDATE `Diseases`
 		SET 
@@ -72,7 +72,7 @@
 	AND `type` = '$oldtype'
 	AND `histology` = '$oldhistology'
 	AND `status` = '$oldstatus'
-	AND `code` = '$oldlocation'
+	AND `code` = '$oldcode'
 	AND `side` = '$oldside'
 	AND `oncotree` = '$oldoncotree'
 	AND `clinicalsg` = '$oldclinicalsg'

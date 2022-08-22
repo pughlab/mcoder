@@ -36,6 +36,12 @@ $('#updatepatient').click(function(_e) {
     race = document.getElementById("otherRace").value;
   }
 
+  if (cellData === null || cellData['recordtype'].toLowerCase() !== 'patient')
+  {
+    swal("Error!", "You must select the patient data to update!", "error");
+    return false;
+  }
+
   if(patientid !="" && birth !="" && birth !="YYYY-MM" && gender != null && race != null && zip !="" && institution !="" && study != null){
     $.ajax({
       url: "update/patient.php",
@@ -58,10 +64,6 @@ $('#updatepatient').click(function(_e) {
       },
       success:function(data){
         if(data=="Success") {
-          // swal("Patient saved!", "You can continue with the form!", "success");
-          // if (!swal.isOpened()) {
-          //   window.location.reload();
-          // }
 
           setTimeout(function() {
               swal({
@@ -70,7 +72,7 @@ $('#updatepatient').click(function(_e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_patient($('#patientidsource').val());
               }, 1000);
           });
 

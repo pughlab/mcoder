@@ -1,35 +1,3 @@
-$('#biospecimendata tbody').on('updated', 'tr', function(_event, newData) {
-  $('#biodate').val(newData['collectionDate']);
-  $('button[data-id="specimentype"]').children().first().children().first().children().first().html(newData['specimenType']);
-  $('#cellularity').val(newData['cellularity']);
-  $('#collection').val(newData['collection']);
-  $('#storage').val(newData['storage']);
-  $('#bankingid').val(newData['bankingID']);
-  $('#biospecimencom').val(newData['comments']);
-  if (newData['withPairing']) {
-    $('#matched_y').prop('checked', true);
-    $('#matched_y').parent().addClass('active');
-    $('#matched_n').prop('checked', false);
-    $('#matched_n').parent().removeClass('active');
-  } else {
-    $('#matched_n').prop('checked', true);
-    $('#matched_n').parent().addClass('active');
-    $('#matched_y').prop('checked', false);
-    $('#matched_y').parent().removeClass('active');
-  }
-  if (newData['withImaging']) {
-    $('#imaging_y').prop('checked', true);
-    $('#imaging_y').parent().addClass('active');
-    $('#imaging_n').prop('checked', false);
-    $('#imaging_n').parent().removeClass('active');
-  } else {
-    $('#imaging_n').prop('checked', true);
-    $('#imaging_n').parent().addClass('active');
-    $('#imaging_y').prop('checked', false);
-    $('#imaging_y').parent().removeClass('active');
-  }
-});
-
 // Save a patient
 $('#updatebiospecimens').click(function(_e) {
   let ipdiv = document.getElementById("ipaddress");
@@ -109,7 +77,6 @@ $('#updatebiospecimens').click(function(_e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Biospecimen saved!",
@@ -117,24 +84,12 @@ $('#updatebiospecimens').click(function(_e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_biospecimen($('#biospecimensidsource').val());
               }, 1000);
           });
-          $('#biospecimendata tbody tr').trigger('updated',[{
-            'collectionDate': date,
-            'specimenType': type,
-            'cellularity': cellularity,
-            'collection': collection,
-            'storage': storage,
-            'bankingID': bankingid,
-            'withPairing': paired.toLowerCase() == 'yes',
-            'withImaging': imaging.toLowerCase() == 'yes',
-            'comments': comment
-          }]);
         } else {
           swal("Error!", data, "error");
         }
-        cellData = null;
       },
       cache: false
     });

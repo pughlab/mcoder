@@ -683,6 +683,7 @@
                                 <div class="row">
                                   <div class="bootstrap-iso" align="center">
                                     <button type="button" class="btn btn-primary btn-lg" id="savepatient"><span class="fas fa-head-side-cough"></span> Add patient</button>
+                                    <button type="button" class="btn btn-primary btn-lg" id="updatepatient"><span class="fas fa-head-side-cough"></span> Update patient</button>
                                   </div>
                                 </div>
                               </fieldset>
@@ -747,7 +748,8 @@
                                                   <br>
                                                   <div class="repeater-heading" align="center">
                                                      <div class="bootstrap-iso">
-                                                       <button type="button" class="btn btn-primary btn-lg" id="savecomorbid"><i class='fas fa-lungs-virus'></i> Add a comorbid condition</button>
+                                                         <button type="button" class="btn btn-primary btn-lg" id="savecomorbid"><i class='fas fa-lungs-virus'></i> Add a comorbid condition</button>
+                                                         <button type="button" class="btn btn-primary btn-lg" id="updatecomorbid"><i class='fas fa-lungs-virus'></i> Update a comorbid condition</button>
                                                      </div>
                                                   </div>
                                                </div>
@@ -818,6 +820,7 @@
                                               <div class="repeater-heading" align="center">
                                                  <div class="bootstrap-iso">
                                                    <button type="button" class="btn btn-primary btn-lg" id="savestatus"><i class='fas fa-stethoscope'></i> Add a clinical evaluation</button>
+                                                   <button type="button" class="btn btn-primary btn-lg" id="updatestatus"><i class='fas fa-stethoscope'></i> Update a clinical evaluation</button>
                                                  </div>
                                               </div>
                                             </div>
@@ -1151,6 +1154,7 @@
                                   <div class="repeater-heading" align="center">
                                      <div class="bootstrap-iso">
                                        <button type="button" class="btn btn-primary btn-lg" id="saveoutcome"><i class='fa fa-medkit'></i> Add a cancer disease status</button>
+                                       <button type="button" class="btn btn-primary btn-lg" id="updateoutcome"><i class='fa fa-medkit'></i> Update a cancer disease status</button>
                                      </div>
                                   </div>
                                 </fieldset>
@@ -1182,6 +1186,7 @@
                                    <div class="repeater-heading" align="center">
                                       <div class="bootstrap-iso">
                                         <button type="button" class="btn btn-primary btn-lg" id="savedeath"><i class="fas fa-book-dead"></i> Add the death date</button>
+                                        <button type="button" class="btn btn-primary btn-lg" id="updatedeath"><i class="fas fa-book-dead"></i> Update the death date</button>
                                       </div>
                                    </div>
 
@@ -1361,6 +1366,7 @@
                               <div class="repeater-heading" align="center">
                                  <div class="bootstrap-iso">
                                    <button type="button" class="btn btn-primary btn-lg" id="savevariant"><i class="fas fa-dna"></i> Add genetic variant</button>
+                                   <button type="button" class="btn btn-primary btn-lg" id="updatevariant"><i class="fas fa-dna"></i> Update genetic variant</button>
                                  </div>
                               </div>
                        </fieldset>
@@ -1457,6 +1463,7 @@
                                    <div class="repeater-heading" align="center">
                                       <div class="bootstrap-iso">
                                         <button type="button" class="btn btn-primary btn-lg" id="saveradiation"><i class="fas fa-radiation"></i> Add radiation</button>
+                                        <button type="button" class="btn btn-primary btn-lg" id="updateradiation"><i class="fas fa-radiation"></i> Update radiation</button>
                                       </div>
                                    </div>
                                 </fieldset>
@@ -1524,6 +1531,7 @@
                                    <div class="repeater-heading" align="center">
                                       <div class="bootstrap-iso">
                                         <button type="button" class="btn btn-primary btn-lg" id="savesurgery"><i class="fas fa-hospital-symbol"></i> Add surgery</button>
+                                        <button type="button" class="btn btn-primary btn-lg" id="updatesurgery"><i class="fas fa-hospital-symbol"></i> Update surgery</button>
                                       </div>
                                    </div>
                                 </fieldset>
@@ -1593,6 +1601,7 @@
                                    <div class="repeater-heading" align="center">
                                       <div class="bootstrap-iso">
                                         <button type="button" class="btn btn-primary btn-lg" id="savemedication"><i class="fas fa-capsules"></i> Add medication</button>
+                                        <button type="button" class="btn btn-primary btn-lg" id="updatemedication"><i class="fas fa-capsules"></i> Update medication</button>
                                       </div>
                                    </div>
                                 </fieldset>
@@ -1681,6 +1690,7 @@
                                 <div class="repeater-heading" align="center">
                                    <div class="bootstrap-iso">
                                      <button type="button" class="btn btn-primary btn-lg" id="savelab"><i class="fas fa-vials"></i> Add general lab metrics</button>
+                                     <button type="button" class="btn btn-primary btn-lg" id="updatelab"><i class="fas fa-vials"></i> Update general lab metrics</button>
                                    </div>
                                 </div>
 
@@ -1732,7 +1742,8 @@
                                    <br>
                                    <div class="repeater-heading" align="center">
                                       <div class="bootstrap-iso">
-                                        <button type="button" class="btn btn-primary btn-lg" id="savecbc"><i class="fas fa-vials"></i> Add a CBC test</button>
+                                          <button type="button" class="btn btn-primary btn-lg" id="savecbc"><i class="fas fa-vials"></i> Add a CBC test</button>
+                                          <button type="button" class="btn btn-primary btn-lg" id="updatecbc"><i class="fas fa-vials"></i> Update a CBC test</button>
                                       </div>
                                    </div>
                                  </fieldset>
@@ -1810,6 +1821,7 @@
                                    <div class="repeater-heading" align="center">
                                       <div class="bootstrap-iso">
                                         <button type="button" class="btn btn-primary btn-lg" id="savecmp"><i class="fas fa-vials"></i> Add a CMP test</button>
+                                        <button type="button" class="btn btn-primary btn-lg" id="updatecmp"><i class="fas fa-vials"></i> Update a CMP test</button>
                                       </div>
                                    </div>
                                  </fieldset>
@@ -1859,6 +1871,7 @@
                                    <div class="repeater-heading" align="center">
                                       <div class="bootstrap-iso">
                                         <button type="button" class="btn btn-primary btn-lg" id="savetumors"><i class="fas fa-vials"></i> Add a tumor test</button>
+                                        <button type="button" class="btn btn-primary btn-lg" id="updatetumors"><i class="fas fa-vials"></i> Update a tumor test</button>
                                       </div>
                                    </div>
                                 </fieldset>
@@ -1927,6 +1940,7 @@
                                  <div class="repeater-heading" align="center">
                                     <div class="bootstrap-iso">
                                       <button type="button" class="btn btn-primary btn-lg" id="saveprocedure"><i class="fas fa-vials"></i> Add procedure</button>
+                                      <button type="button" class="btn btn-primary btn-lg" id="updateprocedure"><i class="fas fa-vials"></i> Update procedure</button>
                                     </div>
                                  </div>
                                 </fieldset>
@@ -2164,7 +2178,7 @@
                                   <label for="severity3">Grade 3 (moderate)</label>
                                   <input class="brownradio20" type="radio" name="severity" value="grade4" id="severity4" />
                                   <label for="severity4">Grade 4 (severe)</label>
-                                  <input class="brownradio20" type="radio" name="severity" value="grade1" id="severity0"  />
+                                  <input class="brownradio20" type="radio" name="severity" value="grade0" id="severity0"  />
                                   <label for="severity0">Unknown</label>
                                </div>
                             </div>
@@ -2210,6 +2224,7 @@
                             <div class="repeater-heading" align="center">
                                <div class="bootstrap-iso">
                                  <button type="button" class="btn btn-primary btn-lg" id="savediag"><i class="fas fa-vials"></i> Add diagnostic</button>
+                                 <button type="button" class="btn btn-primary btn-lg" id="updatediag"><i class="fas fa-vials"></i> Update diagnostic</button>
                                </div>
                             </div>
                           </fieldset>
@@ -2316,6 +2331,7 @@
                            <div class="repeater-heading" align="center">
                               <div class="bootstrap-iso">
                                 <button type="button" class="btn btn-primary btn-lg" id="savemanifestation"><i class="fas fa-vials"></i> Add manifestation</button>
+                                <button type="button" class="btn btn-primary btn-lg" id="updatemanifestation"><i class="fas fa-vials"></i> Update manifestation</button>
                               </div>
                            </div>
                           </fieldset>
@@ -2397,6 +2413,7 @@
                            <div class="repeater-heading" align="center">
                               <div class="bootstrap-iso">
                                 <button type="button" class="btn btn-primary btn-lg" id="saveskin"><i class="fas fa-vials"></i> Add skin lesions</button>
+                                <button type="button" class="btn btn-primary btn-lg" id="updateskin"><i class="fas fa-vials"></i> Update skin lesions</button>
                               </div>
                            </div>
                           </fieldset>
@@ -3024,6 +3041,10 @@
               <script src="update/biospecimen.js"></script>
               <script src="update/outcome.js"></script>
               <script src="update/death.js"></script>
+              <script src="update/diagnostic.js"></script>
+              <script src="update/manifestation.js"></script>
+              <script src="update/procedure.js"></script>
+              <script src="update/lesion.js"></script>
               <?php } ?>
 
               <script>

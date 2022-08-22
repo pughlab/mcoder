@@ -33,7 +33,7 @@ if(isset($_POST["query"]))
     Radiation.intent,
     Radiation.comment
   FROM Radiation
-  JOIN Patient ON Radiation.id
+  JOIN Patient ON Radiation.id = Patient.id
   WHERE Radiation.id = {$enc_search}
   AND FIND_IN_SET(Patient.study, '".$roles."') > 0
  ";
@@ -106,7 +106,36 @@ $('#radiationdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#radiationdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'location': cells[2].innerText,
+              'type': cells[3].innerText,
+              'site': cells[4].innerText,
+              'intent': cells[5].innerText,
+              'comment': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'radiation'
+            };
+            $('#radiationdate').val(cellData['date']);
+            $('#radiationlocation').val(cellData['location']);
+            $('button[data-id="radiationpro"]').children().first().children().first().children().first().html(cellData['type']);
+            for(let option of $('#radiationpro option')) {
+              if($(option).text() === cellData['type']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            $('#radiobodysite').val(cellData['site']);
+            for (let intent of $('input[name="treatment_intent_radio"]')) {
+              if ($(intent).val() === cellData['intent']) {
+                $(intent).prop('checked', true);
+              } else {
+                $(intent).prop('checked', false);
+              }
+            }
+            $('#radiationcom').val(cellData['comment']);
+          });
 
       } );
 
@@ -156,6 +185,7 @@ $('#radiationdata tfoot th').each( function () {
    <td>'.$row[4].'</td>
    <td>'.$row[5].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_radiation_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments' . $nb . '" value="' . $row[6]. '" />
   </tr>
   ';
   ?>

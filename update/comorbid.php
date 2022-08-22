@@ -8,7 +8,7 @@ $ip=$_POST['ip'];
 $datesystem=$_POST['datesystem'];
 $email=$_POST['email'];
 $username=$_POST['username'];
-$roles=$_POST['roles'];
+$roles = rtrim(trim($_POST["roles"]), ",");
 $tracking=$_POST['tracking'];
 
 	$id=$_POST['id'];
