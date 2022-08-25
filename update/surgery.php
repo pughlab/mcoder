@@ -14,7 +14,7 @@
 
 	$id=$_POST['id'];
 	$date=$_POST['date'];
-	$location=$_POST['location'];
+	$location=str_replace("'", "\'", $_POST['location']);
 	$type=$_POST['type'];
 	$site=$_POST['site'];
 	$intent=$_POST['intent'];

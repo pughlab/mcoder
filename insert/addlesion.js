@@ -34,6 +34,13 @@ $('#saveskin').click(function(e) {
       return false;
     }
 
+  if (evaluation === "Absent") {
+    location = "None";
+    $('input[name=skinlocation]').each(function() {
+      $(this).attr('checked', false);
+    });
+  }
+
   if(patientid !="" && date !="" && type !="" && evaluation != null && number !="" && location != null){
     $.ajax({
       url: "insert/addlesion.php",

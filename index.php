@@ -1901,6 +1901,7 @@
                                              <option value="9">CT chest</option>
                                              <option value="10">CT abdomen and pelvis</option>
                                              <option value="11">CT brain</option>
+                                             <option value="28">CT extremity</option>
                                              <option value="12">CT head and neck</option>
                                              <option value="13">CT colonography</option>
                                              <option value="21">Cystoscopy</option>
@@ -1908,6 +1909,7 @@
                                              <option value="5">Mammography</option>
                                              <option value="26">MRI abdomen and pelvis</option>
                                              <option value="1">MRI brain</option>
+                                             <option value="29">MRI brain and spine</option>
                                              <option value="20">MRI head and neck</option>
                                              <option value="2">MRI spine</option>
                                              <option value="3">MRI breast</option>
@@ -1919,8 +1921,10 @@
                                              <option value="14">US pelvis</option>
                                              <option value="15">US transvaginal</option>
                                              <option value="16">US abdomen</option>
+                                             <option value="27">US extremity</option>
                                              <option value="17">US thyroid</option>
                                              <option value="18">US breast</option>
+                                             <option value="30">Whole body bone scan</option>
                                              <option value="24">X-ray chest</option>
 
                                            </select>
@@ -3048,7 +3052,7 @@
               <?php } ?>
 
               <script>
-              $(document).ready(function(){ // TODO: Remove this empty function
+              $(document).ready(function(){
 
                //load_patient();
 
@@ -3065,7 +3069,11 @@
                //   enableCaseInsensitiveFiltering: true,
                //   buttonWidth:'100%'
                // });
-
+                  $('#absentsk').on('click', function() {
+                     $('input[name="skinlocation"]').each(function() {
+                        $(this).prop('checked', false);
+                     });
+                  });
               });
               </script>
 

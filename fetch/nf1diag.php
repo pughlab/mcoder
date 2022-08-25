@@ -81,7 +81,32 @@ $('#nf1diagdata tfoot th').each( function () {
           var table = $('#nf1diagdata').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+              'copy', 
+              {
+                extend: 'csv',
+                filename: '<?php echo $search; ?>_diagnostic',
+                customize: function(csv) {
+                let rows = csv.split('\n');
+                $.each(rows.slice(1), function(index, row) { // check all rows except the header
+                  let cells = row.split('","');
+                  cells[0] = cells[0].replace(/"/g, '');
+                  cells[cells.length - 1] = $(`#nf1diagdata input[name=rowComments${index + 1}]`).val();
+                  row = '"' + cells.join('","') + '"';
+                  rows[index + 1] = row;
+                });
+                csv = rows.join('\n');
+                return csv;
+              }
+              },
+              {
+                extend: 'excel',
+                filename: '<?php echo $search; ?>_diagnostic'
+              },
+              {
+                extend: 'pdf',
+                filename: '<?php echo $search; ?>_diagnostic'
+              },
+              'print'
             ],
         initComplete: function () {
             // Apply the search

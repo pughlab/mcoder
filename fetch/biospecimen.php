@@ -77,7 +77,43 @@ if (mysqli_num_rows($result) > 0) {
         var table = $('#biospecimendata').DataTable({
           dom: 'Bfrtip',
           buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            'copy', 
+            {
+              extend: 'csv',
+              filename: '<?php echo $search; ?>_biospecimen',
+              customize: function(csv) {
+                let rows = csv.split('\n');
+                $.each(rows.slice(1), function(index, row) { // check all rows except the header
+                  let cells = row.split('","');
+                  cells[0] = cells[0].replace(/"/g, '');
+                  cells[cells.length - 1] = $(`#biospecimendata input[name=rowComments${index + 1}]`).val();
+                  row = '"' + cells.join('","') + '"';
+                  rows[index + 1] = row;
+                });
+                csv = rows.join('\n');
+                return csv;
+              }
+            },
+            {
+              extend: 'excel',
+              filename: '<?php echo $search; ?>_biospecimen'/*,
+              customize: function(xlsx) {
+                let sheet = xlsx.xl.worksheets['sheet1.xml'];
+                $.each($(sheet).children('worksheet').children('sheetData').children('row').slice(2), function(index, row) {
+                  let cell = $(row).children().last().clone(true, true);
+                  cell.text($(`#biospecimendata input[name=rowComments${index + 1}]`).val());
+                  console.log(cell);
+                  $(row).append(cell);
+                  console.log($(row));
+                  console.log(`${index + 1} ${$(row).children().last().text()} ${$(`#biospecimendata input[name=rowComments${index + 1}]`).val()}`);
+                });
+              }*/
+            },
+            {
+              extend: 'pdf',
+              filename: '<?php echo $search; ?>_biospecimen'
+            },
+            'print'
           ],
           select: true,
           initComplete: function() {
