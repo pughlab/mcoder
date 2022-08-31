@@ -78,32 +78,31 @@ $('#nf1skindata tfoot th').each( function () {
           var table = $('#nf1skindata').DataTable({
             dom: 'Bfrtip',
             buttons: [
-              'copy', 
-              {
+              'copy', {
                 extend: 'csv',
                 filename: '<?php echo $search; ?>_skinlesions',
-                customize: function(csv) {
-                let rows = csv.split('\n');
-                $.each(rows.slice(1), function(index, row) { // check all rows except the header
-                  let cells = row.split('","');
-                  cells[0] = cells[0].replace(/"/g, '');
-                  cells[cells.length - 1] = $(`#nf1skindata input[name=rowComments${index + 1}]`).val();
-                  row = '"' + cells.join('","') + '"';
-                  rows[index + 1] = row;
-                });
-                csv = rows.join('\n');
-                return csv;
-              }
-              },
-              {
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
                 extend: 'excel',
-                filename: '<?php echo $search; ?>_skinlesions'
-              },
-              {
+                filename: '<?php echo $search; ?>_skinlesions',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
                 extend: 'pdf',
-                filename: '<?php echo $search; ?>_skinlesions'
-              },
-              'print'
+                filename: '<?php echo $search; ?>_skinlesions',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                } 
+              }, 'print'
+            ],
+            columnDefs: [
+              {
+                visible: false,
+                targets: 6
+              }
             ],
         initComplete: function () {
             // Apply the search
@@ -197,6 +196,7 @@ $('#nf1skindata tfoot th').each( function () {
 <th>Number</th>
 <th>Location</th>
 <th>Comments</th>
+<th class="no-export">Comments</th>
 </tr>
 </thead>
   <tbody>
@@ -215,6 +215,7 @@ $('#nf1skindata tfoot th').each( function () {
    <td>'.$row[3].'</td>
    <td>'.$row[4].'</td>
    <td>'.$row[5].'</td>
+   <td>'.$row[6].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_nf1skin_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
    <input type="hidden" name="rowComments' . $nb . '" value="' . $row[6] . '"/>
   </tr>
@@ -255,6 +256,7 @@ $('#nf1skindata tfoot th').each( function () {
  <th>Number</th>
  <th>Location</th>
  <th>Comments</th>
+ <th class="no-export">Comments</th>
  </tr>
  </tfoot>
 </table>';

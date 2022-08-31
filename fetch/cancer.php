@@ -88,32 +88,32 @@ if (mysqli_num_rows($result) > 0) {
         var table = $('#cancerdata').DataTable({
           dom: 'Bfrtip',
           buttons: [
-            'copy', 
-            {
+            'copy', {
               extend: 'csv',
               filename: '<?php echo $search; ?>_cancer',
-              customize: function(csv) {
-                let rows = csv.split('\n');
-                $.each(rows.slice(1), function(index, row) { // check all rows except the header
-                  let cells = row.split('","');
-                  cells[0] = cells[0].replace(/"/g, '');
-                  cells[cells.length - 1] = $(`#cancerdata input[name=rowComments${index + 1}]`).val();
-                  row = '"' + cells.join('","') + '"';
-                  rows[index + 1] = row;
-                });
-                csv = rows.join('\n');
-                return csv;
+              exportOptions: {
+                columns: ':not(.no-export)'
               }
-            },
-            {
+            }, {
               extend: 'excel',
-              filename: '<?php echo $search; ?>_cancer'
-            },
-            {
+              filename: '<?php echo $search; ?>_cancer',
+              exportOptions: {
+                columns: ':not(.no-export)'
+              }
+            }, {
               extend: 'pdf',
-              filename: '<?php echo $search; ?>_cancer'
-            },
-            'print'
+              filename: '<?php echo $search; ?>_cancer',
+              exportOptions: {
+                columns: ':not(.no-export)'
+              },
+              orientation: 'landscape'
+            }, 'print'
+          ],
+          columnDefs: [
+            {
+              visible: false,
+              targets: 12
+            }
           ],
           "scrollX": true,
           initComplete: function() {
@@ -245,6 +245,7 @@ if (mysqli_num_rows($result) > 0) {
 <th>Pathologic stage group</th>
 <th>Pathologic stage system</th>
 <th>Comments</th>
+<th class="no-export">Comments</th>
 </tr>
 </thead>
   <tbody>
@@ -267,6 +268,7 @@ if (mysqli_num_rows($result) > 0) {
     <td>' . $row[9] . '</td>
     <td>' . $row[10] . '</td>
     <td>' . $row[11] . '</td>
+    <td>' . $row[12] . '</td>
     <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_cancer_' . $nb . '" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
     <input type="hidden" name="rowComments' . $nb . '" value="' . $row[12]. '" />
   </tr>
@@ -313,6 +315,7 @@ if (mysqli_num_rows($result) > 0) {
  <th>Pathologic stage group</th>
  <th>Pathologic stage system</th>
  <th>Comments</th>
+ <th class="no-export">Comments</th>
  </tr>
  </tfoot>
 </table>';

@@ -89,32 +89,31 @@ $('#variantdata tfoot th').each( function () {
           var table = $('#variantdata').DataTable({
             dom: 'Bfrtip',
             buttons: [
-              'copy', 
-              {
+              'copy', {
                 extend: 'csv',
                 filename: '<?php echo $search; ?>_variant',
-                customize: function(csv) {
-                  let rows = csv.split('\n');
-                  $.each(rows.slice(1), function(index, row) { // check all rows except the header
-                    let cells = row.split('","');
-                    cells[0] = cells[0].replace(/"/g, '');
-                    cells[cells.length - 1] = $(`#variantdata input[name=rowComments${index + 1}]`).val();
-                    row = '"' + cells.join('","') + '"';
-                    rows[index + 1] = row;
-                  });
-                  csv = rows.join('\n');
-                  return csv;
+                exportOptions: {
+                  columns: ':not(.no-export)'
                 }
-              },
-              {
+              }, {
                 extend: 'excel',
-                filename: '<?php echo $search; ?>_variant'
-              },
-              {
+                filename: '<?php echo $search; ?>_variant',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
                 extend: 'pdf',
-                filename: '<?php echo $search; ?>_variant'
-              },
-              'print'
+                filename: '<?php echo $search; ?>_variant',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                } 
+              }, 'print'
+            ],
+            columnDefs: [
+              {
+                visible: false,
+                targets: 10
+              }
             ],
             "scrollX": true,
         initComplete: function () {
@@ -216,6 +215,7 @@ $('#variantdata tfoot th').each( function () {
 <th>Variant interpretation</th>
 <th>Genomic source class</th>
 <th>Comments</th>
+<th class="no-export">Comments</th>
 </tr>
 </thead>
   <tbody>
@@ -238,6 +238,7 @@ $('#variantdata tfoot th').each( function () {
    <td>'.$row[7].'</td>
    <td>'.$row[8].'</td>
    <td>'.$row[9].'</td>
+   <td>'.$row[10].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_variant_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
    <input type="hidden" name="rowComments' . $nb . '" value="' . $row[10]. '" />
   </tr>
@@ -282,6 +283,7 @@ $('#variantdata tfoot th').each( function () {
  <th>Variant interpretation</th>
  <th>Genomic source class</th>
  <th>Comments</th>
+ <th class="no-export">Comments</th>
  </tr>
  </tfoot>
 </table>';

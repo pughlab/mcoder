@@ -14,10 +14,6 @@ $encryption_key = hex2bin($key);
 $iv_query= mysqli_fetch_assoc(mysqli_query($connect, "select riv from norm"));
 $iv=$iv_query['riv'];
 
-//echo $iv;
-//echo " ";
-//echo bin2hex($iv);
-
 mysqli_close($connect);
 
 // User roles
@@ -88,34 +84,17 @@ $('#patientdata tfoot th').each( function () {
           var table = $('#patientdata').DataTable({
             dom: 'Bfrtip',
             buttons: [
-              'copy', 
-              {
+              'copy', {
                 extend: 'csv',
-                filename: '<?php echo $search; ?>_patient',
-                customize: function(csv) {
-                let rows = csv.split('\n');
-                $.each(rows.slice(1), function(index, row) { // check all rows except the header
-                  let cells = row.split('","');
-                  cells[0] = cells[0].replace(/"/g, '');
-                  cells[cells.length - 1] = $(`#patientdata input[name=rowComments${index + 1}]`).val();
-                  row = '"' + cells.join('","') + '"';
-                  rows[index + 1] = row;
-                });
-                csv = rows.join('\n');
-                return csv;
-              }
-              },
-              {
+                filename: '<?php echo $search; ?>_patient'
+              }, {
                 extend: 'excel',
                 filename: '<?php echo $search; ?>_patient'
-              },
-              {
+              }, {
                 extend: 'pdf',
                 filename: '<?php echo $search; ?>_patient'
-              },
-              'print'
+              }, 'print'
             ],
-
             initComplete: function () {
             // Apply the search
             this.api().columns().every( function () {

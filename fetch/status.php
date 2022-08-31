@@ -75,32 +75,31 @@ $('#statusdata tfoot th').each( function () {
           var table = $('#statusdata').DataTable({
             dom: 'Bfrtip',
             buttons: [
-              'copy', 
-              {
+              'copy', {
                 extend: 'csv',
                 filename: '<?php echo $search; ?>_status',
-                customize: function(csv) {
-                let rows = csv.split('\n');
-                $.each(rows.slice(1), function(index, row) { // check all rows except the header
-                  let cells = row.split('","');
-                  cells[0] = cells[0].replace(/"/g, '');
-                  cells[cells.length - 1] = $(`#statusdata input[name=rowComments${index + 1}]`).val();
-                  row = '"' + cells.join('","') + '"';
-                  rows[index + 1] = row;
-                });
-                csv = rows.join('\n');
-                return csv;
-              }
-              },
-              {
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
                 extend: 'excel',
-                filename: '<?php echo $search; ?>_status'
-              },
-              {
+                filename: '<?php echo $search; ?>_status',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
                 extend: 'pdf',
-                filename: '<?php echo $search; ?>_status'
-              },
-              'print'
+                filename: '<?php echo $search; ?>_status',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                } 
+              }, 'print'
+            ],
+            columnDefs: [
+              {
+                visible: false,
+                targets: 4
+              }
             ],
         initComplete: function () {
             // Apply the search
@@ -182,6 +181,7 @@ $('#statusdata tfoot th').each( function () {
  <th>ECOG performance status</th>
  <th>Karnofsky performance status</th>
  <th>Comments</th>
+ <th class="no-export">Comments</th>
 </tr>
 </thead>
   <tbody>
@@ -197,6 +197,7 @@ $('#statusdata tfoot th').each( function () {
     <td>'.$row[1].'</td>
     <td>'.$row[2].'</td>
     <td>'.$row[3].'</td>
+    <td>'.$row[4].'</td>
     <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_status_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
     <input type="hidden" name="rowComments' . $nb . '" value="' . $row[4]. '" />
    </tr>
@@ -235,6 +236,7 @@ $('#statusdata tfoot th').each( function () {
   <th>ECOG performance status</th>
   <th>Karnofsky performance status</th>
   <th>Comments</th>
+  <th class="no-export">Comments</th>
  </tr>
  </tfoot>
 </table>';

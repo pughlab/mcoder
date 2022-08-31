@@ -78,32 +78,31 @@ $('#radiationdata tfoot th').each( function () {
           var table = $('#radiationdata').DataTable({
             dom: 'Bfrtip',
             buttons: [
-              'copy', 
-              {
+              'copy', {
                 extend: 'csv',
                 filename: '<?php echo $search; ?>_radiation',
-                customize: function(csv) {
-                let rows = csv.split('\n');
-                $.each(rows.slice(1), function(index, row) { // check all rows except the header
-                  let cells = row.split('","');
-                  cells[0] = cells[0].replace(/"/g, '');
-                  cells[cells.length - 1] = $(`#radiationdata input[name=rowComments${index + 1}]`).val();
-                  row = '"' + cells.join('","') + '"';
-                  rows[index + 1] = row;
-                });
-                csv = rows.join('\n');
-                return csv;
-              }
-              },
-              {
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
                 extend: 'excel',
-                filename: '<?php echo $search; ?>_radiation'
-              },
-              {
+                filename: '<?php echo $search; ?>_radiation',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
                 extend: 'pdf',
-                filename: '<?php echo $search; ?>_radiation'
-              },
-              'print'
+                filename: '<?php echo $search; ?>_radiation',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                } 
+              }, 'print'
+            ],
+            columnDefs: [
+              {
+                visible: false,
+                targets: 6
+              }
             ],
         initComplete: function () {
             // Apply the search
@@ -191,6 +190,7 @@ $('#radiationdata tfoot th').each( function () {
 <th>Body site</th>
 <th>Treatment intent</th>
 <th>Comments</th>
+<th class="no-export">Comments</th>
 </tr>
 </thead>
   <tbody>
@@ -209,6 +209,7 @@ $('#radiationdata tfoot th').each( function () {
    <td>'.$row[3].'</td>
    <td>'.$row[4].'</td>
    <td>'.$row[5].'</td>
+   <td>'.$row[6].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_radiation_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
    <input type="hidden" name="rowComments' . $nb . '" value="' . $row[6]. '" />
   </tr>
@@ -249,6 +250,7 @@ $('#radiationdata tfoot th').each( function () {
  <th>Body site</th>
  <th>Treatment intent</th>
  <th>Comments</th>
+ <th class="no-export">Comments</th>
  </tr>
  </tfoot>
 </table>';

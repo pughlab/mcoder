@@ -75,32 +75,31 @@ $('#nf1proceduredata tfoot th').each( function () {
           var table = $('#nf1proceduredata').DataTable({
             dom: 'Bfrtip',
             buttons: [
-              'copy', 
-              {
+              'copy', {
                 extend: 'csv',
                 filename: '<?php echo $search; ?>_procedure',
-                customize: function(csv) {
-                let rows = csv.split('\n');
-                $.each(rows.slice(1), function(index, row) { // check all rows except the header
-                  let cells = row.split('","');
-                  cells[0] = cells[0].replace(/"/g, '');
-                  cells[cells.length - 1] = $(`#nf1proceduredata input[name=rowComments${index + 1}]`).val();
-                  row = '"' + cells.join('","') + '"';
-                  rows[index + 1] = row;
-                });
-                csv = rows.join('\n');
-                return csv;
-              }
-              },
-              {
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
                 extend: 'excel',
-                filename: '<?php echo $search; ?>_procedure'
-              },
-              {
+                filename: '<?php echo $search; ?>_procedure',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
                 extend: 'pdf',
-                filename: '<?php echo $search; ?>_procedure'
-              },
-              'print'
+                filename: '<?php echo $search; ?>_procedure',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                } 
+              }, 'print'
+            ],
+            columnDefs: [
+              {
+                visible: false,
+                targets: 3
+              }
             ],
         initComplete: function () {
             // Apply the search
@@ -173,6 +172,7 @@ $('#nf1proceduredata tfoot th').each( function () {
 <th>Date</th>
 <th>Procedure</th>
 <th>Findings</th>
+<th class="no-export">Findings</th>
 </tr>
 </thead>
   <tbody>
@@ -188,6 +188,7 @@ $('#nf1proceduredata tfoot th').each( function () {
    <td>'.$decrypted_id.'</td>
    <td>'.$row[1].'</td>
    <td>'.$row[2].'</td>
+   <td>'.$row[3].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_nf1pro_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
    <input type="hidden" name="rowComments' . $nb . '" value="' . $row[3] . '"/>
   </tr>
@@ -225,6 +226,7 @@ $('#nf1proceduredata tfoot th').each( function () {
  <th>Date</th>
  <th>Procedure</th>
  <th>Findings</th>
+ <th class="no-export">Findings</th>
  </tr>
  </tfoot>
 </table>';

@@ -75,32 +75,31 @@ $('#tumordata tfoot th').each( function () {
           var table = $('#tumordata').DataTable({
             dom: 'Bfrtip',
             buttons: [
-              'copy', 
-              {
+              'copy', {
                 extend: 'csv',
                 filename: '<?php echo $search; ?>_tumor',
-                customize: function(csv) {
-                let rows = csv.split('\n');
-                $.each(rows.slice(1), function(index, row) { // check all rows except the header
-                  let cells = row.split('","');
-                  cells[0] = cells[0].replace(/"/g, '');
-                  cells[cells.length - 1] = $(`#tumordata input[name=rowComments${index + 1}]`).val();
-                  row = '"' + cells.join('","') + '"';
-                  rows[index + 1] = row;
-                });
-                csv = rows.join('\n');
-                return csv;
-              }
-              },
-              {
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
                 extend: 'excel',
-                filename: '<?php echo $search; ?>_tumor'
-              },
-              {
+                filename: '<?php echo $search; ?>_tumor',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
                 extend: 'pdf',
-                filename: '<?php echo $search; ?>_tumor'
-              },
-              'print'
+                filename: '<?php echo $search; ?>_tumor',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                } 
+              }, 'print'
+            ],
+            columnDefs: [
+              {
+                visible: false,
+                targets: 4
+              }
             ],
         initComplete: function () {
             // Apply the search
@@ -175,6 +174,7 @@ $('#tumordata tfoot th').each( function () {
 <th>Tumor test code</th>
 <th>Tumor test result</th>
 <th>Comments</th>
+<th class="no-export">Comments</th>
 </tr>
 </thead>
   <tbody>
@@ -191,6 +191,7 @@ $('#tumordata tfoot th').each( function () {
    <td>'.$row[1].'</td>
    <td>'.$row[2].'</td>
    <td>'.$row[3].'</td>
+   <td>'.$row[4].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_tumour_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
    <input type="hidden" name="rowComments' . $nb . '" value="' . $row[4]. '" />
   </tr>
@@ -229,6 +230,7 @@ $('#tumordata tfoot th').each( function () {
  <th>CMP type</th>
  <th>CMP count</th>
  <th>Comments</th>
+ <th class="no-export">Comments</th>
  </tr>
  </tfoot>
 </table>';

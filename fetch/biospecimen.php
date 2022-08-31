@@ -74,46 +74,34 @@ if (mysqli_num_rows($result) > 0) {
           $(this).html('<input type="text" placeholder="' + title + '" />');
         });
 
-        var table = $('#biospecimendata').DataTable({
+        let table = $('#biospecimendata').DataTable({
           dom: 'Bfrtip',
           buttons: [
-            'copy', 
-            {
+            'copy', {
               extend: 'csv',
               filename: '<?php echo $search; ?>_biospecimen',
-              customize: function(csv) {
-                let rows = csv.split('\n');
-                $.each(rows.slice(1), function(index, row) { // check all rows except the header
-                  let cells = row.split('","');
-                  cells[0] = cells[0].replace(/"/g, '');
-                  cells[cells.length - 1] = $(`#biospecimendata input[name=rowComments${index + 1}]`).val();
-                  row = '"' + cells.join('","') + '"';
-                  rows[index + 1] = row;
-                });
-                csv = rows.join('\n');
-                return csv;
+              exportOptions: {
+                columns: ':not(.no-export)'
               }
-            },
-            {
+            }, {
               extend: 'excel',
-              filename: '<?php echo $search; ?>_biospecimen'/*,
-              customize: function(xlsx) {
-                let sheet = xlsx.xl.worksheets['sheet1.xml'];
-                $.each($(sheet).children('worksheet').children('sheetData').children('row').slice(2), function(index, row) {
-                  let cell = $(row).children().last().clone(true, true);
-                  cell.text($(`#biospecimendata input[name=rowComments${index + 1}]`).val());
-                  console.log(cell);
-                  $(row).append(cell);
-                  console.log($(row));
-                  console.log(`${index + 1} ${$(row).children().last().text()} ${$(`#biospecimendata input[name=rowComments${index + 1}]`).val()}`);
-                });
-              }*/
-            },
-            {
+              filename: '<?php echo $search; ?>_biospecimen',
+              exportOptions: {
+                columns: ':not(.no-export)'
+              }
+            }, {
               extend: 'pdf',
-              filename: '<?php echo $search; ?>_biospecimen'
-            },
-            'print'
+              filename: '<?php echo $search; ?>_biospecimen',
+              exportOptions: {
+                columns: ':not(.no-export)'
+              } 
+            }, 'print'
+          ],
+          columnDefs: [
+            {
+              visible: false,
+              targets: 9
+            }
           ],
           select: true,
           initComplete: function() {
@@ -220,6 +208,7 @@ if (mysqli_num_rows($result) > 0) {
 <th>Tumor paired with blood sample</th>
 <th>Imaging available</th>
 <th>Comments</th>
+<th class="no-export">Comments</th>
 </tr>
 </thead>
   <tbody>
@@ -240,6 +229,7 @@ if (mysqli_num_rows($result) > 0) {
    <td>' . $row[6] . '</td>
    <td>' . $row[7] . '</td>
    <td>' . $row[8] . '</td>
+   <td>' . $row[9] . '</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_biosp_' . $rowNumber . '" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
    <input type="hidden" name="rowComments' . $rowNumber . '" value=' . $row[9] . ' />
   </tr>
@@ -283,6 +273,7 @@ if (mysqli_num_rows($result) > 0) {
  <th>Tumor paired with blood sample</th>
  <th>Imaging available</th>
  <th>Comments</th>
+ <th class="no-export">Comments</th>
  </tr>
  </tfoot>
 </table>';
