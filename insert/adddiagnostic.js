@@ -68,7 +68,6 @@ $('#savediag').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Diagnostic saved!",
@@ -76,7 +75,7 @@ $('#savediag').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_nf1diag($('#nf1idsource').val());
               }, 1000);
           });
         } else {

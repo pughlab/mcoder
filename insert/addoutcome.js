@@ -44,7 +44,6 @@ $('#saveoutcome').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Cancer disease status saved!",
@@ -52,7 +51,7 @@ $('#saveoutcome').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_outcome($('#outcomeidsource').val());
               }, 1000);
           });
         } else {

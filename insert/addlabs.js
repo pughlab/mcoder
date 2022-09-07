@@ -1,5 +1,5 @@
 // Save a patient
-$('#savelab').click(function(e) {
+$('#savelab').click(function(_e) {
   let ipdiv = document.getElementById("ipaddress");
   let ip = ipdiv.textContent.replace( /\s+/g, '');
 
@@ -29,30 +29,24 @@ $('#savelab').click(function(e) {
   let trackspace = datesystem+"_"+ip+"_"+email;
   let tracking = trackspace.replace( /\s+/g, '');
 
-  let regex=/^[0-9]+$/;
-  if ( (height !="") &&  (isNaN(height) || height < 0 ))
+  let isValid = function(value, errorMsg) {
+    let result = true;
+    if ( (value !="") &&  (isNaN(value) || value < 0 ))
     {
-      swal("Error!", "The height must be a positive number!", "error");
-      return false;
+      swal("Error!", errorMsg, "error");
+      result = false;
     }
+    return result;
+  };
 
-  if ( (weight !="") &&  (isNaN(weight) || weight < 0 ))
-    {
-      swal("Error!", "The weight must be a positive number!", "error");
-      return false;
-    }
-
-  if ( (diastolic !="") &&  (isNaN(diastolic) || diastolic < 0 ))
-    {
-      swal("Error!", "The blood pressure diastolic must be a positive number!", "error");
-      return false;
-    }
-
-  if ( (systolic !="") &&  (isNaN(systolic) || systolic < 0 ))
-    {
-      swal("Error!", "The blood pressure systolic must be a positive number!", "error");
-      return false;
-    }
+  if (
+        !isValid(height, "The height must be a positive number!")
+        || !isValid(weight, "The weight must be a positive number!")
+        || !isValid(diastolic, "The blood pressure diastolic must be a positive number!")
+        || !isValid(systolic, "The blood pressure systolic must be a positive number!")
+  ) {
+    return false;
+  }
 
 
   if(patientid !="" && date !="" && location !=""){
@@ -77,7 +71,6 @@ $('#savelab').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "General lab metrics saved!",
@@ -85,7 +78,7 @@ $('#savelab').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_labs($('#labidsource').val());
               }, 1000);
           });
         } else {

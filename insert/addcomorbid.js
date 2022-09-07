@@ -46,7 +46,6 @@ $('#savecomorbid').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Comorbid condition saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Comorbid condition saved!",
@@ -54,7 +53,7 @@ $('#savecomorbid').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_comorbid($('#patientidsource').val());
               }, 1000);
           });
         } else {

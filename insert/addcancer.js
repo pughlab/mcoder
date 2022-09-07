@@ -61,7 +61,6 @@ $('#savecancer').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Cancer saved!",
@@ -69,7 +68,7 @@ $('#savecancer').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_cancer($('#diseaseidsource').val());
               }, 1000);
           });
         } else {

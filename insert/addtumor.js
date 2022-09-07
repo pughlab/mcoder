@@ -20,21 +20,21 @@ $('#savetumors').click(function(e) {
   let roles = rolesdiv.textContent;
   let patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
   let date = document.getElementById("tumordate").value;
-  let type = document.getElementById("testcode").value;
-  let count = $("input[name='testresults']:checked").val();
+  let test = document.getElementById("testcode").value;
+  let result = $("input[name='testresults']:checked").val();
   let comment = document.getElementById("tumorcom").value;
   let trackspace = datesystem+"_"+ip+"_"+email;
   let tracking = trackspace.replace( /\s+/g, '');
 
-  if(patientid !="" && date !="" && type !="" && count != null){
+  if(patientid !="" && date !="" && test !="" && result != null){
     $.ajax({
       url: "insert/addtumor.php",
       type: "POST",
       data: {
         id: patientid,
         date: date,
-        type: type,
-        count: count,
+        test: test,
+        result: result,
         ip : ip,
         datesystem : datesystem,
         email: email,
@@ -45,7 +45,6 @@ $('#savetumors').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Tumor test saved!",
@@ -53,7 +52,7 @@ $('#savetumors').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_tumor($('#labidsource').val());
               }, 1000);
           });
         } else {

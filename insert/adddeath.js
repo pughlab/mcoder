@@ -42,7 +42,6 @@ $('#savedeath').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "The death date has been saved!",
@@ -50,7 +49,7 @@ $('#savedeath').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_death($('#outcomeidsource').val());
               }, 1000);
           });
         } else {

@@ -51,7 +51,6 @@ $('#savecmp').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "CMP test saved!",
@@ -59,7 +58,7 @@ $('#savecmp').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_cmp($('#labidsource').val());
               }, 1000);
           });
         } else {

@@ -58,10 +58,6 @@ $('#savepatient').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          // swal("Patient saved!", "You can continue with the form!", "success");
-          // if (!swal.isOpened()) {
-          //   window.location.reload();
-          // }
 
           setTimeout(function() {
               swal({
@@ -70,7 +66,7 @@ $('#savepatient').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  // window.open("index.php","_self");
+                  load_patient($('#patientidsource').val());
               }, 1000);
           });
 
