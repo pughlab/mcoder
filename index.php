@@ -5,6 +5,7 @@
  include('configuration/map.php');
  
  $ip = $_SERVER['REMOTE_ADDR'];
+ date_default_timezone_set('America/Toronto'); 
 
  if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
    $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -30,6 +31,7 @@
  $hasRoleNew = NULL;
  $hasRoleNF1 = NULL;
  $hasRoleDemo = NULL;
+ $hasRoleAdmin = NULL;
 
  if (isset($_GET['code']) && !(empty($_GET['state']) || ($_GET['state'] !== @$_SESSION['oauth2state']))) {
 
@@ -69,6 +71,8 @@
 
         // Retrieve the Demo users
         $hasRoleDemo = $user->hasRoleForClient($clientID, "Demo");
+
+        $hasRoleAdmin = $user->hasRoleForClient($clientID, "Admin");
 
         // Retrieve all user groups as s list
          $groups = "";
@@ -139,7 +143,7 @@
            </head>
            <body>
               <div id="ipaddress" style="display: none;"> <?php echo $ip; ?> </div>
-              <div id="datesystem" style="display: none;"> <?php date_default_timezone_set('America/Toronto'); echo date("Y-m-d-H:i:s"); ?> </div>
+              <div id="datesystem" style="display: none;"> <?php echo date("Y-m-d-H:i:s"); ?> </div>
               <div id="email" style="display: none;"> <?php echo $userMail; ?> </div>
               <div id="username" style="display: none;"> <?php echo $userName; ?> </div>
               <div id="roles" style="display: none;"> <?php echo $groups; ?> </div>
@@ -365,7 +369,7 @@
 
 <div style="background-color: #f1f1f1; height:115px;border: thin solid lightgray;">
       <div class="logomcoder" style="background-color: #E7E7E6;height:113px;" >
-        <img src="logo.png" alt="mcoderlogo" style="width:130px;max-width:130px;">
+        <a href="/"><img src="logo.png" alt="mcoderlogo" style="width:130px;max-width:130px;"></a>
       </div>
 
 
@@ -2986,7 +2990,7 @@
               </script>
 
 
-              <?php if($hasRoleDemo == 0) { // TODO: Change the $hasRoleDemo to a boolean ?>
+              <?php if($hasRoleDemo == 0) { ?>
               <script src="insert/addpatient.js"></script>
               <script src="insert/addcomorbid.js"></script>
               <script src="insert/addstatus.js"></script>
@@ -3054,21 +3058,6 @@
               <script>
               $(document).ready(function(){
 
-               //load_patient();
-
-               // $('#nf1diag').multiselect({
-               //   nonSelectedText: 'Select clinical diagnosis',
-               //   enableFiltering: true,
-               //   enableCaseInsensitiveFiltering: true,
-               //   buttonWidth:'100%'
-               // });
-               //
-               // $('#nf1diagcri').multiselect({
-               //   nonSelectedText: 'Select diagnostic criteria',
-               //   enableFiltering: true,
-               //   enableCaseInsensitiveFiltering: true,
-               //   buttonWidth:'100%'
-               // });
                   $('#absentsk').on('click', function() {
                      $('input[name="skinlocation"]').each(function() {
                         $(this).prop('checked', false);

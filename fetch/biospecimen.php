@@ -15,7 +15,7 @@ mysqli_close($connect);
 
 // User roles
 $roles = rtrim(trim($_POST["roles"]), ",");
-
+$hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 $output = '';
 if (isset($_POST["query"])) {
   $search = mysqli_real_escape_string($conn, $_POST["query"]); // mysqli_real_escape_string is not 100% safe against SQL injections. This applies to all .php files in the fetch folder
@@ -119,6 +119,11 @@ if (mysqli_num_rows($result) > 0) {
             });
           }
         });
+        <?php if (!$hasAdminRole) { ?>
+          for (let i = 0; i < 5; i++) {
+            table.button(i).enable(false);
+          }
+        <?php } ?>
 
         $('#biospecimendata tbody')
           .on('mouseenter', 'td', function() {
@@ -190,7 +195,6 @@ if (mysqli_num_rows($result) > 0) {
   </head>
 
   <body>
-
     <?php
     echo '<span style="color:#143de4;text-align:center;"><i class="glyphicon glyphicon-info-sign"></i><b> Biospecimens have been registered for this patient:</b></span>';
     $output .= '

@@ -13,7 +13,7 @@ $iv=$iv_query['riv'];
 mysqli_close($connect);
 // User roles
 $roles=rtrim(trim($_POST["roles"]), ",");
-
+$hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 $output = '';
 if(isset($_POST["query"]))
 {
@@ -133,6 +133,11 @@ $('#variantdata tfoot th').each( function () {
     });
 
 
+    <?php if (!$hasAdminRole) { ?>
+      for (let i = 0; i < 5; i++) {
+        table.button(i).enable(false);
+      }
+    <?php } ?>
 
           $('#variantdata tbody')
               .on( 'mouseenter', 'td', function () {

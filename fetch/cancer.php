@@ -15,7 +15,7 @@ mysqli_close($connect);
 
 // User roles
 $roles = rtrim(trim($_POST["roles"]), ",");
-
+$hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 $output = '';
 if (isset($_POST["query"])) {
   $search = mysqli_real_escape_string($conn, $_POST["query"]);
@@ -132,6 +132,11 @@ if (mysqli_num_rows($result) > 0) {
           }
         });
 
+        <?php if (!$hasAdminRole) { ?>
+          for (let i = 0; i < 5; i++) {
+            table.button(i).enable(false);
+          }
+        <?php } ?>
 
 
         $('#cancerdata tbody')

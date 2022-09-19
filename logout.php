@@ -9,7 +9,6 @@ session_destroy();
 $url = $provider->getLogoutUrl();
 $uri = parse_url($url);
 
-//$logout = assertEquals('/auth/realms/testRealm/protocol/openid-connect/logout', $uri['path']);
 
-header('Location: https://'.$KEYCLOAKDOMAIN.'/auth/realms/'.$REALM.'/protocol/openid-connect/logout?redirect_uri=https://'.$MCODERDOMAIN.'/index.php');
+header("Location: https://$KEYCLOAKDOMAIN/auth/realms/$REALM/protocol/openid-connect/logout?redirect_uri=$MCODERDOMAIN");
 ?>
