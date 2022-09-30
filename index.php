@@ -90,8 +90,6 @@
            <head>
               <meta charset="UTF-8">
               <title>mCODER</title>
-              <style>
-              </style>
               <link rel="stylesheet" type="text/css" href="css/modal.css">
               <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
               <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -149,6 +147,23 @@
               <div id="roles" style="display: none;"> <?php echo $groups; ?> </div>
 
               <script>
+                  // export a patient's data
+                  function exportAll() {
+                    $.ajax(
+                      {
+                        url: "export.php",
+                        data: {
+                          id: $("#patientidsource").val(),
+                          roles: "<?php echo $groups ?>"
+                        },
+                        method: "POST",
+                        success: (response) => {
+                          window.location = response;
+                        }
+                      }
+                    );
+                  }
+
                  // Show other race
                  function otherRaceShow() {
                    var x = document.getElementById("addotherRace");
@@ -565,12 +580,15 @@
                                <div class="row">
                                   <h4>Patient Identifier</h4>
                                   <div class="row">
-                                     <div class="bootstrap-iso">
+                                    <div class="bootstrap-iso">
                                       <div class="input-group">
-                                       <span class="input-group-addon glyphicon glyphicon-user"></span>
-                                       <input type="text" name="patientidsource" placeholder="NF-01-01" id="patientidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
-                                     </div>
-                                   </div>
+                                        <span class="input-group-addon glyphicon glyphicon-user"></span>
+                                        <input type="text" name="patientidsource" placeholder="NF-01-01" id="patientidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
+                                      </div>
+                                      <?php if ($hasRoleAdmin) { ?>
+                                        <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                                      <?php } ?>
+                                    </div>
                                   </div>
                                </div>
                                <br>
@@ -843,6 +861,9 @@
                                   <span class="input-group-addon glyphicon glyphicon-user"></span>
                                   <input type="text" name="diseaseidsource" placeholder="NF-01-01" id="diseaseidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
                                 </div>
+                                <?php if ($hasRoleAdmin) { ?>
+                                  <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                                <?php } ?>
                               </div>
                              </div>
                           </div>
@@ -1108,6 +1129,9 @@
                                  <span class="input-group-addon glyphicon glyphicon-user"></span>
                                  <input type="text" name="outcomeidsource" placeholder="NF-01-01" id="outcomeidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
                                </div>
+                               <?php if ($hasRoleAdmin) { ?>
+                                  <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                                <?php } ?>
                              </div>
                             </div>
                          </div>
@@ -1210,6 +1234,9 @@
                                  <span class="input-group-addon glyphicon glyphicon-user"></span>
                                  <input type="text" name="genomicidsource" placeholder="NF-01-01" id="genomicidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
                                </div>
+                              <?php if ($hasRoleAdmin) { ?>
+                                <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                              <?php } ?>
                              </div>
                             </div>
                          </div>
@@ -1390,6 +1417,9 @@
                                  <span class="input-group-addon glyphicon glyphicon-user"></span>
                                  <input type="text" name="treatmentidsource" placeholder="NF-01-01" id="treatmentidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
                                </div>
+                               <?php if ($hasRoleAdmin) { ?>
+                                  <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                               <?php } ?>
                              </div>
                             </div>
                          </div>
@@ -1621,7 +1651,10 @@
                                 <div class="input-group">
                                  <span class="input-group-addon glyphicon glyphicon-user"></span>
                                  <input type="text" name="labidsource" placeholder="NF-01-01" id="labidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
-                               </div>
+                                </div>
+                                <?php if ($hasRoleAdmin) { ?>
+                                  <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                                <?php } ?>
                              </div>
                             </div>
                          </div>
@@ -1965,7 +1998,10 @@
                                 <div class="input-group">
                                  <span class="input-group-addon glyphicon glyphicon-user"></span>
                                  <input type="text" name="biospecimensidsource" placeholder="NF-01-01" id="biospecimensidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
-                               </div>
+                                </div>
+                                <?php if ($hasRoleAdmin) { ?>
+                                  <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                                <?php } ?>
                              </div>
                             </div>
                          </div>
@@ -2078,7 +2114,10 @@
                                 <div class="input-group">
                                  <span class="input-group-addon glyphicon glyphicon-user"></span>
                                  <input type="text" name="pedigreeidsource" placeholder="NF-01-01" id="pedigreeidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
-                               </div>
+                                </div>
+                                <?php if ($hasRoleAdmin) { ?>
+                                  <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                                <?php } ?>
                              </div>
                             </div>
                          </div>
@@ -2102,7 +2141,10 @@
                                 <div class="input-group">
                                  <span class="input-group-addon glyphicon glyphicon-user"></span>
                                  <input type="text" name="nf1idsource" placeholder="NF-01-01" id="nf1idsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
-                               </div>
+                                </div>
+                                <?php if ($hasRoleAdmin) { ?>
+                                  <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                                <?php } ?>
                              </div>
                             </div>
                          </div>
