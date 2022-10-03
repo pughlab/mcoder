@@ -10,5 +10,5 @@ $url = $provider->getLogoutUrl();
 $uri = parse_url($url);
 
 
-header("Location: https://$KEYCLOAKDOMAIN/auth/realms/$REALM/protocol/openid-connect/logout?redirect_uri=$MCODERDOMAIN");
+header("Location: $KEYCLOAKDOMAIN/realms/$REALM/protocol/openid-connect/logout?redirect_uri=$MCODERDOMAIN");
 ?>
