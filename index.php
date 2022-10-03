@@ -147,6 +147,7 @@
               <div id="roles" style="display: none;"> <?php echo $groups; ?> </div>
 
               <script>
+                  <?php if ($hasRoleAdmin) { ?>
                   // export a patient's data
                   function exportAll() {
                     $.ajax(
@@ -163,6 +164,7 @@
                       }
                     );
                   }
+                  <?php } ?>
 
                  // Show other race
                  function otherRaceShow() {
