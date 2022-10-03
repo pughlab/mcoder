@@ -170,7 +170,8 @@ $('#variantdata tfoot th').each( function () {
             $('#idhgvsvariant').val(cellData['mutationid']);
             $('#hgvsvariant').val(cellData['mutationhgvs']);
             for (let interpretation of $('input[name="mutinterpvar"]')) {
-              if ($(interpretation).val() === cellData['interpretation']) {
+              let label = $(`label[for="${$(interpretation).attr('id')}"]`);
+              if($(label).text() === cellData['interpretation']) {
                 $(interpretation).prop('checked', true);
               } else {
                 $(interpretation).prop('checked', false);
