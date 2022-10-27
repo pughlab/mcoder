@@ -16,8 +16,7 @@ mysqli_close($connect);
 $roles=rtrim(trim($_POST["roles"]), ",");
 $hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 $output = '';
-if(isset($_POST["query"]))
-{
+if (isset($_POST["query"])) {
  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
  // ID encrypted
@@ -33,15 +32,13 @@ if(isset($_POST["query"]))
   WHERE Death.id = {$enc_search}
   AND FIND_IN_SET(Patient.study, '".$roles."') > 0
  ";
-}
-else
-{
+} else {
  $query = "
   SELECT * FROM Death, Patient WHERE Death.id LIKE '%ZZZZZZZZZZZZZZ%' AND Death.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0 ORDER BY Patient.id
  ";
 }
 $result = mysqli_query($conn, $query);
-if(mysqli_num_rows($result) > 0)
+if (mysqli_num_rows($result) > 0)
 {
   ?>
    <head>
@@ -91,7 +88,7 @@ $('#deathdata tfoot th').each( function () {
                 filename: '<?php echo $search; ?>_death',
                 exportOptions: {
                   columns: ':not(.no-export)'
-                } 
+                }
               }, 'print'
             ],
             columnDefs: [
@@ -155,27 +152,27 @@ $('#deathdata tfoot th').each( function () {
     </head>
 
     <body>
-
+      <span style="color:#143de4;text-align:center;">
+        <em class="glyphicon glyphicon-info-sign"></em>
+        <strong> This patient has passed away:</strong>
+      </span>
+      <br><br>
+      <table id="deathdata" class="row-border hover order-column" style="width:100%">
+          <thead>
+            <tr>
+              <th>Patient Identifier</th>
+              <th>Date of death</th>
+              <th>Comments</th>
+              <th class="no-export">Comments</th>
+              <th class="no-export">Delete</th>
+            </tr>
+          </thead>
+        <tbody>
 <?php
 
-  echo '<span style="color:#143de4;text-align:center;"><i class="glyphicon glyphicon-info-sign"></i><b> This patient has passed away:</b></span>';
- $output .= '
- <br><br>
-<table id="deathdata" class="row-border hover order-column" style="width:100%">
-<thead>
-<tr>
-<th>Patient Identifier</th>
-<th>Date of death</th>
-<th>Comments</th>
-<th class="no-export">Comments</th>
-</tr>
-</thead>
-  <tbody>
-
- ';
- $nb = 1;
- while($row = mysqli_fetch_array($result))
- {
+ $output .= '';
+ $rowNumber = 1;
+ while ($row = mysqli_fetch_array($result)) {
    $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
 
   $output .= '
@@ -183,13 +180,18 @@ $('#deathdata tfoot th').each( function () {
     <td>'.$decrypted_id.'</td>
     <td>'.$row[1].'</td>
     <td>'.$row[2].'</td>
-    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_death_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-    <input type="hidden" name="rowComments' . $nb . '" value="' . $row[2] . '"/>
-    </tr>
+    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_death_'.$rowNumber.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+    <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[2] . '"/>
+    <td align="center">
+      <a href="#" role="button" class="btn btn-danger" id="delete_death_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_death_' . $rowNumber . '">
+        <em class="glyphicon glyphicon-trash"></em>
+      </a>
+    </td>
+  </tr>
   ';
   ?>
 
-  <div id="comment_death_<?php echo $nb;?>" class="modal fade" role="dialog">
+  <div id="comment_death_<?php echo $rowNumber;?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -209,8 +211,31 @@ $('#deathdata tfoot th').each( function () {
   </div>
 </div>
 
+<div id="delete_death_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Delete death</h4>
+      </div>
+      <div class="modal-body">
+        <span>Are you sure? This operation cannot be undone.</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          onclick="deleteDeath(document.getElementById('delete_death_<?php echo $rowNumber; ?>_btn'))">
+            Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <?php
-  $nb++;
+  $rowNumber++;
  }
  $output .= '
  </tbody>
@@ -220,13 +245,12 @@ $('#deathdata tfoot th').each( function () {
  <th>Date of death</th>
  <th>Comments</th>
  <th class="no-export">Comments</th>
+ <th class="no-export">Delete</th>
  </tr>
  </tfoot>
 </table>';
  echo $output;
-}
-else if(isset($_POST["query"]))
-{
+} elseif(isset($_POST["query"])) {
   ?>
   <body>
   <?php

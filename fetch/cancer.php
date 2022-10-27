@@ -228,35 +228,36 @@ if (mysqli_num_rows($result) > 0) {
   </head>
 
   <body>
-
+      <span style="color:#143de4;text-align:center;">
+        <em class="glyphicon glyphicon-info-sign"></em>&nbsp;
+        <strong>Tumors have been registered for this patient:</strong>
+      </span>
+      <br><br>
+      <table id="cancerdata" class="row-border hover order-column" style="width:100%">
+        <thead>
+          <tr>
+            <th>Patient Identifier</th>
+            <th>Date of diagnosis</th>
+            <th>Tumor type</th>
+            <th>Tumor histology</th>
+            <th>Clinical status</th>
+            <th>Body location code</th>
+            <th>Body location side</th>
+            <th>Oncotree code</th>
+            <th>Clinical stage group</th>
+            <th>Clinical stage system</th>
+            <th>Pathologic stage group</th>
+            <th>Pathologic stage system</th>
+            <th>Comments</th>
+            <th class="no-export">Comments</th>
+            <th class="no-export">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
     <?php
 
-    echo '<span style="color:#143de4;text-align:center;"><i class="glyphicon glyphicon-info-sign"></i><b> Tumors have been registered for this patient:</b></span>';
-    $output .= '
- <br><br>
-<table id="cancerdata" class="row-border hover order-column" style="width:100%">
-<thead>
-<tr>
-<th>Patient Identifier</th>
-<th>Date of diagnosis</th>
-<th>Tumor type</th>
-<th>Tumor histology</th>
-<th>Clinical status</th>
-<th>Body location code</th>
-<th>Body location side</th>
-<th>Oncotree code</th>
-<th>Clinical stage group</th>
-<th>Clinical stage system</th>
-<th>Pathologic stage group</th>
-<th>Pathologic stage system</th>
-<th>Comments</th>
-<th class="no-export">Comments</th>
-</tr>
-</thead>
-  <tbody>
-
- ';
-    $nb = 1;
+    $output .= '';
+    $rowNumber = 1;
     while ($row = mysqli_fetch_array($result)) {
       $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
       $output .= '
@@ -274,13 +275,18 @@ if (mysqli_num_rows($result) > 0) {
     <td>' . $row[10] . '</td>
     <td>' . $row[11] . '</td>
     <td>' . $row[12] . '</td>
-    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_cancer_' . $nb . '" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-    <input type="hidden" name="rowComments' . $nb . '" value="' . $row[12]. '" />
+    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_cancer_' . $rowNumber . '" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+    <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[12]. '" />
+    <td align="center">
+      <a href="#" role="button" class="btn btn-danger" id="delete_cancer_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_cancer_' . $rowNumber . '">
+        <em class="glyphicon glyphicon-trash"></em>
+      </a>
+    </td>
   </tr>
   ';
     ?>
 
-      <div id="comment_cancer_<?php echo $nb; ?>" class="modal fade" role="dialog">
+      <div id="comment_cancer_<?php echo $rowNumber ?>" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
           <!-- Modal content-->
@@ -300,8 +306,31 @@ if (mysqli_num_rows($result) > 0) {
         </div>
       </div>
 
+      <div id="delete_cancer_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Delete cancer</h4>
+          </div>
+          <div class="modal-body">
+            <span>Are you sure? This operation cannot be undone.</span>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              onclick="deleteCancer(document.getElementById('delete_cancer_<?php echo $rowNumber; ?>_btn'))">
+                Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <?php
-      $nb++;
+      $rowNumber++;
     }
     $output .= '
  </tbody>
@@ -321,11 +350,12 @@ if (mysqli_num_rows($result) > 0) {
  <th>Pathologic stage system</th>
  <th>Comments</th>
  <th class="no-export">Comments</th>
+ <th class="no-export">Delete</th>
  </tr>
  </tfoot>
 </table>';
     echo $output;
-  } else if (isset($_POST["query"])) {
+  } elseif (isset($_POST["query"])) {
 
     ?>
 

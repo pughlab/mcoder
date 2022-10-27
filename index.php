@@ -120,7 +120,7 @@
               <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
               <script src="js/prefixfree.min.js"></script>
               <script src="js/tabs.js"></script>
-              <link rel="stylesheet" href="css/usermenu.css" /> 
+              <link rel="stylesheet" href="css/usermenu.css" />
               <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
               <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $api; ?>&libraries=places"></script>
               <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" rel="stylesheet" type="text/css">
@@ -396,7 +396,7 @@
       </div>
 
 <div style="float: right;margin-left:1px">
-<a href='https://app.asana.com/0/1187650412767761/1187650412767761https://app.asana.com/0/1187650412767761/1187650412767761' target="_blank"> <!-- duplicated Asana URL -->
+<a href='https://app.asana.com/0/1187650412767761/1187650412767761' target="_blank">
       <div class='panel noselect' style="float:right;margin-right:10px">
        <div class='admin-panel'>
          <label class='text' for='bugs'><?php echo "Report a bug"; ?></label>
@@ -955,6 +955,8 @@
                                      <label for="left">Left</label>
                                      <input class="orangeradio" type="radio" name="location_side" value="Bilateral" id="bilateral" />
                                      <label for="bilateral">Bilateral</label>
+                                     <input class="orangeradio" type="radio" name="location_side" value="Unknown" id="unknown" />
+                                     <label for="unknown">Unknown</label>
                                   </div>
                                </div>
                              </div>
@@ -3098,6 +3100,27 @@
               <script src="update/manifestation.js"></script>
               <script src="update/procedure.js"></script>
               <script src="update/lesion.js"></script>
+
+              <script src="delete/patient.js"></script>
+              <script src="delete/comorbid.js"></script>
+              <script src="delete/status.js"></script>
+              <script src="delete/cancer.js"></script>
+              <script src="delete/mutation.js"></script>
+              <script src="delete/variant.js"></script>
+              <script src="delete/radiation.js"></script>
+              <script src="delete/surgery.js"></script>
+              <script src="delete/medication.js"></script>
+              <script src="delete/labs.js"></script>
+              <script src="delete/cbc.js"></script>
+              <script src="delete/cmp.js"></script>
+              <script src="delete/tumor.js"></script>
+              <script src="delete/biospecimen.js"></script>
+              <script src="delete/outcome.js"></script>
+              <script src="delete/death.js"></script>
+              <script src="delete/diagnostic.js"></script>
+              <script src="delete/manifestation.js"></script>
+              <script src="delete/procedure.js"></script>
+              <script src="delete/lesion.js"></script>
               <?php } ?>
 
               <script>

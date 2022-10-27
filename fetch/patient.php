@@ -20,8 +20,7 @@ mysqli_close($connect);
 $roles=rtrim(trim($_POST["roles"]), ",");
 $hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 $output = '';
-if(isset($_POST["query"]))
-{
+if (isset($_POST["query"])) {
  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
  // ID encrypted
@@ -32,16 +31,13 @@ if(isset($_POST["query"]))
   SELECT HEX(id),HEX(birth), HEX(gender), HEX(race), HEX(zip), HEX(institution), study, HEX(family) FROM Patient
   WHERE id LIKE {$enc_search} AND FIND_IN_SET(study, '".$roles."') > 0
  ";
-}
-else
-{
+} else {
  $query = "
   SELECT * FROM Patient WHERE id LIKE '%ZZZZZZZZZZZZZZZ%' AND INSTR('".$roles."', study) > 0 ORDER BY id
  ";
 }
 $result = mysqli_query($conn, $query);
-if(mysqli_num_rows($result) > 0)
-{
+if (mysqli_num_rows($result) > 0) {
 
 ?>
 
@@ -256,8 +252,7 @@ $('#patientdata tfoot th').each( function () {
   <tbody>
 
  ';
- while($row = mysqli_fetch_array($result))
- {
+ while ($row = mysqli_fetch_array($result)) {
    //openssl_decrypt(hex2bin(substr($row["id"], 2)), $cipher, $encryption_key, 0, $iv);
    $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
    $decrypted_birth = openssl_decrypt(hex2bin($row[1]), $cipher, $encryption_key, 0, $iv);
@@ -297,9 +292,7 @@ $('#patientdata tfoot th').each( function () {
  </tfoot>
 </table>';
  echo $output;
-}
-else if(isset($_POST["query"]))
-{
+} elseif (isset($_POST["query"])) {
 
   ?>
   <body>

@@ -16,8 +16,7 @@ mysqli_close($connect);
 $roles=rtrim(trim($_POST["roles"]), ",");
 $hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 $output = '';
-if(isset($_POST["query"]))
-{
+if (isset($_POST["query"])) {
  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
  // ID encrypted
@@ -37,16 +36,13 @@ if(isset($_POST["query"]))
   WHERE LesionsNF1.id = {$enc_search}
   AND FIND_IN_SET(Patient.study, '".$roles."') > 0
  ";
-}
-else
-{
+} else {
  $query = "
   SELECT * FROM LesionsNF1, Patient WHERE LesionsNF1.id LIKE '%ZZZZZZZZZZZZZZ%' AND LesionsNF1.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0 ORDER BY Patient.id
  ";
 }
 $result = mysqli_query($conn, $query);
-if(mysqli_num_rows($result) > 0)
-{
+if (mysqli_num_rows($result) > 0) {
   ?>
    <head>
       <meta charset="UTF-8">
@@ -184,31 +180,31 @@ $('#nf1skindata tfoot th').each( function () {
     </head>
 
     <body>
-
+      <span style="color:#143de4;text-align:center;">
+        <em class="glyphicon glyphicon-info-sign"></em>&nbsp;
+        <strong> Skin lesions have been registered for this patient:</strong>
+      </span>
+      <br><br>
+      <table id="nf1skindata" class="row-border hover order-column" style="width:100%">
+        <thead>
+          <tr>
+            <th>Patient Identifier</th>
+            <th>Date of diagnosis</th>
+            <th>Type</th>
+            <th>Evaluation</th>
+            <th>Number</th>
+            <th>Location</th>
+            <th>Comments</th>
+            <th class="no-export">Comments</th>
+            <th class="no-export">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
 <?php
 
-  echo '<span style="color:#143de4;text-align:center;"><i class="glyphicon glyphicon-info-sign"></i><b> Skin lesions have been registered for this patient:</b></span>';
- $output .= '
- <br><br>
-<table id="nf1skindata" class="row-border hover order-column" style="width:100%">
-<thead>
-<tr>
-<th>Patient Identifier</th>
-<th>Date of diagnosis</th>
-<th>Type</th>
-<th>Evaluation</th>
-<th>Number</th>
-<th>Location</th>
-<th>Comments</th>
-<th class="no-export">Comments</th>
-</tr>
-</thead>
-  <tbody>
-
- ';
- $nb = 1;
- while($row = mysqli_fetch_array($result))
- {
+ $output .= '';
+ $rowNumber = 1;
+ while ($row = mysqli_fetch_array($result)) {
    $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
 
   $output .= '
@@ -220,13 +216,18 @@ $('#nf1skindata tfoot th').each( function () {
    <td>'.$row[4].'</td>
    <td>'.$row[5].'</td>
    <td>'.$row[6].'</td>
-   <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_nf1skin_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-   <input type="hidden" name="rowComments' . $nb . '" value="' . $row[6] . '"/>
+   <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_nf1skin_'.$rowNumber.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[6] . '"/>
+   <td align="center">
+      <a href="#" role="button" class="btn btn-danger" id="delete_nf1skin_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_nf1skin_' . $rowNumber . '">
+        <em class="glyphicon glyphicon-trash"></em>
+      </a>
+    </td>
   </tr>
   ';
   ?>
 
-  <div id="comment_nf1skin_<?php echo $nb;?>" class="modal fade" role="dialog">
+  <div id="comment_nf1skin_<?php echo $rowNumber;?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -246,8 +247,31 @@ $('#nf1skindata tfoot th').each( function () {
   </div>
 </div>
 
+<div id="delete_nf1skin_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Delete skin lesion</h4>
+      </div>
+      <div class="modal-body">
+        <span>Are you sure? This operation cannot be undone.</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          onclick="deleteLesion(document.getElementById('delete_nf1skin_<?php echo $rowNumber; ?>_btn'))">
+            Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <?php
-  $nb++;
+  $rowNumber++;
  }
  $output .= '
  </tbody>
@@ -261,21 +285,22 @@ $('#nf1skindata tfoot th').each( function () {
  <th>Location</th>
  <th>Comments</th>
  <th class="no-export">Comments</th>
+ <th class="no-export">Delete</th>
  </tr>
  </tfoot>
 </table>';
  echo $output;
-}
-else if(isset($_POST["query"]))
-{
+} elseif (isset($_POST["query"])) {
   ?>
   <body>
+  <span style="color:#349A0A;text-align:center;">
+    <em class="glyphicon glyphicon-ok"></em>&nbsp;
+    <strong>No skin lesions have been registered yet for this patient.</strong>
+  </span>
   <?php
- echo '<span style="color:#349A0A;text-align:center;"><i class="glyphicon glyphicon-ok"></i><b> No skin lesions have been registered yet for this patient.</b></span>';
-}
+    }
 
-mysqli_close($conn);
-
+    mysqli_close($conn);
 ?>
 
 

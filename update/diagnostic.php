@@ -31,7 +31,6 @@
 	$oldAge=$oldData['age'];
 	$oldHead=$oldData['head'];
 	$oldComment=$oldData['comment'];
-	$oldTracking=$oldData['tracking'];
 
 	//Encryption
 	$encryption_key = hex2bin($key);
@@ -67,8 +66,7 @@
 	AND `visibility` = '$oldVisibility'
 	AND `age` = '$oldAge'
 	AND `circumference` = '$oldHead'
-	AND `comment` = '$oldComment'
-	AND `tracking` =  '$oldTracking'";
+	AND `comment` = '$oldComment'";
 
 	$sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
 	VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";

@@ -18,20 +18,20 @@ $roles = rtrim(trim($_POST["roles"]), ",");
 $hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 $output = '';
 if (isset($_POST["query"])) {
-  $search = mysqli_real_escape_string($conn, $_POST["query"]); // mysqli_real_escape_string is not 100% safe against SQL injections. This applies to all .php files in the fetch folder
+  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
   // ID encrypted
   $enc_search = "0x" . bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
   $query = "
-  SELECT DISTINCT 
-    HEX(Biospecimens.id), 
-    Biospecimens.date, 
-    Biospecimens.type, 
-    Biospecimens.cellularity, 
-    Biospecimens.collection, 
-    Biospecimens.storage, 
-    Biospecimens.bankingid, 
+  SELECT DISTINCT
+    HEX(Biospecimens.id),
+    Biospecimens.date,
+    Biospecimens.type,
+    Biospecimens.cellularity,
+    Biospecimens.collection,
+    Biospecimens.storage,
+    Biospecimens.bankingid,
     Biospecimens.paired,
     Biospecimens.imaging,
     Biospecimens.comment
@@ -94,7 +94,7 @@ if (mysqli_num_rows($result) > 0) {
               filename: '<?php echo $search; ?>_biospecimen',
               exportOptions: {
                 columns: ':not(.no-export)'
-              } 
+              }
             }, 'print'
           ],
           columnDefs: [
@@ -149,7 +149,14 @@ if (mysqli_num_rows($result) > 0) {
             'recordtype': 'biospecimen'
           };
           $('#biodate').val(cellData['collectionDate']);
-          $('button[data-id="specimentype"]').children().first().children().first().children().first().html(cellData['specimenType']);
+          $('button[data-id="specimentype"]')
+            .children()
+            .first()
+            .children()
+            .first()
+            .children()
+            .first()
+            .html(cellData['specimenType']);
           $('#cellularity').val(cellData['cellularity']);
           $('#collection').val(cellData['collection']);
           $('#storage').val(cellData['storage']);
@@ -195,10 +202,11 @@ if (mysqli_num_rows($result) > 0) {
   </head>
 
   <body>
-    <?php
-    echo '<span style="color:#143de4;text-align:center;"><i class="glyphicon glyphicon-info-sign"></i><b> Biospecimens have been registered for this patient:</b></span>';
-    $output .= '
- <br><br>
+  <span style="color:#143de4;text-align:center;">
+    <em class="glyphicon glyphicon-info-sign"></em>&nbsp;
+    <strong>Biospecimens have been registered for this patient: </strong>
+  </span>
+  <br><br>
 <table id="biospecimendata" class="row-border hover order-column" style="width:100%">
 <thead>
 <tr>
@@ -213,31 +221,41 @@ if (mysqli_num_rows($result) > 0) {
 <th>Imaging available</th>
 <th>Comments</th>
 <th class="no-export">Comments</th>
+<th class="no-export">Delete</th>
 </tr>
 </thead>
   <tbody>
+    <?php
+      $output .= '';
+      $rowNumber = 1;
+      while ($row = mysqli_fetch_array($result)) {
+        $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
 
- ';
-    $rowNumber = 1;
-    while ($row = mysqli_fetch_array($result)) {
-      $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
-
-      $output .= '
-  <tr>
-   <td>' . $decrypted_id . '</td>
-   <td>' . $row[1] . '</td>
-   <td>' . $row[2] . '</td>
-   <td>' . $row[3] . '</td>
-   <td>' . $row[4] . '</td>
-   <td>' . $row[5] . '</td>
-   <td>' . $row[6] . '</td>
-   <td>' . $row[7] . '</td>
-   <td>' . $row[8] . '</td>
-   <td>' . $row[9] . '</td>
-   <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_biosp_' . $rowNumber . '" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-   <input type="hidden" name="rowComments' . $rowNumber . '" value=' . $row[9] . ' />
-  </tr>
-  ';
+        $output .= '
+        <tr>
+          <td>' . $decrypted_id . '</td>
+          <td>' . $row[1] . '</td>
+          <td>' . $row[2] . '</td>
+          <td>' . $row[3] . '</td>
+          <td>' . $row[4] . '</td>
+          <td>' . $row[5] . '</td>
+          <td>' . $row[6] . '</td>
+          <td>' . $row[7] . '</td>
+          <td>' . $row[8] . '</td>
+          <td>' . $row[9] . '</td>
+          <td align="center">
+            <a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_biosp_' . $rowNumber . '" >
+              <i class="glyphicon glyphicon-zoom-in"></i>
+            </a>
+          </td>
+          <input type="hidden" name="rowComments' . $rowNumber . '" value=' . $row[9] . ' />
+          <td align="center">
+            <a href="#" role="button" class="btn btn-danger" id="delete_biosp_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_biosp_' . $rowNumber . '">
+              <em class="glyphicon glyphicon-trash"></em>
+            </a>
+          </td>
+        </tr>
+        ';
     ?>
 
       <div id="comment_biosp_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
@@ -260,6 +278,29 @@ if (mysqli_num_rows($result) > 0) {
         </div>
       </div>
 
+    <div id="delete_biosp_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Delete biospecimen</h4>
+          </div>
+          <div class="modal-body">
+            <span>Are you sure? This operation cannot be undone.</span>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              onclick="deleteBiospecimen(document.getElementById('delete_biosp_<?php echo $rowNumber; ?>_btn'))">
+                Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <?php
       $rowNumber++;
     }
@@ -278,11 +319,12 @@ if (mysqli_num_rows($result) > 0) {
  <th>Imaging available</th>
  <th>Comments</th>
  <th class="no-export">Comments</th>
+ <th class="no-export">Delete</th>
  </tr>
  </tfoot>
 </table>';
     echo $output;
-  } else if (isset($_POST["query"])) {
+  } elseif (isset($_POST["query"])) {
 
     ?>
 

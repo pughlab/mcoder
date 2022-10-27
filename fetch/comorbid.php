@@ -170,27 +170,28 @@ $('#comorbiddata tfoot th').each( function () {
     </head>
 
     <body>
-
+      <span style="color:#143de4;text-align:center;">
+      <em class="glyphicon glyphicon-info-sign"></em>&nbsp;
+      <strong>Comorbidities have been registered for this patient:</strong>
+    </span>
+    <br><br>
+    <table id="comorbiddata" class="row-border hover order-column" style="width:100%">
+      <thead>
+        <tr>
+          <th>Patient Identifier</th>
+          <th>Date of evaluation</th>
+          <th>Comorbid condition code</th>
+          <th>Condition clinical status</th>
+          <th>Comments</th>
+          <th class="no-export">Comments</th>
+          <th class="no-export">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
 <?php
 
-  echo '<span style="color:#143de4;text-align:center;"><i class="glyphicon glyphicon-info-sign"></i><b> Comorbidities have been registered for this patient:</b></span>';
- $output .= '
- <br><br>
-<table id="comorbiddata" class="row-border hover order-column" style="width:100%">
-<thead>
-<tr>
- <th>Patient Identifier</th>
- <th>Date of evaluation</th>
- <th>Comorbid condition code</th>
- <th>Condition clinical status</th>
- <th>Comments</th>
- <th class="no-export">Comments</th>
-</tr>
-</thead>
-  <tbody>
-
- ';
- $nb = 1;
+ $output .= '';
+ $rowNumber = 1;
  while($row = mysqli_fetch_array($result))
  {
    $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
@@ -202,13 +203,18 @@ $('#comorbiddata tfoot th').each( function () {
     <td>'.$row[2].'</td>
     <td>'.$row[3].'</td>
     <td>'.$row[4].'</td>
-    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-    <input type="hidden" name="rowComments' . $nb . '" value="' . $row[4] . '"/>
+    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_'.$rowNumber.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+    <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[4] . '"/>
+    <td align="center">
+      <a href="#" role="button" class="btn btn-danger" id="delete_comorbid_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_comorbid_' . $rowNumber . '">
+        <em class="glyphicon glyphicon-trash"></em>
+      </a>
+    </td>
   </tr>
   ';
   ?>
 
-  <div id="comment_<?php echo $nb;?>" class="modal fade" role="dialog">
+  <div id="comment_<?php echo $rowNumber;?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -228,8 +234,31 @@ $('#comorbiddata tfoot th').each( function () {
   </div>
 </div>
 
+<div id="delete_comorbid_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Delete Comorbidity</h4>
+      </div>
+      <div class="modal-body">
+        <span>Are you sure? This operation cannot be undone.</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          onclick="deleteComorbid(document.getElementById('delete_comorbid_<?php echo $rowNumber; ?>_btn'))">
+            Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <?php
-  $nb++;
+  $rowNumber++;
  }
 
  $output .= '
@@ -242,13 +271,12 @@ $('#comorbiddata tfoot th').each( function () {
  <th>Condition clinical status</th>
  <th>Comments</th>
  <th class="no-export">Comments</th>
+ <th class="no-export">Delete</th>
  </tr>
  </tfoot>
 </table>';
  echo $output;
-}
-else if(isset($_POST["query"]))
-{
+} elseif (isset($_POST["query"])) {
   ?>
   <body>
   <?php
