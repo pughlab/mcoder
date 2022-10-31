@@ -25,15 +25,15 @@ if(isset($_POST["query"]))
  $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
  $query = "
-  SELECT 
-    DISTINCT HEX(CBC.id), 
-    CBC.date, 
-    CBC.type, 
-    CBC.count, 
-    CBC.comment 
+  SELECT
+    DISTINCT HEX(CBC.id),
+    CBC.date,
+    CBC.type,
+    CBC.count,
+    CBC.comment
   FROM CBC
   JOIN Patient ON CBC.id = Patient.id
-  WHERE CBC.id = {$enc_search} 
+  WHERE CBC.id = {$enc_search}
   AND FIND_IN_SET(Patient.study, '".$roles."') > 0
  ";
 }
@@ -94,7 +94,7 @@ $('#cbcdata tfoot th').each( function () {
                 filename: '<?php echo $search; ?>_cbc',
                 exportOptions: {
                   columns: ':not(.no-export)'
-                } 
+                }
               }, 'print'
             ],
             columnDefs: [
@@ -182,7 +182,7 @@ $('#cbcdata tfoot th').each( function () {
             <th>CBC count</th>
             <th>Comments</th>
             <th class="no-export">Comments</th>
-            <th class="no-export">Delete</th>
+            <?php if ($hasAdminRole) { ?><th class="no-export">Delete</th><?php } ?>
           </tr>
         </thead>
         <tbody>
@@ -190,8 +190,7 @@ $('#cbcdata tfoot th').each( function () {
 
  $output .= '';
  $rowNumber = 1;
- while ($row = mysqli_fetch_array($result))
- {
+ while ($row = mysqli_fetch_array($result)) {
    $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
 
   $output .= '
@@ -202,14 +201,15 @@ $('#cbcdata tfoot th').each( function () {
    <td>'.$row[3].'</td>
    <td>'.$row[4].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_cbc_'.$rowNumber.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-   <input type="hidden" name="rowComments' . $rowNumber . '" value=' . $row[4] . ' />
-   <td align="center">
-      <a href="#" role="button" class="btn btn-danger" id="delete_cbc_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_cbc_' . $rowNumber . '">
-        <em class="glyphicon glyphicon-trash"></em>
-      </a>
-    </td>
-  </tr>
-  ';
+   <input type="hidden" name="rowComments' . $rowNumber . '" value=' . $row[4] . ' />';
+   if ($hasAdminRole) {
+    $output .= '<td align="center">
+        <a href="#" role="button" class="btn btn-danger" id="delete_cbc_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_cbc_' . $rowNumber . '">
+          <em class="glyphicon glyphicon-trash"></em>
+        </a>
+      </td>';
+   }
+  $output .= '</tr>';
   ?>
 
   <div id="comment_cbc_<?php echo $rowNumber;?>" class="modal fade" role="dialog">
@@ -231,7 +231,7 @@ $('#cbcdata tfoot th').each( function () {
 
   </div>
 </div>
-
+<?php if ($hasAdminRole) { ?>
 <div id="delete_cbc_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -256,6 +256,7 @@ $('#cbcdata tfoot th').each( function () {
 </div>
 
   <?php
+  }
   $rowNumber++;
  }
  $output .= '
@@ -267,15 +268,15 @@ $('#cbcdata tfoot th').each( function () {
  <th>CBC type</th>
  <th>CBC count</th>
  <th>Comments</th>
- <th class="no-export">Comments</th>
- <th class="no-export">Delete</th>
- </tr>
+ <th class="no-export">Comments</th>';
+ if ($hasAdminRole) {
+  $output .= '<th class="no-export">Delete</th>';
+ }
+ $output .= '</tr>
  </tfoot>
 </table>';
  echo $output;
-}
-elseif(isset($_POST["query"]))
-{
+} elseif (isset($_POST["query"])) {
 
   ?>
   <body>

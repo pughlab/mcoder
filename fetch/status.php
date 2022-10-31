@@ -182,7 +182,7 @@ $('#statusdata tfoot th').each( function () {
             <th>Karnofsky performance status</th>
             <th>Comments</th>
             <th class="no-export">Comments</th>
-            <th class="no-export">Delete</th>
+            <?php if ($hasAdminRole) { ?><th class="no-export">Delete</th><?php } ?>
           </tr>
         </thead>
         <tbody>
@@ -200,14 +200,15 @@ $('#statusdata tfoot th').each( function () {
     <td>'.$row[3].'</td>
     <td>'.$row[4].'</td>
     <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_status_'.$rowNumber.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-    <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[4]. '" />
-    <td align="center">
-      <a href="#" role="button" class="btn btn-danger" id="delete_status_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_status_' . $rowNumber . '">
-        <em class="glyphicon glyphicon-trash"></em>
-      </a>
-    </td>
-   </tr>
-  ';
+    <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[4]. '" />';
+    if ($hasAdminRole) {
+      $output .= '<td align="center">
+        <a href="#" role="button" class="btn btn-danger" id="delete_status_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_status_' . $rowNumber . '">
+          <em class="glyphicon glyphicon-trash"></em>
+        </a>
+      </td>';
+    }
+   $output .= '</tr>';
   ?>
 
   <div id="comment_status_<?php echo $rowNumber;?>" class="modal fade" role="dialog">
@@ -229,7 +230,7 @@ $('#statusdata tfoot th').each( function () {
 
   </div>
 </div>
-
+<?php if ($hasAdminRole) { ?>
 <div id="delete_status_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -254,6 +255,7 @@ $('#statusdata tfoot th').each( function () {
 </div>
 
   <?php
+  }
   $rowNumber++;
  }
  $output .= '
@@ -265,11 +267,13 @@ $('#statusdata tfoot th').each( function () {
   <th>ECOG performance status</th>
   <th>Karnofsky performance status</th>
   <th>Comments</th>
-  <th class="no-export">Comments</th>
-  <th class="no-export">Delete</th>
- </tr>
- </tfoot>
-</table>';
+  <th class="no-export">Comments</th>';
+  if ($hasAdminRole) {
+    $output .= '<th class="no-export">Delete</th>';
+  }
+  $output .= '</tr>
+  </tfoot>
+  </table>';
  echo $output;
 } elseif (isset($_POST["query"])) {
   ?>

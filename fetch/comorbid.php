@@ -17,15 +17,14 @@ mysqli_close($connect);
 $roles=rtrim(trim($_POST["roles"]), ",");
 $hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 $output = '';
-if(isset($_POST["query"]))
-{
+if (isset($_POST["query"])) {
  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
  // ID encrypted
  $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
  $query = "
-  SELECT 
+  SELECT
     HEX(Comorbid.id),
     Comorbid.date,
     Comorbid.code,
@@ -36,16 +35,13 @@ if(isset($_POST["query"]))
   WHERE Comorbid.id LIKE {$enc_search}
   AND FIND_IN_SET(Patient.study, '".$roles."') > 0
  ";
-}
-else
-{
+} else {
  $query = "
   SELECT * FROM Comorbid, Patient WHERE Comorbid.id LIKE '%ZZZZZZZZZZZZZZ%' AND Comorbid.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0 ORDER BY Patient.id
  ";
 }
 $result = mysqli_query($conn, $query);
-if(mysqli_num_rows($result) > 0)
-{
+if(mysqli_num_rows($result) > 0) {
   ?>
    <head>
       <meta charset="UTF-8">
@@ -95,7 +91,7 @@ $('#comorbiddata tfoot th').each( function () {
                 filename: '<?php echo $search; ?>_comorbid',
                 exportOptions: {
                   columns: ':not(.no-export)'
-                } 
+                }
               }, 'print'
             ],
             columnDefs: [
@@ -159,7 +155,7 @@ $('#comorbiddata tfoot th').each( function () {
 
       } );
 
-    	</script>
+      </script>
 
       <style>
       td.highlight {
@@ -184,7 +180,7 @@ $('#comorbiddata tfoot th').each( function () {
           <th>Condition clinical status</th>
           <th>Comments</th>
           <th class="no-export">Comments</th>
-          <th class="no-export">Delete</th>
+          <?php if ($hasAdminRole) { ?><th class="no-export">Delete</th><?php } ?>
         </tr>
       </thead>
       <tbody>
@@ -192,8 +188,7 @@ $('#comorbiddata tfoot th').each( function () {
 
  $output .= '';
  $rowNumber = 1;
- while($row = mysqli_fetch_array($result))
- {
+ while ($row = mysqli_fetch_array($result)) {
    $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
 
   $output .= '
@@ -204,14 +199,15 @@ $('#comorbiddata tfoot th').each( function () {
     <td>'.$row[3].'</td>
     <td>'.$row[4].'</td>
     <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_'.$rowNumber.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-    <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[4] . '"/>
-    <td align="center">
-      <a href="#" role="button" class="btn btn-danger" id="delete_comorbid_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_comorbid_' . $rowNumber . '">
-        <em class="glyphicon glyphicon-trash"></em>
-      </a>
-    </td>
-  </tr>
-  ';
+    <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[4] . '"/>';
+    if ($hasAdminRole) {
+      $output .= '<td align="center">
+        <a href="#" role="button" class="btn btn-danger" id="delete_comorbid_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_comorbid_' . $rowNumber . '">
+          <em class="glyphicon glyphicon-trash"></em>
+        </a>
+      </td>';
+    }
+  $output .= '</tr>';
   ?>
 
   <div id="comment_<?php echo $rowNumber;?>" class="modal fade" role="dialog">
@@ -233,7 +229,7 @@ $('#comorbiddata tfoot th').each( function () {
 
   </div>
 </div>
-
+<?php if ($hasAdminRole) { ?>
 <div id="delete_comorbid_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -258,6 +254,7 @@ $('#comorbiddata tfoot th').each( function () {
 </div>
 
   <?php
+  }
   $rowNumber++;
  }
 
@@ -270,9 +267,11 @@ $('#comorbiddata tfoot th').each( function () {
  <th>Comorbid condition code</th>
  <th>Condition clinical status</th>
  <th>Comments</th>
- <th class="no-export">Comments</th>
- <th class="no-export">Delete</th>
- </tr>
+ <th class="no-export">Comments</th>';
+ if ($hasAdminRole) {
+  $output .= '<th class="no-export">Delete</th>';
+ }
+ $output .= '</tr>
  </tfoot>
 </table>';
  echo $output;

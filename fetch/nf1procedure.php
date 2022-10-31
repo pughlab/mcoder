@@ -172,7 +172,7 @@ $('#nf1proceduredata tfoot th').each( function () {
             <th>Procedure</th>
             <th>Findings</th>
             <th class="no-export">Findings</th>
-            <th class="no-export">Delete</th>
+            <?php if ($hasAdminRole) { ?><th class="no-export">Delete</th><?php } ?>
           </tr>
         </thead>
         <tbody>
@@ -190,14 +190,15 @@ $('#nf1proceduredata tfoot th').each( function () {
    <td>'.$row[2].'</td>
    <td>'.$row[3].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_nf1pro_'.$rowNumber.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-   <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[3] . '"/>
-   <td align="center">
-      <a href="#" role="button" class="btn btn-danger" id="delete_nf1pro_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_nf1pro_' . $rowNumber . '">
-        <em class="glyphicon glyphicon-trash"></em>
-      </a>
-    </td>
-  </tr>
-  ';
+   <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[3] . '"/>';
+   if ($hasAdminRole) {
+    $output .= '<td align="center">
+        <a href="#" role="button" class="btn btn-danger" id="delete_nf1pro_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_nf1pro_' . $rowNumber . '">
+          <em class="glyphicon glyphicon-trash"></em>
+        </a>
+      </td>';
+   }
+  $output .= '</tr>';
   ?>
 
   <div id="comment_nf1pro_<?php echo $rowNumber;?>" class="modal fade" role="dialog">
@@ -219,7 +220,7 @@ $('#nf1proceduredata tfoot th').each( function () {
 
   </div>
 </div>
-
+<?php if ($hasAdminRole) { ?>
 <div id="delete_nf1pro_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -244,6 +245,7 @@ $('#nf1proceduredata tfoot th').each( function () {
 </div>
 
   <?php
+  }
   $rowNumber++;
  }
  $output .= '
@@ -254,9 +256,11 @@ $('#nf1proceduredata tfoot th').each( function () {
  <th>Date</th>
  <th>Procedure</th>
  <th>Findings</th>
- <th class="no-export">Findings</th>
- <th class="no-export">Delete</th>
- </tr>
+ <th class="no-export">Findings</th>';
+ if ($hasAdminRole) {
+  $output .= '<th class="no-export">Delete</th>';
+ }
+ $output .= '</tr>
  </tfoot>
 </table>';
  echo $output;

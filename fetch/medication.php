@@ -97,7 +97,7 @@ $('#medicationdata tfoot th').each( function () {
             columnDefs: [
               {
                 visible: false,
-                targets: 6
+                targets: 5
               }
             ],
         initComplete: function () {
@@ -192,7 +192,7 @@ $('#medicationdata tfoot th').each( function () {
             <th>Treatment intent</th>
             <th>Comments</th>
             <th class="no-export">Comments</th>
-            <th class="no-export">Delete</th>
+            <?php if ($hasAdminRole) { ?><th class="no-export">Delete</th><?php } ?>
           </tr>
         </thead>
         <tbody>
@@ -213,14 +213,15 @@ $('#medicationdata tfoot th').each( function () {
    <td>'.$row[5].'</td>
    <td>'.$row[6].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_med_'.$rowNumber.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-   <input type="hidden" name="rowComments'. $rowNumber .'" value="' . $row[6]. '"/>
-   <td align="center">
+   <input type="hidden" name="rowComments'. $rowNumber .'" value="' . $row[6]. '"/>';
+   if ($hasAdminRole) {
+   $output .= '<td align="center">
       <a href="#" role="button" class="btn btn-danger" id="delete_med_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_med_' . $rowNumber . '">
         <em class="glyphicon glyphicon-trash"></em>
       </a>
-    </td>
-  </tr>
-  ';
+    </td>';
+   }
+  $output .= '</tr>';
   ?>
 
   <div id="comment_med_<?php echo $rowNumber;?>" class="modal fade" role="dialog">
@@ -242,7 +243,7 @@ $('#medicationdata tfoot th').each( function () {
 
   </div>
 </div>
-
+<?php if ($hasAdminRole) { ?>
 <div id="delete_med_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -267,6 +268,7 @@ $('#medicationdata tfoot th').each( function () {
 </div>
 
   <?php
+  }
   $rowNumber++;
  }
  $output .= '
@@ -279,9 +281,11 @@ $('#medicationdata tfoot th').each( function () {
  <th>Termination reason</th>
  <th>Treatment intent</th>
  <th>Comments</th>
- <th class="no-export">Comments</th>
- <th class="no-export">Delete</th>
- </tr>
+ <th class="no-export">Comments</th>';
+ if ($hasAdminRole) {
+  $output .= '<th class="no-export">Delete</th>';
+ }
+ $output .= '</tr>
  </tfoot>
 </table>';
  echo $output;

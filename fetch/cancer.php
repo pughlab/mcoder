@@ -24,7 +24,7 @@ if (isset($_POST["query"])) {
   $enc_search = "0x" . bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
   $query = "
-  SELECT 
+  SELECT
     HEX(Diseases.id),
     Diseases.date,
     Diseases.type,
@@ -37,10 +37,10 @@ if (isset($_POST["query"])) {
     Diseases.clinicalss,
     Diseases.pathologicsg,
     Diseases.pathologicss,
-    Diseases.comments 
+    Diseases.comments
   FROM Diseases
   JOIN Patient ON Diseases.id = Patient.id
-  WHERE Diseases.id = {$enc_search} 
+  WHERE Diseases.id = {$enc_search}
   AND FIND_IN_SET(Patient.study, '" . $roles . "') > 0
   ";
 } else {
@@ -250,7 +250,7 @@ if (mysqli_num_rows($result) > 0) {
             <th>Pathologic stage system</th>
             <th>Comments</th>
             <th class="no-export">Comments</th>
-            <th class="no-export">Delete</th>
+            <?php if ($hasAdminRole) { ?><th class="no-export">Delete</th><?php } ?>
           </tr>
         </thead>
         <tbody>
@@ -276,14 +276,15 @@ if (mysqli_num_rows($result) > 0) {
     <td>' . $row[11] . '</td>
     <td>' . $row[12] . '</td>
     <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_cancer_' . $rowNumber . '" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-    <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[12]. '" />
-    <td align="center">
+    <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[12]. '" />';
+    if ($hasAdminRole) {
+    $output .= '<td align="center">
       <a href="#" role="button" class="btn btn-danger" id="delete_cancer_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_cancer_' . $rowNumber . '">
         <em class="glyphicon glyphicon-trash"></em>
       </a>
-    </td>
-  </tr>
-  ';
+    </td>';
+    }
+  $output .= '</tr>';
     ?>
 
       <div id="comment_cancer_<?php echo $rowNumber ?>" class="modal fade" role="dialog">
@@ -305,7 +306,7 @@ if (mysqli_num_rows($result) > 0) {
 
         </div>
       </div>
-
+      <?php if ($hasAdminRole) { ?>
       <div id="delete_cancer_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -330,6 +331,7 @@ if (mysqli_num_rows($result) > 0) {
     </div>
 
     <?php
+      }
       $rowNumber++;
     }
     $output .= '
@@ -349,9 +351,11 @@ if (mysqli_num_rows($result) > 0) {
  <th>Pathologic stage group</th>
  <th>Pathologic stage system</th>
  <th>Comments</th>
- <th class="no-export">Comments</th>
- <th class="no-export">Delete</th>
- </tr>
+ <th class="no-export">Comments</th>';
+ if ($hasAdminRole) {
+  $output .= '<th class="no-export">Delete</th>';
+ }
+ $output .= '</tr>
  </tfoot>
 </table>';
     echo $output;

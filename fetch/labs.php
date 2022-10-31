@@ -16,8 +16,7 @@ mysqli_close($connect);
 $roles=rtrim(trim($_POST["roles"]), ",");
 $hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 $output = '';
-if(isset($_POST["query"]))
-{
+if (isset($_POST["query"])) {
  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
  // ID encrypted
@@ -184,7 +183,7 @@ $('#labsdata tfoot th').each( function () {
             <th>Blood pressure systolic (mmHg)</th>
             <th>Comments</th>
             <th class="no-export">Comments</th>
-            <th class="no-export">Delete</th>
+            <?php if ($hasAdminRole) { ?><th class="no-export">Delete</th><?php } ?>
           </tr>
         </thead>
         <tbody>
@@ -205,15 +204,25 @@ $('#labsdata tfoot th').each( function () {
    <td>'.$row[5].'</td>
    <td>'.$row[6].'</td>
    <td>'.$row[7].'</td>
-   <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_labs_'.$rowNumber.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-   <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[7] . '"/>
    <td align="center">
-      <a href="#" role="button" class="btn btn-danger" id="delete_labs_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_labs_' . $rowNumber . '">
-        <em class="glyphicon glyphicon-trash"></em>
-      </a>
-    </td>
-  </tr>
-  ';
+    <a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_labs_'.$rowNumber.'" >
+      <i class="glyphicon glyphicon-zoom-in"></i>
+    </a>
+   </td>
+   <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[7] . '"/>';
+    if ($hasAdminRole) {
+    $output .= '<td align="center">
+        <a href="#"
+          role="button"
+          class="btn btn-danger"
+          id="delete_labs_'. $rowNumber .'_btn"
+          data-toggle="modal"
+          data-target="#delete_labs_' . $rowNumber . '">
+          <em class="glyphicon glyphicon-trash"></em>
+        </a>
+      </td>';
+    }
+  $output .= '</tr>';
   ?>
 
   <div id="comment_labs_<?php echo $rowNumber;?>" class="modal fade" role="dialog">
@@ -235,7 +244,7 @@ $('#labsdata tfoot th').each( function () {
 
   </div>
 </div>
-
+<?php if ($hasAdminRole) { ?>
 <div id="delete_labs_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -260,6 +269,7 @@ $('#labsdata tfoot th').each( function () {
 </div>
 
   <?php
+  }
   $rowNumber++;
  }
  $output .= '
@@ -274,9 +284,11 @@ $('#labsdata tfoot th').each( function () {
  <th>Blood pressure diastolic (mmHg)</th>
  <th>Blood pressure systolic (mmHg)</th>
  <th>Comments</th>
- <th class="no-export">Comments</th>
- <th class="no-export">Delete</th>
- </tr>
+ <th class="no-export">Comments</th>';
+ if ($hasAdminRole) {
+  $output .= '<th class="no-export">Delete</th>';
+ }
+ $output .= '</tr>
  </tfoot>
 </table>';
  echo $output;

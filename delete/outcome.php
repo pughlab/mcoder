@@ -24,27 +24,28 @@ $iv_query= mysqli_fetch_assoc(mysqli_query($connect, "select riv from norm"));
 $iv=$iv_query['riv'];
 
 // ID encrypted
-//$enc_id=openssl_encrypt($id, $cipher, $encryption_key, 0, $iv);
 $enc_id="0x".bin2hex(openssl_encrypt($id, $cipher, $encryption_key, 0, $iv));
 
 mysqli_close($connect);
 
+$hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 
-$sql = "DELETE FROM `Outcome`
-    WHERE
-        `id` = $enc_id
-        AND `date` = '$date'";
+if ($hasAdminRole) {
+    $sql = "DELETE FROM `Outcome`
+        WHERE
+            `id` = $enc_id
+            AND `date` = '$date'";
 
-$sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
-VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";
+    $sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
+    VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";
 
-if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
-    echo "Success";
-} else {
-    $error = mysqli_error($conn);
-    echo "There was a problem while saving the data. ";
-    echo "Please contact the admin of the site - Nadia Znassi. Your reference: ". $tracking .":". $error;
+    if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
+        echo "Success";
+    } else {
+        $error = mysqli_error($conn);
+        echo "There was a problem while saving the data. ";
+        echo "Please contact the admin of the site - Nadia Znassi. Your reference: ". $tracking .":". $error;
+    }
 }
-
 
 mysqli_close($conn);

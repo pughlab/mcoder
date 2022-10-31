@@ -31,28 +31,31 @@ $enc_id="0x".bin2hex(openssl_encrypt($id, $cipher, $encryption_key, 0, $iv));
 
 mysqli_close($connect);
 
-$sql = "DELETE FROM `DiagnosisNF1`
-    WHERE
-        `id` = $enc_id
-        AND `date` = '$date'
-        AND `diagnosis` = '$diagnosis'
-        AND `mode` = '$mode'
-        AND `criteria` = '$criteria'
-        AND `severity` = '$severity'
-        AND `visibility` = '$visibility'
-        AND `age` = '$age'
-        AND `circumference` = '$head'
-        AND `comment` = '$comment'";
+$hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 
-$sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
-VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";
+if ($hasAdminRole) {
+    $sql = "DELETE FROM `DiagnosisNF1`
+        WHERE
+            `id` = $enc_id
+            AND `date` = '$date'
+            AND `diagnosis` = '$diagnosis'
+            AND `mode` = '$mode'
+            AND `criteria` = '$criteria'
+            AND `severity` = '$severity'
+            AND `visibility` = '$visibility'
+            AND `age` = '$age'
+            AND `circumference` = '$head'
+            AND `comment` = '$comment'";
 
-if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
-    echo "Success";
-} else {
-    $error = mysqli_error($conn);
-    echo "There was a problem while deleting the data. ";
-    echo "Please contact the admin of the site - Nadia Znassi. Your reference: ". $tracking .":". $error;
+    $sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
+    VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";
+
+    if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
+        echo "Success";
+    } else {
+        $error = mysqli_error($conn);
+        echo "There was a problem while deleting the data. ";
+        echo "Please contact the admin of the site - Nadia Znassi. Your reference: ". $tracking .":". $error;
+    }
 }
-
 mysqli_close($conn);

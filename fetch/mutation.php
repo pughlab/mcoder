@@ -168,7 +168,7 @@ $('#mutationdata tfoot th').each( function () {
             <th>Test name</th>
             <th>Comments</th>
             <th class="no-export">Comments</th>
-            <th class="no-export">Delete</th>
+            <?php if ($hasAdminRole) { ?><th class="no-export">Delete</th><?php } ?>
           </tr>
         </thead>
         <tbody>
@@ -186,14 +186,15 @@ $('#mutationdata tfoot th').each( function () {
    <td>'.$row[2].'</td>
    <td>'.$row[3].'</td>
    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_mutation_'.$rowNumber.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-   <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[3] . '"/>
-   <td align="center">
-      <a href="#" role="button" class="btn btn-danger" id="delete_mutation_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_mutation_' . $rowNumber . '">
-        <em class="glyphicon glyphicon-trash"></em>
-      </a>
-    </td>
-  </tr>
-  ';
+   <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[3] . '"/>';
+   if ($hasAdminRole) {
+    $output .= '<td align="center">
+        <a href="#" role="button" class="btn btn-danger" id="delete_mutation_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_mutation_' . $rowNumber . '">
+          <em class="glyphicon glyphicon-trash"></em>
+        </a>
+      </td>';
+   }
+  $output .= '</tr>';
   ?>
 
   <div id="comment_mutation_<?php echo $rowNumber;?>" class="modal fade" role="dialog">
@@ -215,7 +216,7 @@ $('#mutationdata tfoot th').each( function () {
 
   </div>
 </div>
-
+<?php if ($hasAdminRole) { ?>
 <div id="delete_mutation_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -240,6 +241,7 @@ $('#mutationdata tfoot th').each( function () {
 </div>
 
   <?php
+  }
   $rowNumber++;
  }
  $output .= '
@@ -250,9 +252,11 @@ $('#mutationdata tfoot th').each( function () {
  <th>Date</th>
  <th>Test name</th>
  <th>Comments</th>
- <th class="no-export">Comments</th>
- <th class="no-export">Delete</th>
- </tr>
+ <th class="no-export">Comments</th>';
+ if ($hasAdminRole) {
+  $output .= '<th class="no-export">Delete</th>';
+ }
+ $output .= '</tr>
  </tfoot>
 </table>';
  echo $output;

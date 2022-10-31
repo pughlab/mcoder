@@ -221,7 +221,7 @@ if (mysqli_num_rows($result) > 0) {
 <th>Imaging available</th>
 <th>Comments</th>
 <th class="no-export">Comments</th>
-<th class="no-export">Delete</th>
+<?php if ($hasAdminRole) { ?><th class="no-export">Delete</th><?php } ?>
 </tr>
 </thead>
   <tbody>
@@ -248,14 +248,20 @@ if (mysqli_num_rows($result) > 0) {
               <i class="glyphicon glyphicon-zoom-in"></i>
             </a>
           </td>
-          <input type="hidden" name="rowComments' . $rowNumber . '" value=' . $row[9] . ' />
+          <input type="hidden" name="rowComments' . $rowNumber . '" value=' . $row[9] . ' />';
+        if ($hasAdminRole) {
+          $output .= '
           <td align="center">
-            <a href="#" role="button" class="btn btn-danger" id="delete_biosp_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_biosp_' . $rowNumber . '">
+            <a href="#"
+              role="button"
+              class="btn btn-danger"
+              id="delete_biosp_'. $rowNumber .'_btn"
+              data-toggle="modal" data-target="#delete_biosp_' . $rowNumber . '">
               <em class="glyphicon glyphicon-trash"></em>
             </a>
-          </td>
-        </tr>
-        ';
+          </td>';
+        }
+        $output .= '</tr>';
     ?>
 
       <div id="comment_biosp_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
@@ -277,7 +283,7 @@ if (mysqli_num_rows($result) > 0) {
 
         </div>
       </div>
-
+    <?php if ($hasAdminRole) { ?>
     <div id="delete_biosp_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -302,6 +308,7 @@ if (mysqli_num_rows($result) > 0) {
     </div>
 
     <?php
+      }
       $rowNumber++;
     }
     $output .= '
@@ -318,9 +325,11 @@ if (mysqli_num_rows($result) > 0) {
  <th>Tumor paired with blood sample</th>
  <th>Imaging available</th>
  <th>Comments</th>
- <th class="no-export">Comments</th>
- <th class="no-export">Delete</th>
- </tr>
+ <th class="no-export">Comments</th>';
+ if ($hasAdminRole) {
+  $output .= '<th class="no-export">Delete</th>';
+ }
+ $output .= '</tr>
  </tfoot>
 </table>';
     echo $output;
