@@ -44,7 +44,7 @@ if ($hasAdminRole) {
             AND `reason` = '$reason'
             AND `intent` = '$intent'
             AND `comment` = '$comment'";
-    echo $sql;
+
     $sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
     VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";
 

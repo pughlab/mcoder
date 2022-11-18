@@ -59,8 +59,7 @@ function deleteCancer(button) {
       username: username,
       roles: roles,
       comment: comment,
-      tracking: tracking,
-      olddata: cellData
+      tracking: tracking
     },
     success:function(data){
       if(data=="Success") {

@@ -138,8 +138,8 @@ $('#medicationdata tfoot th').each( function () {
             cellData = {
               'medication': cells[1].innerText,
               'start': periodStart,
-              'end': periodEnd,
-              'termination': cells[3].innerText,
+              'stop': periodEnd,
+              'reason': cells[3].innerText,
               'intent': cells[4].innerText,
               'comment': $(this).children('input[name^=rowComments]').first().val(),
               'recordtype': 'medication'

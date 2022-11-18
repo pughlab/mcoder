@@ -18,14 +18,13 @@
 	$stop=$_POST['stop'];
 	$reason=$_POST['reason'];
 	$intent=$_POST['intent'];
-	$comment=str_replace("'","\'",$_POST['comment']);
+	$comment=str_replace("'", "\'", $_POST['comment']);
 	$oldMedication=$oldData['medication'];
 	$oldStart=$oldData['start'];
 	$oldStop=$oldData['stop'];
 	$oldReason=$oldData['reason'];
 	$oldIntent=$oldData['intent'];
 	$oldComment=$oldData['comment'];
-	$oldTracking=$oldData['tracking'];
 
 	//Encryption
 	$encryption_key = hex2bin($key);
@@ -55,16 +54,14 @@
 		AND `stop` = '$oldStop'
 		AND `reason` = '$oldReason'
 		AND `intent` = '$oldIntent'
-		AND `comment` = '$oldComment'
-		AND `tracking` = '$oldTracking'";
+		AND `comment` = '$oldComment'";
 
 	$sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
 	VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";
 
 	if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
 		echo "Success";
-	}
-	else {
+	} else {
 		$error = mysqli_error($conn);
 		echo "There was a problem while saving the data. Please contact the admin of the site - Nadia Znassi. Your reference: ". $tracking .":". $error;
 	}
