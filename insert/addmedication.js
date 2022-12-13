@@ -1,10 +1,10 @@
 // Save a patient
 $('#savemedication').click(function(e) {
-  var ipdiv = document.getElementById("ipaddress");
-  var ip = ipdiv.textContent.replace( /\s+/g, '');
+  let ipdiv = document.getElementById("ipaddress");
+  let ip = ipdiv.textContent.replace( /\s+/g, '');
 
-  var m = new Date();
-  var datesystem =
+  let m = new Date();
+  let datesystem =
   m.getUTCFullYear() + "-" +
   ("0" + (m.getUTCMonth()+1)).slice(-2) + "-" +
   ("0" + m.getUTCDate()).slice(-2) + "-" +
@@ -12,21 +12,21 @@ $('#savemedication').click(function(e) {
   ("0" + m.getUTCMinutes()).slice(-2) + ":" +
   ("0" + m.getUTCSeconds()).slice(-2);
 
-  var emaildiv = document.getElementById("email");
-  var email = emaildiv.textContent.replace( /\s+/g, '');
-  var userdiv = document.getElementById("username");
-  var username = userdiv.textContent.replace( /\s+/g, '');
-  var rolesdiv = document.getElementById("roles");
-  var roles = rolesdiv.textContent;
-  var patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
-  var medication = document.getElementById("medication").value;
-  var start = document.getElementById("medicationstart").value;
-  var stop = document.getElementById("medicationstop").value;
-  var reason = $("#termination :selected").text();
-  var intent = $("input[name='treatment_intent_medication']:checked").val();
-  var comment = document.getElementById("medicationcom").value;
-  var trackspace = datesystem+"_"+ip+"_"+email;
-  var tracking = trackspace.replace( /\s+/g, '');
+  let emaildiv = document.getElementById("email");
+  let email = emaildiv.textContent.replace( /\s+/g, '');
+  let userdiv = document.getElementById("username");
+  let username = userdiv.textContent.replace( /\s+/g, '');
+  let rolesdiv = document.getElementById("roles");
+  let roles = rolesdiv.textContent;
+  let patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
+  let medication = document.getElementById("medication").value;
+  let start = document.getElementById("medicationstart").value;
+  let stop = document.getElementById("medicationstop").value;
+  let reason = $("#termination :selected").text();
+  let intent = $("input[name='treatment_intent_medication']:checked").val();
+  let comment = document.getElementById("medicationcom").value;
+  let trackspace = datesystem+"_"+ip+"_"+email;
+  let tracking = trackspace.replace( /\s+/g, '');
 
   if(patientid !="" && medication !="" && start !="" && stop !="" && reason !="" && intent != null){
     $.ajax({
@@ -49,7 +49,6 @@ $('#savemedication').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Medication saved!",
@@ -57,7 +56,7 @@ $('#savemedication').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  window.open("index.php","_self");
+                  load_medication($('#treatmentidsource').val());
               }, 1000);
           });
         } else {

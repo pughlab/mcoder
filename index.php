@@ -5,6 +5,7 @@
  include('configuration/map.php');
  
  $ip = $_SERVER['REMOTE_ADDR'];
+ date_default_timezone_set('America/Toronto'); 
 
  if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
    $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -30,6 +31,7 @@
  $hasRoleNew = NULL;
  $hasRoleNF1 = NULL;
  $hasRoleDemo = NULL;
+ $hasRoleAdmin = NULL;
 
  if (isset($_GET['code']) && !(empty($_GET['state']) || ($_GET['state'] !== @$_SESSION['oauth2state']))) {
 
@@ -70,6 +72,8 @@
         // Retrieve the Demo users
         $hasRoleDemo = $user->hasRoleForClient($clientID, "Demo");
 
+        $hasRoleAdmin = $user->hasRoleForClient($clientID, "Admin");
+
         // Retrieve all user groups as s list
          $groups = "";
          foreach($roles[$clientID] as $group) {
@@ -86,8 +90,7 @@
            <head>
               <meta charset="UTF-8">
               <title>mCODER</title>
-              <style>
-              </style>
+              <link rel="icon" type="image/png" href="logo.png" />
               <link rel="stylesheet" type="text/css" href="css/modal.css">
               <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
               <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -117,7 +120,7 @@
               <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
               <script src="js/prefixfree.min.js"></script>
               <script src="js/tabs.js"></script>
-              <link rel="stylesheet" href="css/usermenu.css" /> 
+              <link rel="stylesheet" href="css/usermenu.css" />
               <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
               <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $api; ?>&libraries=places"></script>
               <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" rel="stylesheet" type="text/css">
@@ -139,12 +142,31 @@
            </head>
            <body>
               <div id="ipaddress" style="display: none;"> <?php echo $ip; ?> </div>
-              <div id="datesystem" style="display: none;"> <?php date_default_timezone_set('America/Toronto'); echo date("Y-m-d-H:i:s"); ?> </div>
+              <div id="datesystem" style="display: none;"> <?php echo date("Y-m-d-H:i:s"); ?> </div>
               <div id="email" style="display: none;"> <?php echo $userMail; ?> </div>
-              <div id="username" style="display: none;"> <?php echo $username; ?> </div>
+              <div id="username" style="display: none;"> <?php echo $userName; ?> </div>
               <div id="roles" style="display: none;"> <?php echo $groups; ?> </div>
 
               <script>
+                  <?php if ($hasRoleAdmin) { ?>
+                  // export a patient's data
+                  function exportAll() {
+                    $.ajax(
+                      {
+                        url: "export.php",
+                        data: {
+                          id: $("#patientidsource").val(),
+                          roles: "<?php echo $groups ?>"
+                        },
+                        method: "POST",
+                        success: (response) => {
+                          window.location = response;
+                        }
+                      }
+                    );
+                  }
+                  <?php } ?>
+
                  // Show other race
                  function otherRaceShow() {
                    var x = document.getElementById("addotherRace");
@@ -365,7 +387,7 @@
 
 <div style="background-color: #f1f1f1; height:115px;border: thin solid lightgray;">
       <div class="logomcoder" style="background-color: #E7E7E6;height:113px;" >
-        <img src="logo.png" alt="mcoderlogo" style="width:130px;max-width:130px;">
+        <a href="/"><img src="logo.png" alt="mcoderlogo" style="width:130px;max-width:130px;"></a>
       </div>
 
 
@@ -374,7 +396,7 @@
       </div>
 
 <div style="float: right;margin-left:1px">
-<a href='https://app.asana.com/0/1187650412767761/1187650412767761https://app.asana.com/0/1187650412767761/1187650412767761' target="_blank"> <!-- duplicated Asana URL -->
+<a href='https://app.asana.com/0/1187650412767761/1187650412767761' target="_blank">
       <div class='panel noselect' style="float:right;margin-right:10px">
        <div class='admin-panel'>
          <label class='text' for='bugs'><?php echo "Report a bug"; ?></label>
@@ -561,12 +583,15 @@
                                <div class="row">
                                   <h4>Patient Identifier</h4>
                                   <div class="row">
-                                     <div class="bootstrap-iso">
+                                    <div class="bootstrap-iso">
                                       <div class="input-group">
-                                       <span class="input-group-addon glyphicon glyphicon-user"></span>
-                                       <input type="text" name="patientidsource" placeholder="NF-01-01" id="patientidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
-                                     </div>
-                                   </div>
+                                        <span class="input-group-addon glyphicon glyphicon-user"></span>
+                                        <input type="text" name="patientidsource" placeholder="NF-01-01" id="patientidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
+                                      </div>
+                                      <?php if ($hasRoleAdmin) { ?>
+                                        <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                                      <?php } ?>
+                                    </div>
                                   </div>
                                </div>
                                <br>
@@ -683,6 +708,7 @@
                                 <div class="row">
                                   <div class="bootstrap-iso" align="center">
                                     <button type="button" class="btn btn-primary btn-lg" id="savepatient"><span class="fas fa-head-side-cough"></span> Add patient</button>
+                                    <button type="button" class="btn btn-primary btn-lg" id="updatepatient"><span class="fas fa-head-side-cough"></span> Update patient</button>
                                   </div>
                                 </div>
                               </fieldset>
@@ -747,7 +773,8 @@
                                                   <br>
                                                   <div class="repeater-heading" align="center">
                                                      <div class="bootstrap-iso">
-                                                       <button type="button" class="btn btn-primary btn-lg" id="savecomorbid"><i class='fas fa-lungs-virus'></i> Add a comorbid condition</button>
+                                                         <button type="button" class="btn btn-primary btn-lg" id="savecomorbid"><i class='fas fa-lungs-virus'></i> Add a comorbid condition</button>
+                                                         <button type="button" class="btn btn-primary btn-lg" id="updatecomorbid"><i class='fas fa-lungs-virus'></i> Update a comorbid condition</button>
                                                      </div>
                                                   </div>
                                                </div>
@@ -818,6 +845,7 @@
                                               <div class="repeater-heading" align="center">
                                                  <div class="bootstrap-iso">
                                                    <button type="button" class="btn btn-primary btn-lg" id="savestatus"><i class='fas fa-stethoscope'></i> Add a clinical evaluation</button>
+                                                   <button type="button" class="btn btn-primary btn-lg" id="updatestatus"><i class='fas fa-stethoscope'></i> Update a clinical evaluation</button>
                                                  </div>
                                               </div>
                                             </div>
@@ -836,6 +864,9 @@
                                   <span class="input-group-addon glyphicon glyphicon-user"></span>
                                   <input type="text" name="diseaseidsource" placeholder="NF-01-01" id="diseaseidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
                                 </div>
+                                <?php if ($hasRoleAdmin) { ?>
+                                  <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                                <?php } ?>
                               </div>
                              </div>
                           </div>
@@ -924,6 +955,8 @@
                                      <label for="left">Left</label>
                                      <input class="orangeradio" type="radio" name="location_side" value="Bilateral" id="bilateral" />
                                      <label for="bilateral">Bilateral</label>
+                                     <input class="orangeradio" type="radio" name="location_side" value="Unknown" id="unknown" />
+                                     <label for="unknown">Unknown</label>
                                   </div>
                                </div>
                              </div>
@@ -1083,6 +1116,7 @@
                              <div class="repeater-heading" align="center">
                                 <div class="bootstrap-iso">
                                   <button type="button" class="btn btn-primary btn-lg" id="savecancer"><i class="fas fa-ribbon"></i> Add cancer</button>
+                                  <button type="button" class="btn btn-primary btn-lg" id="updatecancer"><i class="fas fa-ribbon"></i> Update cancer</button>
                                 </div>
                              </div>
                            </fieldset>
@@ -1100,6 +1134,9 @@
                                  <span class="input-group-addon glyphicon glyphicon-user"></span>
                                  <input type="text" name="outcomeidsource" placeholder="NF-01-01" id="outcomeidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
                                </div>
+                               <?php if ($hasRoleAdmin) { ?>
+                                  <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                                <?php } ?>
                              </div>
                             </div>
                          </div>
@@ -1150,6 +1187,7 @@
                                   <div class="repeater-heading" align="center">
                                      <div class="bootstrap-iso">
                                        <button type="button" class="btn btn-primary btn-lg" id="saveoutcome"><i class='fa fa-medkit'></i> Add a cancer disease status</button>
+                                       <button type="button" class="btn btn-primary btn-lg" id="updateoutcome"><i class='fa fa-medkit'></i> Update a cancer disease status</button>
                                      </div>
                                   </div>
                                 </fieldset>
@@ -1181,6 +1219,7 @@
                                    <div class="repeater-heading" align="center">
                                       <div class="bootstrap-iso">
                                         <button type="button" class="btn btn-primary btn-lg" id="savedeath"><i class="fas fa-book-dead"></i> Add the death date</button>
+                                        <button type="button" class="btn btn-primary btn-lg" id="updatedeath"><i class="fas fa-book-dead"></i> Update the death date</button>
                                       </div>
                                    </div>
 
@@ -1200,6 +1239,9 @@
                                  <span class="input-group-addon glyphicon glyphicon-user"></span>
                                  <input type="text" name="genomicidsource" placeholder="NF-01-01" id="genomicidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
                                </div>
+                              <?php if ($hasRoleAdmin) { ?>
+                                <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                              <?php } ?>
                              </div>
                             </div>
                          </div>
@@ -1360,6 +1402,7 @@
                               <div class="repeater-heading" align="center">
                                  <div class="bootstrap-iso">
                                    <button type="button" class="btn btn-primary btn-lg" id="savevariant"><i class="fas fa-dna"></i> Add genetic variant</button>
+                                   <button type="button" class="btn btn-primary btn-lg" id="updatevariant"><i class="fas fa-dna"></i> Update genetic variant</button>
                                  </div>
                               </div>
                        </fieldset>
@@ -1379,6 +1422,9 @@
                                  <span class="input-group-addon glyphicon glyphicon-user"></span>
                                  <input type="text" name="treatmentidsource" placeholder="NF-01-01" id="treatmentidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
                                </div>
+                               <?php if ($hasRoleAdmin) { ?>
+                                  <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                               <?php } ?>
                              </div>
                             </div>
                          </div>
@@ -1456,6 +1502,7 @@
                                    <div class="repeater-heading" align="center">
                                       <div class="bootstrap-iso">
                                         <button type="button" class="btn btn-primary btn-lg" id="saveradiation"><i class="fas fa-radiation"></i> Add radiation</button>
+                                        <button type="button" class="btn btn-primary btn-lg" id="updateradiation"><i class="fas fa-radiation"></i> Update radiation</button>
                                       </div>
                                    </div>
                                 </fieldset>
@@ -1523,6 +1570,7 @@
                                    <div class="repeater-heading" align="center">
                                       <div class="bootstrap-iso">
                                         <button type="button" class="btn btn-primary btn-lg" id="savesurgery"><i class="fas fa-hospital-symbol"></i> Add surgery</button>
+                                        <button type="button" class="btn btn-primary btn-lg" id="updatesurgery"><i class="fas fa-hospital-symbol"></i> Update surgery</button>
                                       </div>
                                    </div>
                                 </fieldset>
@@ -1592,6 +1640,7 @@
                                    <div class="repeater-heading" align="center">
                                       <div class="bootstrap-iso">
                                         <button type="button" class="btn btn-primary btn-lg" id="savemedication"><i class="fas fa-capsules"></i> Add medication</button>
+                                        <button type="button" class="btn btn-primary btn-lg" id="updatemedication"><i class="fas fa-capsules"></i> Update medication</button>
                                       </div>
                                    </div>
                                 </fieldset>
@@ -1607,7 +1656,10 @@
                                 <div class="input-group">
                                  <span class="input-group-addon glyphicon glyphicon-user"></span>
                                  <input type="text" name="labidsource" placeholder="NF-01-01" id="labidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
-                               </div>
+                                </div>
+                                <?php if ($hasRoleAdmin) { ?>
+                                  <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                                <?php } ?>
                              </div>
                             </div>
                          </div>
@@ -1680,6 +1732,7 @@
                                 <div class="repeater-heading" align="center">
                                    <div class="bootstrap-iso">
                                      <button type="button" class="btn btn-primary btn-lg" id="savelab"><i class="fas fa-vials"></i> Add general lab metrics</button>
+                                     <button type="button" class="btn btn-primary btn-lg" id="updatelab"><i class="fas fa-vials"></i> Update general lab metrics</button>
                                    </div>
                                 </div>
 
@@ -1731,7 +1784,8 @@
                                    <br>
                                    <div class="repeater-heading" align="center">
                                       <div class="bootstrap-iso">
-                                        <button type="button" class="btn btn-primary btn-lg" id="savecbc"><i class="fas fa-vials"></i> Add a CBC test</button>
+                                          <button type="button" class="btn btn-primary btn-lg" id="savecbc"><i class="fas fa-vials"></i> Add a CBC test</button>
+                                          <button type="button" class="btn btn-primary btn-lg" id="updatecbc"><i class="fas fa-vials"></i> Update a CBC test</button>
                                       </div>
                                    </div>
                                  </fieldset>
@@ -1809,6 +1863,7 @@
                                    <div class="repeater-heading" align="center">
                                       <div class="bootstrap-iso">
                                         <button type="button" class="btn btn-primary btn-lg" id="savecmp"><i class="fas fa-vials"></i> Add a CMP test</button>
+                                        <button type="button" class="btn btn-primary btn-lg" id="updatecmp"><i class="fas fa-vials"></i> Update a CMP test</button>
                                       </div>
                                    </div>
                                  </fieldset>
@@ -1858,6 +1913,7 @@
                                    <div class="repeater-heading" align="center">
                                       <div class="bootstrap-iso">
                                         <button type="button" class="btn btn-primary btn-lg" id="savetumors"><i class="fas fa-vials"></i> Add a tumor test</button>
+                                        <button type="button" class="btn btn-primary btn-lg" id="updatetumors"><i class="fas fa-vials"></i> Update a tumor test</button>
                                       </div>
                                    </div>
                                 </fieldset>
@@ -1887,6 +1943,7 @@
                                              <option value="9">CT chest</option>
                                              <option value="10">CT abdomen and pelvis</option>
                                              <option value="11">CT brain</option>
+                                             <option value="28">CT extremity</option>
                                              <option value="12">CT head and neck</option>
                                              <option value="13">CT colonography</option>
                                              <option value="21">Cystoscopy</option>
@@ -1894,6 +1951,7 @@
                                              <option value="5">Mammography</option>
                                              <option value="26">MRI abdomen and pelvis</option>
                                              <option value="1">MRI brain</option>
+                                             <option value="29">MRI brain and spine</option>
                                              <option value="20">MRI head and neck</option>
                                              <option value="2">MRI spine</option>
                                              <option value="3">MRI breast</option>
@@ -1905,8 +1963,10 @@
                                              <option value="14">US pelvis</option>
                                              <option value="15">US transvaginal</option>
                                              <option value="16">US abdomen</option>
+                                             <option value="27">US extremity</option>
                                              <option value="17">US thyroid</option>
                                              <option value="18">US breast</option>
+                                             <option value="30">Whole body bone scan</option>
                                              <option value="24">X-ray chest</option>
 
                                            </select>
@@ -1926,6 +1986,7 @@
                                  <div class="repeater-heading" align="center">
                                     <div class="bootstrap-iso">
                                       <button type="button" class="btn btn-primary btn-lg" id="saveprocedure"><i class="fas fa-vials"></i> Add procedure</button>
+                                      <button type="button" class="btn btn-primary btn-lg" id="updateprocedure"><i class="fas fa-vials"></i> Update procedure</button>
                                     </div>
                                  </div>
                                 </fieldset>
@@ -1942,7 +2003,10 @@
                                 <div class="input-group">
                                  <span class="input-group-addon glyphicon glyphicon-user"></span>
                                  <input type="text" name="biospecimensidsource" placeholder="NF-01-01" id="biospecimensidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
-                               </div>
+                                </div>
+                                <?php if ($hasRoleAdmin) { ?>
+                                  <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                                <?php } ?>
                              </div>
                             </div>
                          </div>
@@ -2035,6 +2099,7 @@
                                    <div class="repeater-heading" align="center">
                                       <div class="bootstrap-iso">
                                         <button type="button" class="btn btn-primary btn-lg" id="savebiospecimens"><i class="fas fa-flask"></i> Add a biospecimen</button>
+                                        <button type="button" class="btn btn-primary btn-lg" id="updatebiospecimens"><i class="fas fa-flask"></i>Update biospecimen</button>
                                       </div>
                                    </div>
 
@@ -2054,7 +2119,10 @@
                                 <div class="input-group">
                                  <span class="input-group-addon glyphicon glyphicon-user"></span>
                                  <input type="text" name="pedigreeidsource" placeholder="NF-01-01" id="pedigreeidsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
-                               </div>
+                                </div>
+                                <?php if ($hasRoleAdmin) { ?>
+                                  <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                                <?php } ?>
                              </div>
                             </div>
                          </div>
@@ -2078,7 +2146,10 @@
                                 <div class="input-group">
                                  <span class="input-group-addon glyphicon glyphicon-user"></span>
                                  <input type="text" name="nf1idsource" placeholder="NF-01-01" id="nf1idsource" class="form-control" onclick="updateID()" style="height: 60px; font-size:200%;font-weight:bold;font-family:sans-serif"/>
-                               </div>
+                                </div>
+                                <?php if ($hasRoleAdmin) { ?>
+                                  <button style="float:right;" class="btn btn-secondary" onclick="exportAll()">Export all data for this patient</button>
+                                <?php } ?>
                              </div>
                             </div>
                          </div>
@@ -2162,7 +2233,7 @@
                                   <label for="severity3">Grade 3 (moderate)</label>
                                   <input class="brownradio20" type="radio" name="severity" value="grade4" id="severity4" />
                                   <label for="severity4">Grade 4 (severe)</label>
-                                  <input class="brownradio20" type="radio" name="severity" value="grade1" id="severity0"  />
+                                  <input class="brownradio20" type="radio" name="severity" value="grade0" id="severity0"  />
                                   <label for="severity0">Unknown</label>
                                </div>
                             </div>
@@ -2208,6 +2279,7 @@
                             <div class="repeater-heading" align="center">
                                <div class="bootstrap-iso">
                                  <button type="button" class="btn btn-primary btn-lg" id="savediag"><i class="fas fa-vials"></i> Add diagnostic</button>
+                                 <button type="button" class="btn btn-primary btn-lg" id="updatediag"><i class="fas fa-vials"></i> Update diagnostic</button>
                                </div>
                             </div>
                           </fieldset>
@@ -2314,6 +2386,7 @@
                            <div class="repeater-heading" align="center">
                               <div class="bootstrap-iso">
                                 <button type="button" class="btn btn-primary btn-lg" id="savemanifestation"><i class="fas fa-vials"></i> Add manifestation</button>
+                                <button type="button" class="btn btn-primary btn-lg" id="updatemanifestation"><i class="fas fa-vials"></i> Update manifestation</button>
                               </div>
                            </div>
                           </fieldset>
@@ -2395,6 +2468,7 @@
                            <div class="repeater-heading" align="center">
                               <div class="bootstrap-iso">
                                 <button type="button" class="btn btn-primary btn-lg" id="saveskin"><i class="fas fa-vials"></i> Add skin lesions</button>
+                                <button type="button" class="btn btn-primary btn-lg" id="updateskin"><i class="fas fa-vials"></i> Update skin lesions</button>
                               </div>
                            </div>
                           </fieldset>
@@ -2963,7 +3037,7 @@
               </script>
 
 
-              <?php if($hasRoleDemo == 0) { // TODO: Change the $hasRoleDemo to a boolean ?>
+              <?php if($hasRoleDemo == 0) { ?>
               <script src="insert/addpatient.js"></script>
               <script src="insert/addcomorbid.js"></script>
               <script src="insert/addstatus.js"></script>
@@ -3005,33 +3079,65 @@
               <script src="fetch/nf1skin.js"></script>
               <script src="fetch/nf1manif.js"></script>
               <script src="fetch/nf1procedure.js"></script>
+
+              <script src="update/patient.js"></script>
+              <script src="update/comorbid.js"></script>
+              <script src="update/status.js"></script>
+              <script src="update/cancer.js"></script>
+              <script src="update/mutation.js"></script>
+              <script src="update/variant.js"></script>
+              <script src="update/radiation.js"></script>
+              <script src="update/surgery.js"></script>
+              <script src="update/medication.js"></script>
+              <script src="update/labs.js"></script>
+              <script src="update/cbc.js"></script>
+              <script src="update/cmp.js"></script>
+              <script src="update/tumor.js"></script>
+              <script src="update/biospecimen.js"></script>
+              <script src="update/outcome.js"></script>
+              <script src="update/death.js"></script>
+              <script src="update/diagnostic.js"></script>
+              <script src="update/manifestation.js"></script>
+              <script src="update/procedure.js"></script>
+              <script src="update/lesion.js"></script>
+
+              <script src="delete/patient.js"></script>
+              <script src="delete/comorbid.js"></script>
+              <script src="delete/status.js"></script>
+              <script src="delete/cancer.js"></script>
+              <script src="delete/mutation.js"></script>
+              <script src="delete/variant.js"></script>
+              <script src="delete/radiation.js"></script>
+              <script src="delete/surgery.js"></script>
+              <script src="delete/medication.js"></script>
+              <script src="delete/labs.js"></script>
+              <script src="delete/cbc.js"></script>
+              <script src="delete/cmp.js"></script>
+              <script src="delete/tumor.js"></script>
+              <script src="delete/biospecimen.js"></script>
+              <script src="delete/outcome.js"></script>
+              <script src="delete/death.js"></script>
+              <script src="delete/diagnostic.js"></script>
+              <script src="delete/manifestation.js"></script>
+              <script src="delete/procedure.js"></script>
+              <script src="delete/lesion.js"></script>
               <?php } ?>
 
               <script>
-              $(document).ready(function(){ // TODO: Remove this empty function
+              $(document).ready(function(){
 
-               //load_patient();
-
-               // $('#nf1diag').multiselect({
-               //   nonSelectedText: 'Select clinical diagnosis',
-               //   enableFiltering: true,
-               //   enableCaseInsensitiveFiltering: true,
-               //   buttonWidth:'100%'
-               // });
-               //
-               // $('#nf1diagcri').multiselect({
-               //   nonSelectedText: 'Select diagnostic criteria',
-               //   enableFiltering: true,
-               //   enableCaseInsensitiveFiltering: true,
-               //   buttonWidth:'100%'
-               // });
-
+                  $('#absentsk').on('click', function() {
+                     $('input[name="skinlocation"]').each(function() {
+                        $(this).prop('checked', false);
+                     });
+                  });
               });
               </script>
 
            </body>
         </html>
         <script>
+            let cellData = null; // stores an object with the values coming from an AJAX request.
            $(document).ready(function(){
 
                  $('#testcode').typeahead({

@@ -14,8 +14,8 @@ $iv_query= mysqli_fetch_assoc(mysqli_query($connect, "select riv from norm"));
 $iv=$iv_query['riv'];
 mysqli_close($connect);
 // User roles
-$roles=$_POST["roles"];
-
+$roles=rtrim(trim($_POST["roles"]), ",");
+$hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 $output = '';
 if(isset($_POST["query"]))
 {
@@ -25,8 +25,16 @@ if(isset($_POST["query"]))
  $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
  $query = "
-  SELECT HEX(CBC.id), CBC.date, CBC.type, CBC.count, CBC.comment FROM CBC, Patient
-  WHERE CBC.id = {$enc_search} AND CBC.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0
+  SELECT
+    DISTINCT HEX(CBC.id),
+    CBC.date,
+    CBC.type,
+    CBC.count,
+    CBC.comment
+  FROM CBC
+  JOIN Patient ON CBC.id = Patient.id
+  WHERE CBC.id = {$enc_search}
+  AND FIND_IN_SET(Patient.study, '".$roles."') > 0
  ";
 }
 else
@@ -36,7 +44,7 @@ else
  ";
 }
 $result = mysqli_query($conn, $query);
-if(mysqli_num_rows($result) > 0)
+if (mysqli_num_rows($result) > 0)
 {
 ?>
      <head>
@@ -69,7 +77,31 @@ $('#cbcdata tfoot th').each( function () {
           var table = $('#cbcdata').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+              'copy', {
+                extend: 'csv',
+                filename: '<?php echo $search; ?>_cbc',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
+                extend: 'excel',
+                filename: '<?php echo $search; ?>_cbc',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
+                extend: 'pdf',
+                filename: '<?php echo $search; ?>_cbc',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, 'print'
+            ],
+            columnDefs: [
+              {
+                visible: false,
+                targets: 4
+              }
             ],
         initComplete: function () {
             // Apply the search
@@ -88,6 +120,11 @@ $('#cbcdata tfoot th').each( function () {
     });
 
 
+    <?php if (!$hasAdminRole) { ?>
+      for (let i = 0; i < 5; i++) {
+        table.button(i).enable(false);
+      }
+    <?php } ?>
 
           $('#cbcdata tbody')
               .on( 'mouseenter', 'td', function () {
@@ -97,7 +134,26 @@ $('#cbcdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#cbcdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'type': cells[2].innerText,
+              'count': cells[3].innerText,
+              'comment': $(this).children('input').first().val(),
+              'recordtype': 'cbc'
+            }
+            $('#cbcdate').val(cellData['date']);
+            $('button[data-id="cbctype"]').children().first().children().first().children().first().html(cellData['type']);
+            for(let option of $('#cbctype option')) {
+              if($(option).text() === cellData['type']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            $('#cbccount').val(cellData['count']);
+            $('#cbccom').val(cellData['comment']);
+          });
 
       } );
 
@@ -112,28 +168,29 @@ $('#cbcdata tfoot th').each( function () {
     </head>
 
     <body>
-
+      <span style="color:#143de4;text-align:center;">
+        <em class="glyphicon glyphicon-info-sign"></em>&nbsp;
+        <strong>CBC tests have been registered for this patient:</strong>
+      </span>
+      <br><br>
+      <table id="cbcdata" class="row-border hover order-column" style="width:100%">
+        <thead>
+          <tr>
+            <th>Patient Identifier</th>
+            <th>Date</th>
+            <th>CBC type</th>
+            <th>CBC count</th>
+            <th>Comments</th>
+            <th class="no-export">Comments</th>
+            <?php if ($hasAdminRole) { ?><th class="no-export">Delete</th><?php } ?>
+          </tr>
+        </thead>
+        <tbody>
 <?php
 
-  echo '<span style="color:#143de4;text-align:center;"><i class="glyphicon glyphicon-info-sign"></i><b> CBC tests have been registered for this patient:</b></span>';
- $output .= '
- <br><br>
-<table id="cbcdata" class="row-border hover order-column" style="width:100%">
-<thead>
-<tr>
-<th>Patient Identifier</th>
-<th>Date</th>
-<th>CBC type</th>
-<th>CBC count</th>
-<th>Comments</th>
-</tr>
-</thead>
-  <tbody>
-
- ';
- $nb = 1;
- while($row = mysqli_fetch_array($result))
- {
+ $output .= '';
+ $rowNumber = 1;
+ while ($row = mysqli_fetch_array($result)) {
    $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
 
   $output .= '
@@ -142,12 +199,20 @@ $('#cbcdata tfoot th').each( function () {
    <td>'.$row[1].'</td>
    <td>'.$row[2].'</td>
    <td>'.$row[3].'</td>
-   <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_cbc_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-  </tr>
-  ';
+   <td>'.$row[4].'</td>
+   <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_cbc_'.$rowNumber.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments' . $rowNumber . '" value=' . $row[4] . ' />';
+   if ($hasAdminRole) {
+    $output .= '<td align="center">
+        <a href="#" role="button" class="btn btn-danger" id="delete_cbc_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_cbc_' . $rowNumber . '">
+          <em class="glyphicon glyphicon-trash"></em>
+        </a>
+      </td>';
+   }
+  $output .= '</tr>';
   ?>
 
-  <div id="comment_cbc_<?php echo $nb;?>" class="modal fade" role="dialog">
+  <div id="comment_cbc_<?php echo $rowNumber;?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -156,7 +221,7 @@ $('#cbcdata tfoot th').each( function () {
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Comment</h4>
       </div>
-      <div class="modal-body">
+      <div id="cbccomments<?php echo $rowNumber; ?>"class="modal-body">
         <?php echo $row[4];?>
       </div>
       <div class="modal-footer">
@@ -166,9 +231,33 @@ $('#cbcdata tfoot th').each( function () {
 
   </div>
 </div>
+<?php if ($hasAdminRole) { ?>
+<div id="delete_cbc_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Delete CBC test</h4>
+      </div>
+      <div class="modal-body">
+        <span>Are you sure? This operation cannot be undone.</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          onclick="deleteCBC(document.getElementById('delete_cbc_<?php echo $rowNumber; ?>_btn'))">
+            Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <?php
-  $nb++;
+  }
+  $rowNumber++;
  }
  $output .= '
  </tbody>
@@ -179,13 +268,15 @@ $('#cbcdata tfoot th').each( function () {
  <th>CBC type</th>
  <th>CBC count</th>
  <th>Comments</th>
- </tr>
+ <th class="no-export">Comments</th>';
+ if ($hasAdminRole) {
+  $output .= '<th class="no-export">Delete</th>';
+ }
+ $output .= '</tr>
  </tfoot>
 </table>';
  echo $output;
-}
-else if(isset($_POST["query"]))
-{
+} elseif (isset($_POST["query"])) {
 
   ?>
   <body>

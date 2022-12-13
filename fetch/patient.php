@@ -14,18 +14,13 @@ $encryption_key = hex2bin($key);
 $iv_query= mysqli_fetch_assoc(mysqli_query($connect, "select riv from norm"));
 $iv=$iv_query['riv'];
 
-//echo $iv;
-//echo " ";
-//echo bin2hex($iv);
-
 mysqli_close($connect);
 
 // User roles
-$roles=$_POST["roles"];
-
+$roles=rtrim(trim($_POST["roles"]), ",");
+$hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 $output = '';
-if(isset($_POST["query"]))
-{
+if (isset($_POST["query"])) {
  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
  // ID encrypted
@@ -34,19 +29,15 @@ if(isset($_POST["query"]))
 
  $query = "
   SELECT HEX(id),HEX(birth), HEX(gender), HEX(race), HEX(zip), HEX(institution), study, HEX(family) FROM Patient
-  WHERE id LIKE {$enc_search} AND INSTR('".$roles."', study) > 0
+  WHERE id LIKE {$enc_search} AND FIND_IN_SET(study, '".$roles."') > 0
  ";
-}
-else
-{
+} else {
  $query = "
   SELECT * FROM Patient WHERE id LIKE '%ZZZZZZZZZZZZZZZ%' AND INSTR('".$roles."', study) > 0 ORDER BY id
  ";
 }
-//echo $query;
 $result = mysqli_query($conn, $query);
-if(mysqli_num_rows($result) > 0)
-{
+if (mysqli_num_rows($result) > 0) {
 
 ?>
 
@@ -89,9 +80,17 @@ $('#patientdata tfoot th').each( function () {
           var table = $('#patientdata').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+              'copy', {
+                extend: 'csv',
+                filename: '<?php echo $search; ?>_patient'
+              }, {
+                extend: 'excel',
+                filename: '<?php echo $search; ?>_patient'
+              }, {
+                extend: 'pdf',
+                filename: '<?php echo $search; ?>_patient'
+              }, 'print'
             ],
-
             initComplete: function () {
             // Apply the search
             this.api().columns().every( function () {
@@ -109,6 +108,11 @@ $('#patientdata tfoot th').each( function () {
     });
 
 
+    <?php if (!$hasAdminRole) { ?>
+      for (let i = 0; i < 5; i++) {
+        table.button(i).enable(false);
+      }
+    <?php } ?>
 
           $('#patientdata tbody')
               .on( 'mouseenter', 'td', function () {
@@ -118,7 +122,99 @@ $('#patientdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#patientdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'birth': cells[1].innerText,
+              'gender': cells[2].innerText,
+              'race': cells[3].innerText,
+              'zip': cells[4].innerText,
+              'institution': cells[5].innerText,
+              'study': cells[6].innerText,
+              'family': cells[7].innerText,
+              'recordtype': 'patient'
+            }
+            $('#birthday').val(cellData['birth']);
+            for (let gender of $('input[name="gender"]')) {
+              if ($(gender).val() === cellData['gender']) {
+                $(gender).prop('checked', true);
+              } else {
+                $(gender).prop('checked', false);
+              }
+            }
+            switch (cellData['race']) {
+              case 'White':
+                $('#white').prop('checked', true);
+                $('#asian').prop('checked', false);
+                $('#black').prop('checked', false);
+                $('#filipino').prop('checked', false);
+                $('#latin').prop('checked', false);
+                $('#other').prop('checked', false);
+                otherRaceHide();
+                break;
+              case 'Asian':
+                $('#white').prop('checked', false);
+                $('#asian').prop('checked', true);
+                $('#black').prop('checked', false);
+                $('#filipino').prop('checked', false);
+                $('#latin').prop('checked', false);
+                $('#other').prop('checked', false);
+                otherRaceHide();
+                break;
+              case 'Black-African':
+                $('#white').prop('checked', false);
+                $('#asian').prop('checked', false);
+                $('#black').prop('checked', true);
+                $('#filipino').prop('checked', false);
+                $('#latin').prop('checked', false);
+                $('#other').prop('checked', false);
+                otherRaceHide();
+                break;
+              case 'Filipino':
+                $('#white').prop('checked', false);
+                $('#asian').prop('checked', false);
+                $('#black').prop('checked', false);
+                $('#filipino').prop('checked', true);
+                $('#latin').prop('checked', false);
+                $('#other').prop('checked', false);
+                otherRaceHide();
+                break;
+              case 'Latin-American':
+                $('#white').prop('checked', false);
+                $('#asian').prop('checked', false);
+                $('#black').prop('checked', false);
+                $('#filipino').prop('checked', false);
+                $('#latin').prop('checked', true);
+                $('#other').prop('checked', false);
+                otherRaceHide();
+                break;
+              default:
+                $('#white').prop('checked', false);
+                $('#asian').prop('checked', false);
+                $('#black').prop('checked', false);
+                $('#filipino').prop('checked', false);
+                $('#latin').prop('checked', false);
+                $('#other').prop('checked', true);
+                $('#otherRace').val(cellData['race']);
+                otherRaceShow();
+            }
+            $('#zip').val(cellData['zip']);
+            $('button[data-id="institution"]').children().first().children().first().children().first().html(cellData['institution']);
+            for(let option of $('#institution option')) {
+              if($(option).text() === cellData['institution']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            for (let study of $('input[name="study"]')) {
+              if ($(study).val() === cellData['study']) {
+                $(study).prop('checked', true);
+              } else {
+                $(study).prop('checked', false);
+              }
+            }
+            $('#family').val(cellData['family']);
+          });
 
       } );
 
@@ -156,8 +252,7 @@ $('#patientdata tfoot th').each( function () {
   <tbody>
 
  ';
- while($row = mysqli_fetch_array($result))
- {
+ while ($row = mysqli_fetch_array($result)) {
    //openssl_decrypt(hex2bin(substr($row["id"], 2)), $cipher, $encryption_key, 0, $iv);
    $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
    $decrypted_birth = openssl_decrypt(hex2bin($row[1]), $cipher, $encryption_key, 0, $iv);
@@ -197,9 +292,7 @@ $('#patientdata tfoot th').each( function () {
  </tfoot>
 </table>';
  echo $output;
-}
-else if(isset($_POST["query"]))
-{
+} elseif (isset($_POST["query"])) {
 
   ?>
   <body>

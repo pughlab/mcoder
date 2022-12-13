@@ -13,30 +13,34 @@ $iv=$iv_query['riv'];
 mysqli_close($connect);
 
 // User roles
-$roles=$_POST["roles"];
-
+$roles=rtrim(trim($_POST["roles"]), ",");
+$hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 $output = '';
-if(isset($_POST["query"]))
-{
+if (isset($_POST["query"])) {
  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
  // ID encrypted
  $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
  $query = "
-  SELECT HEX(ClinicalCondition.id), ClinicalCondition.date, ClinicalCondition.ecog, ClinicalCondition.karnofsky, ClinicalCondition.comment FROM ClinicalCondition, Patient
-  WHERE ClinicalCondition.id LIKE {$enc_search} AND ClinicalCondition.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0
+  SELECT
+    DISTINCT HEX(ClinicalCondition.id),
+    ClinicalCondition.date,
+    ClinicalCondition.ecog,
+    ClinicalCondition.karnofsky,
+    ClinicalCondition.comment
+  FROM ClinicalCondition
+  JOIN Patient ON ClinicalCondition.id = Patient.id
+  WHERE ClinicalCondition.id LIKE {$enc_search}
+  AND FIND_IN_SET(Patient.study, '".$roles."') > 0
  ";
-}
-else
-{
+} else {
  $query = "
   SELECT * FROM ClinicalCondition, Patient WHERE ClinicalCondition.id LIKE '%ZZZZZZZZZZZZZZ%' AND ClinicalCondition.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0 ORDER BY Patient.id
  ";
 }
 $result = mysqli_query($conn, $query);
-if(mysqli_num_rows($result) > 0)
-{
+if (mysqli_num_rows($result) > 0) {
   ?>
    <head>
       <meta charset="UTF-8">
@@ -67,7 +71,31 @@ $('#statusdata tfoot th').each( function () {
           var table = $('#statusdata').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+              'copy', {
+                extend: 'csv',
+                filename: '<?php echo $search; ?>_status',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
+                extend: 'excel',
+                filename: '<?php echo $search; ?>_status',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
+                extend: 'pdf',
+                filename: '<?php echo $search; ?>_status',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, 'print'
+            ],
+            columnDefs: [
+              {
+                visible: false,
+                targets: 4
+              }
             ],
         initComplete: function () {
             // Apply the search
@@ -86,6 +114,11 @@ $('#statusdata tfoot th').each( function () {
     });
 
 
+    <?php if (!$hasAdminRole) { ?>
+      for (let i = 0; i < 5; i++) {
+        table.button(i).enable(false);
+      }
+    <?php } ?>
 
           $('#statusdata tbody')
               .on( 'mouseenter', 'td', function () {
@@ -95,11 +128,36 @@ $('#statusdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#statusdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'ecog': cells[2].innerText,
+              'karnofsky': cells[3].innerText,
+              'comment': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'status'
+            }
+            $('#statusdate').val(cellData['date']);
+            $('button[data-id="ecog"]').children().first().children().first().children().first().html(cellData['ecog']);
+            for(let option of $('#ecog option')) {
+              if($(option).text() === cellData['ecog']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            $('button[data-id="karnofsky"]').children().first().children().first().children().first().html(cellData['karnofsky']);
+            for(let option of $('#karnofsky option')) {
+              if($(option).text() === cellData['ecog']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            $('#statuscom').val(cellData['comment']);
+          });
 
       } );
 
-    	</script>
+      </script>
 
       <style>
       td.highlight {
@@ -110,28 +168,29 @@ $('#statusdata tfoot th').each( function () {
     </head>
 
     <body>
-
+      <span style="color:#143de4;text-align:center;">
+        <em class="glyphicon glyphicon-info-sign"></em>&nbsp;
+        <strong>Clinical evaluations have been registered for this patient:</strong>
+      </span>
+      <br><br>
+      <table id="statusdata" class="row-border hover order-column" style="width:100%">
+        <thead>
+          <tr>
+            <th>Patient Identifier</th>
+            <th>Date of evaluation</th>
+            <th>ECOG performance status</th>
+            <th>Karnofsky performance status</th>
+            <th>Comments</th>
+            <th class="no-export">Comments</th>
+            <?php if ($hasAdminRole) { ?><th class="no-export">Delete</th><?php } ?>
+          </tr>
+        </thead>
+        <tbody>
 <?php
 
-  echo '<span style="color:#143de4;text-align:center;"><i class="glyphicon glyphicon-info-sign"></i><b> Clinical evaluation have been registered for this patient:</b></span>';
- $output .= '
- <br><br>
-<table id="statusdata" class="row-border hover order-column" style="width:100%">
-<thead>
-<tr>
- <th>Patient Identifier</th>
- <th>Date of evaluation</th>
- <th>ECOG performance status</th>
- <th>Karnofsky performance status</th>
- <th>Comments</th>
-</tr>
-</thead>
-  <tbody>
-
- ';
- $nb = 1;
- while($row = mysqli_fetch_array($result))
- {
+ $output .= '';
+ $rowNumber = 1;
+ while ($row = mysqli_fetch_array($result)) {
   $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
   $output .= '
    <tr>
@@ -139,12 +198,20 @@ $('#statusdata tfoot th').each( function () {
     <td>'.$row[1].'</td>
     <td>'.$row[2].'</td>
     <td>'.$row[3].'</td>
-    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_status_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-   </tr>
-  ';
+    <td>'.$row[4].'</td>
+    <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_status_'.$rowNumber.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+    <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[4]. '" />';
+    if ($hasAdminRole) {
+      $output .= '<td align="center">
+        <a href="#" role="button" class="btn btn-danger" id="delete_status_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_status_' . $rowNumber . '">
+          <em class="glyphicon glyphicon-trash"></em>
+        </a>
+      </td>';
+    }
+   $output .= '</tr>';
   ?>
 
-  <div id="comment_status_<?php echo $nb;?>" class="modal fade" role="dialog">
+  <div id="comment_status_<?php echo $rowNumber;?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -163,9 +230,33 @@ $('#statusdata tfoot th').each( function () {
 
   </div>
 </div>
+<?php if ($hasAdminRole) { ?>
+<div id="delete_status_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Delete clinical evaluation</h4>
+      </div>
+      <div class="modal-body">
+        <span>Are you sure? This operation cannot be undone.</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          onclick="deleteStatus(document.getElementById('delete_status_<?php echo $rowNumber; ?>_btn'))">
+            Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <?php
-  $nb++;
+  }
+  $rowNumber++;
  }
  $output .= '
  </tbody>
@@ -176,13 +267,15 @@ $('#statusdata tfoot th').each( function () {
   <th>ECOG performance status</th>
   <th>Karnofsky performance status</th>
   <th>Comments</th>
- </tr>
- </tfoot>
-</table>';
+  <th class="no-export">Comments</th>';
+  if ($hasAdminRole) {
+    $output .= '<th class="no-export">Delete</th>';
+  }
+  $output .= '</tr>
+  </tfoot>
+  </table>';
  echo $output;
-}
-else if(isset($_POST["query"]))
-{
+} elseif (isset($_POST["query"])) {
   ?>
   <body>
   <?php

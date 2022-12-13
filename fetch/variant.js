@@ -1,7 +1,7 @@
 function load_variants(query)
 {
-  var rolesdiv = document.getElementById("roles");
-  var roles = rolesdiv.textContent;
+  const rolesdiv = document.getElementById("roles");
+  const roles = rolesdiv.textContent;
  $.ajax({
   url:"fetch/variant.php",
   method:"POST",
@@ -14,7 +14,7 @@ function load_variants(query)
 }
 $('#patientidsource').keyup(function(){
 
- var search = $(this).val();
+ const search = $(this).val();
  if(search != '')
  {
   load_variants(search);
@@ -27,7 +27,7 @@ $('#patientidsource').keyup(function(){
 
 $('#diseaseidsource').keyup(function(){
 
- var search = $(this).val();
+ const search = $(this).val();
  if(search != '')
  {
   load_variants(search);
@@ -40,7 +40,7 @@ $('#diseaseidsource').keyup(function(){
 
 $('#genomicidsource').keyup(function(){
 
- var search = $(this).val();
+ const search = $(this).val();
  if(search != '')
  {
   load_variants(search);
@@ -53,7 +53,7 @@ $('#genomicidsource').keyup(function(){
 
 $('#treatmentidsource').keyup(function(){
 
- var search = $(this).val();
+ const search = $(this).val();
  if(search != '')
  {
   load_variants(search);
@@ -66,7 +66,7 @@ $('#treatmentidsource').keyup(function(){
 
 $('#labidsource').keyup(function(){
 
- var search = $(this).val();
+ const search = $(this).val();
  if(search != '')
  {
   load_variants(search);
@@ -79,7 +79,7 @@ $('#labidsource').keyup(function(){
 
 $('#biospecimensidsource').keyup(function(){
 
- var search = $(this).val();
+ const search = $(this).val();
  if(search != '')
  {
   load_variants(search);
@@ -92,7 +92,7 @@ $('#biospecimensidsource').keyup(function(){
 
 $('#outcomeidsource').keyup(function(){
 
- var search = $(this).val();
+ const search = $(this).val();
  if(search != '')
  {
   load_variants(search);
@@ -105,7 +105,7 @@ $('#outcomeidsource').keyup(function(){
 
 $('#pedigreeidsource').keyup(function(){
 
- var search = $(this).val();
+ const search = $(this).val();
  if(search != '')
  {
   load_variants(search);
@@ -118,7 +118,7 @@ $('#pedigreeidsource').keyup(function(){
 
 $('#nf1idsource').keyup(function(){
 
- var search = $(this).val();
+ const search = $(this).val();
  if(search != '')
  {
   load_variants(search);

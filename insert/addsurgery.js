@@ -1,10 +1,10 @@
 // Save a patient
 $('#savesurgery').click(function(e) {
-  var ipdiv = document.getElementById("ipaddress");
-  var ip = ipdiv.textContent.replace( /\s+/g, '');
+  let ipdiv = document.getElementById("ipaddress");
+  let ip = ipdiv.textContent.replace( /\s+/g, '');
 
-  var m = new Date();
-  var datesystem =
+  let m = new Date();
+  let datesystem =
   m.getUTCFullYear() + "-" +
   ("0" + (m.getUTCMonth()+1)).slice(-2) + "-" +
   ("0" + m.getUTCDate()).slice(-2) + "-" +
@@ -12,21 +12,21 @@ $('#savesurgery').click(function(e) {
   ("0" + m.getUTCMinutes()).slice(-2) + ":" +
   ("0" + m.getUTCSeconds()).slice(-2);
 
-  var emaildiv = document.getElementById("email");
-  var email = emaildiv.textContent.replace( /\s+/g, '');
-  var userdiv = document.getElementById("username");
-  var username = userdiv.textContent.replace( /\s+/g, '');
-  var rolesdiv = document.getElementById("roles");
-  var roles = rolesdiv.textContent;
-  var patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
-  var date = document.getElementById("surgerydate").value;
-  var location = document.getElementById("surgerylocation").value;
-  var type = document.getElementById("surgery").value;
-  var site = document.getElementById("surgerybodysite").value;
-  var intent = $("input[name='treatment_intent_surgery']:checked").val();
-  var comment = document.getElementById("surgerycom").value;
-  var trackspace = datesystem+"_"+ip+"_"+email;
-  var tracking = trackspace.replace( /\s+/g, '');
+  let emaildiv = document.getElementById("email");
+  let email = emaildiv.textContent.replace( /\s+/g, '');
+  let userdiv = document.getElementById("username");
+  let username = userdiv.textContent.replace( /\s+/g, '');
+  let rolesdiv = document.getElementById("roles");
+  let roles = rolesdiv.textContent;
+  let patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
+  let date = document.getElementById("surgerydate").value;
+  let location = document.getElementById("surgerylocation").value;
+  let type = document.getElementById("surgery").value;
+  let site = document.getElementById("surgerybodysite").value;
+  let intent = $("input[name='treatment_intent_surgery']:checked").val();
+  let comment = document.getElementById("surgerycom").value;
+  let trackspace = datesystem+"_"+ip+"_"+email;
+  let tracking = trackspace.replace( /\s+/g, '');
 
   if(patientid !="" && date !="" && location !="" && type !="" && site !="" && intent != null){
     $.ajax({
@@ -49,7 +49,6 @@ $('#savesurgery').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Surgery saved!",
@@ -57,7 +56,7 @@ $('#savesurgery').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  window.open("index.php","_self");
+                  load_surgery($('#treatmentidsource').val());
               }, 1000);
           });
         } else {

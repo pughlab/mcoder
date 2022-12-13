@@ -1,10 +1,10 @@
 // Save a patient
 $('#savepatient').click(function(e) {
-  var ipdiv = document.getElementById("ipaddress");
-  var ip = ipdiv.textContent.replace( /\s+/g, '');
+  let ipdiv = document.getElementById("ipaddress");
+  let ip = ipdiv.textContent.replace( /\s+/g, '');
 
-  var m = new Date();
-  var datesystem =
+  let m = new Date();
+  let datesystem =
   m.getUTCFullYear() + "-" +
   ("0" + (m.getUTCMonth()+1)).slice(-2) + "-" +
   ("0" + m.getUTCDate()).slice(-2) + "-" +
@@ -12,23 +12,23 @@ $('#savepatient').click(function(e) {
   ("0" + m.getUTCMinutes()).slice(-2) + ":" +
   ("0" + m.getUTCSeconds()).slice(-2);
 
-  var emaildiv = document.getElementById("email");
-  var email = emaildiv.textContent.replace( /\s+/g, '');
-  var userdiv = document.getElementById("username");
-  var username = userdiv.textContent.replace( /\s+/g, '');
-  var rolesdiv = document.getElementById("roles");
-  var roles = rolesdiv.textContent;
-  var patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
-  var birth = document.getElementById("birthday").value;
-  var gender = $("input[name='gender']:checked").val();
-  var zip = document.getElementById("zip").value;
-  var institution = $("#institution :selected").text();
-  var study = $("input[name='study']:checked").val();
-  var family = document.getElementById("family").value;
-  var trackspace = datesystem+"_"+ip+"_"+email;
-  var tracking = trackspace.replace( /\s+/g, '');
+  let emaildiv = document.getElementById("email");
+  let email = emaildiv.textContent.replace( /\s+/g, '');
+  let userdiv = document.getElementById("username");
+  let username = userdiv.textContent.replace( /\s+/g, '');
+  let rolesdiv = document.getElementById("roles");
+  let roles = rolesdiv.textContent;
+  let patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
+  let birth = document.getElementById("birthday").value;
+  let gender = $("input[name='gender']:checked").val();
+  let zip = document.getElementById("zip").value;
+  let institution = $("#institution :selected").text();
+  let study = $("input[name='study']:checked").val();
+  let family = document.getElementById("family").value;
+  let trackspace = datesystem+"_"+ip+"_"+email;
+  let tracking = trackspace.replace( /\s+/g, '');
 
-  var race = "";
+  let race = "";
   if ($("input[name='race']:checked").val() != "Other") {
     race = $("input[name='race']:checked").val();
   }
@@ -58,10 +58,6 @@ $('#savepatient').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          // swal("Patient saved!", "You can continue with the form!", "success");
-          // if (!swal.isOpened()) {
-          //   window.location.reload();
-          // }
 
           setTimeout(function() {
               swal({
@@ -70,7 +66,7 @@ $('#savepatient').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  window.open("index.php","_self");
+                  load_patient($('#patientidsource').val());
               }, 1000);
           });
 

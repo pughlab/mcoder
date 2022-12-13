@@ -1,15 +1,15 @@
 <?php
-include('../configuration/db.php');
-include('../configuration/mcode.php');
-include('../configuration/key.php');
+	include('../configuration/db.php');
+	include('../configuration/mcode.php');
+	include('../configuration/key.php');
 
-// Ip address of the user
-$ip=$_POST['ip'];
-$datesystem=$_POST['datesystem'];
-$email=$_POST['email'];
-$username=$_POST['username'];
-$roles=$_POST['roles'];
-$tracking=$_POST['tracking'];
+	// Ip address of the user
+	$ip=$_POST['ip'];
+	$datesystem=$_POST['datesystem'];
+	$email=$_POST['email'];
+	$username=$_POST['username'];
+	$roles=$_POST['roles'];
+	$tracking=$_POST['tracking'];
 
 	$id=$_POST['id'];
 	$date=$_POST['date'];
@@ -22,12 +22,10 @@ $tracking=$_POST['tracking'];
 
 	// initialization vector
 	$iv_query= mysqli_fetch_assoc(mysqli_query($connect, "select riv from norm"));
-  $iv=$iv_query['riv'];
+    $iv=$iv_query['riv'];
 
 	// ID encrypted
-	//$enc_id=openssl_encrypt($id, $cipher, $encryption_key, 0, $iv);
-  //$enc_id="0x".bin2hex(openssl_encrypt($id, $cipher, $encryption_key, 0, $iv));
-  $enc_id="0x".bin2hex(openssl_encrypt($id, $cipher, $encryption_key, 0, $iv));
+    $enc_id="0x".bin2hex(openssl_encrypt($id, $cipher, $encryption_key, 0, $iv));
 
 	mysqli_close($connect);
 

@@ -12,30 +12,40 @@ $iv_query= mysqli_fetch_assoc(mysqli_query($connect, "select riv from norm"));
 $iv=$iv_query['riv'];
 mysqli_close($connect);
 // User roles
-$roles=$_POST["roles"];
-
+$roles=rtrim(trim($_POST["roles"]), ",");
+$hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 $output = '';
-if(isset($_POST["query"]))
-{
+if (isset($_POST["query"])) {
  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
  // ID encrypted
  $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
  $query = "
-  SELECT HEX(Variant.id), Variant.date, Variant.test, Variant.gene, Variant.cdna, Variant.protein, Variant.variantid, Variant.varianthgvs, Variant.interpretation, Variant.source, Variant.comment FROM Variant, Patient
-  WHERE Variant.id = {$enc_search} AND Variant.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0
+  SELECT
+    DISTINCT HEX(Variant.id),
+    Variant.date,
+    Variant.test,
+    Variant.gene,
+    Variant.cdna,
+    Variant.protein,
+    Variant.variantid,
+    Variant.varianthgvs,
+    Variant.interpretation,
+    Variant.source,
+    Variant.comment
+  FROM Variant
+  JOIN Patient ON Variant.id = Patient.id
+  WHERE Variant.id = {$enc_search}
+  AND FIND_IN_SET(Patient.study, '".$roles."') > 0
  ";
-}
-else
-{
+} else {
  $query = "
   SELECT * FROM Variant, Patient WHERE Variant.id LIKE '%ZZZZZZZZZZZZZZ%' AND Variant.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0 ORDER BY Patient.id
  ";
 }
 $result = mysqli_query($conn, $query);
-if(mysqli_num_rows($result) > 0)
-{
+if (mysqli_num_rows($result) > 0) {
  ?>
    <head>
       <meta charset="UTF-8">
@@ -75,7 +85,31 @@ $('#variantdata tfoot th').each( function () {
           var table = $('#variantdata').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+              'copy', {
+                extend: 'csv',
+                filename: '<?php echo $search; ?>_variant',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
+                extend: 'excel',
+                filename: '<?php echo $search; ?>_variant',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
+                extend: 'pdf',
+                filename: '<?php echo $search; ?>_variant',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, 'print'
+            ],
+            columnDefs: [
+              {
+                visible: false,
+                targets: 10
+              }
             ],
             "scrollX": true,
         initComplete: function () {
@@ -95,6 +129,11 @@ $('#variantdata tfoot th').each( function () {
     });
 
 
+    <?php if (!$hasAdminRole) { ?>
+      for (let i = 0; i < 5; i++) {
+        table.button(i).enable(false);
+      }
+    <?php } ?>
 
           $('#variantdata tbody')
               .on( 'mouseenter', 'td', function () {
@@ -104,11 +143,50 @@ $('#variantdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#variantdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            cellData = {
+              'date': cells[1].innerText,
+              'test': cells[2].innerText,
+              'gene': cells[3].innerText,
+              'cdna': cells[4].innerText,
+              'protein': cells[5].innerText,
+              'mutationid': cells[6].innerText,
+              'mutationhgvs': cells[7].innerText,
+              'interpretation': cells[8].innerText,
+              'source': cells[9].innerText,
+              'comment': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'variant'
+            };
+            $('#variantdate').val(cellData['date']);
+            $('#testvariants').val(cellData['test']);
+            $('#idgenevariant').val(cellData['gene']);
+            $('#cdnavariant').val(cellData['cdna']);
+            $('#proteinvariant').val(cellData['protein']);
+            $('#idhgvsvariant').val(cellData['mutationid']);
+            $('#hgvsvariant').val(cellData['mutationhgvs']);
+            for (let interpretation of $('input[name="mutinterpvar"]')) {
+              let label = $(`label[for="${$(interpretation).attr('id')}"]`);
+              if($(label).text() === cellData['interpretation']) {
+                $(interpretation).prop('checked', true);
+              } else {
+                $(interpretation).prop('checked', false);
+              }
+            }
+            for (let source of $('input[name="gen_ori"]')) {
+              let label = $(`label[for="${$(source).attr('id')}"]`);
+              if ($(label).text() === cellData['source']) {
+                $(source).prop('checked', true);
+              } else {
+                $(source).prop('checked', false);
+              }
+            }
+            $('#variantcom').val(cellData['comment']);
+          });
 
       } );
 
-    	</script>
+      </script>
 
       <style>
       td.highlight {
@@ -119,34 +197,35 @@ $('#variantdata tfoot th').each( function () {
     </head>
 
     <body>
-
+    <span style="color:#143de4;text-align:center;">
+      <em class="glyphicon glyphicon-info-sign"></em>&nbsp;
+      <strong>Genetic variants have been registered for this patient:</strong>
+    </span>
+    <br><br>
+    <table id="variantdata" class="row-border hover order-column" style="width:100%">
+      <thead>
+        <tr>
+          <th>Patient Identifier</th>
+          <th>Date</th>
+          <th>Test name</th>
+          <th>Gene</th>
+          <th>cDNA</th>
+          <th>Protein</th>
+          <th>Variant ID</th>
+          <th>Variant NM</th>
+          <th>Variant interpretation</th>
+          <th>Genomic source class</th>
+          <th>Comments</th>
+          <th class="no-export">Comments</th>
+          <?php if ($hasAdminRole) { ?><th class="no-export">Delete</th><?php } ?>
+        </tr>
+      </thead>
+      <tbody>
 <?php
 
-  echo '<span style="color:#143de4;text-align:center;"><i class="glyphicon glyphicon-info-sign"></i><b> Genetic variants have been registered for this patient:</b></span>';
- $output .= '
- <br><br>
-<table id="variantdata" class="row-border hover order-column" style="width:100%">
-<thead>
-<tr>
-<th>Patient Identifier</th>
-<th>Date</th>
-<th>Test name</th>
-<th>Gene</th>
-<th>cDNA</th>
-<th>Protein</th>
-<th>Variant ID</th>
-<th>Variant NM</th>
-<th>Variant interpretation</th>
-<th>Genomic source class</th>
-<th>Comments</th>
-</tr>
-</thead>
-  <tbody>
-
- ';
- $nb = 1;
- while($row = mysqli_fetch_array($result))
- {
+ $output .= '';
+ $rowNumber = 1;
+ while ($row = mysqli_fetch_array($result)) {
    $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
 
   $output .= '
@@ -161,12 +240,24 @@ $('#variantdata tfoot th').each( function () {
    <td>'.$row[7].'</td>
    <td>'.$row[8].'</td>
    <td>'.$row[9].'</td>
-   <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_variant_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-  </tr>
-  ';
+   <td>'.$row[10].'</td>
+   <td align="center">
+    <a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_variant_'.$rowNumber.'" >
+      <i class="glyphicon glyphicon-zoom-in"></i>
+    </a>
+   </td>
+   <input type="hidden" name="rowComments' . $rowNumber . '" value="' . $row[10]. '" />';
+   if ($hasAdminRole) {
+    $output .= '<td align="center">
+        <a href="#" role="button" class="btn btn-danger" id="delete_variant_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_variant_' . $rowNumber . '">
+          <em class="glyphicon glyphicon-trash"></em>
+        </a>
+      </td>';
+   }
+  $output .= '</tr>';
   ?>
 
-  <div id="comment_variant_<?php echo $nb;?>" class="modal fade" role="dialog">
+  <div id="comment_variant_<?php echo $rowNumber;?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -185,9 +276,33 @@ $('#variantdata tfoot th').each( function () {
 
   </div>
 </div>
+<?php if ($hasAdminRole) {?>
+<div id="delete_variant_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Delete genetic variant</h4>
+      </div>
+      <div class="modal-body">
+        <span>Are you sure? This operation cannot be undone.</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          onclick="deleteVariant(document.getElementById('delete_variant_<?php echo $rowNumber; ?>_btn'))">
+            Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <?php
-  $nb++;
+  }
+  $rowNumber++;
  }
  $output .= '
  </tbody>
@@ -204,13 +319,15 @@ $('#variantdata tfoot th').each( function () {
  <th>Variant interpretation</th>
  <th>Genomic source class</th>
  <th>Comments</th>
- </tr>
+ <th class="no-export">Comments</th>';
+ if ($hasAdminRole) {
+  $output .= '<th class="no-export">Delete</th>';
+ }
+ $output .= '</tr>
  </tfoot>
 </table>';
  echo $output;
-}
-else if(isset($_POST["query"]))
-{
+} elseif (isset($_POST["query"])) {
   ?>
   <body>
   <?php

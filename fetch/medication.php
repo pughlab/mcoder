@@ -13,30 +13,36 @@ $iv=$iv_query['riv'];
 mysqli_close($connect);
 
 // User roles
-$roles=$_POST["roles"];
-
+$roles=rtrim(trim($_POST["roles"]), ",");
+$hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 $output = '';
-if(isset($_POST["query"]))
-{
+if (isset($_POST["query"])) {
  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
  // ID encrypted
  $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
  $query = "
-  SELECT HEX(Medication.id), Medication.medication, Medication.start, Medication.stop, Medication.reason, Medication.intent, Medication.comment FROM Medication, Patient
-  WHERE Medication.id = {$enc_search} AND Medication.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0
+  SELECT
+    DISTINCT HEX(Medication.id),
+    Medication.medication,
+    Medication.start,
+    Medication.stop,
+    Medication.reason,
+    Medication.intent,
+    Medication.comment
+  FROM Medication
+  JOIN Patient ON Medication.id = Patient.id
+  WHERE Medication.id = {$enc_search}
+  AND FIND_IN_SET(Patient.study, '".$roles."') > 0
  ";
-}
-else
-{
+} else {
  $query = "
   SELECT * FROM Medication, Patient WHERE Medication.id LIKE '%ZZZZZZZZZZZZZZ%' AND Medication.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0 ORDER BY Patient.id
  ";
 }
 $result = mysqli_query($conn, $query);
-if(mysqli_num_rows($result) > 0)
-{
+if (mysqli_num_rows($result) > 0) {
   ?>
    <head>
       <meta charset="UTF-8">
@@ -68,7 +74,31 @@ $('#medicationdata tfoot th').each( function () {
           var table = $('#medicationdata').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+              'copy', {
+                extend: 'csv',
+                filename: '<?php echo $search; ?>_medication',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
+                extend: 'excel',
+                filename: '<?php echo $search; ?>_medication',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, {
+                extend: 'pdf',
+                filename: '<?php echo $search; ?>_medication',
+                exportOptions: {
+                  columns: ':not(.no-export)'
+                }
+              }, 'print'
+            ],
+            columnDefs: [
+              {
+                visible: false,
+                targets: 5
+              }
             ],
         initComplete: function () {
             // Apply the search
@@ -86,6 +116,11 @@ $('#medicationdata tfoot th').each( function () {
         }
     });
 
+    <?php if (!$hasAdminRole) { ?>
+      for (let i = 0; i < 5; i++) {
+        table.button(i).enable(false);
+      }
+    <?php } ?>
 
 
           $('#medicationdata tbody')
@@ -96,7 +131,38 @@ $('#medicationdata tfoot th').each( function () {
                   $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
               } );
 
-
+          $('#medicationdata tbody tr').on('click', function() {
+            let cells = $(this).children('td');
+            let periodStart = cells[2].innerText.split(' - ')[0].trim();
+            let periodEnd = cells[2].innerText.split(' - ')[1].trim();
+            cellData = {
+              'medication': cells[1].innerText,
+              'start': periodStart,
+              'stop': periodEnd,
+              'reason': cells[3].innerText,
+              'intent': cells[4].innerText,
+              'comment': $(this).children('input[name^=rowComments]').first().val(),
+              'recordtype': 'medication'
+            };
+            $('#medication').val(cellData['medication']);
+            $('#medicationstart').val(periodStart);
+            $('#medicationstop').val(periodEnd);
+            $('button[data-id="termination"]').children().first().children().first().children().first().html(cellData['termination']);
+            for(let option of $('#termination option')) {
+              if($(option).text() === cellData['termination']) {
+                $(option).attr('selected', 'selected');
+                break;
+              }
+            }
+            for (let intent of $('input[name="treatment_intent_medication"]')) {
+              if ($(intent).val() === cellData['intent']) {
+                $(intent).prop('checked', true);
+              } else {
+                $(intent).prop('checked', false);
+              }
+            }
+            $('#medicationcom').val(cellData['comment']);
+          });
 
       } );
 
@@ -111,29 +177,30 @@ $('#medicationdata tfoot th').each( function () {
     </head>
 
     <body>
-
+      <span style="color:#143de4;text-align:center;">
+        <em class="glyphicon glyphicon-info-sign"></em>&nbsp;
+        <strong> Medications have been registered for this patient:</strong>
+      </span>
+      <br><br>
+      <table id="medicationdata" class="row-border hover order-column" style="width:100%">
+        <thead>
+          <tr>
+            <th>Patient Identifier</th>
+            <th>Medication</th>
+            <th>Period</th>
+            <th>Termination reason</th>
+            <th>Treatment intent</th>
+            <th>Comments</th>
+            <th class="no-export">Comments</th>
+            <?php if ($hasAdminRole) { ?><th class="no-export">Delete</th><?php } ?>
+          </tr>
+        </thead>
+        <tbody>
 <?php
 
-  echo '<span style="color:#143de4;text-align:center;"><i class="glyphicon glyphicon-info-sign"></i><b> Medications have been registered for this patient:</b></span>';
- $output .= '
- <br><br>
-<table id="medicationdata" class="row-border hover order-column" style="width:100%">
-<thead>
-<tr>
-<th>Patient Identifier</th>
-<th>Medication</th>
-<th>Period</th>
-<th>Termination reason</th>
-<th>Treatment intent</th>
-<th>Comments</th>
-</tr>
-</thead>
-  <tbody>
-
- ';
- $nb = 1;
- while($row = mysqli_fetch_array($result))
- {
+ $output .= '';
+ $rowNumber = 1;
+ while ($row = mysqli_fetch_array($result)) {
 
     $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
 
@@ -144,12 +211,20 @@ $('#medicationdata tfoot th').each( function () {
    <td>'.$row[2].' - '.$row[3].'</td>
    <td>'.$row[4].'</td>
    <td>'.$row[5].'</td>
-   <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_med_'.$nb.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
-  </tr>
-  ';
+   <td>'.$row[6].'</td>
+   <td align="center"><a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_med_'.$rowNumber.'" > <i class="glyphicon glyphicon-zoom-in"></i> </a></td>
+   <input type="hidden" name="rowComments'. $rowNumber .'" value="' . $row[6]. '"/>';
+   if ($hasAdminRole) {
+   $output .= '<td align="center">
+      <a href="#" role="button" class="btn btn-danger" id="delete_med_'. $rowNumber .'_btn" data-toggle="modal" data-target="#delete_med_' . $rowNumber . '">
+        <em class="glyphicon glyphicon-trash"></em>
+      </a>
+    </td>';
+   }
+  $output .= '</tr>';
   ?>
 
-  <div id="comment_med_<?php echo $nb;?>" class="modal fade" role="dialog">
+  <div id="comment_med_<?php echo $rowNumber;?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -168,9 +243,33 @@ $('#medicationdata tfoot th').each( function () {
 
   </div>
 </div>
+<?php if ($hasAdminRole) { ?>
+<div id="delete_med_<?php echo $rowNumber; ?>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Delete medication</h4>
+      </div>
+      <div class="modal-body">
+        <span>Are you sure? This operation cannot be undone.</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          onclick="deleteMedication(document.getElementById('delete_med_<?php echo $rowNumber; ?>_btn'))">
+            Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <?php
-  $nb++;
+  }
+  $rowNumber++;
  }
  $output .= '
  </tbody>
@@ -182,18 +281,22 @@ $('#medicationdata tfoot th').each( function () {
  <th>Termination reason</th>
  <th>Treatment intent</th>
  <th>Comments</th>
- </tr>
+ <th class="no-export">Comments</th>';
+ if ($hasAdminRole) {
+  $output .= '<th class="no-export">Delete</th>';
+ }
+ $output .= '</tr>
  </tfoot>
 </table>';
  echo $output;
-}
-else if(isset($_POST["query"]))
-{
+} elseif (isset($_POST["query"])) {
   ?>
   <body>
-  <?php
- echo '<span style="color:#349A0A;text-align:center;"><i class="glyphicon glyphicon-ok"></i><b> No medications have been registered yet for this patient.</b></span>';
-}
+    <span style="color:#349A0A;text-align:center;">
+      <em &nbsp;class="glyphicon glyphicon-ok"></em>&nbsp;
+      <strong> No medications have been registered yet for this patient.</strong>
+    </span>
+  <?php }
 
 mysqli_close($conn);
 

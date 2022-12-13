@@ -1,10 +1,10 @@
 // Save a patient
 $('#savevariant').click(function(e) {
-  var ipdiv = document.getElementById("ipaddress");
-  var ip = ipdiv.textContent.replace( /\s+/g, '');
+  let ipdiv = document.getElementById("ipaddress");
+  let ip = ipdiv.textContent.replace( /\s+/g, '');
 
-  var m = new Date();
-  var datesystem =
+  let m = new Date();
+  let datesystem =
   m.getUTCFullYear() + "-" +
   ("0" + (m.getUTCMonth()+1)).slice(-2) + "-" +
   ("0" + m.getUTCDate()).slice(-2) + "-" +
@@ -12,25 +12,25 @@ $('#savevariant').click(function(e) {
   ("0" + m.getUTCMinutes()).slice(-2) + ":" +
   ("0" + m.getUTCSeconds()).slice(-2);
 
-  var emaildiv = document.getElementById("email");
-  var email = emaildiv.textContent.replace( /\s+/g, '');
-  var userdiv = document.getElementById("username");
-  var username = userdiv.textContent.replace( /\s+/g, '');
-  var rolesdiv = document.getElementById("roles");
-  var roles = rolesdiv.textContent;
-  var patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
-  var date = document.getElementById("variantdate").value;
-  var test = document.getElementById("testvariants").value;
-  var gene = document.getElementById("idgenevariant").value;
-  var cdna = document.getElementById("cdnavariant").value;
-  var protein = document.getElementById("proteinvariant").value;
-  var mutationid = document.getElementById("idhgvsvariant").value;
-  var mutationhgvs = document.getElementById("hgvsvariant").value;
-  var interpretation= $("input[name='mutinterpvar']:checked + label").text();
-  var source= $("input[name='gen_ori']:checked + label").text();
-  var comment = document.getElementById("variantcom").value;
-  var trackspace = datesystem+"_"+ip+"_"+email;
-  var tracking = trackspace.replace( /\s+/g, '');
+  let emaildiv = document.getElementById("email");
+  let email = emaildiv.textContent.replace( /\s+/g, '');
+  let userdiv = document.getElementById("username");
+  let username = userdiv.textContent.replace( /\s+/g, '');
+  let rolesdiv = document.getElementById("roles");
+  let roles = rolesdiv.textContent;
+  let patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
+  let date = document.getElementById("variantdate").value;
+  let test = document.getElementById("testvariants").value;
+  let gene = document.getElementById("idgenevariant").value;
+  let cdna = document.getElementById("cdnavariant").value;
+  let protein = document.getElementById("proteinvariant").value;
+  let mutationid = document.getElementById("idhgvsvariant").value;
+  let mutationhgvs = document.getElementById("hgvsvariant").value;
+  let interpretation= $("input[name='mutinterpvar']:checked + label").text();
+  let source= $("input[name='gen_ori']:checked + label").text();
+  let comment = document.getElementById("variantcom").value;
+  let trackspace = datesystem+"_"+ip+"_"+email;
+  let tracking = trackspace.replace( /\s+/g, '');
 
   if(patientid !="" && date !="" && test !="" && gene !="" && interpretation != null && source != null){
     $.ajax({
@@ -57,7 +57,6 @@ $('#savevariant').click(function(e) {
       },
       success:function(data){
         if(data=="Success") {
-          //swal("Clinical evaluation saved!", "You can continue with the form!", "success");
           setTimeout(function() {
               swal({
                   title: "Genetic variant saved!",
@@ -65,7 +64,7 @@ $('#savevariant').click(function(e) {
                   type: "success",
                   confirmButtonText: "Close"
               }, function() {
-                  window.open("index.php","_self");
+                  load_variants($('#genomicidsource').val());
               }, 1000);
           });
         } else {

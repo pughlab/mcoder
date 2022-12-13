@@ -1,9 +1,9 @@
 <?php
 //fetch.php
 include '../configuration/mcode.php';
-$request = mysqli_real_escape_string($connect, $_POST["query"]);
+$request = strtoupper(mysqli_real_escape_string($connect, $_POST["query"]));
 $query = "
- SELECT * FROM gene WHERE id LIKE '%".$request."%' LIMIT 15
+ SELECT * FROM gene WHERE UPPER(id) LIKE '%".$request."%' LIMIT 15
 ";
 
 $result = mysqli_query($connect, $query);
