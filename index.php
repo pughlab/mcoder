@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
  ob_start();
  require 'vendor/autoload.php';
@@ -85,7 +86,7 @@
 
         ?>
 
-        <!DOCTYPE html>
+        
         <html lang="en" >
            <head>
               <meta charset="UTF-8">
@@ -3101,7 +3102,6 @@
               <script src="update/procedure.js"></script>
               <script src="update/lesion.js"></script>
 
-              <script src="delete/patient.js"></script>
               <script src="delete/comorbid.js"></script>
               <script src="delete/status.js"></script>
               <script src="delete/cancer.js"></script>
