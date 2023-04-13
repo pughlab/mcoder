@@ -2,9 +2,9 @@
 <html lang="en" >
 
 <?php
-include('../configuration/db.php');
-include('../configuration/mcode.php');
-include('../configuration/key.php');
+include_once('../configuration/db.php');
+include_once('../configuration/mcode.php');
+include_once('../configuration/key.php');
 
 //Encryption
 $encryption_key = hex2bin($key);
@@ -21,27 +21,36 @@ if (isset($_POST["query"])) {
  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
  // ID encrypted
- $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
+ $enc_search = bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
- $query = "
-  SELECT
-    HEX(Comorbid.id),
-    Comorbid.date,
-    Comorbid.code,
-    Comorbid.status,
-    Comorbid.comment
-  FROM Comorbid
-  JOIN Patient on Comorbid.id = Patient.id
-  WHERE Comorbid.id LIKE {$enc_search}
-  AND FIND_IN_SET(Patient.study, '".$roles."') > 0
- ";
+  $query = "
+    SELECT
+      HEX(Comorbid.id),
+      Comorbid.date,
+      Comorbid.code,
+      Comorbid.status,
+      Comorbid.comment
+    FROM Comorbid
+    JOIN Patient on Comorbid.id = Patient.id
+    WHERE Comorbid.id = UNHEX(?)
+    AND FIND_IN_SET(Patient.study, ?) > 0
+  ";
+  $stmt = $clinical_data_pdo->prepare($query);
+  $stmt->bindParam(1, $enc_search, PDO::PARAM_STR);
+  $stmt->bindParam(2, $roles);
 } else {
- $query = "
-  SELECT * FROM Comorbid, Patient WHERE Comorbid.id LIKE '%ZZZZZZZZZZZZZZ%' AND Comorbid.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0 ORDER BY Patient.id
- ";
+  $query = "
+  SELECT * FROM Comorbid, Patient
+  WHERE Comorbid.id LIKE '%ZZZZZZZZZZZZZZ%'
+  AND Comorbid.id = Patient.id
+  AND INSTR(?, Patient.study) > 0
+  ORDER BY Patient.id
+  ";
+  $stmt = $clinical_data_pdo->prepare($query);
+  $stmt->bindParam(1, $roles);
 }
-$result = mysqli_query($conn, $query);
-if(mysqli_num_rows($result) > 0) {
+$stmt->execute();
+if ($stmt->rowCount() > 0) {
   ?>
    <head>
       <meta charset="UTF-8">
@@ -188,7 +197,7 @@ $('#comorbiddata tfoot th').each( function () {
 
  $output .= '';
  $rowNumber = 1;
- while ($row = mysqli_fetch_array($result)) {
+ while ($row = $stmt->fetch()) {
    $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
 
   $output .= '
@@ -283,6 +292,7 @@ $('#comorbiddata tfoot th').each( function () {
 }
 
 mysqli_close($conn);
+$clinical_data_pdo = $mcode_db_pdo = null;
 ?>
 
 

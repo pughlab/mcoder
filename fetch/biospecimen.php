@@ -21,32 +21,41 @@ if (isset($_POST["query"])) {
   $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
   // ID encrypted
-  $enc_search = "0x" . bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
+  $enc_search = bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
   $query = "
-  SELECT DISTINCT
-    HEX(Biospecimens.id),
-    Biospecimens.date,
-    Biospecimens.type,
-    Biospecimens.cellularity,
-    Biospecimens.collection,
-    Biospecimens.storage,
-    Biospecimens.bankingid,
-    Biospecimens.paired,
-    Biospecimens.imaging,
-    Biospecimens.comment
-  FROM Biospecimens
-  JOIN Patient ON Biospecimens.id = Patient.id
-  WHERE Biospecimens.id = {$enc_search}
-  AND FIND_IN_SET(Patient.study, '" . $roles . "') > 0
+    SELECT DISTINCT
+      HEX(Biospecimens.id),
+      Biospecimens.date,
+      Biospecimens.type,
+      Biospecimens.cellularity,
+      Biospecimens.collection,
+      Biospecimens.storage,
+      Biospecimens.bankingid,
+      Biospecimens.paired,
+      Biospecimens.imaging,
+      Biospecimens.comment
+    FROM Biospecimens
+    JOIN Patient ON Biospecimens.id = Patient.id
+    WHERE Biospecimens.id = UNHEX(?)
+    AND FIND_IN_SET(Patient.study, ?) > 0
   ";
+  $stmt = $clinical_data_pdo->prepare($query);
+  $stmt->bindParam(1, $enc_search, PDO::PARAM_STR);
+  $stmt->bindParam(2, $roles);
 } else {
-  $query = "
-  SELECT * FROM Biospecimens, Patient WHERE Biospecimens.id LIKE '%ZZZZZZZZZZZZZZ%' AND Biospecimens.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0 ORDER BY Patient.id
- ";
+    $query = "
+      SELECT * FROM Biospecimens, Patient
+      WHERE Biospecimens.id LIKE '%ZZZZZZZZZZZZZZ%'
+      AND Biospecimens.id = Patient.id
+      AND INSTR(?, Patient.study) > 0
+      ORDER BY Patient.id
+    ";
+    $stmt = $clinical_data_pdo->prepare($query);
+    $stmt->bindParam(1, $roles);
 }
-$result = mysqli_query($conn, $query);
-if (mysqli_num_rows($result) > 0) {
+$stmt->execute();
+if ($stmt->rowCount() > 0) {
 ?>
 
   <head>
@@ -228,7 +237,7 @@ if (mysqli_num_rows($result) > 0) {
     <?php
       $output .= '';
       $rowNumber = 1;
-      while ($row = mysqli_fetch_array($result)) {
+      while ($row = $stmt->fetch()) {
         $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
 
         $output .= '
@@ -244,7 +253,12 @@ if (mysqli_num_rows($result) > 0) {
           <td>' . $row[8] . '</td>
           <td>' . $row[9] . '</td>
           <td align="center">
-            <a href="#" role="button" class="btn btn-info" data-toggle="modal" data-target="#comment_biosp_' . $rowNumber . '" >
+            <a
+              href="#" role="button"
+              class="btn btn-info"
+              data-toggle="modal"
+              data-target="#comment_biosp_' . $rowNumber . '"
+            >
               <i class="glyphicon glyphicon-zoom-in"></i>
             </a>
           </td>
@@ -340,10 +354,15 @@ if (mysqli_num_rows($result) > 0) {
     <body>
     <?php
 
-    echo '<span style="color:#349A0A;text-align:center;"><i class="glyphicon glyphicon-ok"></i><b> No biospecimens have been registered yet for this patient.</b></span>';
+    echo '
+      <span style="color:#349A0A;text-align:center;">
+        <i class="glyphicon glyphicon-ok"></i>
+        <b> No biospecimens have been registered yet for this patient.</b>
+      </span>';
   }
 
   mysqli_close($conn);
+  $clinical_data_pdo = $mcode_db_pdo = null;
 
     ?>
 

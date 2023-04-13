@@ -4,58 +4,88 @@ include('../configuration/db.php');
 include('../configuration/mcode.php');
 include('../configuration/key.php');
 
-$ip=$_POST['ip'];
-$datesystem=$_POST['datesystem'];
-$email=$_POST['email'];
-$username=$_POST['username'];
-$roles=$_POST['roles'];
-$tracking=$_POST['tracking'];
+$ip = $_POST['ip'];
+$datesystem = $_POST['datesystem'];
+$email = $_POST['email'];
+$username = $_POST['username'];
+$roles = $_POST['roles'];
+$tracking = $_POST['tracking'];
 
-$id=$_POST['id'];
-$date=$_POST['date'];
-$diagnosis=$_POST['diagnosis'];
-$mode=$_POST['mode'];
-$criteria=$_POST['criteria'];
-$severity=$_POST['severity'];
-$visibility=$_POST['visibility'];
-$age=$_POST['age'];
-$head=$_POST['head'];
-$comment=str_replace("'", "\'", $_POST['comment']);
+$id = htmlentities($_POST['id']);
+$date = htmlentities($_POST['date']);
+$diagnosis = htmlentities($_POST['diagnosis']);
+$mode = htmlentities($_POST['mode']);
+$criteria = htmlentities($_POST['criteria']);
+$severity = htmlentities($_POST['severity']);
+$visibility = htmlentities($_POST['visibility']);
+$age = htmlentities($_POST['age']);
+$head = htmlentities($_POST['head']);
+$comment = str_replace("'", "\'", htmlentities($_POST['comment']));
 
 $encryption_key = hex2bin($key);
 
-$iv_query= mysqli_fetch_assoc(mysqli_query($connect, "select riv from norm"));
-$iv=$iv_query['riv'];
-
-$enc_id="0x".bin2hex(openssl_encrypt($id, $cipher, $encryption_key, 0, $iv));
-
+$iv_query = mysqli_fetch_assoc(mysqli_query($connect, "select riv from norm"));
+$iv = $iv_query['riv'];
 mysqli_close($connect);
+
+$enc_id = bin2hex(openssl_encrypt($id, $cipher, $encryption_key, 0, $iv));
+
 
 $hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 
 if ($hasAdminRole) {
     $sql = "DELETE FROM `DiagnosisNF1`
         WHERE
-            `id` = $enc_id
-            AND `date` = '$date'
-            AND `diagnosis` = '$diagnosis'
-            AND `mode` = '$mode'
-            AND `criteria` = '$criteria'
-            AND `severity` = '$severity'
-            AND `visibility` = '$visibility'
-            AND `age` = '$age'
-            AND `circumference` = '$head'
-            AND `comment` = '$comment'";
+            `id` = UNHEX(?)
+            AND `date` = ?
+            AND `diagnosis` = ?
+            AND `mode` = ?
+            AND `criteria` = ?
+            AND `severity` = ?
+            AND `visibility` = ?
+            AND `age` = ?
+            AND `circumference` = ?
+            AND `comment` = ?";
+    $stmt = $clinical_data_pdo->prepare($sql);
+    $stmt->bindParam(1, $enc_id, PDO::PARAM_STR);
+    $stmt->bindParam(2, $date);
+    $stmt->bindParam(3, $diagnosis);
+    $stmt->bindParam(4, $mode);
+    $stmt->bindParam(5, $criteria);
+    $stmt->bindParam(6, $severity);
+    $stmt->bindParam(7, $visibility);
+    $stmt->bindParam(8, $age);
+    $stmt->bindParam(9, $head);
+    $stmt->bindParam(10, $comment);
+    $sql2 = "
+        INSERT INTO `tracking`(
+            `trackingid`,
+            `username`,
+            `email`,
+            `roles`,
+            `ip`,
+            `date`
+        )
+        VALUES (?, ?, ?, ?, ?, ?)
+    ";
+    $stmt2 = $clinical_data_pdo->prepare($sql2);
+    $stmt2->bindParam(1, $tracking);
+    $stmt2->bindParam(2, $username);
+    $stmt2->bindParam(3, $email);
+    $stmt2->bindParam(4, $roles);
+    $stmt2->bindParam(5, $ip);
+    $stmt2->bindParam(6, $datesystem);
 
-    $sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
-    VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";
+    $mainResult = $stmt->execute();
+    $trackingResult = $stmt2->execute();
 
-    if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
+    if ($mainResult && $trackingResult) {
         echo "Success";
     } else {
-        $error = mysqli_error($conn);
+        $error = !$mainResult ? $stmt->errorCode() : $stmt2->errorCode();
         echo "There was a problem while deleting the data. ";
-        echo "Please contact the admin of the site - Nadia Znassi. Your reference: ". $tracking .":". $error;
+        echo "Please contact the admin of the site - Nadia Znassi. Your reference: " . $tracking . ":" . $error;
     }
 }
 mysqli_close($conn);
+$clinical_data_pdo = $mcode_db_pdo = null;

@@ -21,7 +21,7 @@ if (isset($_POST["query"])) {
  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
  // ID encrypted
- $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
+ $enc_search=bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
  $query = "
   SELECT
@@ -32,16 +32,25 @@ if (isset($_POST["query"])) {
     ManifestationsNF1.comment
   FROM ManifestationsNF1
   JOIN Patient ON ManifestationsNF1.id = Patient.id
-  WHERE ManifestationsNF1.id = {$enc_search}
-  AND FIND_IN_SET(Patient.study, '".$roles."') > 0
+  WHERE ManifestationsNF1.id = UNHEX(?)
+  AND FIND_IN_SET(Patient.study, ?) > 0
  ";
+ $stmt = $clinical_data_pdo->prepare($query);
+  $stmt->bindParam(1, $enc_search, PDO::PARAM_STR);
+  $stmt->bindParam(2, $roles);
 } else {
  $query = "
-  SELECT * FROM ManifestationsNF1, Patient WHERE ManifestationsNF1.id LIKE '%ZZZZZZZZZZZZZZ%' AND ManifestationsNF1.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0 ORDER BY Patient.id
+  SELECT * FROM ManifestationsNF1, Patient
+  WHERE ManifestationsNF1.id LIKE '%ZZZZZZZZZZZZZZ%'
+  AND ManifestationsNF1.id = Patient.id
+  AND INSTR(?, Patient.study) > 0
+  ORDER BY Patient.id
  ";
+ $stmt = $clinical_data_pdo->prepare($query);
+  $stmt->bindParam(1, $roles);
 }
-$result = mysqli_query($conn, $query);
-if (mysqli_num_rows($result) > 0) {
+$stmt->execute();
+if ($stmt->rowCount() > 0) {
 ?>
    <head>
       <meta charset="UTF-8">
@@ -192,7 +201,7 @@ $('#nf1manifdata tfoot th').each( function () {
 
  $output .= '';
  $rowNumber = 1;
- while ($row = mysqli_fetch_array($result)) {
+ while ($row = $stmt->fetch()) {
    $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
 
   $output .= '
@@ -286,7 +295,7 @@ $('#nf1manifdata tfoot th').each( function () {
 }
 
 mysqli_close($conn);
-
+$clinical_data_pdo = $mcode_db_pdo = null;
 ?>
 
 
