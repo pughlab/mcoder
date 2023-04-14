@@ -35,7 +35,6 @@ mysqli_close($connect);
 $enc_id = bin2hex(openssl_encrypt($id, $cipher, $encryption_key, 0, $iv));
 
 
-//$checkID = mysqli_query($conn, "select * from Patient where id = $enc_id");
 $checkID = $clinical_data_pdo->prepare("select * from Patient where id = UNHEX(?)");
 $checkID->bindParam(1, $enc_id, PDO::PARAM_STR);
 $checkID->execute();

@@ -1,4 +1,5 @@
 <?php
+
 include('../configuration/db.php');
 include('../configuration/mcode.php');
 include('../configuration/key.php');
@@ -33,64 +34,72 @@ mysqli_close($connect);
 // ID encrypted
 $enc_id = bin2hex(openssl_encrypt($id, $cipher, $encryption_key, 0, $iv));
 
+$stmt = $clinical_data_pdo->prepare("SELECT COUNT(*) FROM Patient WHERE id = UNHEX(?)");
+$stmt->bindParam(1, $enc_id, PDO::PARAM_STR);
+$stmt->execute();
+$patientExists = $stmt->fetchColumn() != 0;
 
-$sql = "
-    INSERT INTO `DiagnosisNF1`(
-        `id`,
-        `date`,
-        `diagnosis`,
-        `mode`,
-        `criteria`,
-        `severity`,
-        `visibility`,
-        `age`,
-        `circumference`,
-        `comment`,
-        `tracking`
-    )
-    VALUES (UNHEX(?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-";
-$stmt = $clinical_data_pdo->prepare($sql);
-$stmt->bindParam(1, $enc_id);
-$stmt->bindParam(2, $date);
-$stmt->bindParam(3, $diagnosis);
-$stmt->bindParam(4, $mode);
-$stmt->bindParam(5, $criteria);
-$stmt->bindParam(6, $severity);
-$stmt->bindParam(7, $visibility);
-$stmt->bindParam(8, $age);
-$stmt->bindParam(9, $head);
-$stmt->bindParam(10, $comment);
-$stmt->bindParam(11, $tracking);
+if ($patientExists) {
+    $sql = "
+        INSERT INTO `DiagnosisNF1`(
+            `id`,
+            `date`,
+            `diagnosis`,
+            `mode`,
+            `criteria`,
+            `severity`,
+            `visibility`,
+            `age`,
+            `circumference`,
+            `comment`,
+            `tracking`
+        )
+        VALUES (UNHEX(?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ";
+    $stmt = $clinical_data_pdo->prepare($sql);
+    $stmt->bindParam(1, $enc_id);
+    $stmt->bindParam(2, $date);
+    $stmt->bindParam(3, $diagnosis);
+    $stmt->bindParam(4, $mode);
+    $stmt->bindParam(5, $criteria);
+    $stmt->bindParam(6, $severity);
+    $stmt->bindParam(7, $visibility);
+    $stmt->bindParam(8, $age);
+    $stmt->bindParam(9, $head);
+    $stmt->bindParam(10, $comment);
+    $stmt->bindParam(11, $tracking);
 
-$sql2 = "
-    INSERT INTO `tracking`(
-        `trackingid`,
-        `username`,
-        `email`,
-        `roles`,
-        `ip`,
-        `date`
-    )
-    VALUES (?, ?, ?, ?, ?, ?)
-";
-$stmt2 = $clinical_data_pdo->prepare($sql2);
-$stmt2->bindParam(1, $tracking);
-$stmt2->bindParam(2, $username);
-$stmt2->bindParam(3, $email);
-$stmt2->bindParam(4, $roles);
-$stmt2->bindParam(5, $ip);
-$stmt2->bindParam(6, $datesystem);
+    $sql2 = "
+        INSERT INTO `tracking`(
+            `trackingid`,
+            `username`,
+            `email`,
+            `roles`,
+            `ip`,
+            `date`
+        )
+        VALUES (?, ?, ?, ?, ?, ?)
+    ";
+    $stmt2 = $clinical_data_pdo->prepare($sql2);
+    $stmt2->bindParam(1, $tracking);
+    $stmt2->bindParam(2, $username);
+    $stmt2->bindParam(3, $email);
+    $stmt2->bindParam(4, $roles);
+    $stmt2->bindParam(5, $ip);
+    $stmt2->bindParam(6, $datesystem);
 
-$mainResult = $stmt->execute();
-$trackingResult = $stmt2->execute();
+    $mainResult = $stmt->execute();
+    $trackingResult = $stmt2->execute();
 
-if ($mainResult && $trackingResult) {
-    echo "Success";
+    if ($mainResult && $trackingResult) {
+        echo "Success";
+    } else {
+        $error = !$mainResult ? $stmt->errorCode() : $stmt2->errorCode();
+        echo "There was a problem while saving the data. ";
+        echo "Please contact the admin of the site - Nadia Znassi. Your reference: " . $tracking . ":" . $error;
+    }
 } else {
-    $error = !$mainResult ? $stmt->errorCode() : $stmt2->errorCode();
-    echo "There was a problem while saving the data. ";
-    echo "Please contact the admin of the site - Nadia Znassi. Your reference: " . $tracking . ":" . $error;
+    echo "This patient does not exist!";
 }
 
 

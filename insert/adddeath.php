@@ -32,7 +32,14 @@ $checkID = $clinical_data_pdo->prepare("select * from Death where id = UNHEX(?)"
 $checkID->bindParam(1, $enc_id, PDO::PARAM_STR);
 $checkID->execute();
 
-if ($checkID->rowCount() > 0) {
+$stmt = $clinical_data_pdo->prepare("SELECT COUNT(*) FROM Patient WHERE id = UNHEX(?)");
+$stmt->bindParam(1, $enc_id, PDO::PARAM_STR);
+$stmt->execute();
+$patientExists = $stmt->fetchColumn() != 0;
+
+if (!$patientExists) {
+    echo "This patient does not exist!";
+} elseif ($checkID->rowCount() > 0) {
     echo "The date of death has already been registered for this patient!";
 } else {
 
