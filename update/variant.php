@@ -12,6 +12,7 @@ $username = $_POST['username'];
 $roles = $_POST['roles'];
 $tracking = $_POST['tracking'];
 $oldData = $_POST['olddata'];
+$event = "Update";
 
 $id = htmlentities($_POST['id']);
 $date = htmlentities($_POST['date']);
@@ -87,13 +88,54 @@ $stmt2->bindParam(4, $roles);
 $stmt2->bindParam(5, $ip);
 $stmt2->bindParam(6, $datesystem);
 
+$sql3 = "
+    INSERT INTO `Variant_tracking`(
+        `id`,
+        `date`,
+        `test`,
+        `gene`,
+        `cdna`,
+        `protein`,
+        `variantid`,
+        `varianthgvs`,
+        `interpretation`,
+        `source`,
+        `comment`,
+        `tracking`,
+        `event`
+    )
+    VALUES (UNHEX(?),?,?,?,?,?,?,?,?,?,?,?,?)
+";
+$stmt3 = $clinical_data_pdo->prepare($sql3);
+$stmt3->bindParam(1, $enc_id, PDO::PARAM_STR);
+$stmt3->bindParam(2, $date);
+$stmt3->bindParam(3, $test);
+$stmt3->bindParam(4, $gene);
+$stmt3->bindParam(5, $cdna);
+$stmt3->bindParam(6, $protein);
+$stmt3->bindParam(7, $mutationid);
+$stmt3->bindParam(8, $mutationhgvs);
+$stmt3->bindParam(9, $interpretation);
+$stmt3->bindParam(10, $source);
+$stmt3->bindParam(11, $comment);
+$stmt3->bindParam(12, $tracking);
+$stmt3->bindParam(13, $event);
+
 $mainResult = $stmt->execute();
 $trackingResult = $stmt2->execute();
+$auditResult = $stmt3->execute();
 
-if ($mainResult && $trackingResult) {
+if ($mainResult && $trackingResult && $auditResult) {
     echo "Success";
 } else {
-    $error = !$mainResult ? $stmt->errorCode() : $stmt2->errorCode();
+    $error = null;
+    if (!$mainResult) {
+        $error = $stmt->errorCode();
+    } elseif (!$trackingResult) {
+        $error = $stmt2->errorCode();
+    } else {
+        $error = $stmt3->errorCode();
+    }
     echo "There was a problem while saving the data. ";
     echo "Please contact the admin of the site - Nadia Znassi. Your reference: " . $tracking . ":" . $error;
 }
