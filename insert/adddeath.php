@@ -11,7 +11,7 @@ $email = $_POST['email'];
 $username = $_POST['username'];
 $roles = $_POST['roles'];
 $tracking = $_POST['tracking'];
-$event = "Creation";
+$event = "Addition";
 
 $id = htmlentities($_POST['id']);
 $date = htmlentities($_POST['date']);
