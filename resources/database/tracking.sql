@@ -1,7 +1,7 @@
 -- Table structure for table `Biospecimens`
 --
 
-CREATE TABLE `Biospecimens_tracking` (
+CREATE TABLE IF NOT EXISTS `Biospecimens_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `type` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE `Biospecimens_tracking` (
 -- Table structure for table `CBC`
 --
 
-CREATE TABLE `CBC_tracking` (
+CREATE TABLE IF NOT EXISTS `CBC_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `type` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE `CBC_tracking` (
 -- Table structure for table `ClinicalCondition`
 --
 
-CREATE TABLE `ClinicalCondition_tracking` (
+CREATE TABLE IF NOT EXISTS `ClinicalCondition_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `ecog` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE `ClinicalCondition_tracking` (
 -- Table structure for table `CMP`
 --
 
-CREATE TABLE `CMP_tracking` (
+CREATE TABLE IF NOT EXISTS `CMP_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `type` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
@@ -70,7 +70,7 @@ CREATE TABLE `CMP_tracking` (
 -- Table structure for table `Comorbid`
 --
 
-CREATE TABLE `Comorbid_tracking` (
+CREATE TABLE IF NOT EXISTS `Comorbid_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `code` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
@@ -86,7 +86,7 @@ CREATE TABLE `Comorbid_tracking` (
 -- Table structure for table `Death`
 --
 
-CREATE TABLE `Death_tracking` (
+CREATE TABLE IF NOT EXISTS `Death_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE `Death_tracking` (
 -- Table structure for table `DiagnosisNF1`
 --
 
-CREATE TABLE `DiagnosisNF1_tracking` (
+CREATE TABLE IF NOT EXISTS `DiagnosisNF1_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `diagnosis` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL,
@@ -121,7 +121,7 @@ CREATE TABLE `DiagnosisNF1_tracking` (
 -- Table structure for table `Diseases`
 --
 
-CREATE TABLE `Diseases_tracking` (
+CREATE TABLE IF NOT EXISTS `Diseases_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `type` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
@@ -145,7 +145,7 @@ CREATE TABLE `Diseases_tracking` (
 -- Table structure for table `Lab`
 --
 
-CREATE TABLE `Lab_tracking` (
+CREATE TABLE IF NOT EXISTS `Lab_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `location` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -164,7 +164,7 @@ CREATE TABLE `Lab_tracking` (
 -- Table structure for table `LesionsNF1`
 --
 
-CREATE TABLE `LesionsNF1_tracking` (
+CREATE TABLE IF NOT EXISTS `LesionsNF1_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `type` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
@@ -182,7 +182,7 @@ CREATE TABLE `LesionsNF1_tracking` (
 -- Table structure for table `ManifestationsNF1`
 --
 
-CREATE TABLE `ManifestationsNF1_tracking` (
+CREATE TABLE IF NOT EXISTS `ManifestationsNF1_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `type` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
@@ -198,7 +198,7 @@ CREATE TABLE `ManifestationsNF1_tracking` (
 -- Table structure for table `Medication`
 --
 
-CREATE TABLE `Medication_tracking` (
+CREATE TABLE IF NOT EXISTS `Medication_tracking` (
   `id` varbinary(1000) NOT NULL,
   `medication` varchar(500) COLLATE utf8mb4_general_ci NOT NULL,
   `start` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
@@ -216,7 +216,7 @@ CREATE TABLE `Medication_tracking` (
 -- Table structure for table `Mutation`
 --
 
-CREATE TABLE `Mutation_tracking` (
+CREATE TABLE IF NOT EXISTS `Mutation_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `test` varchar(300) COLLATE utf8mb4_general_ci NOT NULL,
@@ -231,7 +231,7 @@ CREATE TABLE `Mutation_tracking` (
 -- Table structure for table `Outcome`
 --
 
-CREATE TABLE `Outcome_tracking` (
+CREATE TABLE IF NOT EXISTS `Outcome_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `status` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
@@ -246,7 +246,7 @@ CREATE TABLE `Outcome_tracking` (
 -- Table structure for table `Patient`
 --
 
-CREATE TABLE `Patient_tracking` (
+CREATE TABLE IF NOT EXISTS `Patient_tracking` (
   `id` varbinary(1000) NOT NULL,
   `birth` varbinary(10000) NOT NULL,
   `gender` varbinary(10000) NOT NULL,
@@ -265,7 +265,7 @@ CREATE TABLE `Patient_tracking` (
 -- Table structure for table `pedigree`
 --
 
-CREATE TABLE `pedigree_tracking` (
+CREATE TABLE IF NOT EXISTS `pedigree_tracking` (
   `id` varbinary(1000) NOT NULL,
   `dataset` longtext COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
@@ -278,7 +278,7 @@ CREATE TABLE `pedigree_tracking` (
 -- Table structure for table `ProcedureNf1`
 --
 
-CREATE TABLE `ProcedureNf1_tracking` (
+CREATE TABLE IF NOT EXISTS `ProcedureNf1_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `type` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
@@ -293,7 +293,7 @@ CREATE TABLE `ProcedureNf1_tracking` (
 -- Table structure for table `Radiation`
 --
 
-CREATE TABLE `Radiation_tracking` (
+CREATE TABLE IF NOT EXISTS `Radiation_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `location` varchar(500) COLLATE utf8mb4_general_ci NOT NULL,
@@ -311,7 +311,7 @@ CREATE TABLE `Radiation_tracking` (
 -- Table structure for table `Surgery`
 --
 
-CREATE TABLE `Surgery_tracking` (
+CREATE TABLE IF NOT EXISTS `Surgery_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `location` varchar(500) COLLATE utf8mb4_general_ci NOT NULL,
@@ -344,7 +344,7 @@ CREATE TABLE IF NOT EXISTS `tracking` (
 -- Table structure for table `Tumor`
 --
 
-CREATE TABLE `Tumor_tracking` (
+CREATE TABLE IF NOT EXISTS `Tumor_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `test` varchar(500) COLLATE utf8mb4_general_ci NOT NULL,
@@ -360,7 +360,7 @@ CREATE TABLE `Tumor_tracking` (
 -- Table structure for table `Variant`
 --
 
-CREATE TABLE `Variant_tracking` (
+CREATE TABLE IF NOT EXISTS `Variant_tracking` (
   `id` varbinary(1000) NOT NULL,
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `test` varchar(300) COLLATE utf8mb4_general_ci NOT NULL,
@@ -375,6 +375,21 @@ CREATE TABLE `Variant_tracking` (
   `event` varbinary(20) NOT NULL,
   `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Table structure for table `Export`
+--
+
+CREATE TABLE IF NOT EXISTS `Export_tracking` (
+	`id` varbinary(1000) NOT NULL,
+	`data` TEXT NOT NULL,
+	`type` varchar(100) NOT NULL,
+  `timestamp` TIMESTAMP NOT NULL,
+	`tracking` varchar(1000) NOT NULL,
+	CONSTRAINT export_tracking_PK PRIMARY KEY (`id`,`type`,`timestamp`)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 --
 -- Indexes for dumped tables
