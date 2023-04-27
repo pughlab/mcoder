@@ -54,8 +54,7 @@ if (isset($_POST["query"])) {
   $stmt->bindParam(1, $roles);
 }
 $stmt->execute();
-if ($stmt->rowCount() > 0)
-{
+if ($stmt->rowCount() > 0) {
  ?>
    <head>
       <meta charset="UTF-8">
@@ -135,6 +134,68 @@ $('#nf1diagdata tfoot th').each( function () {
       for (let i = 0; i < 5; i++) {
         table.button(i).enable(false);
       }
+      <?php } else { ?>
+      table.on('buttons-action', function(e, buttonApi, dataTable, node, config) {
+        const buttonText = buttonApi.text()
+        if (
+          buttonText.toLowerCase() === 'csv'
+          || buttonText.toLowerCase() === 'excel'
+          || buttonText.toLowerCase() === 'pdf'
+          || buttonText.toLowerCase() === 'print'
+        ) {
+          const m = new Date();
+          const datesystem =
+          m.getUTCFullYear() + "-" +
+          ("0" + (m.getUTCMonth()+1)).slice(-2) + "-" +
+          ("0" + m.getUTCDate()).slice(-2) + "-" +
+          ("0" + m.getUTCHours()).slice(-2) + ":" +
+          ("0" + m.getUTCMinutes()).slice(-2) + ":" +
+          ("0" + m.getUTCSeconds()).slice(-2);
+
+          const ipdiv = document.getElementById("ipaddress");
+          const ip = ipdiv.textContent.replace( /\s+/g, '');
+          const emaildiv = document.getElementById("email");
+          const email = emaildiv.textContent.replace( /\s+/g, '');
+          const userdiv = document.getElementById("username");
+          const username = userdiv.textContent.replace( /\s+/g, '');
+          const trackspace = datesystem+"_"+ip+"_"+email;
+          const tracking = trackspace.replace( /\s+/g, '');
+
+          const tableData = dataTable.data()[0]
+          const [
+            id,
+            date,
+            diagnosis,
+            mode,
+            criteria,
+            severity,
+            visibility,
+            age,
+            head,
+            comment
+          ] = tableData
+          $.ajax({
+            url: "table_export.php",
+            method: "POST",
+            data: {
+              id: id,
+              date: date,
+              diagnosis: diagnosis,
+              mode: mode,
+              criteria: criteria,
+              severity: severity,
+              visibility: visibility,
+              age: age,
+              head: head,
+              comment: comment,
+              format: buttonText,
+              roles: "<?php echo $roles ?>",
+              table: "diagnostic",
+              tracking: tracking
+            }
+          })
+        }
+      })
     <?php } ?>
 
           $('#nf1diagdata tbody')

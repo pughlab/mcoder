@@ -95,7 +95,7 @@ $('#patientdata tfoot th').each( function () {
     $(this).html( '<input type="text" placeholder="'+title+'" />' );
 } );
 
-          var table = $('#patientdata').DataTable({
+          let table = $('#patientdata').DataTable({
             dom: 'Bfrtip',
             buttons: [
               'copy', {
@@ -130,6 +130,63 @@ $('#patientdata tfoot th').each( function () {
       for (let i = 0; i < 5; i++) {
         table.button(i).enable(false);
       }
+    <?php } else { ?>
+      table.on('buttons-action', function (e, buttonApi, dataTable, node, config) {
+        const buttonText = buttonApi.text()
+        if (
+          buttonText.toLowerCase() === 'csv'
+          || buttonText.toLowerCase() === 'excel'
+          || buttonText.toLowerCase() === 'pdf'
+          || buttonText.toLowerCase() === 'print'
+        ) {
+          const tableData = dataTable.data()[0]
+          const [
+            id,
+            birth,
+            gender,
+            race,
+            zip,
+            institution,
+            study,
+            family
+          ] = tableData
+          const m = new Date();
+          const datesystem =
+          m.getUTCFullYear() + "-" +
+          ("0" + (m.getUTCMonth()+1)).slice(-2) + "-" +
+          ("0" + m.getUTCDate()).slice(-2) + "-" +
+          ("0" + m.getUTCHours()).slice(-2) + ":" +
+          ("0" + m.getUTCMinutes()).slice(-2) + ":" +
+          ("0" + m.getUTCSeconds()).slice(-2);
+
+          const ipdiv = document.getElementById("ipaddress");
+          const ip = ipdiv.textContent.replace( /\s+/g, '');
+          const emaildiv = document.getElementById("email");
+          const email = emaildiv.textContent.replace( /\s+/g, '');
+          const userdiv = document.getElementById("username");
+          const username = userdiv.textContent.replace( /\s+/g, '');
+          const trackspace = datesystem+"_"+ip+"_"+email;
+          const tracking = trackspace.replace( /\s+/g, '');
+          $.ajax({
+            url: "table_export.php",
+            method: 'POST',
+            data: {
+              id: id,
+              birth: birth,
+              gender: gender,
+              race: race,
+              zip: zip,
+              institution: institution,
+              study: study,
+              family: family,
+              format: buttonText,
+              roles: "<?php echo $roles ?>",
+              table: "patient",
+              tracking: tracking
+            }
+          })
+        }
+      })
     <?php } ?>
 
           $('#patientdata tbody')
@@ -217,7 +274,14 @@ $('#patientdata tfoot th').each( function () {
                 otherRaceShow();
             }
             $('#zip').val(cellData['zip']);
-            $('button[data-id="institution"]').children().first().children().first().children().first().html(cellData['institution']);
+            $('button[data-id="institution"]')
+              .children()
+              .first()
+              .children()
+              .first()
+              .children()
+              .first()
+              .html(cellData['institution']);
             for(let option of $('#institution option')) {
               if($(option).text() === cellData['institution']) {
                 $(option).attr('selected', 'selected');
@@ -251,7 +315,10 @@ $('#patientdata tfoot th').each( function () {
 
 <?php
 
-  echo '<span style="color:#143de4;text-align:center;"><i class="glyphicon glyphicon-info-sign"></i><b> Similar patient IDs have been curated:</b></span>';
+  echo '<span style="color:#143de4;text-align:center;">
+    <i class="glyphicon glyphicon-info-sign"></i>
+    <b> Similar patient IDs have been curated:</b>
+  </span>';
  $output .= '
  <br><br>
 <table id="patientdata" class="row-border hover order-column" style="width:100%">
@@ -316,7 +383,10 @@ $('#patientdata tfoot th').each( function () {
   <body>
   <?php
 
- echo '<span style="color:#349A0A;text-align:center;"><i class="glyphicon glyphicon-ok"></i><b> This patient ID has not been curated yet.</b></span>';
+ echo '<span style="color:#349A0A;text-align:center;">
+    <i class="glyphicon glyphicon-ok"></i>
+    <b> This patient ID has not been curated yet.</b>
+  </span>';
 }
 
 mysqli_close($conn);
