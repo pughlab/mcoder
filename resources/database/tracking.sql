@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `Biospecimens_tracking` (
   `imaging` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `CBC_tracking` (
   `count` float NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `ClinicalCondition_tracking` (
   `karnofsky` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `CMP_tracking` (
   `count` float NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `Comorbid_tracking` (
   `status` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `Death_tracking` (
   `date` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `DiagnosisNF1_tracking` (
   `circumference` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `Diseases_tracking` (
   `pathologicss` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `comments` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `Lab_tracking` (
   `systolic` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -173,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `LesionsNF1_tracking` (
   `location` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -189,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `ManifestationsNF1_tracking` (
   `evaluation` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -207,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `Medication_tracking` (
   `intent` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -222,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `Mutation_tracking` (
   `test` varchar(300) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -237,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `Outcome_tracking` (
   `status` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -256,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `Patient_tracking` (
   `study` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
   `family` varbinary(10000) NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -269,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `pedigree_tracking` (
   `id` varbinary(1000) NOT NULL,
   `dataset` longtext COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -284,7 +284,7 @@ CREATE TABLE IF NOT EXISTS `ProcedureNf1_tracking` (
   `type` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -302,7 +302,7 @@ CREATE TABLE IF NOT EXISTS `Radiation_tracking` (
   `intent` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -320,7 +320,7 @@ CREATE TABLE IF NOT EXISTS `Surgery_tracking` (
   `intent` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -330,7 +330,7 @@ CREATE TABLE IF NOT EXISTS `Surgery_tracking` (
 --
 
 CREATE TABLE IF NOT EXISTS `tracking` (
-  `trackingid` varchar(700) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `trackingid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `username` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `email` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `roles` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -351,7 +351,7 @@ CREATE TABLE IF NOT EXISTS `Tumor_tracking` (
   `result` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -373,7 +373,7 @@ CREATE TABLE IF NOT EXISTS `Variant_tracking` (
   `source` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `comment` text COLLATE utf8mb4_general_ci NOT NULL,
   `event` varbinary(20) NOT NULL,
-  `tracking` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
+  `tracking` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -385,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `Export_tracking` (
 	`data` TEXT NOT NULL,
 	`type` varchar(100) NOT NULL,
   `timestamp` TIMESTAMP NOT NULL,
-	`tracking` varchar(1000) NOT NULL,
+	`tracking` varchar(255) NOT NULL,
 	CONSTRAINT export_tracking_PK PRIMARY KEY (`id`,`type`,`timestamp`)
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -399,79 +399,79 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 -- Indexes for table `Biospecimens`
 --
 ALTER TABLE `Biospecimens_tracking`
-  ADD PRIMARY KEY (`id`,`date`,`type`,`storage`,`bankingid`);
+  ADD PRIMARY KEY (`tracking`);
 
 --
 -- Indexes for table `CBC`
 --
 ALTER TABLE `CBC_tracking`
-  ADD PRIMARY KEY (`id`,`date`,`type`);
+  ADD PRIMARY KEY (`tracking`);
 
 --
 -- Indexes for table `ClinicalCondition`
 --
 ALTER TABLE `ClinicalCondition_tracking`
-  ADD PRIMARY KEY (`id`,`date`,`ecog`,`karnofsky`);
+  ADD PRIMARY KEY (`tracking`);
 
 --
 -- Indexes for table `CMP`
 --
 ALTER TABLE `CMP_tracking`
-  ADD PRIMARY KEY (`id`,`date`,`type`);
+  ADD PRIMARY KEY (`tracking`);
 
 --
 -- Indexes for table `Comorbid`
 --
 ALTER TABLE `Comorbid_tracking`
-  ADD PRIMARY KEY (`id`,`date`,`code`);
+  ADD PRIMARY KEY (`tracking`);
 
 --
 -- Indexes for table `Death`
 --
 ALTER TABLE `Death_tracking`
-  ADD PRIMARY KEY (`id`,`date`);
+  ADD PRIMARY KEY (`tracking`);
 
 --
 -- Indexes for table `Mutation`
 --
 ALTER TABLE `Mutation_tracking`
-  ADD PRIMARY KEY (`id`,`date`,`test`);
+  ADD PRIMARY KEY (`tracking`);
 
 --
 -- Indexes for table `Outcome`
 --
 ALTER TABLE `Outcome_tracking`
-  ADD PRIMARY KEY (`id`,`date`);
+  ADD PRIMARY KEY (`tracking`);
 
 --
 -- Indexes for table `Patient`
 --
 ALTER TABLE `Patient_tracking`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`tracking`);
 
 --
 -- Indexes for table `pedigree`
 --
 ALTER TABLE `pedigree_tracking`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`tracking`);
 
 --
 -- Indexes for table `ProcedureNf1`
 --
 ALTER TABLE `ProcedureNf1_tracking`
-  ADD PRIMARY KEY (`id`,`date`,`type`);
+  ADD PRIMARY KEY (`tracking`);
 
 --
 -- Indexes for table `Radiation`
 --
 ALTER TABLE `Radiation_tracking`
-  ADD PRIMARY KEY (`id`,`date`,`type`);
+  ADD PRIMARY KEY (`tracking`);
 
 --
 -- Indexes for table `Surgery`
 --
 ALTER TABLE `Surgery_tracking`
-  ADD PRIMARY KEY (`id`,`date`,`type`);
+  ADD PRIMARY KEY (`tracking`);
 
 --
 -- Indexes for table `tracking`
@@ -483,4 +483,4 @@ ALTER TABLE `tracking_tracking`
 -- Indexes for table `Variant`
 --
 ALTER TABLE `Variant_tracking`
-  ADD PRIMARY KEY (`id`,`date`,`test`);
+  ADD PRIMARY KEY (`tracking`);

@@ -169,37 +169,36 @@ if ($stmt->rowCount() > 0) {
               const trackspace = datesystem+"_"+ip+"_"+email;
               const tracking = trackspace.replace( /\s+/g, '');
 
-              const tableData = dataTable.data()[0]
-              const [
-                id,
-                date,
-                type,
-                histology,
-                location,
-                side,
-                oncotree,
-                clinicalsg,
-                clinicalss,
-                pathologicsg,
-                pathologicss,
-                comment
-              ] = tableData
+              const tableData = dataTable.data().toArray()
+              const keys = [
+                'id',
+                'date',
+                'type',
+                'status',
+                'histology',
+                'location',
+                'side',
+                'oncotree',
+                'clinicalsg',
+                'clinicalss',
+                'pathologicsg',
+                'pathologicss',
+                'comment'
+              ]
+              const data = []
+              for (let i = 0; i < tableData.length; i++) {
+                const row = tableData[i].slice(0, -2);
+                const rowObject = keys.reduce((obj, key, index) => {
+                  return { ...obj, [key]: row[index] }
+                }, {})
+                data.push(rowObject)
+              }
+              
               $.ajax({
                 url: "table_export.php",
                 method: "POST",
                 data: {
-                  id: id,
-                  date: date,
-                  type: type,
-                  histology: histology,
-                  location: location,
-                  side: side,
-                  oncotree: oncotree,
-                  clinicalsg: clinicalsg,
-                  clinicalss: clinicalss,
-                  pathologicsg: pathologicsg,
-                  pathologicss: pathologicss,
-                  comment: comment,
+                  data: JSON.stringify(data),
                   format: buttonText,
                   roles: "<?php echo $roles ?>",
                   table: "cancer",

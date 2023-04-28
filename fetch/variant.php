@@ -169,35 +169,34 @@ $('#variantdata tfoot th').each( function () {
           const trackspace = datesystem+"_"+ip+"_"+email;
           const tracking = trackspace.replace( /\s+/g, '');
 
-          const tableData = dataTable.data()[0]
-          const [
-            id,
-            date,
-            test,
-            gene,
-            cdna,
-            protein,
-            mutationid,
-            mutationhgvs,
-            interpretation,
-            source,
-            comment
-          ] = tableData
+          const tableData = dataTable.data().toArray()
+          const keys = [
+            'id',
+            'date',
+            'test',
+            'gene',
+            'cdna',
+            'protein',
+            'mutationid',
+            'mutationhgvs',
+            'interpretation',
+            'source',
+            'comment'
+          ]
+          const data = []
+          for (let i = 0; i < tableData.length; i++) {
+            const row = tableData[i].slice(0, -2);
+            const rowObject = keys.reduce((obj, key, index) => {
+              return { ...obj, [key]: row[index] }
+            }, {})
+            data.push(rowObject)
+          }
+
           $.ajax({
             url: "table_export.php",
             method: "POST",
             data: {
-              id: id,
-              date: date,
-              test: test,
-              gene: gene,
-              cdna: cdna,
-              protein: protein,
-              mutationid: mutationid,
-              mutationhgvs: mutationhgvs,
-              interpretation: interpretation,
-              source: source,
-              comment: comment,
+              data: JSON.stringify(data),
               format: buttonText,
               roles: "<?php echo $roles ?>",
               table: "variant",

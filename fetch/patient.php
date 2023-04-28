@@ -139,17 +139,6 @@ $('#patientdata tfoot th').each( function () {
           || buttonText.toLowerCase() === 'pdf'
           || buttonText.toLowerCase() === 'print'
         ) {
-          const tableData = dataTable.data()[0]
-          const [
-            id,
-            birth,
-            gender,
-            race,
-            zip,
-            institution,
-            study,
-            family
-          ] = tableData
           const m = new Date();
           const datesystem =
           m.getUTCFullYear() + "-" +
@@ -167,18 +156,32 @@ $('#patientdata tfoot th').each( function () {
           const username = userdiv.textContent.replace( /\s+/g, '');
           const trackspace = datesystem+"_"+ip+"_"+email;
           const tracking = trackspace.replace( /\s+/g, '');
+
+          const tableData = dataTable.data().toArray()
+          const keys = [
+            'id',
+            'birth',
+            'gender',
+            'race',
+            'zip',
+            'institution',
+            'study',
+            'family'
+          ]
+          const data = []
+          for (let i = 0; i < tableData.length; i++) {
+            const row = tableData[i];
+            const rowObject = keys.reduce((obj, key, index) => {
+              return { ...obj, [key]: row[index] }
+            }, {})
+            data.push(rowObject)
+          }
+
           $.ajax({
             url: "table_export.php",
             method: 'POST',
             data: {
-              id: id,
-              birth: birth,
-              gender: gender,
-              race: race,
-              zip: zip,
-              institution: institution,
-              study: study,
-              family: family,
+              data: JSON.stringify(data),
               format: buttonText,
               roles: "<?php echo $roles ?>",
               table: "patient",

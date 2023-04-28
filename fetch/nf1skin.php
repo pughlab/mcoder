@@ -156,27 +156,29 @@ $('#nf1skindata tfoot th').each( function () {
           const trackspace = datesystem+"_"+ip+"_"+email;
           const tracking = trackspace.replace( /\s+/g, '');
 
-          const tableData = dataTable.data()[0]
-          const [
-            id,
-            date,
-            type,
-            evaluation,
-            number,
-            location,
-            comment
-          ] = tableData
+          const tableData = dataTable.data()
+          const keys = [
+            'id',
+            'date',
+            'type',
+            'evaluation',
+            'number',
+            'location',
+            'comment'
+          ]
+          const data = []
+          for (let i = 0; i < tableData.length; i++) {
+            const row = tableData[i].slice(0, -2);
+            const rowObject = keys.reduce((obj, key, index) => {
+              return { ...obj, [key]: row[index] }
+            }, {})
+            data.push(rowObject)
+          }
           $.ajax({
             url: "table_export.php",
             method: "POST",
             data: {
-              id: id,
-              date: date,
-              type: type,
-              evaluation: evaluation,
-              number: number,
-              location: location,
-              comment: comment,
+              data: JSON.stringify(data),
               format: buttonText,
               roles: "<?php echo $roles ?>",
               table: "lesion",
