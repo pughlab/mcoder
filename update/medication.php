@@ -3,6 +3,9 @@ include('../configuration/db.php');
 include('../configuration/mcode.php');
 include('../configuration/key.php');
 
+const DATETIME_FORMAT = 'Y-m-d H:i:s';
+$max_update_rows = 20;
+
 // Ip address of the user
 $ip = $_POST['ip'];
 $datesystem = $_POST['datesystem'];
@@ -38,99 +41,128 @@ mysqli_close($connect);
 // ID encrypted
 $enc_id = bin2hex(openssl_encrypt($id, $cipher, $encryption_key, 0, $iv));
 
-
-$sql = "UPDATE `Medication`
-        SET
-            `medication` = ?,
-            `start` = ?,
-            `stop` = ?,
-            `reason` = ?,
-            `intent` = ?,
-            `comment` = ?
-        WHERE `id` = UNHEX(?)
-        AND `medication` = ?
-        AND `start` = ?
-        AND `stop` = ?
-        AND `reason` = ?
-        AND `intent` = ?
-        AND `comment` = ?";
+$now = date(DATETIME_FORMAT);
+$twentyFourHoursAgo = date(DATETIME_FORMAT, strtotime('-24 hours'));
+$sql = "
+    SELECT *
+    FROM `update_tracking`
+    WHERE username = ?
+    AND update_time BETWEEN ? AND ?
+    LIMIT ?
+";
 $stmt = $clinical_data_pdo->prepare($sql);
-$stmt->bindParam(1, $medication);
-$stmt->bindParam(2, $start);
-$stmt->bindParam(3, $stop);
-$stmt->bindParam(4, $reason);
-$stmt->bindParam(5, $intent);
-$stmt->bindParam(6, $comment);
-$stmt->bindParam(7, $enc_id, PDO::PARAM_STR);
-$stmt->bindParam(8, $oldMedication);
-$stmt->bindParam(9, $oldStart);
-$stmt->bindParam(10, $oldStop);
-$stmt->bindParam(11, $oldReason);
-$stmt->bindParam(12, $oldIntent);
-$stmt->bindParam(13, $oldComment);
+$stmt->bindParam(1, $username);
+$stmt->bindParam(2, $twentyFourHoursAgo);
+$stmt->bindParam(3, $now);
+$stmt->bindParam(4, $max_update_rows, PDO::PARAM_INT);
+$canUpdate = $stmt->execute() && $stmt->rowCount() < $max_update_rows;
 
-$sql2 = "
-    INSERT INTO `tracking`(
-        `trackingid`,
-        `username`,
-        `email`,
-        `roles`,
-        `ip`,
-        `date`
-    )
-    VALUES (?, ?, ?, ?, ?, ?)
-";
-$stmt2 = $clinical_data_pdo->prepare($sql2);
-$stmt2->bindParam(1, $tracking);
-$stmt2->bindParam(2, $username);
-$stmt2->bindParam(3, $email);
-$stmt2->bindParam(4, $roles);
-$stmt2->bindParam(5, $ip);
-$stmt2->bindParam(6, $datesystem);
+if ($canUpdate) {
+    $sql = "UPDATE `Medication`
+            SET
+                `medication` = ?,
+                `start` = ?,
+                `stop` = ?,
+                `reason` = ?,
+                `intent` = ?,
+                `comment` = ?
+            WHERE `id` = UNHEX(?)
+            AND `medication` = ?
+            AND `start` = ?
+            AND `stop` = ?
+            AND `reason` = ?
+            AND `intent` = ?
+            AND `comment` = ?";
+    $stmt = $clinical_data_pdo->prepare($sql);
+    $stmt->bindParam(1, $medication);
+    $stmt->bindParam(2, $start);
+    $stmt->bindParam(3, $stop);
+    $stmt->bindParam(4, $reason);
+    $stmt->bindParam(5, $intent);
+    $stmt->bindParam(6, $comment);
+    $stmt->bindParam(7, $enc_id, PDO::PARAM_STR);
+    $stmt->bindParam(8, $oldMedication);
+    $stmt->bindParam(9, $oldStart);
+    $stmt->bindParam(10, $oldStop);
+    $stmt->bindParam(11, $oldReason);
+    $stmt->bindParam(12, $oldIntent);
+    $stmt->bindParam(13, $oldComment);
 
-$sql3 = "
-    INSERT INTO `Medication_tracking`(
-        `id`,
-        `medication`,
-        `start`,
-        `stop`,
-        `reason`,
-        `intent`,
-        `comment`,
-        `tracking`,
-        `event`
-    )
-    VALUES (UNHEX(?),?,?,?,?,?,?,?)
-";
-$stmt3 = $clinical_data_pdo->prepare($sql3);
-$stmt3->bindParam(1, $enc_id, PDO::PARAM_STR);
-$stmt3->bindParam(2, $medication);
-$stmt3->bindParam(3, $start);
-$stmt3->bindParam(4, $stop);
-$stmt3->bindParam(5, $reason);
-$stmt3->bindParam(6, $intent);
-$stmt3->bindParam(7, $comment);
-$stmt3->bindParam(8, $tracking);
+    $sql2 = "
+        INSERT INTO `tracking`(
+            `trackingid`,
+            `username`,
+            `email`,
+            `roles`,
+            `ip`,
+            `date`
+        )
+        VALUES (?, ?, ?, ?, ?, ?)
+    ";
+    $stmt2 = $clinical_data_pdo->prepare($sql2);
+    $stmt2->bindParam(1, $tracking);
+    $stmt2->bindParam(2, $username);
+    $stmt2->bindParam(3, $email);
+    $stmt2->bindParam(4, $roles);
+    $stmt2->bindParam(5, $ip);
+    $stmt2->bindParam(6, $datesystem);
 
-$mainResult = $stmt->execute();
-$trackingResult = $stmt2->execute();
-$auditResult = $stmt3->execute();
+    $sql3 = "
+        INSERT INTO `Medication_tracking`(
+            `id`,
+            `medication`,
+            `start`,
+            `stop`,
+            `reason`,
+            `intent`,
+            `comment`,
+            `tracking`,
+            `event`
+        )
+        VALUES (UNHEX(?),?,?,?,?,?,?,?)
+    ";
+    $stmt3 = $clinical_data_pdo->prepare($sql3);
+    $stmt3->bindParam(1, $enc_id, PDO::PARAM_STR);
+    $stmt3->bindParam(2, $medication);
+    $stmt3->bindParam(3, $start);
+    $stmt3->bindParam(4, $stop);
+    $stmt3->bindParam(5, $reason);
+    $stmt3->bindParam(6, $intent);
+    $stmt3->bindParam(7, $comment);
+    $stmt3->bindParam(8, $tracking);
 
-if ($mainResult && $trackingResult && $auditResult) {
-    echo "Success";
-} else {
-    $error = null;
-    if (!$mainResult) {
-        $error = $stmt->errorCode();
-    } elseif (!$trackingResult) {
-        $error = $stmt2->errorCode();
+    $mainResult = $stmt->execute();
+    $trackingResult = $stmt2->execute();
+    $auditResult = $stmt3->execute();
+
+    if ($mainResult && $trackingResult && $auditResult) {
+        $sql = "
+            INSERT INTO `update_tracking` (
+                `username`,
+                `update_time`
+            )
+            VALUES (?, ?)
+        ";
+        $stmt = $clinical_data_pdo->prepare($sql);
+        $stmt->bindParam(1, $username);
+        $stmt->bindParam(2, $now);
+        $stmt->execute();
+        echo "Success";
     } else {
-        $error = $stmt3->errorCode();
+        $error = null;
+        if (!$mainResult) {
+            $error = $stmt->errorCode();
+        } elseif (!$trackingResult) {
+            $error = $stmt2->errorCode();
+        } else {
+            $error = $stmt3->errorCode();
+        }
+        echo "There was a problem while saving the data. ";
+        echo "Please contact the admin of the site - Nadia Znassi. Your reference: " . $tracking . ":" . $error;
     }
-    echo "There was a problem while saving the data. ";
-    echo "Please contact the admin of the site - Nadia Znassi. Your reference: " . $tracking . ":" . $error;
+} else {
+    echo "You exceeded the amount of updates you can do in 24 hours!";
 }
-
 
 mysqli_close($conn);
 $clinical_data_pdo = $mcode_db_pdo = null;

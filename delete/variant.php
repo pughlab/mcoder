@@ -4,6 +4,8 @@ include('../configuration/db.php');
 include('../configuration/mcode.php');
 include('../configuration/key.php');
 
+const DATETIME_FORMAT = 'Y-m-d H:i:s';
+
 // Ip address of the user
 $ip = $_POST['ip'];
 $datesystem = $_POST['datesystem'];

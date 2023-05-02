@@ -402,6 +402,17 @@ CREATE TABLE IF NOT EXISTS `deletion_tracking` (
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
+-- Table structure for table `update_tracking`
+--
+
+CREATE TABLE IF NOT EXISTS `update_tracking` (
+	`username` varchar(255) NOT NULL,
+	`update_time` TIMESTAMP NOT NULL,
+	CONSTRAINT update_tracking_PK PRIMARY KEY (`update_time`)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
 -- Indexes for dumped tables
 --
 
