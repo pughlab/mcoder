@@ -390,6 +390,16 @@ CREATE TABLE IF NOT EXISTS `Export_tracking` (
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Table structure for table `deletion_tracking`
+--
+
+CREATE TABLE IF NOT EXISTS `deletion_tracking` (
+	`username` varchar(255) NOT NULL,
+	`last_deletion` TIMESTAMP NOT NULL,
+	CONSTRAINT deletion_tracking_PK PRIMARY KEY (`username`)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Indexes for dumped tables

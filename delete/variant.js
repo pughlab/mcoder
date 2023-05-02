@@ -23,6 +23,14 @@ function deleteVariant(button) {
   let patientid = cells[0].innerText;
   let date = cells[1].innerText;
   let test = cells[2].innerText;
+  let gene = cells[3].innerText;
+  let cdna = cells[4].innerText;
+  let protein = cells[5].innerText;
+  let mutationid = cells[6].innerText;
+  let mutationhgvs = cells[7].innerText;
+  let interpretation = cells[8].innerText;
+  let source = cells[9].innerText;
+  let comment = $(this).children('input[name^=rowComments]').first().val();
 
   let trackspace = datesystem+"_"+ip+"_"+email;
   let tracking = trackspace.replace( /\s+/g, '');
@@ -34,6 +42,14 @@ function deleteVariant(button) {
       id: patientid,
       date: date,
       test: test,
+      gene: gene,
+      cdna: cdna,
+      protein: protein,
+      mutationid: mutationid,
+      mutationhgvs: mutationhgvs,
+      interpretation: interpretation,
+      source: source,
+      comment: comment,
       ip : ip,
       datesystem : datesystem,
       email: email,

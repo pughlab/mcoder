@@ -23,8 +23,13 @@ function deleteBiospecimen(button) {
     let patientid = document.getElementById("patientidsource").value.replace( /\s+/g, '');
     let date = cells[1].innerText;
     let type = cells[2].innerText;
+    let cellularity = cells[3].innerText
+    let collection = cells[4].innerText
     let storage = cells[5].innerText;
     let bankingid = cells[6].innerText;
+    let paired = cells[7].innerText;
+    let imaging = cells[8].innerText;
+    let comment = $(button).parent().parent().children('input[name^="rowComments"]').first().val();
     let trackspace = datesystem+"_"+ip+"_"+email;
     let tracking = trackspace.replace( /\s+/g, '');
 
@@ -36,7 +41,12 @@ function deleteBiospecimen(button) {
         date: date,
         type: type,
         storage: storage,
+        cellularity: cellularity,
+        collection: collection,
         bankingid: bankingid,
+        paired: paired,
+        imaging: imaging,
+        comment: comment,
         ip : ip,
         datesystem : datesystem,
         email: email,

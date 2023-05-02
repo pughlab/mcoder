@@ -22,7 +22,11 @@ function deleteSurgery(button) {
 
   let patientid = cells[0].innerText;
   let date = cells[1].innerText;
+  let location = cells[2].innerText;
   let type = cells[3].innerText;
+  let site = cells[4].innerText;
+  let intent = cells[5].innerText;
+  let comment = $(button).parent().parent().children('input[name^="rowComments"]').first().val();
 
   let trackspace = datesystem+"_"+ip+"_"+email;
   let tracking = trackspace.replace( /\s+/g, '');
@@ -33,7 +37,11 @@ function deleteSurgery(button) {
     data: {
       id: patientid,
       date: date,
+      location: location,
       type: type,
+      site: site,
+      intent: intent,
+      comment: comment,
       ip : ip,
       datesystem : datesystem,
       email: email,

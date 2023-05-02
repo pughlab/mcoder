@@ -23,6 +23,8 @@ function deleteComorbid(button) {
   let patientid = cells[0].innerText;
   let date= cells[1].innerText;
   let code = cells[2].innerText;
+  let status = cells[3].innerText;
+  let comment = $(button).parent().parent().children('input[name^="rowComments"]').first().val();
   
   let trackspace = datesystem+"_"+ip+"_"+email;
   let tracking = trackspace.replace( /\s+/g, '');
@@ -35,6 +37,8 @@ function deleteComorbid(button) {
       id: patientid,
       date: date,
       code: code,
+      status: status,
+      comment: comment,
       ip : ip,
       datesystem : datesystem,
       email: email,

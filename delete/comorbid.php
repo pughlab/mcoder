@@ -4,6 +4,8 @@ include('../configuration/db.php');
 include('../configuration/mcode.php');
 include('../configuration/key.php');
 
+const DATETIME_FORMAT = 'Y-m-d H:i:s';
+
 // Ip address of the user
 $ip = $_POST['ip'];
 $datesystem = $_POST['datesystem'];
@@ -16,6 +18,8 @@ $event = "Deletion";
 $id = htmlentities($_POST['id']);
 $date = htmlentities($_POST['date']);
 $code = htmlentities($_POST['code']);
+$status = htmlentities($_POST['status']);
+$comment = str_replace("'", "\'", htmlentities($_POST['comment']));
 
 //Encryption
 $encryption_key = hex2bin($key);
@@ -31,7 +35,24 @@ $enc_id = bin2hex(openssl_encrypt($id, $cipher, $encryption_key, 0, $iv));
 
 $hasAdminRole = in_array("admin", explode(",", strtolower($roles)));
 
-if ($hasAdminRole) {
+$canDelete = false;
+$sql = "SELECT * FROM `deletion_tracking` WHERE username = ?";
+$stmt = $clinical_data_pdo->prepare($sql);
+$stmt->bindParam(1, $username);
+$checkCanDelete = $stmt->execute();
+
+if ($checkCanDelete && $stmt->rowCount() > 0) {
+    $now = date(DATETIME_FORMAT);
+    $row = $stmt->fetch();
+    $lastDeletion = strtotime($row['last_deletion']);
+
+    $difference = abs(strtotime($now) - $lastDeletion);
+    $canDelete = $difference > 86400; // we can delete only if the difference is greater than 24 hours in seconds
+} elseif ($stmt->rowCount() == 0) {
+    $canDelete = true;
+}
+
+if ($hasAdminRole && $canDelete) {
     $sql = "DELETE FROM `Comorbid`
         WHERE
             `id` = UNHEX(?)
@@ -86,6 +107,20 @@ if ($hasAdminRole) {
     $auditResult = $stmt3->execute();
 
     if ($mainResult && $trackingResult && $auditResult) {
+        $now = date(DATETIME_FORMAT);
+        $sql = "
+            INSERT INTO `deletion_tracking` (
+                `username`,
+                `last_deletion`
+            )
+            VALUES (?, ?)
+            ON DUPLICATE KEY UPDATE `last_deletion`=?
+        ";
+        $stmt = $clinical_data_pdo->prepare($sql);
+        $stmt->bindParam(1, $username);
+        $stmt->bindParam(2, $now);
+        $stmt->bindParam(3, $now);
+        $stmt->execute();
         echo "Success";
     } else {
         $error = null;
@@ -99,6 +134,10 @@ if ($hasAdminRole) {
         echo "There was a problem while deleting the data. ";
         echo "Please contact the admin of the site - Nadia Znassi. Your reference: " . $tracking . ":" . $error;
     }
+} elseif (!$canDelete) {
+    echo "You cannot delete data until 24 hours have passed since the last time you deleted data!";
+} else {
+    echo "You are not authorized to do this operation!";
 }
 
 mysqli_close($conn);

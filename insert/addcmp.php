@@ -80,7 +80,8 @@ if ($patientExists) {
             `type`,
             `count`,
             `comment`,
-            `tracking`
+            `tracking`,
+            `event`
         ) VALUES (UNHEX(?), ?, ?, ?, ?, ?, ?)
     ";
     $stmt3 = $clinical_data_pdo->prepare($sql3);

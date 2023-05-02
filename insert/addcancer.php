@@ -113,7 +113,8 @@ if ($patientExists) {
             `pathologicsg`,
             `pathologicss`,
             `comments`,
-            `tracking`
+            `tracking`,
+            `event`
         )
         VALUES (UNHEX(?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ";
