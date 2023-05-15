@@ -104,24 +104,33 @@ if ($canUpdate) {
     $stmt3->bindParam(5, $tracking);
     $stmt3->bindParam(6, $event);
 
-    $mainResult = $stmt->execute();
-    $trackingResult = $stmt2->execute();
-    $auditResult = $stmt3->execute();
+    $clinical_data_pdo->beginTransaction();
+    $mainResult = null;
+    $trackingResult = null;
+    $auditResult = null;
+    
+    try {
+        $mainResult = $stmt->execute();
+        $trackingResult = $stmt2->execute();
+        $auditResult = $stmt3->execute();
+        $clinical_data_pdo->commit();
 
-    if ($mainResult && $trackingResult && $auditResult) {
-        $sql = "
-            INSERT INTO `update_tracking` (
-                `username`,
-                `update_time`
-            )
-            VALUES (?, ?)
-        ";
-        $stmt = $clinical_data_pdo->prepare($sql);
-        $stmt->bindParam(1, $username);
-        $stmt->bindParam(2, $now);
-        $stmt->execute();
-        echo "Success";
-    } else {
+        if ($mainResult && $trackingResult && $auditResult) {
+            $sql = "
+                INSERT INTO `update_tracking` (
+                    `username`,
+                    `update_time`
+                )
+                VALUES (?, ?)
+            ";
+            $stmt = $clinical_data_pdo->prepare($sql);
+            $stmt->bindParam(1, $username);
+            $stmt->bindParam(2, $now);
+            $stmt->execute();
+            echo "Success";
+        }
+    } catch (PDOException $e) {
+        $clinical_data_pdo->rollBack();
         $error = null;
         if (!$mainResult) {
             $error = $stmt->errorCode();
@@ -131,7 +140,8 @@ if ($canUpdate) {
             $error = $stmt3->errorCode();
         }
         echo "There was a problem while saving the data. ";
-        echo "Please contact the admin of the site - Nadia Znassi. Your reference: " . $tracking . ":" . $error;
+        echo "Please contact the admins at mcoder@uhn.ca. ";
+        // echo "Your reference: " . $tracking . ":" . $error;
     }
 } else {
     echo "You exceeded the amount of updates you can do in 24 hours!";

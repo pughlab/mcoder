@@ -95,13 +95,19 @@ if ($patientExists) {
     $stmt3->bindParam(6, $tracking);
     $stmt3->bindParam(7, $event);
 
-    $mainResult = $stmt->execute();
-    $trackingResult = $stmt2->execute();
-    $auditResult = $stmt3->execute();
+    $clinical_data_pdo->beginTransaction();
+    $mainResult = null;
+    $trackingResult = null;
+    $auditResult = null;
 
-    if ($mainResult && $trackingResult && $auditResult) {
+    try {
+        $mainResult = $stmt->execute();
+        $trackingResult = $stmt2->execute();
+        $auditResult = $stmt3->execute();
+        $clinical_data_pdo->commit();
         echo "Success";
-    } else {
+    } catch (PDOException $e) {
+        $clinical_data_pdo->rollBack();
         $error = null;
         if (!$mainResult) {
             $error = $stmt->errorCode();
@@ -111,7 +117,8 @@ if ($patientExists) {
             $error = $stmt3->errorCode();
         }
         echo "There was a problem while saving the data. ";
-        echo "Please contact the admin of the site - Nadia Znassi. Your reference: " . $tracking . ":" . $error;
+        echo "Please contact the admins at mcoder@uhn.ca. ";
+        // echo "Your reference: " . $tracking . ":" . $error;
     }
 } else {
     echo "This patient does not exist!";

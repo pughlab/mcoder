@@ -145,27 +145,36 @@ if ($hasAdminRole && $canDelete) {
     $stmt3->bindParam(14, $tracking);
     $stmt3->bindParam(15, $event);
 
-    $mainResult = $stmt->execute();
-    $trackingResult = $stmt2->execute();
-    $auditResult = $stmt3->execute();
+    $clinical_data_pdo->beginTransaction();
+    $mainResult = null;
+    $trackingResult = null;
+    $auditResult = null;
 
-    if ($mainResult && $trackingResult && $auditResult) {
-        $now = date(DATETIME_FORMAT);
-        $sql = "
-            INSERT INTO `deletion_tracking` (
-                `username`,
-                `last_deletion`
-            )
-            VALUES (?, ?)
-            ON DUPLICATE KEY UPDATE `last_deletion`=?
-        ";
-        $stmt = $clinical_data_pdo->prepare($sql);
-        $stmt->bindParam(1, $username);
-        $stmt->bindParam(2, $now);
-        $stmt->bindParam(3, $now);
-        $stmt->execute();
-        echo "Success";
-    } else {
+    try {
+        $mainResult = $stmt->execute();
+        $trackingResult = $stmt2->execute();
+        $auditResult = $stmt3->execute();
+        $clinical_data_pdo->commit();
+
+        if ($mainResult && $trackingResult && $auditResult) {
+            $now = date(DATETIME_FORMAT);
+            $sql = "
+                INSERT INTO `deletion_tracking` (
+                    `username`,
+                    `last_deletion`
+                )
+                VALUES (?, ?)
+                ON DUPLICATE KEY UPDATE `last_deletion`=?
+            ";
+            $stmt = $clinical_data_pdo->prepare($sql);
+            $stmt->bindParam(1, $username);
+            $stmt->bindParam(2, $now);
+            $stmt->bindParam(3, $now);
+            $stmt->execute();
+            echo "Success";
+        }
+    } catch (PDOException $e) {
+        $clinical_data_pdo->rollBack();
         $error = null;
         if (!$mainResult) {
             $error = $stmt->errorCode();
@@ -174,8 +183,9 @@ if ($hasAdminRole && $canDelete) {
         } else {
             $error = $stmt3->errorCode();
         }
-        echo "There was a problem while saving the data. ";
-        echo "Please contact the admin of the site - Nadia Znassi. Your reference: " . $tracking . ":" . $error;
+        echo "There was a problem while deleting the data. ";
+        echo "Please contact the admins at mcoder@uhn.ca. ";
+        // echo "Your reference: " . $tracking . ":" . $error;
     }
 } elseif (!$canDelete) {
     echo "You cannot delete data until 24 hours have passed since the last time you deleted data!";
