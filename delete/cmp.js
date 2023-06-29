@@ -23,6 +23,8 @@ function deleteCMP(button) {
   let patientid = cells[0].innerText;
   let date = cells[1].innerText;
   let type = cells[2].innerText;
+  let count = cells[3].innerText;
+  let comment = $(button).parent().parent().children('input[name^="rowComments"]').first().val();
 
   let trackspace = datesystem+"_"+ip+"_"+email;
   let tracking = trackspace.replace( /\s+/g, '');
@@ -34,6 +36,8 @@ function deleteCMP(button) {
       id: patientid,
       date: date,
       type: type,
+      count: count,
+      comment: comment,
       ip : ip,
       datesystem : datesystem,
       email: email,

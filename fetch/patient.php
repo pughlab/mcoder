@@ -24,20 +24,38 @@ if (isset($_POST["query"])) {
  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
  // ID encrypted
- $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
+ $enc_search = bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
 
  $query = "
-  SELECT HEX(id),HEX(birth), HEX(gender), HEX(race), HEX(zip), HEX(institution), study, HEX(family) FROM Patient
-  WHERE id LIKE {$enc_search} AND FIND_IN_SET(study, '".$roles."') > 0
+  SELECT
+    HEX(id),
+    HEX(birth),
+    HEX(gender),
+    HEX(race),
+    HEX(zip),
+    HEX(institution),
+    study,
+    HEX(family)
+  FROM Patient
+  WHERE id = UNHEX(?)
+  AND FIND_IN_SET(study, ?) > 0
  ";
+ $stmt = $clinical_data_pdo->prepare($query);
+  $stmt->bindParam(1, $enc_search, PDO::PARAM_STR);
+  $stmt->bindParam(2, $roles);
 } else {
- $query = "
-  SELECT * FROM Patient WHERE id LIKE '%ZZZZZZZZZZZZZZZ%' AND INSTR('".$roles."', study) > 0 ORDER BY id
- ";
+  $query = "
+  SELECT * FROM Patient
+  WHERE id LIKE '%ZZZZZZZZZZZZZZZ%'
+  AND INSTR(?, study) > 0
+  ORDER BY id
+  ";
+  $stmt = $clinical_data_pdo->prepare($query);
+  $stmt->bindParam(1, $roles);
 }
-$result = mysqli_query($conn, $query);
-if (mysqli_num_rows($result) > 0) {
+$stmt->execute();
+if ($stmt->rowCount() > 0) {
 
 ?>
 
@@ -77,7 +95,7 @@ $('#patientdata tfoot th').each( function () {
     $(this).html( '<input type="text" placeholder="'+title+'" />' );
 } );
 
-          var table = $('#patientdata').DataTable({
+          let table = $('#patientdata').DataTable({
             dom: 'Bfrtip',
             buttons: [
               'copy', {
@@ -112,6 +130,66 @@ $('#patientdata tfoot th').each( function () {
       for (let i = 0; i < 5; i++) {
         table.button(i).enable(false);
       }
+    <?php } else { ?>
+      table.on('buttons-action', function (e, buttonApi, dataTable, node, config) {
+        const buttonText = buttonApi.text()
+        if (
+          buttonText.toLowerCase() === 'csv'
+          || buttonText.toLowerCase() === 'excel'
+          || buttonText.toLowerCase() === 'pdf'
+          || buttonText.toLowerCase() === 'print'
+        ) {
+          const m = new Date();
+          const datesystem =
+          m.getUTCFullYear() + "-" +
+          ("0" + (m.getUTCMonth()+1)).slice(-2) + "-" +
+          ("0" + m.getUTCDate()).slice(-2) + "-" +
+          ("0" + m.getUTCHours()).slice(-2) + ":" +
+          ("0" + m.getUTCMinutes()).slice(-2) + ":" +
+          ("0" + m.getUTCSeconds()).slice(-2);
+
+          const ipdiv = document.getElementById("ipaddress");
+          const ip = ipdiv.textContent.replace( /\s+/g, '');
+          const emaildiv = document.getElementById("email");
+          const email = emaildiv.textContent.replace( /\s+/g, '');
+          const userdiv = document.getElementById("username");
+          const username = userdiv.textContent.replace( /\s+/g, '');
+          const trackspace = datesystem+"_"+ip+"_"+email;
+          const tracking = trackspace.replace( /\s+/g, '');
+
+          const tableData = dataTable.data().toArray()
+          const keys = [
+            'id',
+            'birth',
+            'gender',
+            'race',
+            'zip',
+            'institution',
+            'study',
+            'family'
+          ]
+          const data = []
+          for (let i = 0; i < tableData.length; i++) {
+            const row = tableData[i];
+            const rowObject = keys.reduce((obj, key, index) => {
+              return { ...obj, [key]: row[index] }
+            }, {})
+            data.push(rowObject)
+          }
+
+          $.ajax({
+            url: "table_export.php",
+            method: 'POST',
+            data: {
+              data: JSON.stringify(data),
+              format: buttonText,
+              roles: "<?php echo $roles ?>",
+              table: "patient",
+              tracking: tracking
+            }
+          })
+        }
+      })
     <?php } ?>
 
           $('#patientdata tbody')
@@ -199,7 +277,14 @@ $('#patientdata tfoot th').each( function () {
                 otherRaceShow();
             }
             $('#zip').val(cellData['zip']);
-            $('button[data-id="institution"]').children().first().children().first().children().first().html(cellData['institution']);
+            $('button[data-id="institution"]')
+              .children()
+              .first()
+              .children()
+              .first()
+              .children()
+              .first()
+              .html(cellData['institution']);
             for(let option of $('#institution option')) {
               if($(option).text() === cellData['institution']) {
                 $(option).attr('selected', 'selected');
@@ -233,7 +318,10 @@ $('#patientdata tfoot th').each( function () {
 
 <?php
 
-  echo '<span style="color:#143de4;text-align:center;"><i class="glyphicon glyphicon-info-sign"></i><b> Similar patient IDs have been curated:</b></span>';
+  echo '<span style="color:#143de4;text-align:center;">
+    <i class="glyphicon glyphicon-info-sign"></i>
+    <b> Similar patient IDs have been curated:</b>
+  </span>';
  $output .= '
  <br><br>
 <table id="patientdata" class="row-border hover order-column" style="width:100%">
@@ -252,7 +340,7 @@ $('#patientdata tfoot th').each( function () {
   <tbody>
 
  ';
- while ($row = mysqli_fetch_array($result)) {
+ while ($row = $stmt->fetch()) {
    //openssl_decrypt(hex2bin(substr($row["id"], 2)), $cipher, $encryption_key, 0, $iv);
    $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
    $decrypted_birth = openssl_decrypt(hex2bin($row[1]), $cipher, $encryption_key, 0, $iv);
@@ -298,11 +386,14 @@ $('#patientdata tfoot th').each( function () {
   <body>
   <?php
 
- echo '<span style="color:#349A0A;text-align:center;"><i class="glyphicon glyphicon-ok"></i><b> This patient ID has not been curated yet.</b></span>';
+ echo '<span style="color:#349A0A;text-align:center;">
+    <i class="glyphicon glyphicon-ok"></i>
+    <b> This patient ID has not been curated yet.</b>
+  </span>';
 }
 
 mysqli_close($conn);
-
+$clinical_data_pdo = $mcode_db_pdo = null;
 ?>
 
 

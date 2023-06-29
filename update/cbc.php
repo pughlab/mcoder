@@ -1,61 +1,158 @@
 <?php
-	include('../configuration/db.php');
-	include('../configuration/mcode.php');
-	include('../configuration/key.php');
+include('../configuration/db.php');
+include('../configuration/mcode.php');
+include('../configuration/key.php');
 
-	// Ip address of the user
-	$ip=$_POST['ip'];
-	$datesystem=$_POST['datesystem'];
-	$email=$_POST['email'];
-	$username=$_POST['username'];
-	$roles=$_POST['roles'];
-	$tracking=$_POST['tracking'];
-	$oldData=$_POST['olddata'];
+const DATETIME_FORMAT = 'Y-m-d H:i:s';
+$max_update_rows = 20;
 
-	$id=$_POST['id'];
-	$date=$_POST['date'];
-	$type=$_POST['type'];
-	$count=$_POST['count'];
-	$comment=str_replace("'","\'",$_POST['comment']);
-	$oldDate=$oldData['date'];
-	$oldType=$oldData['type'];
+// Ip address of the user
+$ip = $_POST['ip'];
+$datesystem = $_POST['datesystem'];
+$email = $_POST['email'];
+$username = $_POST['username'];
+$roles = $_POST['roles'];
+$tracking = $_POST['tracking'];
+$oldData = $_POST['olddata'];
+$event = "Update";
 
-	//Encryption
-	$encryption_key = hex2bin($key);
+$id = htmlentities($_POST['id']);
+$date = htmlentities($_POST['date']);
+$type = htmlentities($_POST['type']);
+$count = htmlentities($_POST['count']);
+$comment = str_replace("'", "\'", htmlentities($_POST['comment']));
+$oldDate = htmlentities($oldData['date']);
+$oldType = htmlentities($oldData['type']);
 
-	// initialization vector
-	$iv_query= mysqli_fetch_assoc(mysqli_query($connect, "select riv from norm"));
-	$iv=$iv_query['riv'];
+//Encryption
+$encryption_key = hex2bin($key);
 
-	// ID encrypted
-	//$enc_id=openssl_encrypt($id, $cipher, $encryption_key, 0, $iv);
-	$enc_id="0x".bin2hex(openssl_encrypt($id, $cipher, $encryption_key, 0, $iv));
+// initialization vector
+$iv_query = mysqli_fetch_assoc(mysqli_query($connect, "select riv from norm"));
+$iv = $iv_query['riv'];
+mysqli_close($connect);
 
-	mysqli_close($connect);
+// ID encrypted
+$enc_id = bin2hex(openssl_encrypt($id, $cipher, $encryption_key, 0, $iv));
 
-	$sql = "UPDATE `CBC`
-		SET 
-			`date` = '$date',
-			`type` = '$type',
-			`count` = '$count',
-			`comment` = '$comment',
-			`tracking` = '$tracking'
-		WHERE `id` = $enc_id
-		AND `date` = '$oldDate'
-		AND	`type` = '$oldType'";
+$now = date(DATETIME_FORMAT);
+$twentyFourHoursAgo = date(DATETIME_FORMAT, strtotime('-24 hours'));
+$sql = "
+    SELECT *
+    FROM `update_tracking`
+    WHERE username = ?
+    AND update_time BETWEEN ? AND ?
+    LIMIT ?
+";
+$stmt = $clinical_data_pdo->prepare($sql);
+$stmt->bindParam(1, $username);
+$stmt->bindParam(2, $twentyFourHoursAgo);
+$stmt->bindParam(3, $now);
+$stmt->bindParam(4, $max_update_rows, PDO::PARAM_INT);
+$canUpdate = $stmt->execute() && $stmt->rowCount() < $max_update_rows;
 
-	$sql2 = "INSERT INTO `tracking`(`trackingid`, `username`, `email`, `roles`, `ip`, `date`)
-	VALUES ('$tracking','$username','$email','$roles','$ip','$datesystem')";
+if ($canUpdate) {
+    $sql = "
+        UPDATE `CBC`
+        SET
+            `date` = ?,
+            `type` = ?,
+            `count` = ?,
+            `comment` = ?
+        WHERE `id` = UNHEX(?)
+        AND `date` = ?
+        AND	`type` = ?
+    ";
+    $stmt = $clinical_data_pdo->prepare($sql);
+    $stmt->bindParam(1, $date);
+    $stmt->bindParam(2, $type);
+    $stmt->bindParam(3, $count);
+    $stmt->bindParam(4, $comment);
+    $stmt->bindParam(5, $enc_id, PDO::PARAM_STR);
+    $stmt->bindParam(6, $oldDate);
+    $stmt->bindParam(7, $oldType);
+    $sql2 = "
+        INSERT INTO `tracking`(
+            `trackingid`,
+            `username`,
+            `email`,
+            `roles`,
+            `ip`,
+            `date`
+        )
+        VALUES (?, ?, ?, ?, ?, ?)
+    ";
+    $stmt2 = $clinical_data_pdo->prepare($sql2);
+    $stmt2->bindParam(1, $tracking);
+    $stmt2->bindParam(2, $username);
+    $stmt2->bindParam(3, $email);
+    $stmt2->bindParam(4, $roles);
+    $stmt2->bindParam(5, $ip);
+    $stmt2->bindParam(6, $datesystem);
 
-	if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2)) {
-		echo "Success";
-	}
-	else {
-		$error = mysqli_error($conn);
-		echo "There was a problem while saving the data. Please contact the admin of the site - Nadia Znassi. Your reference: ". $tracking .":". $error;
-	}
+    $sql3 = "
+        INSERT INTO `CBC_tracking`(
+            `id`,
+            `date`,
+            `type`,
+            `count`,
+            `comment`,
+            `tracking`,
+            `event`
+        )
+        VALUES (UNHEX(?), ?, ?, ?, ?, ?, ?)
+    ";
+    $stmt3 = $clinical_data_pdo->prepare($sql3);
+    $stmt3->bindParam(1, $enc_id, PDO::PARAM_STR);
+    $stmt3->bindParam(2, $date);
+    $stmt3->bindParam(3, $type);
+    $stmt3->bindParam(4, $count);
+    $stmt3->bindParam(5, $comment);
+    $stmt3->bindParam(6, $tracking);
+    $stmt3->bindParam(7, $event);
 
+    $clinical_data_pdo->beginTransaction();
+    $mainResult = null;
+    $trackingResult = null;
+    $auditResult = null;
+    
+    try {
+        $mainResult = $stmt->execute();
+        $trackingResult = $stmt2->execute();
+        $auditResult = $stmt3->execute();
+        $clinical_data_pdo->commit();
 
-	mysqli_close($conn);
+        if ($mainResult && $trackingResult && $auditResult) {
+            $sql = "
+                INSERT INTO `update_tracking` (
+                    `username`,
+                    `update_time`
+                )
+                VALUES (?, ?)
+            ";
+            $stmt = $clinical_data_pdo->prepare($sql);
+            $stmt->bindParam(1, $username);
+            $stmt->bindParam(2, $now);
+            $stmt->execute();
+            echo "Success";
+        }
+    } catch (PDOException $e) {
+        $clinical_data_pdo->rollBack();
+        $error = null;
+        if (!$mainResult) {
+            $error = $stmt->errorCode();
+        } elseif (!$trackingResult) {
+            $error = $stmt2->errorCode();
+        } else {
+            $error = $stmt3->errorCode();
+        }
+        echo "There was a problem while saving the data. ";
+        echo "Please contact the admins at mcoder@uhn.ca. ";
+        // echo "Your reference: " . $tracking . ":" . $error;
+    }
+} else {
+    echo "You exceeded the amount of updates you can do in 24 hours!";
+}
 
-?>
+mysqli_close($conn);
+$clinical_data_pdo = $mcode_db_pdo = null;

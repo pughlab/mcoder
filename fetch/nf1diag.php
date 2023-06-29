@@ -20,7 +20,7 @@ if (isset($_POST["query"])) {
  $search = mysqli_real_escape_string($conn, $_POST["query"]);
 
  // ID encrypted
- $enc_search="0x".bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
+ $enc_search = bin2hex(openssl_encrypt($search, $cipher, $encryption_key, 0, $iv));
 
  $query = "
   SELECT
@@ -36,17 +36,25 @@ if (isset($_POST["query"])) {
     DiagnosisNF1.comment
   FROM DiagnosisNF1
   JOIN Patient ON DiagnosisNF1.id = Patient.id
-  WHERE DiagnosisNF1.id = {$enc_search}
-  AND FIND_IN_SET(Patient.study, '".$roles."') > 0
+  WHERE DiagnosisNF1.id = UNHEX(?)
+  AND FIND_IN_SET(Patient.study, ?) > 0
  ";
+ $stmt = $clinical_data_pdo->prepare($query);
+  $stmt->bindParam(1, $enc_search, PDO::PARAM_STR);
+  $stmt->bindParam(2, $roles);
 } else {
  $query = "
-  SELECT * FROM DiagnosisNF1, Patient WHERE DiagnosisNF1.id LIKE '%ZZZZZZZZZZZZZZ%' AND DiagnosisNF1.id = Patient.id AND INSTR('".$roles."', Patient.study) > 0 ORDER BY Patient.id
+  SELECT * FROM DiagnosisNF1, Patient
+  WHERE DiagnosisNF1.id LIKE '%ZZZZZZZZZZZZZZ%'
+  AND DiagnosisNF1.id = Patient.id
+  AND INSTR(?, Patient.study) > 0
+  ORDER BY Patient.id
  ";
+ $stmt = $clinical_data_pdo->prepare($query);
+  $stmt->bindParam(1, $roles);
 }
-$result = mysqli_query($conn, $query);
-if (mysqli_num_rows($result) > 0)
-{
+$stmt->execute();
+if ($stmt->rowCount() > 0) {
  ?>
    <head>
       <meta charset="UTF-8">
@@ -126,6 +134,68 @@ $('#nf1diagdata tfoot th').each( function () {
       for (let i = 0; i < 5; i++) {
         table.button(i).enable(false);
       }
+      <?php } else { ?>
+      table.on('buttons-action', function(e, buttonApi, dataTable, node, config) {
+        const buttonText = buttonApi.text()
+        if (
+          buttonText.toLowerCase() === 'csv'
+          || buttonText.toLowerCase() === 'excel'
+          || buttonText.toLowerCase() === 'pdf'
+          || buttonText.toLowerCase() === 'print'
+        ) {
+          const m = new Date();
+          const datesystem =
+          m.getUTCFullYear() + "-" +
+          ("0" + (m.getUTCMonth()+1)).slice(-2) + "-" +
+          ("0" + m.getUTCDate()).slice(-2) + "-" +
+          ("0" + m.getUTCHours()).slice(-2) + ":" +
+          ("0" + m.getUTCMinutes()).slice(-2) + ":" +
+          ("0" + m.getUTCSeconds()).slice(-2);
+
+          const ipdiv = document.getElementById("ipaddress");
+          const ip = ipdiv.textContent.replace( /\s+/g, '');
+          const emaildiv = document.getElementById("email");
+          const email = emaildiv.textContent.replace( /\s+/g, '');
+          const userdiv = document.getElementById("username");
+          const username = userdiv.textContent.replace( /\s+/g, '');
+          const trackspace = datesystem+"_"+ip+"_"+email;
+          const tracking = trackspace.replace( /\s+/g, '');
+
+          const tableData = dataTable.data().toArray()
+          const keys = [
+            'id',
+            'date',
+            'diagnosis',
+            'mode',
+            'criteria',
+            'severity',
+            'visibility',
+            'age',
+            'head',
+            'comment'
+          ]
+          const data = []
+          for (let i = 0; i < tableData.length; i++) {
+            const row = tableData[i].slice(0, -2);
+            const rowObject = keys.reduce((obj, key, index) => {
+              return { ...obj, [key]: row[index] }
+            }, {})
+            data.push(rowObject)
+          }
+
+          $.ajax({
+            url: "table_export.php",
+            method: "POST",
+            data: {
+              data: JSON.stringify(data),
+              format: buttonText,
+              roles: "<?php echo $roles ?>",
+              table: "diagnostic",
+              tracking: tracking
+            }
+          })
+        }
+      })
     <?php } ?>
 
           $('#nf1diagdata tbody')
@@ -231,7 +301,7 @@ $('#nf1diagdata tfoot th').each( function () {
 
   $output .= '';
  $rowNumber = 1;
- while ($row = mysqli_fetch_array($result)) {
+ while ($row = $stmt->fetch()) {
    $decrypted_id = openssl_decrypt(hex2bin($row[0]), $cipher, $encryption_key, 0, $iv);
 
   $output .= '
@@ -335,7 +405,7 @@ $('#nf1diagdata tfoot th').each( function () {
 }
 
 mysqli_close($conn);
-
+$clinical_data_pdo = $mcode_db_pdo = null;
 ?>
 
 

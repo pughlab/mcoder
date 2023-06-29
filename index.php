@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
  ob_start();
  require 'vendor/autoload.php';
@@ -5,7 +6,7 @@
  include('configuration/map.php');
  
  $ip = $_SERVER['REMOTE_ADDR'];
- date_default_timezone_set('America/Toronto'); 
+ date_default_timezone_set('America/Toronto');
 
  if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
    $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -76,8 +77,8 @@
 
         // Retrieve all user groups as s list
          $groups = "";
-         foreach($roles[$clientID] as $group) {
-           foreach($group as $role) {
+         foreach ($roles[$clientID] as $group) {
+           foreach ($group as $role) {
              $groups .=  $role .",";
 
            }
@@ -85,7 +86,7 @@
 
         ?>
 
-        <!DOCTYPE html>
+        
         <html lang="en" >
            <head>
               <meta charset="UTF-8">
@@ -151,19 +152,55 @@
                   <?php if ($hasRoleAdmin) { ?>
                   // export a patient's data
                   function exportAll() {
-                    $.ajax(
-                      {
-                        url: "export.php",
-                        data: {
-                          id: $("#patientidsource").val(),
-                          roles: "<?php echo $groups ?>"
-                        },
-                        method: "POST",
-                        success: (response) => {
-                          window.location = response;
-                        }
-                      }
-                    );
+                     let m = new Date();
+                     let datesystem =
+                     m.getUTCFullYear() + "-" +
+                     ("0" + (m.getUTCMonth()+1)).slice(-2) + "-" +
+                     ("0" + m.getUTCDate()).slice(-2) + "-" +
+                     ("0" + m.getUTCHours()).slice(-2) + ":" +
+                     ("0" + m.getUTCMinutes()).slice(-2) + ":" +
+                     ("0" + m.getUTCSeconds()).slice(-2);
+
+                     let ipdiv = document.getElementById("ipaddress");
+                     let ip = ipdiv.textContent.replace( /\s+/g, '');
+                     let emaildiv = document.getElementById("email");
+                     let email = emaildiv.textContent.replace( /\s+/g, '');
+                     let userdiv = document.getElementById("username");
+                     let username = userdiv.textContent.replace( /\s+/g, '');
+                     let trackspace = datesystem+"_"+ip+"_"+email;
+                     let tracking = trackspace.replace( /\s+/g, '');
+                     event.preventDefault();
+                     if ($("#patientidsource").val() !== "") {
+                        $.ajax(
+                           {
+                              url: "export.php",
+                              data: {
+                                 id: $("#patientidsource").val(),
+                                 roles: "<?php echo $groups ?>",
+                                 tracking: tracking
+                              },
+                              method: "POST",
+                              xhrFields: {
+                                 responseType: 'blob'
+                              },
+                              success: function(blob) {
+                                 let downloadUrl = URL.createObjectURL(blob)
+                                 let link = document.createElement('a')
+                                 link.href = downloadUrl
+                                 link.download = `${$('#patientidsource').val()}.zip`
+                                 document.body.appendChild(link)
+                                 link.click()
+                                 link.remove()
+                              },
+                              error: function(jqXHR, textStatus, errorThrown) {
+                                 console.log("Server response: " + jqXHR.responseText);
+                                 alert(`There was an error while downloading the file: ${textStatus} ${errorThrown}`);
+                              }
+                           }
+                        );
+                     } else {
+                        alert('You must enter a valid patient ID!');
+                     }
                   }
                   <?php } ?>
 
@@ -3101,7 +3138,6 @@
               <script src="update/procedure.js"></script>
               <script src="update/lesion.js"></script>
 
-              <script src="delete/patient.js"></script>
               <script src="delete/comorbid.js"></script>
               <script src="delete/status.js"></script>
               <script src="delete/cancer.js"></script>
